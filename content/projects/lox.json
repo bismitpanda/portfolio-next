@@ -1,0 +1,13 @@
+{
+  "title": "LOX",
+  "client": "Personal",
+  "year": 2024,
+  "role": "Developer",
+  "description": "Lox is a C-based implementation of a programming language following the Compiler + VM architecture, directly inspired by crafting interpreters and compilers for educational purposes.",
+  "challenge": "Implementing lexical analysis, parsing, and a register-based VM in C while managing manual memory and avoiding security pitfalls.",
+  "solution": "Built a hand-rolled lexer, recursive-descent parser, and a bytecode compiler with an accompanying virtual machine, using C for maximum control over performance and footprint.",
+  "technologies": ["C", "CMake"],
+  "featuredImage": "/placeholder.png",
+  "projectType": "github",
+  "githubUrl": "https://github.com/bismitpanda/lox"
+}

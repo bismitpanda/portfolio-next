@@ -1,0 +1,13 @@
+{
+  "title": "Sudoku Solver",
+  "client": "Personal",
+  "year": 2024,
+  "role": "Developer",
+  "description": "A CLI Sudoku solver in Rust using Knuth’s Algorithm X (Dancing Links).",
+  "challenge": "Encoding the constraint matrix correctly for Algorithm X.",
+  "solution": "Built a generic matrix builder and verified against known puzzles.",
+  "technologies": ["Rust"],
+  "featuredImage": "/placeholder.png",
+  "projectType": "github",
+  "githubUrl": "https://github.com/bismitpanda/sudoku_solver"
+}

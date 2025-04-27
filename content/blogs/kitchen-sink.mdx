@@ -1,0 +1,181 @@
+---
+title: "Kitchen Sink"
+excerpt: "The blog to test mdx functionality"
+date: "2025-04-28"
+category: "Misc"
+image: "/placeholder.png"
+---
+
+## Headings
+
+### Heading level 3
+
+#### Heading level 4
+
+##### Heading level 5
+
+###### Heading level 6
+
+## Basic Elements
+
+**bold**
+
+_italics_
+
+> hi
+
+1. 1st Bullet
+
+2. 2nd Bullet
+
+3. 3rd bullet
+
+- First item
+- Second item
+- Third item
+
+`code`
+
+---
+
+[title](https://www.example.com)
+
+![alt text](/logo.svg)
+
+## Extended Elements
+
+| Syntax    | Description |
+| --------- | ----------- |
+| Header    | Title       |
+| Paragraph | Text        |
+
+```json filename=data.json
+{
+  "firstName": "John",
+  "lastName": "Smith",
+  "age": 25
+}
+```
+
+Here's a sentence with a footnote. [^1]
+
+[^1]: This is the footnote.
+
+term
+: definition
+
+~~The world is flat.~~
+
+- [x] Write the press release
+- [ ] Update the website
+- [ ] Contact the media
+
+That is so funny! :joy:
+
+I need to highlight these ==very important words==.
+
+H~2~O
+
+X^2^
+
+https://github.com
+
+```math
+% is defined as #1f(#2) using the macro
+\relax{x} = \int_{-\infty}^\infty
+    \hat\xi\,e^{2 \pi i \xi x}
+    \,d\xi
+```
+
+This is a link to a [[Sample Post]]. And a [[Non Existent]] post
+
+## MDX Components
+
+<Callout title="Hi">Test</Callout>
+
+<Callout title="Hi" icon="info" variant="info">
+  Test
+</Callout>
+
+<Callout title="Hi" icon="circle-check-big" variant="success">
+  Test
+</Callout>
+
+<Callout title="Hi" icon="triangle-alert" variant="warning">
+  Test
+</Callout>
+
+<Callout title="Hi" icon="bell" variant="error">
+  Test
+</Callout>
+
+<Mermaid
+  chart={`graph TD;
+    A-->B;
+    A-->C;
+    B-->D;
+    C-->D;
+`}
+/>
+
+<Button variant="outline" onClick={() => console.log("Hi")}>
+  Hi
+</Button>
+
+<Accordion type="single" collapsible className="w-full">
+  <AccordionItem value="item-1">
+    <AccordionTrigger>Is it accessible?</AccordionTrigger>
+    <AccordionContent>Yes. It adheres to the WAI-ARIA design pattern.</AccordionContent>
+  </AccordionItem>
+  <AccordionItem value="item-2">
+    <AccordionTrigger>Is it styled?</AccordionTrigger>
+    <AccordionContent>
+      Yes. It comes with default styles that matches the other components&apos; aesthetic.
+    </AccordionContent>
+  </AccordionItem>
+  <AccordionItem value="item-3">
+    <AccordionTrigger>Is it animated?</AccordionTrigger>
+    <AccordionContent>
+      Yes. It&apos;s animated by default, but you can disable it if you prefer.
+    </AccordionContent>
+  </AccordionItem>
+</Accordion>
+
+<Tabs defaultValue="account" className="w-[400px]">
+  <TabsList className="grid w-full grid-cols-2">
+    <TabsTrigger value="account">Account</TabsTrigger>
+    <TabsTrigger value="password">Password</TabsTrigger>
+  </TabsList>
+  <TabsContent value="account">Wow</TabsContent>
+  <TabsContent value="password">Hi</TabsContent>
+</Tabs>
+
+<Steps>
+
+### Do task 1
+
+Some instructions for task 1
+
+### Do task 2
+
+Some instructions for task 2
+
+### Do task 3
+
+Some instructions for task 3
+
+### Do task 4
+
+Some instructions for task 4
+
+</Steps>
+
+<Steps>
+
+<Step>Step 1</Step>
+
+<Step>Step 2</Step>
+
+</Steps>
+
+<LinkedCard href="google.com">Let's do something</LinkedCard>

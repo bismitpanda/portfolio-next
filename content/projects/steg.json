@@ -1,0 +1,13 @@
+{
+  "title": "Steg",
+  "client": "Personal",
+  "year": 2023,
+  "role": "Developer",
+  "description": "A Rust library for simple image steganography, hiding messages in PNGs.",
+  "challenge": "Avoiding noticeable artifacts in the steganographically encoded images.",
+  "solution": "Implemented LSB encoding with randomized bit positions and optional encryption.",
+  "technologies": ["Rust"],
+  "featuredImage": "/placeholder.png",
+  "projectType": "github",
+  "githubUrl": "https://github.com/bismitpanda/steg"
+}

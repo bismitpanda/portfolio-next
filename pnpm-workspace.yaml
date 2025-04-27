@@ -1,0 +1,4 @@
+onlyBuiltDependencies:
+  - cytoscape
+  - sharp
+  - unrs-resolver

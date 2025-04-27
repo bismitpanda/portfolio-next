@@ -1,0 +1,13 @@
+{
+  "title": "Pass Manager",
+  "client": "Personal",
+  "year": 2023,
+  "role": "Developer",
+  "description": "A CLI password manager in Rust with encrypted storage and auto-type support.",
+  "challenge": "Ensuring zero plaintext leakage in memory.",
+  "solution": "Wiped secrets after use and used OS-level secure storage for keys.",
+  "technologies": ["Rust"],
+  "featuredImage": "/placeholder.png",
+  "projectType": "github",
+  "githubUrl": "https://github.com/bismitpanda/pass_manager"
+}

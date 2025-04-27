@@ -1,0 +1,76 @@
+@reference "./globals.css";
+
+.shiki .line.diff {
+  @apply !w-[calc(100%+2rem)];
+}
+
+.shiki .line.highlighted {
+  @apply -ml-4 !w-[calc(100%+2rem)] border-l-2 border-l-[#777] bg-[#424242] pl-3.5;
+}
+
+.shiki .line.diff.add {
+  @apply -ml-4 border-l-2 border-l-[#050] bg-[#0505] pl-3.5;
+}
+
+.shiki .line.diff.remove {
+  @apply -ml-4 border-l-2 border-l-[#8007] bg-[#8005] pl-3.5;
+}
+
+.shiki .line.diff.add > *:first-child::before {
+  @apply absolute left-5 text-[#080] content-['+'];
+}
+
+.shiki .line.diff.remove > *:first-child::before {
+  @apply absolute left-5 text-[#B00] content-['-'];
+}
+
+.shiki.has-focused .line:not(:is(.focused)) {
+  @apply blur-[0.095rem];
+}
+
+.shiki.has-focused:hover .line {
+  @apply blur-none transition duration-200;
+}
+
+.shiki.has-focused .line.focused {
+  @apply blur-none;
+}
+
+.shiki {
+  @apply gap-0 p-4 font-mono;
+}
+
+.shiki code {
+  counter-reset: step;
+  counter-increment: step 0;
+}
+
+.shiki code {
+  @apply inline-block w-full;
+}
+
+.shiki .line {
+  @apply inline-block w-full;
+}
+
+.shiki .line::before {
+  content: counter(step);
+  counter-increment: step;
+  display: inline-block;
+  width: 0.75rem;
+  margin-right: 1.5rem;
+  text-align: right;
+  color: gray;
+}
+
+.shiki code[data-line-numbers-max-digits="2"] > .line::before {
+  @apply w-5;
+}
+
+.shiki code[data-line-numbers-max-digits="3"] > .line::before {
+  width: 1.75rem;
+}
+
+.shiki code[data-line-numbers-max-digits="4"] > .line::before {
+  width: 2.25rem;
+}
