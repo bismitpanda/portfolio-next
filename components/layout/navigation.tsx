@@ -3,6 +3,7 @@
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { Menu, X } from "lucide-react";
+import { motion, AnimatePresence } from "motion/react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -55,27 +56,35 @@ export function Navigation() {
         </div>
       </div>
 
-      {isMenuOpen && (
-        <div className="md:hidden fixed inset-0 top-20 bg-background z-40 p-6">
-          <nav className="flex flex-col space-y-6 text-center">
-            {routes.map((route) => (
-              <Link
-                key={route.path}
-                href={route.path}
-                className={cn(
-                  "text-2xl py-2 transition-colors",
-                  pathname === route.path
-                    ? "text-foreground"
-                    : "text-muted-foreground hover:text-foreground",
-                )}
-                onClick={() => setIsMenuOpen(false)}
-              >
-                {route.name}
-              </Link>
-            ))}
-          </nav>
-        </div>
-      )}
+      <AnimatePresence>
+        {isMenuOpen && (
+          <motion.div
+            className="md:hidden fixed inset-0 top-20 bg-background z-40 py-6"
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.3 }}
+          >
+            <nav className="flex flex-col space-y-6 text-center bg-background/90">
+              {routes.map((route) => (
+                <Link
+                  key={route.path}
+                  href={route.path}
+                  className={cn(
+                    "text-2xl py-2 transition-colors",
+                    pathname === route.path
+                      ? "text-foreground"
+                      : "text-muted-foreground hover:text-foreground",
+                  )}
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {route.name}
+                </Link>
+              ))}
+            </nav>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   );
 }

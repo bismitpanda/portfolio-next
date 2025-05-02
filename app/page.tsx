@@ -31,7 +31,7 @@ export default function HomePage() {
           </div>
           <div className="relative">
             <div className="absolute -top-10 -left-10 w-40 h-40 bg-muted rounded-full opacity-50"></div>
-            <div className="absolute -bottom-20 -right-20 w-60 h-60 bg-muted rounded-full opacity-50"></div>
+            <div className="absolute -bottom-20 -right-20 w-60 h-60 bg-muted rounded-full opacity-50 hidden md:block"></div>
             <div className="relative z-10 aspect-square bg-muted rounded-2xl overflow-hidden border border-border">
               <Image
                 src="/placeholder.png"
