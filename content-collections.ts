@@ -17,7 +17,6 @@ import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
 import remarkWikiLink from "remark-wiki-link";
 import { codeToHtml, ShikiTransformer } from "shiki";
-import { visit } from "unist-util-visit";
 
 const categories = defineCollection({
   name: "categories",
@@ -140,19 +139,6 @@ const blogs = defineCollection({
         rehypeSlug,
         [rehypeAutolinkHeadings, { behavior: "wrap" }],
         rehypeKatex,
-        () => (tree) => {
-          visit(tree, (node) => {
-            if (node?.type === "element" && node?.tagName === "pre") {
-              const [codeEl] = node.children;
-              if (codeEl.tagName !== "code") {
-                return;
-              }
-
-              node.__raw__ = codeEl.children?.[0].value;
-              node.properties["__raw__"] = codeEl.children?.[0].value;
-            }
-          });
-        },
         [
           rehypeShiki,
           {
@@ -176,18 +162,6 @@ const blogs = defineCollection({
             inline: "tailing-curly-colon",
           },
         ],
-        () => (tree) => {
-          visit(tree, (node) => {
-            if (node?.type === "element" && node?.tagName === "pre") {
-              node.properties["__raw__"] = node.__raw__;
-
-              const codeEl = node.children[0];
-              const lines = codeEl.children.filter((child: any) => child.type === "element").length;
-
-              codeEl.properties;
-            }
-          });
-        },
       ],
     });
 
