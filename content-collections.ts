@@ -16,14 +16,15 @@ import remarkGemoji from "remark-gemoji";
 import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
 import remarkWikiLink from "remark-wiki-link";
-import { codeToHtml, ShikiTransformer } from "shiki";
+import { codeToHtml, type ShikiTransformer } from "shiki";
+import { z } from "zod";
 
 const categories = defineCollection({
   name: "categories",
   directory: "content/categories",
   include: "*.json",
   parser: "json",
-  schema: (z) => ({
+  schema: z.object({
     name: z.string(),
     slug: z.string(),
     description: z.string(),
@@ -40,7 +41,7 @@ const blogs = defineCollection({
   name: "blogs",
   directory: "content/blogs",
   include: "*.mdx",
-  schema: (z) => ({
+  schema: z.object({
     title: z.string(),
     excerpt: z.string(),
     date: z.coerce.date(),
@@ -184,7 +185,7 @@ const snippets = defineCollection({
   directory: "content/snippets",
   include: "*.json",
   parser: "json",
-  schema: (z) => ({
+  schema: z.object({
     name: z.string(),
     description: z.string(),
     codeFile: z.string(),
@@ -213,7 +214,7 @@ const projects = defineCollection({
   directory: "content/projects",
   include: "*.json",
   parser: "json",
-  schema: (z) => ({
+  schema: z.object({
     title: z.string(),
     client: z.string(),
     role: z.string(),

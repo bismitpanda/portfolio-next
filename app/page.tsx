@@ -1,4 +1,5 @@
 import { Article } from "@/components/article";
+import { ContactForm } from "@/components/contact-form";
 import { Button } from "@/components/ui/button";
 import { allProjectsByDate, allPublishedBlogsByDate } from "@/content";
 import { ArrowRight, Github, Linkedin, Mail, Twitter } from "lucide-react";
@@ -219,43 +220,7 @@ export default function HomePage() {
             </div>
           </div>
           <div>
-            <form className="flex flex-col gap-8">
-              <div>
-                <label htmlFor="name" className="block text-lg mb-2 font-medium">
-                  Name
-                </label>
-                <input
-                  id="name"
-                  type="text"
-                  className="w-full border-b-2 border-input py-3 text-xl bg-transparent focus:outline-hidden focus:border-primary transition-colors"
-                />
-              </div>
-              <div>
-                <label htmlFor="email" className="block text-lg mb-2 font-medium">
-                  Email
-                </label>
-                <input
-                  id="email"
-                  type="email"
-                  className="w-full border-b-2 border-input py-3 text-xl bg-transparent focus:outline-hidden focus:border-primary transition-colors"
-                />
-              </div>
-              <div>
-                <label htmlFor="message" className="block text-lg mb-2 font-medium">
-                  Message
-                </label>
-                <textarea
-                  id="message"
-                  rows={4}
-                  className="w-full border-b-2 border-input py-3 text-xl bg-transparent focus:outline-hidden focus:border-primary transition-colors"
-                ></textarea>
-              </div>
-              <div>
-                <Button size="lg" className="text-lg px-8 w-full md:w-auto">
-                  Send Message
-                </Button>
-              </div>
-            </form>
+            <ContactForm />
           </div>
         </div>
       </section>
