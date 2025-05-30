@@ -23,10 +23,6 @@ export default [
     "plugin:@typescript-eslint/stylistic-type-checked",
   ),
   {
-    plugins: {
-      "@typescript-eslint": typescriptEslint,
-    },
-
     languageOptions: {
       parser: tsParser,
       ecmaVersion: 5,
