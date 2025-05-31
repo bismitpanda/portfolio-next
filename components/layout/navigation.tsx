@@ -19,6 +19,7 @@ export function Navigation() {
     { name: "Snippets", path: "/snippets" },
     { name: "Blog", path: "/blog" },
     { name: "Contact", path: "/#contact" },
+    { name: "Resume", path: "/resume.pdf" },
   ];
 
   return (

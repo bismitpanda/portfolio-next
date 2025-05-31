@@ -1,5 +1,5 @@
 import { TableOfContents } from "./_components/toc";
-import { Article } from "@/components/article";
+import { Blog } from "@/components/blog";
 import { Mdx } from "@/components/mdx";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
@@ -131,7 +131,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             <h2 className="text-2xl font-bold mb-8">Related Articles</h2>
             <div className="grid md:grid-cols-2 gap-8">
               {post.relatedBlogs.map((relatedPost) => (
-                <Article blog={relatedPost} key={relatedPost.slug} />
+                <Blog blog={relatedPost} key={relatedPost.slug} />
               ))}
             </div>
           </div>

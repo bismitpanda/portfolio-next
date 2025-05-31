@@ -9,7 +9,7 @@ export default function BlogNotFound() {
       <div className="container-custom min-h-[70vh] flex items-center justify-center">
         <div className="max-w-2xl mx-auto text-center">
           <h1 className="heading-xl mb-4">404</h1>
-          <h2 className="heading-md mb-6">Article Not Found</h2>
+          <h2 className="heading-md mb-6">Blog Not Found</h2>
 
           <p className="body-lg text-muted-foreground mb-8">
             The blog post you&apos;re looking for seems to have vanished into the digital ether.

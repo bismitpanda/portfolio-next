@@ -4,7 +4,7 @@ import { formatDate } from "date-fns";
 import Image from "next/image";
 import Link from "next/link";
 
-export function Article({ blog }: { blog: Blog["relatedBlogs"][number] }) {
+export function Blog({ blog }: { blog: Blog["relatedBlogs"][number] }) {
   return (
     <div className="group block rounded-lg overflow-hidden bg-neutral-900">
       <div className="aspect-video bg-neutral-100 overflow-hidden">

@@ -3,10 +3,12 @@ import {
   allCategories,
   allProjects,
   allSnippets,
+  allExperiences,
   type Blog,
   type Category,
   type Snippet,
   type Project,
+  type Experience,
 } from "../.content-collections/generated";
 import { compareDesc } from "date-fns";
 
@@ -26,5 +28,9 @@ export const allGithubProjects = allProjectsByDate.filter(
 );
 
 export const allSnippetsByDate = allSnippets.toSorted((a, b) => compareDesc(a.date, b.date));
+
+export const allExperiencesByDate = allExperiences.toSorted((a, b) =>
+  compareDesc(a.startDate, b.startDate),
+);
 
 export type { Blog, Category, Snippet, Project };

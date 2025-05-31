@@ -1,4 +1,4 @@
-import { Article } from "@/components/article";
+import { Blog } from "@/components/blog";
 import { Button } from "@/components/ui/button";
 import { allPublishedBlogsByDate } from "@/lib/content";
 import { formatDate } from "date-fns";
@@ -36,7 +36,7 @@ export default function BlogPage() {
                     size="lg"
                     className="hover:bg-neutral-900 hover:text-white transition-colors cursor-pointer"
                   >
-                    Read Article
+                    Read Blog
                   </Button>
                 </Link>
               </div>
@@ -57,7 +57,7 @@ export default function BlogPage() {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {allPublishedBlogsByDate.slice(1).map((post) => (
-            <Article blog={post} key={post.slug} />
+            <Blog blog={post} key={post.slug} />
           ))}
         </div>
       </section>

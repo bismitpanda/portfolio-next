@@ -75,6 +75,15 @@ const projectSchema = z.object({
   featured: z.boolean().default(false),
 });
 
+const experienceSchema = z.object({
+  title: z.string(),
+  company: z.string(),
+  startDate: z.coerce.date(),
+  endDate: z.coerce.date().optional(),
+  description: z.string(),
+  highlights: z.string().array(),
+});
+
 const blogs = defineCollection({
   name: "blogs",
   directory: "content/blogs",
@@ -260,6 +269,14 @@ const projects = defineCollection({
   },
 });
 
+const experiences = defineCollection({
+  name: "experiences",
+  directory: "content/experiences",
+  include: "*.json",
+  parser: "json",
+  schema: experienceSchema,
+});
+
 export default defineConfig({
-  collections: [blogs, categories, snippets, projects],
+  collections: [blogs, categories, snippets, projects, experiences],
 });

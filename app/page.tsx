@@ -1,8 +1,9 @@
 import { AboutSection } from "./_components/sections/about-section";
 import { ContactSection } from "./_components/sections/contact-section";
+import { ExperienceSection } from "./_components/sections/experience-section";
 import { FeaturedProjectsSection } from "./_components/sections/featured-projects-section";
 import { HeroSection } from "./_components/sections/hero-section";
-import { RecentArticlesSection } from "./_components/sections/recent-articles-section";
+import { RecentBlogsSection } from "./_components/sections/recent-blogs-section";
 import { SkillsSection } from "./_components/sections/skills-section";
 
 export default function HomePage() {
@@ -11,8 +12,9 @@ export default function HomePage() {
       <HeroSection />
       <AboutSection />
       <FeaturedProjectsSection />
+      <RecentBlogsSection />
       <SkillsSection />
-      <RecentArticlesSection />
+      <ExperienceSection />
       <ContactSection />
     </div>
   );

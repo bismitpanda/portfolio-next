@@ -7,6 +7,13 @@ import { motion } from "motion/react";
 import Image from "next/image";
 import Link from "next/link";
 
+const roles = [
+  "Full Stack Developer",
+  "Cyber Security Enthusiast",
+  "Systems Engineer",
+  "DevOps Engineer",
+];
+
 export function HeroSection() {
   return (
     <section className="container-custom section-spacing flex flex-col justify-between min-h-[90vh]">
@@ -16,13 +23,8 @@ export function HeroSection() {
             <p className="text-muted-foreground text-lg mb-2 font-medium">Hello, I&apos;m</p>
             <h1 className="heading-xl mb-4">Bismit Panda</h1>
             <RotatingText
-              texts={[
-                "Full Stack Developer",
-                "Cyber Security Enthusiast",
-                "Systems Engineer",
-                "UI/UX Designer",
-              ]}
-              mainClassName="heading-md text-muted-foreground font-serif"
+              texts={roles}
+              mainClassName="text-xl md:text-2xl text-muted-foreground font-mono"
               staggerFrom={"last"}
               initial={{ y: "100%" }}
               animate={{ y: 0 }}

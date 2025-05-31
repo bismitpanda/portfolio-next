@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { allGithubProjects, allHostedProjects } from "@/lib/content";
-import { Github } from "lucide-react";
+import { ExternalLink, Github } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -81,7 +81,7 @@ export default function ProjectsPage() {
               >
                 <div className="flex flex-col h-full justify-between">
                   <div>
-                    <div className="aspect-video bg-muted overflow-hidden">
+                    <div className="aspect-video bg-muted overflow-hidden transition-transform group-hover:scale-105 duration-300">
                       <Image
                         src={project.featuredImage}
                         alt={project.title}
@@ -107,11 +107,16 @@ export default function ProjectsPage() {
                       </div>
                     </div>
                   </div>
-                  <div className="p-6">
-                    <Button asChild variant="outline" className="gap-2 w-full">
+                  <div className="p-6 flex flex-row justify-between items-center">
+                    <Button asChild variant="outline" className="gap-2">
+                      <Link href={`/projects/${project.slug}`}>
+                        View Project <ExternalLink className="h-4 w-4 text-muted-foreground" />
+                      </Link>
+                    </Button>
+                    <Button asChild variant="outline" className="gap-2">
                       {project.githubUrl && (
                         <Link href={project.githubUrl} target="_blank" rel="noopener noreferrer">
-                          <Github className="h-4 w-4" />
+                          <Github className="h-4 w-4 text-muted-foreground" />
                           <span>View on GitHub</span>
                         </Link>
                       )}
