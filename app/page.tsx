@@ -99,19 +99,14 @@ export default function HomePage() {
             <div key={project.slug} className="group">
               <div className="grid md:grid-cols-2 gap-12 items-center">
                 <div>
-                  <span className="text-8xl font-bold text-muted/30 group-hover:text-muted/50 transition-colors">
+                  <span className="text-8xl font-bold text-muted/30 group-hover:text-muted transition-colors">
                     0{index + 1}
                   </span>
                   <h3 className="text-4xl font-bold mb-6 -mt-8 group-hover:translate-y-1 transition-transform">
                     {project.title}
                   </h3>
                   <p className="text-xl text-muted-foreground mb-8">{project.description}</p>
-                  <Button
-                    asChild
-                    variant="outline"
-                    size="lg"
-                    className="group-hover:bg-primary group-hover:text-primary-foreground transition-colors"
-                  >
+                  <Button asChild variant="outline" size="lg">
                     <Link href={`/projects/${project.slug}`}>View Project</Link>
                   </Button>
                 </div>
@@ -190,11 +185,11 @@ export default function HomePage() {
             </p>
             <div className="flex flex-col gap-6">
               <Link
-                href="mailto:bismitpanda@gmail.com"
+                href="mailto:contact@bismitpanda.com"
                 className="flex items-center gap-4 text-xl text-muted-foreground hover:text-foreground group"
               >
                 <Mail className="h-6 w-6 group-hover:scale-110 transition-transform" />
-                <span className="link-underline">bismitpanda@gmail.com</span>
+                <span className="link-underline">contact@bismitpanda.com</span>
               </Link>
               <Link
                 href="https://linkedin.com/in/bismit-panda-5432a824a"

@@ -37,11 +37,7 @@ export default function CategoriesPage() {
                 <p className="text-muted-foreground">{category.description}</p>
               </CardContent>
               <CardFooter>
-                <Button
-                  asChild
-                  variant="outline"
-                  className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-colors"
-                >
+                <Button asChild variant="outline" className="w-full">
                   <Link href={`/categories/${category.slug}`}>View Articles</Link>
                 </Button>
               </CardFooter>

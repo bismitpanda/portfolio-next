@@ -7,7 +7,7 @@
   "challenge": "Designing a clean, trust-building interface with custom iconography, stat counters, and integrated lead-capture forms.",
   "solution": "Crafted a responsive Next.js site with Tailwind, built custom SVG-based icons, and integrated Formik for booking calls directly from the hero section.",
   "technologies": ["Next.js", "React", "Tailwind CSS", "TypeScript"],
-  "featuredImage": "/placeholder.png",
+  "featuredImage": "https://openadmits.com/opengraph-image.png",
   "projectType": "hosted",
   "liveUrl": "https://openadmits.com"
 }

@@ -31,7 +31,6 @@ export function ContactForm() {
   });
 
   function onSubmit(values: ContactFormValues) {
-    // For now, just log the values
     console.log(values);
   }
 

@@ -7,7 +7,7 @@
   "challenge": "Creating a multi-step ‘How it works’ flow with branded illustration assets and a metrics dashboard, while ensuring fast load times and mobile-first responsiveness.",
   "solution": "Built a Next.js single-page app leveraging optimized image components, CSS-grid layouts for steps, and reusable React testimonial cards for rapid content updates.",
   "technologies": ["Next.js", "React", "TypeScript", "Tailwind CSS"],
-  "featuredImage": "/placeholder.png",
+  "featuredImage": "https://shoutstart.com/opengraph-image.png",
   "projectType": "hosted",
   "liveUrl": "https://shoutstart.com"
 }

@@ -7,7 +7,7 @@
   "challenge": "Presenting complex financial data (tables, timelines) in a clear, interactive way and integrating calendar-booking calls seamlessly.",
   "solution": "Implemented dynamic comparison tables with React and Tailwind, built an animated timeline component, and embedded Calendly for call scheduling.",
   "technologies": ["Next.js", "React", "TypeScript", "Tailwind CSS", "Node.js"],
-  "featuredImage": "/placeholder.png",
+  "featuredImage": "https://eb5loan.com/opengraph-image.png",
   "projectType": "hosted",
   "liveUrl": "https://eb5loan.com"
 }

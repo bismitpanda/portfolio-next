@@ -29,10 +29,7 @@ export default function SnippetsPage() {
                   <p className="text-muted-foreground text-sm">{snippet.description}</p>
                 </div>
                 <div className="px-6 pb-6">
-                  <Button
-                    variant="outline"
-                    className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-colors"
-                  >
+                  <Button variant="outline" className="w-full">
                     View Snippet
                   </Button>
                 </div>
