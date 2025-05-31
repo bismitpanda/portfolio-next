@@ -1,9 +1,10 @@
+import { TableOfContents } from "./_components/toc";
 import { Article } from "@/components/article";
-import { TableOfContents } from "@/components/blog/table-of-contents";
 import { Mdx } from "@/components/mdx";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card";
-import { allPublishedBlogsByDate } from "@/content";
+import { allPublishedBlogsByDate } from "@/lib/content";
 import { formatDate } from "date-fns";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import Image from "next/image";
@@ -36,26 +37,21 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
         <div className="max-w-3xl mx-auto">
           <div className="mb-10">
-            <div className="text-sm font-medium text-zinc-500 mb-4">
+            <div className="text-sm font-medium text-muted-foreground mb-4">
               <Link href={`/categories/${post.categorySlug}`}>{post.category}</Link> •{" "}
               {formatDate(post.date, "MMMM do, yyyy")} • {post.readingTime}
             </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">{post.title}</h1>
             <div className="flex items-center gap-4">
-              <div className="w-10 h-10 rounded-full bg-zinc-200 overflow-hidden">
-                <Image
-                  src="/placeholder.png"
-                  alt="Bismit Panda"
-                  width={40}
-                  height={40}
-                  className="w-full h-full object-cover"
-                />
-              </div>
+              <Avatar>
+                <AvatarImage src="/me-small.png" />
+                <AvatarFallback>BP</AvatarFallback>
+              </Avatar>
               <div>
                 By{" "}
                 <HoverCard>
                   <HoverCardTrigger asChild>
-                    <span>Bismit Panda</span>
+                    <span className="link-underline">Bismit Panda</span>
                   </HoverCardTrigger>
                   <HoverCardContent asChild>
                     <div className="w-200 mx-auto p-8 rounded-lg">
@@ -71,7 +67,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                         </div>
                         <div>
                           <h3 className="text-xl font-bold mb-2">Bismit Panda</h3>
-                          <p className="text-zinc-600">
+                          <p className="text-muted-foreground">
                             Full Stack Developer with a passion for typography and user experience.
                             Writing about web development, design, and the intersection of
                             technology and creativity.
@@ -86,7 +82,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           </div>
 
           <div className="mb-12">
-            <div className="aspect-16/9 bg-zinc-100 rounded-lg overflow-hidden">
+            <div className="aspect-16/9 rounded-lg overflow-hidden">
               <Image
                 src={post.image}
                 alt={post.title}

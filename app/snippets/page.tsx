@@ -1,7 +1,7 @@
-import { CodeSnippetDialog } from "@/components/snippets/code-snippet-dialog";
+import { CodeSnippetDialog } from "./_components/dialog";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { allSnippetsByDate } from "@/content";
+import { allSnippetsByDate } from "@/lib/content";
 import Link from "next/link";
 
 export default function SnippetsPage() {

@@ -1,5 +1,5 @@
 import { Button } from "./ui/button";
-import type { Blog } from "@/content";
+import type { Blog } from "@/lib/content";
 import { formatDate } from "date-fns";
 import Image from "next/image";
 import Link from "next/link";

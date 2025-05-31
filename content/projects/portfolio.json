@@ -9,5 +9,7 @@
   "technologies": ["Next.js", "shadcn/ui", "React", "TypeScript", "Tailwind CSS", "Node.js"],
   "featuredImage": "https://bismitpanda.com/opengraph-image.png",
   "projectType": "hosted",
-  "liveUrl": "https://bismitpanda.com"
+  "liveUrl": "https://bismitpanda.com",
+  "githubUrl": "https://github.com/bismitpanda/portfolio-next",
+  "featured": true
 }

@@ -1,13 +1,13 @@
 {
   "title": "VFS",
-  "client": "Personal",
+  "client": "Bismit Panda (Me)",
   "year": 2023,
   "role": "Developer",
   "description": "A “Very Fast and Secure” virtual filesystem in Rust with compression and encryption.",
   "challenge": "Balancing compression ratios with decryption performance.",
   "solution": "Chose LZ4 for speed and AES-GCM for authenticated encryption.",
   "technologies": ["Rust"],
-  "featuredImage": "/placeholder.png",
+  "featuredImage": "/images/VFS Featured Image.png",
   "projectType": "github",
   "githubUrl": "https://github.com/bismitpanda/vfs"
 }

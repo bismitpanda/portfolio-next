@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { allCategoriesByCount } from "@/content";
+import { allCategoriesByCount } from "@/lib/content";
 import { ArrowLeft, Home } from "lucide-react";
 import Link from "next/link";
 

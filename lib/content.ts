@@ -7,7 +7,7 @@ import {
   type Category,
   type Snippet,
   type Project,
-} from "./.content-collections/generated";
+} from "../.content-collections/generated";
 import { compareDesc } from "date-fns";
 
 export const allPublishedBlogsByDate = allBlogs
@@ -17,11 +17,10 @@ export const allPublishedBlogsByDate = allBlogs
 export const allCategoriesByCount = allCategories.toSorted((a, b) => b.count - a.count);
 
 export const allProjectsByDate = allProjects.toSorted((a, b) => a.year - b.year);
-
+export const allFeaturedProjects = allProjectsByDate.filter((project) => project.featured);
 export const allHostedProjects = allProjectsByDate.filter(
   (project) => project.projectType === "hosted",
 );
-
 export const allGithubProjects = allProjectsByDate.filter(
   (project) => project.projectType === "github",
 );

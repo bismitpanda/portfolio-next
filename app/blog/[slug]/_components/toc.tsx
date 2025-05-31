@@ -6,7 +6,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import type { Blog } from "@/content";
+import type { Blog } from "@/lib/content";
 import Link from "next/link";
 
 export function TableOfContents({ headings }: { headings: Blog["headings"] }) {

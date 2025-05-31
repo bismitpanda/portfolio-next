@@ -9,5 +9,6 @@
   "technologies": ["Next.js", "React", "Tailwind CSS", "TypeScript"],
   "featuredImage": "https://openadmits.com/opengraph-image.png",
   "projectType": "hosted",
-  "liveUrl": "https://openadmits.com"
+  "liveUrl": "https://openadmits.com",
+  "featured": true
 }

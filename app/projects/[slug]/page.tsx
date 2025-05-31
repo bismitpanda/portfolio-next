@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { allProjectsByDate } from "@/content";
+import { allProjectsByDate } from "@/lib/content";
 import { ArrowLeft, ExternalLink, Github } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -31,7 +31,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
 
         <div className="max-w-3xl mx-auto mb-12">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">{project.title}</h1>
-          <p className="text-xl text-zinc-600 mb-8">{project.description}</p>
+          <p className="text-xl text-muted-foreground mb-8">{project.description}</p>
           <div className="flex flex-wrap gap-6">
             {project.liveUrl && (
               <Button asChild size="lg" className="gap-2">
@@ -53,7 +53,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
         </div>
 
         <div className="mb-16">
-          <div className="aspect-video bg-zinc-100 rounded-lg overflow-hidden">
+          <div className="aspect-video rounded-lg overflow-hidden">
             <Image
               src={project.featuredImage}
               alt={project.title}
@@ -69,24 +69,24 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
             <h2 className="text-2xl font-bold mb-6">Project Details</h2>
             <div className="space-y-4">
               <div>
-                <h3 className="text-sm text-zinc-500 uppercase">Client</h3>
+                <h3 className="text-sm text-muted-foreground uppercase">Client</h3>
                 <p className="text-lg">{project.client}</p>
               </div>
               <div>
-                <h3 className="text-sm text-zinc-500 uppercase">Year</h3>
+                <h3 className="text-sm text-muted-foreground uppercase">Year</h3>
                 <p className="text-lg">{project.year}</p>
               </div>
               <div>
-                <h3 className="text-sm text-zinc-500 uppercase">Role</h3>
+                <h3 className="text-sm text-muted-foreground uppercase">Role</h3>
                 <p className="text-lg">{project.role}</p>
               </div>
               <div>
-                <h3 className="text-sm text-zinc-500 uppercase">Technologies</h3>
+                <h3 className="text-sm text-muted-foreground uppercase">Technologies</h3>
                 <div className="flex flex-wrap gap-2 mt-2">
                   {project.technologies.map((tech) => (
                     <span
                       key={tech}
-                      className="px-3 py-1 bg-zinc-100 text-zinc-700 rounded-full text-sm"
+                      className="px-3 py-1 bg-muted text-muted-foreground rounded-full text-sm"
                     >
                       {tech}
                     </span>
@@ -100,11 +100,11 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
             <div className="space-y-8">
               <div>
                 <h2 className="text-2xl font-bold mb-4">The Challenge</h2>
-                <p className="text-lg text-zinc-600">{project.challenge}</p>
+                <p className="text-lg text-muted-foreground">{project.challenge}</p>
               </div>
               <div>
                 <h2 className="text-2xl font-bold mb-4">The Solution</h2>
-                <p className="text-lg text-zinc-600">{project.solution}</p>
+                <p className="text-lg text-muted-foreground">{project.solution}</p>
               </div>
             </div>
           </div>

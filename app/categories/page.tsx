@@ -7,7 +7,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { allCategoriesByCount } from "@/content";
+import { allCategoriesByCount } from "@/lib/content";
 import Link from "next/link";
 
 export default function CategoriesPage() {

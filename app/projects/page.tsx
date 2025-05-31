@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { allGithubProjects, allHostedProjects } from "@/content";
+import { allGithubProjects, allHostedProjects } from "@/lib/content";
 import { Github } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";

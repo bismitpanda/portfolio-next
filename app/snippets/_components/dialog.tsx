@@ -9,7 +9,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import type { Snippet } from "@/content";
+import type { Snippet } from "@/lib/content";
 import { Check, Copy } from "lucide-react";
 import type React from "react";
 import { useState } from "react";

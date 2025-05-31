@@ -1,6 +1,6 @@
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { allPublishedBlogsByDate, allCategoriesByCount } from "@/content";
+import { allPublishedBlogsByDate, allCategoriesByCount } from "@/lib/content";
 import { formatDate } from "date-fns";
 import { ArrowLeft } from "lucide-react";
 import Image from "next/image";
@@ -54,12 +54,12 @@ export default async function CategoryPage({ params }: { params: Promise<{ categ
                   />
                 </div>
                 <div className="p-6">
-                  <div className="text-sm font-medium text-zinc-500 mb-2">
+                  <div className="text-sm font-medium text-muted-foreground mb-2">
                     <Badge variant="outline">{post.category}</Badge> •{" "}
                     {formatDate(post.date, "MMMM do, yyyy")}
                   </div>
                   <h3 className="text-2xl font-bold mb-2 transition-colors">{post.title}</h3>
-                  <p className="text-zinc-600">{post.excerpt}</p>
+                  <p className="text-muted-foreground">{post.excerpt}</p>
                 </div>
               </Link>
             ))}

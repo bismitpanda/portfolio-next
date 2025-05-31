@@ -1,13 +1,13 @@
 {
   "title": "SFS",
-  "client": "Personal",
+  "client": "Bismit Panda (Me)",
   "year": 2024,
   "role": "Developer",
   "description": "A TypeScript sandboxed file system for browser-based demos and tutorials.",
   "challenge": "Emulating POSIX-like operations in an in-memory JS environment.",
   "solution": "Built a virtual FS tree with async API mirroring Node’s `fs/promises`.",
   "technologies": ["TypeScript"],
-  "featuredImage": "/placeholder.png",
+  "featuredImage": "/images/SFS Featured Image.png",
   "projectType": "github",
   "githubUrl": "https://github.com/bismitpanda/sfs"
 }

@@ -1,6 +1,6 @@
 import { Article } from "@/components/article";
 import { Button } from "@/components/ui/button";
-import { allPublishedBlogsByDate } from "@/content";
+import { allPublishedBlogsByDate } from "@/lib/content";
 import { formatDate } from "date-fns";
 import Image from "next/image";
 import Link from "next/link";

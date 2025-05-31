@@ -17,18 +17,32 @@ import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
 import remarkWikiLink from "remark-wiki-link";
 import { codeToHtml, type ShikiTransformer } from "shiki";
-import { z } from "zod";
+import { z } from "zod/v4";
+
+const categorySchema = z.object({
+  name: z.string(),
+  slug: z.string(),
+  description: z.string(),
+});
+
+type Headings = { depth: number; value: string; slug: string }[];
+
+const blogSchema = z.object({
+  title: z.string(),
+  excerpt: z.string(),
+  date: z.coerce.date(),
+  category: z.string(),
+  image: z.string(),
+  draft: z.boolean().default(false),
+  previous: z.string().optional(),
+});
 
 const categories = defineCollection({
   name: "categories",
   directory: "content/categories",
   include: "*.json",
   parser: "json",
-  schema: z.object({
-    name: z.string(),
-    slug: z.string(),
-    description: z.string(),
-  }),
+  schema: categorySchema,
   transform: (data, context) => {
     const count = context
       .documents(blogs)
@@ -37,22 +51,38 @@ const categories = defineCollection({
   },
 });
 
+const snippetSchema = z.object({
+  name: z.string(),
+  description: z.string(),
+  codeFile: z.string(),
+  language: z.string(),
+  date: z.coerce.date(),
+});
+
+const projectSchema = z.object({
+  title: z.string(),
+  client: z.string(),
+  role: z.string(),
+  year: z.number(),
+  description: z.string(),
+  challenge: z.string(),
+  solution: z.string(),
+  technologies: z.string().array(),
+  featuredImage: z.string(),
+  projectType: z.enum(["hosted", "github"]),
+  liveUrl: z.string().optional(),
+  githubUrl: z.string().optional(),
+  featured: z.boolean().default(false),
+});
+
 const blogs = defineCollection({
   name: "blogs",
   directory: "content/blogs",
   include: "*.mdx",
-  schema: z.object({
-    title: z.string(),
-    excerpt: z.string(),
-    date: z.coerce.date(),
-    category: z.string(),
-    image: z.string(),
-    draft: z.boolean().default(false),
-    previous: z.string().optional(),
-  }),
+  schema: blogSchema,
   transform: async (_data, context) => {
     const { previous, ...data } = _data;
-    const headings: { depth: number; value: string; slug: string }[] = [];
+    const headings: Headings = [];
 
     const blogSlug = slug(data.title);
     const siblings = (await context.collection.documents()).filter(
@@ -166,10 +196,18 @@ const blogs = defineCollection({
       ],
     });
 
+    const cachedHeadings = await context.cache(
+      { content: data.content, _meta: data._meta },
+      () => headings,
+      {
+        key: `__headings`,
+      },
+    );
+
     return {
       ...data,
       html,
-      headings,
+      headings: cachedHeadings,
       slug: blogSlug,
       next,
       prev,
@@ -185,13 +223,7 @@ const snippets = defineCollection({
   directory: "content/snippets",
   include: "*.json",
   parser: "json",
-  schema: z.object({
-    name: z.string(),
-    description: z.string(),
-    codeFile: z.string(),
-    language: z.string(),
-    date: z.coerce.date(),
-  }),
+  schema: snippetSchema,
   transform: async (data, { cache }) => {
     const code = readFileSync(`content/snippets/files/${data.codeFile}`).toString().trim();
 
@@ -214,20 +246,7 @@ const projects = defineCollection({
   directory: "content/projects",
   include: "*.json",
   parser: "json",
-  schema: z.object({
-    title: z.string(),
-    client: z.string(),
-    role: z.string(),
-    year: z.number(),
-    description: z.string(),
-    challenge: z.string(),
-    solution: z.string(),
-    technologies: z.string().array(),
-    featuredImage: z.string(),
-    projectType: z.enum(["hosted", "github"]),
-    liveUrl: z.string().optional(),
-    githubUrl: z.string().optional(),
-  }),
+  schema: projectSchema,
   transform: (data) => {
     if (data.projectType === "hosted" && !data.liveUrl) {
       throw new Error("Hosted project must have live url");
