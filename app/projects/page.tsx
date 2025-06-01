@@ -81,7 +81,7 @@ export default function ProjectsPage() {
               >
                 <div className="flex flex-col h-full justify-between">
                   <div>
-                    <div className="aspect-video bg-muted overflow-hidden transition-transform group-hover:scale-105 duration-300">
+                    <div className="aspect-video bg-muted overflow-hidden transition-transform group-hover:scale-102 duration-300">
                       <Image
                         src={project.featuredImage}
                         alt={project.title}

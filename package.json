@@ -33,7 +33,7 @@
     "reading-time": "^1.5.0",
     "sonner": "^2.0.4",
     "tailwind-merge": "^3.3.0",
-    "zod": "^3.25.42"
+    "zod": "^3.25.45"
   },
   "devDependencies": {
     "@content-collections/core": "^0.9.0",

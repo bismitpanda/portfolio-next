@@ -1,6 +1,6 @@
+import { Mdx } from "./_components/mdx";
 import { TableOfContents } from "./_components/toc";
 import { Blog } from "@/components/blog";
-import { Mdx } from "@/components/mdx";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card";

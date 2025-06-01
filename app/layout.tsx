@@ -1,5 +1,5 @@
-import { Footer } from "@/components/layout/footer";
-import { Navigation } from "@/components/layout/navigation";
+import { Footer } from "./_components/layout/footer";
+import { Navigation } from "./_components/layout/navigation";
 import { Toaster } from "@/components/ui/sonner";
 import type { Metadata } from "next";
 import { Fustat, Playfair_Display, JetBrains_Mono } from "next/font/google";

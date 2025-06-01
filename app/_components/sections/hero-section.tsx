@@ -1,6 +1,6 @@
 "use client";
 
-import { RotatingText } from "@/components/rotating-text";
+import { RotatingText } from "../rotating-text";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { motion } from "motion/react";
