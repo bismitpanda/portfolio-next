@@ -49,7 +49,10 @@ export default function ProjectsPage() {
                   <div
                     className={`overflow-hidden rounded-lg ${index % 2 === 1 ? "md:col-start-1" : ""}`}
                   >
-                    <div className="aspect-video bg-muted rounded-lg overflow-hidden transition-transform group-hover:scale-105 duration-500">
+                    <Link
+                      href={`/projects/${project.slug}`}
+                      className="aspect-video bg-muted rounded-lg overflow-hidden transition-transform group-hover:scale-105 duration-500 block"
+                    >
                       <Image
                         src={project.featuredImage}
                         alt={project.title}
@@ -57,7 +60,7 @@ export default function ProjectsPage() {
                         height={600}
                         className="w-full h-full object-cover"
                       />
-                    </div>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -81,7 +84,10 @@ export default function ProjectsPage() {
               >
                 <div className="flex flex-col h-full justify-between">
                   <div>
-                    <div className="aspect-video bg-muted overflow-hidden transition-transform group-hover:scale-102 duration-300">
+                    <Link
+                      href={`/projects/${project.slug}`}
+                      className="aspect-video bg-muted overflow-hidden transition-transform group-hover:scale-102 duration-300 block"
+                    >
                       <Image
                         src={project.featuredImage}
                         alt={project.title}
@@ -89,7 +95,7 @@ export default function ProjectsPage() {
                         height={600}
                         className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity"
                       />
-                    </div>
+                    </Link>
                     <div className="p-6">
                       <h3 className="text-2xl font-bold mb-3 group-hover:text-primary transition-colors">
                         {project.title}

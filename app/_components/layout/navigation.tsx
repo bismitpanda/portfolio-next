@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { Menu, X } from "lucide-react";
+import { Menu, MoveUpRight, X } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import Image from "next/image";
 import Link from "next/link";
@@ -19,7 +19,7 @@ export function Navigation() {
     { name: "Snippets", path: "/snippets" },
     { name: "Blog", path: "/blog" },
     { name: "Contact", path: "/#contact" },
-    { name: "Resume", path: "/resume.pdf" },
+    { name: "Resume", path: "/resume.pdf", external: true },
   ];
 
   return (
@@ -43,9 +43,15 @@ export function Navigation() {
                 pathname === route.path
                   ? "text-foreground"
                   : "text-muted-foreground hover:text-foreground",
+                route.external ? "group flex flex-row gap-x-1 items-center justify-between" : "",
               )}
+              target={route.external ? "_blank" : undefined}
+              rel={route.external ? "noopener noreferrer" : undefined}
             >
               {route.name}
+              {route.external && (
+                <MoveUpRight className="group-hover:opacity-100 group-hover:w-4 w-0 opacity-0 transition-all size-4" />
+              )}
             </Link>
           ))}
         </nav>
@@ -78,6 +84,8 @@ export function Navigation() {
                       : "text-muted-foreground hover:text-foreground",
                   )}
                   onClick={() => setIsMenuOpen(false)}
+                  target={route.external ? "_blank" : undefined}
+                  rel={route.external ? "noopener noreferrer" : undefined}
                 >
                   {route.name}
                 </Link>

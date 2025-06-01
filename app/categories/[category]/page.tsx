@@ -66,12 +66,10 @@ export default async function CategoryPage({ params }: { params: Promise<{ categ
           </div>
         ) : (
           <div className="text-center py-16">
-            <h2 className="text-2xl font-bold mb-4">No articles found</h2>
-            <p className="text-muted-foreground mb-8">
-              There are no articles in this category yet.
-            </p>
+            <h2 className="text-2xl font-bold mb-4">No blogs found</h2>
+            <p className="text-muted-foreground mb-8">There are no blogs in this category yet.</p>
             <Button asChild>
-              <Link href="/blog">Browse All Articles</Link>
+              <Link href="/blog">Browse All Blogs</Link>
             </Button>
           </div>
         )}

@@ -32,7 +32,7 @@ export default function BlogNotFound() {
           </div>
 
           <div className="mt-16">
-            <h3 className="text-xl font-bold mb-4">Recent Articles</h3>
+            <h3 className="text-xl font-bold mb-4">Recent Blogs</h3>
             <ul className="space-y-2">
               {allPublishedBlogsByDate.slice(0, 3).map((blog) => (
                 <li key={blog.slug}>

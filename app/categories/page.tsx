@@ -17,7 +17,7 @@ export default function CategoriesPage() {
         <div className="max-w-3xl mx-auto text-center mb-16">
           <h1 className="heading-xl mb-6">Categories</h1>
           <p className="body-lg text-muted-foreground">
-            Browse articles by topic to find exactly what you&apos;re looking for.
+            Browse blogs by topic to find exactly what you&apos;re looking for.
           </p>
         </div>
 
@@ -31,14 +31,14 @@ export default function CategoriesPage() {
                 <CardTitle className="text-2xl font-serif group-hover:text-primary transition-colors">
                   {category.name}
                 </CardTitle>
-                <CardDescription className="text-sm">{category.count} articles</CardDescription>
+                <CardDescription className="text-sm">{category.count} blogs</CardDescription>
               </CardHeader>
               <CardContent className="pb-3">
                 <p className="text-muted-foreground">{category.description}</p>
               </CardContent>
               <CardFooter>
                 <Button asChild variant="outline" className="w-full">
-                  <Link href={`/categories/${category.slug}`}>View Articles</Link>
+                  <Link href={`/categories/${category.slug}`}>View Blogs</Link>
                 </Button>
               </CardFooter>
             </Card>

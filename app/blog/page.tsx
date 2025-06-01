@@ -23,7 +23,9 @@ export default function BlogPage() {
             <div className="grid md:grid-cols-2 gap-8 items-center">
               <div className="order-2 md:order-1">
                 <div className="text-sm font-medium text-neutral-300 mb-2">
-                  <Link href={`/categories/${latestBlog.categorySlug}`}>{latestBlog.category}</Link>{" "}
+                  <Link href={`/categories/${latestBlog.categorySlug}`} className="underline">
+                    {latestBlog.category}
+                  </Link>{" "}
                   • {formatDate(latestBlog.date, "MMMM do, yyyy")}
                 </div>
                 <h2 className="text-4xl md:text-5xl font-bold mb-4 transition-colors">

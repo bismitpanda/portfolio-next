@@ -38,7 +38,9 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
         <div className="max-w-3xl mx-auto">
           <div className="mb-10">
             <div className="text-sm font-medium text-muted-foreground mb-4">
-              <Link href={`/categories/${post.categorySlug}`}>{post.category}</Link> •{" "}
+              <Link href={`/categories/${post.categorySlug}`} className="underline">
+                {post.category}
+              </Link>{" "}
               {formatDate(post.date, "MMMM do, yyyy")} • {post.readingTime}
             </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">{post.title}</h1>
@@ -128,7 +130,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           )}
 
           <div>
-            <h2 className="text-2xl font-bold mb-8">Related Articles</h2>
+            <h2 className="text-2xl font-bold mb-8">Related Blogs</h2>
             <div className="grid md:grid-cols-2 gap-8">
               {post.relatedBlogs.map((relatedPost) => (
                 <Blog blog={relatedPost} key={relatedPost.slug} />
