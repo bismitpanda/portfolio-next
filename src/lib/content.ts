@@ -9,7 +9,7 @@ import {
   type Snippet,
   type Project,
   type Experience,
-} from "../.content-collections/generated";
+} from "../../.content-collections/generated";
 import { compareDesc } from "date-fns";
 
 export const allPublishedBlogsByDate = allBlogs
