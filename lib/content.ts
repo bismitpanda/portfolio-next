@@ -33,4 +33,4 @@ export const allExperiencesByDate = allExperiences.toSorted((a, b) =>
   compareDesc(a.startDate, b.startDate),
 );
 
-export type { Blog, Category, Snippet, Project };
+export type { Blog, Category, Snippet, Project, Experience };

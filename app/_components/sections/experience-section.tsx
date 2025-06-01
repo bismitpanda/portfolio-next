@@ -17,7 +17,7 @@ export function ExperienceSection() {
           <div className="space-y-12">
             {allExperiencesByDate.map((exp) => {
               const start = exp.startDate;
-              const end = exp.endDate ? exp.endDate : new Date();
+              const end = exp.endDate ?? new Date();
               const isCurrent = !exp.endDate;
               const duration = formatDistance(start, end, { includeSeconds: false });
               return (

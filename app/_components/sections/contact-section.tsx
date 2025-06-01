@@ -8,7 +8,7 @@ export function ContactSection() {
       <div className="grid grid-cols-1 md:grid-cols-2">
         <div className="max-w-2xl mx-auto">
           <p className="text-2xl leading-relaxed mb-10">
-            I'm always open to new opportunities and collaborations. Feel free to reach out!
+            I&apos;m always open to new opportunities and collaborations. Feel free to reach out!
           </p>
         </div>
         <div className="flex flex-col gap-6 items-start">
