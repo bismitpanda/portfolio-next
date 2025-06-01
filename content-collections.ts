@@ -6,7 +6,7 @@ import {
   transformerNotationHighlight,
   transformerNotationFocus,
 } from "@shikijs/transformers";
-import { readFileSync, writeFileSync } from "fs";
+import { readFileSync } from "fs";
 import { slug } from "github-slugger";
 import readingTime from "reading-time";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
@@ -167,10 +167,8 @@ const blogs = defineCollection({
             permalinks: siblings.map((sibling) => slug(sibling.title)),
             pageResolver: (title: string) => [slug(title)],
             hrefTemplate: (slug: string) => `/blog/${slug}`,
-            wikiLinkClassName:
-              "inline-block no-underline rounded-sm bg-blue-800/40 border-[1px] border-blue-800 text-blue-100 text-sm px-1 py-0.5 hover:bg-blue-800/60 transition-colors duration-200",
-            newClassName:
-              "inline-block rounded-sm bg-yellow-700/40 border-[1px] border-yellow-800 text-yellow-100 text-sm px-1 py-0.5 cursor-not-allowed hover:bg-yellow-700/60",
+            wikiLinkClassName: "existing-blog-link",
+            newClassName: "non-existent-blog-link",
             aliasDivider: "|",
           },
         ],

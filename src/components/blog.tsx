@@ -20,7 +20,8 @@ export function Blog({ blog }: { blog: Blog["relatedBlogs"][number] }) {
         <div className="text-sm font-medium text-neutral-300 mb-2">
           <Link href={`/categories/${blog.categorySlug}`} className="underline">
             {blog.category}
-          </Link>{" "}
+          </Link>
+          {" • "}
           {formatDate(blog.date, "MMMM do, yyyy")}
         </div>
         <h3 className="text-2xl font-bold mb-2">{blog.title}</h3>
