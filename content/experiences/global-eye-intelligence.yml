@@ -1,10 +1,8 @@
 company: Global Eye Intelligence
-description: I worked on the development of a web application for the Global Eye Intelligence
-  website. I was responsible for the development of the frontend and backend of the
-  application.
-endDate: '2023-08-01'
+description: I worked on the development of a web platform, scraping modules and AI agent ecosystem for geopolitical intelligence processing.
 highlights:
-- Developed a web application for the Global Eye Intelligence website
-- Developed a web application for the Global Eye Intelligence website
-startDate: '2023-05-01'
-title: Software Engineering Intern
+  - Spearheaded development of a web platform and AI agent ecosystem for geopolitical intelligence processing
+  - Led a team of 6+ developers across frontend, AI pipeline, and scraping modules
+  - Achieved 80% reduction in manual data aggregation via automation and custom AI tooling
+startDate: 2025-01-01
+title: Tech Development Intern

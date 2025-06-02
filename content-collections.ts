@@ -82,10 +82,18 @@ const educationSchema = z.object({
 const certificationSchema = z.object({
   title: z.string(),
   provider: z.string(),
+  description: z.string().array(),
   date: z.coerce.date(),
   validity: z.number().optional(),
   link: z.string(),
   verificationLink: z.string().optional(),
+});
+
+const achievementSchema = z.object({
+  title: z.string(),
+  description: z.string().array(),
+  date: z.coerce.date(),
+  organization: z.string(),
 });
 
 const categories = defineCollection({
@@ -315,6 +323,23 @@ const education = defineCollection({
   },
 });
 
+const achievements = defineCollection({
+  name: "achievements",
+  directory: "content/achievements",
+  include: "*.yml",
+  parser: "yaml",
+  schema: achievementSchema,
+});
+
 export default defineConfig({
-  collections: [blogs, categories, snippets, projects, experiences, certifications, education],
+  collections: [
+    blogs,
+    categories,
+    snippets,
+    projects,
+    experiences,
+    certifications,
+    education,
+    achievements,
+  ],
 });

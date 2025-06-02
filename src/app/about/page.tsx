@@ -1,3 +1,4 @@
+import { AchievementsSection } from "./_components/sections/achievements-section";
 import { CertificationsSection } from "./_components/sections/certifications-section";
 import { EducationSection } from "./_components/sections/education-section";
 import { ExperienceSection } from "./_components/sections/experience-section";
@@ -11,6 +12,7 @@ export default function Page() {
       <SkillsSection />
       <ExperienceSection />
       <EducationSection />
+      <AchievementsSection />
       <CertificationsSection />
     </div>
   );

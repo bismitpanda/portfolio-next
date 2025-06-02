@@ -1,9 +1,11 @@
 company: IIT Bombay
-description: I worked on the development of a web application for the IIT Bombay website.
-  I was responsible for the development of the frontend and backend of the application.
-endDate: '2023-05-01'
+description:
+  I worked on the development of a web application for the IIT Bombay which was a medical calculator for doctors to calculate the dosage of the medicine.
+  I was responsible for the development of the frontend in React and backend in Django.
 highlights:
-- Developed a web application for the IIT Bombay website
-- Developed a web application for the IIT Bombay website
-startDate: '2023-01-01'
+  - Mentored 4+ students in building a Medical Calculator application to assist doctors with complex calculations
+  - Led frontend and backend architecture design, ensuring user-friendliness and reliability
+  - Enhanced development timelines by 25% through active coordination and technology adoption
+startDate: 2023-11-01
+endDate: 2024-02-01
 title: Software Engineering Intern

@@ -7,7 +7,7 @@ export function CertificationsSection() {
   return (
     <section className="container-custom section-spacing">
       <div>
-        <h2 className="heading-lg mb-6">Certifications</h2>
+        <h2 className="text-4xl font-medium md:text-5xl mb-16">Certifications</h2>
       </div>
       <div className="md:col-span-2">
         <div className="grid md:grid-cols-2 gap-6">
@@ -19,7 +19,10 @@ export function CertificationsSection() {
                     <h3 className="text-xl font-bold mb-2 group-hover:text-primary transition-colors">
                       {certification.title}
                     </h3>
-                    <p className="text-muted-foreground mb-2">{certification.provider}</p>
+                    <p className="text-muted-foreground mb-2 text-sm">{certification.provider}</p>
+                    <p className="text-muted-foreground mb-2 text-sm">
+                      {certification.description.join(" ")}
+                    </p>
                   </div>
                   <p className="text-sm text-muted-foreground mb-4">
                     {formatDate(certification.date, "MMM yyyy")}

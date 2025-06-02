@@ -1,4 +1,5 @@
 import {
+  allAchievements,
   allBlogs,
   allCategories,
   allProjects,
@@ -6,6 +7,7 @@ import {
   allExperiences,
   allEducations,
   allCertifications,
+  type Achievement,
   type Blog,
   type Category,
   type Snippet,
@@ -45,4 +47,8 @@ export const allCertificationsByDate = allCertifications.toSorted((a, b) =>
   compareDesc(a.date, b.date),
 );
 
-export type { Blog, Category, Snippet, Project, Experience, Certification, Education };
+export const allAchievementsByDate = allAchievements.toSorted((a, b) =>
+  compareDesc(a.date, b.date),
+);
+
+export type { Blog, Category, Snippet, Project, Experience, Certification, Education, Achievement };

@@ -7,7 +7,7 @@ export function EducationSection() {
     <section className="container-custom section-spacing">
       <div className="grid md:grid-cols-3 gap-12">
         <div>
-          <h2 className="heading-lg mb-6">Education</h2>
+          <h2 className="text-4xl font-medium md:text-5xl mb-6">Education</h2>
         </div>
         <div className="md:col-span-2">
           <div className="space-y-12">

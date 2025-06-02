@@ -14,7 +14,7 @@ export function SkillsSection() {
     <section className="container-custom section-spacing">
       <div className="grid md:grid-cols-3 gap-12">
         <div>
-          <h2 className="heading-lg mb-6">Skills</h2>
+          <h2 className="text-4xl font-medium md:text-5xl mb-6">Skills</h2>
         </div>
         <div className="md:col-span-2">
           <div className="grid grid-cols-2 gap-y-8 gap-x-16">
