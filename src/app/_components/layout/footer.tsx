@@ -1,3 +1,4 @@
+import { routes, socialRoutes } from "../routes";
 import { Github, Linkedin, Mail, Twitter } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -24,54 +25,16 @@ export function Footer() {
           <div>
             <h3 className="text-xl font-medium mb-4">Quick Links</h3>
             <ul className="space-y-2">
-              <li>
-                <Link
-                  href="/"
-                  className="text-muted-foreground hover:text-foreground transition-colors"
-                >
-                  Home
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/projects"
-                  className="text-muted-foreground hover:text-foreground transition-colors"
-                >
-                  Projects
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/snippets"
-                  className="text-muted-foreground hover:text-foreground transition-colors"
-                >
-                  Snippets
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/blog"
-                  className="text-muted-foreground hover:text-foreground transition-colors"
-                >
-                  Blog
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/#contact"
-                  className="text-muted-foreground hover:text-foreground transition-colors"
-                >
-                  Contact
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/resume.pdf"
-                  className="text-muted-foreground hover:text-foreground transition-colors"
-                >
-                  Resume
-                </Link>
-              </li>
+              {routes.map((route) => (
+                <li key={route.path}>
+                  <Link
+                    href={route.path}
+                    className="text-muted-foreground hover:text-foreground transition-colors"
+                  >
+                    {route.name}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
@@ -79,28 +42,28 @@ export function Footer() {
             <h3 className="text-xl font-medium mb-4">Connect</h3>
             <div className="flex space-x-4">
               <Link
-                href="mailto:contact@bismitpanda.com"
+                href={socialRoutes.email}
                 className="text-muted-foreground hover:text-foreground transition-colors"
               >
                 <Mail className="h-6 w-6" />
                 <span className="sr-only">Email</span>
               </Link>
               <Link
-                href="https://www.linkedin.com/in/bismit-panda-5432a824a"
+                href={socialRoutes.linkedIn}
                 className="text-muted-foreground hover:text-foreground transition-colors"
               >
                 <Linkedin className="h-6 w-6" />
                 <span className="sr-only">LinkedIn</span>
               </Link>
               <Link
-                href="https://github.com/bismitpanda"
+                href={socialRoutes.github}
                 className="text-muted-foreground hover:text-foreground transition-colors"
               >
                 <Github className="h-6 w-6" />
                 <span className="sr-only">GitHub</span>
               </Link>
               <Link
-                href="https://x.com/bismitpanda"
+                href={socialRoutes.x}
                 className="text-muted-foreground hover:text-foreground transition-colors"
               >
                 <Twitter className="h-6 w-6" />

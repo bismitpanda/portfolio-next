@@ -1,5 +1,6 @@
 "use client";
 
+import { routes } from "../routes";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { Menu, MoveUpRight, X } from "lucide-react";
@@ -12,15 +13,6 @@ import { useState } from "react";
 export function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();
-
-  const routes = [
-    { name: "Home", path: "/" },
-    { name: "Projects", path: "/projects" },
-    { name: "Snippets", path: "/snippets" },
-    { name: "Blog", path: "/blog" },
-    { name: "Contact", path: "/#contact" },
-    { name: "Resume", path: "/resume.pdf", external: true },
-  ];
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-xs border-b border-border">

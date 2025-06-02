@@ -37,20 +37,6 @@ const blogSchema = z.object({
   previous: z.string().optional(),
 });
 
-const categories = defineCollection({
-  name: "categories",
-  directory: "content/categories",
-  include: "*.json",
-  parser: "json",
-  schema: categorySchema,
-  transform: (data, context) => {
-    const count = context
-      .documents(blogs)
-      .filter((blog) => !blog.draft && blog.category === data.name).length;
-    return { ...data, count };
-  },
-});
-
 const snippetSchema = z.object({
   name: z.string(),
   description: z.string(),
@@ -82,6 +68,38 @@ const experienceSchema = z.object({
   endDate: z.coerce.date().optional(),
   description: z.string(),
   highlights: z.string().array(),
+});
+
+const educationSchema = z.object({
+  title: z.string(),
+  institution: z.string(),
+  startDate: z.coerce.date(),
+  endDate: z.coerce.date().optional(),
+  description: z.string(),
+  achievements: z.string().array(),
+});
+
+const certificationSchema = z.object({
+  title: z.string(),
+  provider: z.string(),
+  date: z.coerce.date(),
+  validity: z.number().optional(),
+  link: z.string(),
+  verificationLink: z.string().optional(),
+});
+
+const categories = defineCollection({
+  name: "categories",
+  directory: "content/categories",
+  include: "*.yml",
+  parser: "yaml",
+  schema: categorySchema,
+  transform: (data, context) => {
+    const count = context
+      .documents(blogs)
+      .filter((blog) => !blog.draft && blog.category === data.name).length;
+    return { ...data, count };
+  },
 });
 
 const blogs = defineCollection({
@@ -228,8 +246,8 @@ const blogs = defineCollection({
 const snippets = defineCollection({
   name: "snippets",
   directory: "content/snippets",
-  include: "*.json",
-  parser: "json",
+  include: "*.yml",
+  parser: "yaml",
   schema: snippetSchema,
   transform: async (data, { cache }) => {
     const code = readFileSync(`content/snippets/files/${data.codeFile}`).toString().trim();
@@ -251,8 +269,8 @@ const snippets = defineCollection({
 const projects = defineCollection({
   name: "projects",
   directory: "content/projects",
-  include: "*.json",
-  parser: "json",
+  include: "*.yml",
+  parser: "yaml",
   schema: projectSchema,
   transform: (data) => {
     if (data.projectType === "hosted" && !data.liveUrl) {
@@ -270,11 +288,33 @@ const projects = defineCollection({
 const experiences = defineCollection({
   name: "experiences",
   directory: "content/experiences",
-  include: "*.json",
-  parser: "json",
+  include: "*.yml",
+  parser: "yaml",
   schema: experienceSchema,
+  transform: (data) => {
+    return { ...data, isOnGoing: data.endDate === undefined };
+  },
+});
+
+const certifications = defineCollection({
+  name: "certifications",
+  directory: "content/certifications",
+  include: "*.yml",
+  parser: "yaml",
+  schema: certificationSchema,
+});
+
+const education = defineCollection({
+  name: "education",
+  directory: "content/education",
+  include: "*.yml",
+  parser: "yaml",
+  schema: educationSchema,
+  transform: (data) => {
+    return { ...data, isOnGoing: data.endDate === undefined };
+  },
 });
 
 export default defineConfig({
-  collections: [blogs, categories, snippets, projects, experiences],
+  collections: [blogs, categories, snippets, projects, experiences, certifications, education],
 });

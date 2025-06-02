@@ -24,10 +24,10 @@ export function AboutSection() {
           </p>
           <div className="flex flex-wrap gap-4">
             <Button asChild variant="outline" size="lg">
-              <Link href="/blog">Read My Blog</Link>
+              <Link href="/about">Full Background</Link>
             </Button>
             <Button asChild variant="outline" size="lg">
-              <Link href="/snippets">View Snippets</Link>
+              <Link href="/blog">Read My Blog</Link>
             </Button>
           </div>
         </div>

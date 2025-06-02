@@ -4,7 +4,7 @@ import { ExternalLink, Github } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
-export default function ProjectsPage() {
+export default function Page() {
   return (
     <div className="pt-20">
       <section className="container-custom section-spacing">
@@ -16,7 +16,7 @@ export default function ProjectsPage() {
         </div>
 
         <div className="mb-24">
-          <h2 className="heading-lg mb-10 relative">Web Projects</h2>
+          <h2 className="heading-lg mb-10">Web Projects</h2>
 
           <div className="grid gap-16 md:gap-24">
             {allHostedProjects.map((project, index) => (
@@ -69,7 +69,7 @@ export default function ProjectsPage() {
         </div>
 
         <div>
-          <h2 className="heading-lg mb-10 relative">Other Projects</h2>
+          <h2 className="heading-lg mb-10">Other Projects</h2>
 
           <p className="text-xl text-muted-foreground mb-10 max-w-3xl">
             These projects focus on computer science fundamentals and systems programming.

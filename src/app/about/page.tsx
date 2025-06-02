@@ -1,0 +1,17 @@
+import { CertificationsSection } from "./_components/sections/certifications-section";
+import { EducationSection } from "./_components/sections/education-section";
+import { ExperienceSection } from "./_components/sections/experience-section";
+import { HeroSection } from "./_components/sections/hero-section";
+import { SkillsSection } from "./_components/sections/skills-section";
+
+export default function Page() {
+  return (
+    <div className="pt-20">
+      <HeroSection />
+      <SkillsSection />
+      <ExperienceSection />
+      <EducationSection />
+      <CertificationsSection />
+    </div>
+  );
+}

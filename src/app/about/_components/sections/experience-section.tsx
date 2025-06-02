@@ -6,24 +6,18 @@ export function ExperienceSection() {
     <section className="container-custom section-spacing">
       <div className="grid md:grid-cols-3 gap-12">
         <div>
-          <h2 className="heading-lg mb-6 relative">
-            Experience
-            <span className="absolute -z-10 text-[10rem] font-bold text-muted/20 -top-20 -left-6 opacity-80">
-              04
-            </span>
-          </h2>
+          <h2 className="heading-lg mb-6">Experience</h2>
         </div>
         <div className="md:col-span-2">
           <div className="space-y-12">
             {allExperiencesByDate.map((exp) => {
               const start = exp.startDate;
               const end = exp.endDate ?? new Date();
-              const isCurrent = !exp.endDate;
               const duration = formatDistance(start, end, { includeSeconds: false });
               return (
                 <div
                   key={exp.title + exp.company}
-                  className={`group${!isCurrent ? " border-l-2 border-border pl-6" : ""}`}
+                  className={`group${!exp.isOnGoing ? " border-l-2 border-border pl-6" : ""}`}
                 >
                   <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-4">
                     <div>
@@ -35,9 +29,9 @@ export function ExperienceSection() {
                     <div className="text-sm text-muted-foreground md:text-right">
                       <p className="font-medium">
                         {format(start, "MMM yyyy")} -{" "}
-                        {isCurrent ? "Present" : format(end, "MMM yyyy")}
+                        {exp.isOnGoing ? "Present" : format(end, "MMM yyyy")}
                       </p>
-                      <p className={isCurrent ? "text-primary" : undefined}>{duration}</p>
+                      <p className={exp.isOnGoing ? "text-primary" : undefined}>{duration}</p>
                     </div>
                   </div>
                   <p className="text-lg leading-relaxed text-muted-foreground mb-4">

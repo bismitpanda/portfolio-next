@@ -10,7 +10,7 @@ import {
 import { allCategoriesByCount } from "@/lib/content";
 import Link from "next/link";
 
-export default function CategoriesPage() {
+export default function Page() {
   return (
     <div className="pt-20">
       <section className="container-custom section-spacing">

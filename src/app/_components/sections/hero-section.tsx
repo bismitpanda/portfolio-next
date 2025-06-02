@@ -40,7 +40,7 @@ export function HeroSection() {
           </p>
           <div className="flex flex-wrap gap-4">
             <Button asChild size="lg" className="text-lg px-8">
-              <Link href="/#contact">Contact Me</Link>
+              <Link href="/about">Learn More</Link>
             </Button>
             <Button asChild variant="outline" size="lg" className="text-lg px-8">
               <Link href="/projects">View Projects</Link>

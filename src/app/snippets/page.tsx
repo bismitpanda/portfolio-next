@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { allSnippetsByDate } from "@/lib/content";
 import Link from "next/link";
 
-export default function SnippetsPage() {
+export default function Page() {
   return (
     <div className="pt-20">
       <section className="container-custom section-spacing">

@@ -1,0 +1,19 @@
+challenge: Designing a clean, trust-building interface with custom iconography, stat
+  counters, and integrated lead-capture forms.
+client: Green Card Inc.
+description: An Ivy League admissions consultancy site offering AI-powered profile
+  evaluation, personalized mentorship, extracurricular planning, and interview prep.
+featured: true
+featuredImage: https://openadmits.com/opengraph-image.png
+liveUrl: https://openadmits.com
+projectType: hosted
+role: UI/UX & Front-end Developer
+solution: Crafted a responsive Next.js site with Tailwind, built custom SVG-based
+  icons, and integrated Formik for booking calls directly from the hero section.
+technologies:
+- Next.js
+- React
+- Tailwind CSS
+- TypeScript
+title: Open Admits
+year: 2025

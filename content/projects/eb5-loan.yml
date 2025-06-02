@@ -1,0 +1,20 @@
+challenge: Presenting complex financial data (tables, timelines) in a clear, interactive
+  way and integrating calendar-booking calls seamlessly.
+client: Green Card Inc.
+description: A financing portal enabling investors to access the EB-5 Green Card program
+  with half the capital, complete with loan comparisons, process timelines, and due-diligence
+  downloads.
+featuredImage: https://eb5loan.com/opengraph-image.png
+liveUrl: https://eb5loan.com
+projectType: hosted
+role: Full-stack Developer
+solution: Implemented dynamic comparison tables with React and Tailwind, built an
+  animated timeline component, and embedded Calendly for call scheduling.
+technologies:
+- Next.js
+- React
+- TypeScript
+- Tailwind CSS
+- Node.js
+title: EB5 Loan
+year: 2025

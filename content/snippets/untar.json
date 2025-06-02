@@ -1,7 +1,0 @@
-{
-  "name": "Untar",
-  "description": "A simple script to extract compressed tar files",
-  "codeFile": "untar.go",
-  "language": "Go",
-  "date": "2025-04-26"
-}

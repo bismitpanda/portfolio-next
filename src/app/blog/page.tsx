@@ -5,7 +5,7 @@ import { formatDate } from "date-fns";
 import Image from "next/image";
 import Link from "next/link";
 
-export default function BlogPage() {
+export default function Page() {
   const latestBlog = allPublishedBlogsByDate[0];
 
   return (

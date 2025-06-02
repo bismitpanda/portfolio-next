@@ -4,11 +4,15 @@ import {
   allProjects,
   allSnippets,
   allExperiences,
+  allEducations,
+  allCertifications,
   type Blog,
   type Category,
   type Snippet,
   type Project,
   type Experience,
+  type Education,
+  type Certification,
 } from "../../.content-collections/generated";
 import { compareDesc } from "date-fns";
 
@@ -33,4 +37,12 @@ export const allExperiencesByDate = allExperiences.toSorted((a, b) =>
   compareDesc(a.startDate, b.startDate),
 );
 
-export type { Blog, Category, Snippet, Project, Experience };
+export const allEducationsByDate = allEducations.toSorted((a, b) =>
+  compareDesc(a.startDate, b.startDate),
+);
+
+export const allCertificationsByDate = allCertifications.toSorted((a, b) =>
+  compareDesc(a.date, b.date),
+);
+
+export type { Blog, Category, Snippet, Project, Experience, Certification, Education };

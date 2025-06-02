@@ -1,0 +1,18 @@
+challenge: Creating a multi-step ‘How it works’ flow with branded illustration assets
+  and a metrics dashboard, while ensuring fast load times and mobile-first responsiveness.
+client: Green Card Inc.
+description: A PR-publishing platform that guides users through writing, submitting,
+  publishing, and amplifying press releases and articles across high-authority channels.
+featuredImage: https://shoutstart.com/opengraph-image.png
+liveUrl: https://shoutstart.com
+projectType: hosted
+role: Front-end Developer
+solution: Built a Next.js single-page app leveraging optimized image components, CSS-grid
+  layouts for steps, and reusable React testimonial cards for rapid content updates.
+technologies:
+- Next.js
+- React
+- TypeScript
+- Tailwind CSS
+title: ShoutStart
+year: 2025

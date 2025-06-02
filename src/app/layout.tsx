@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     "Portfolio of Bismit Panda, a Full Stack Developer specializing in React, Next.js, and Node.js",
 };
 
-export default function RootLayout({
+export default function Layout({
   children,
 }: Readonly<{
   children: ReactNode;

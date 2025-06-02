@@ -11,7 +11,7 @@ export async function generateStaticParams() {
   return allCategoriesByCount.map((category) => ({ category: category.slug }));
 }
 
-export default async function CategoryPage({ params }: { params: Promise<{ category: string }> }) {
+export default async function Page({ params }: { params: Promise<{ category: string }> }) {
   const { category: _category } = await params;
   const category = allCategoriesByCount.find((c) => c.slug === _category);
 
