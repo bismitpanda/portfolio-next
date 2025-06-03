@@ -2,7 +2,13 @@ import { CodeSnippetDialog } from "./_components/dialog";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { allSnippetsByDate } from "@/lib/content";
+import type { Metadata } from "next";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "Code Snippets | Bismit Panda",
+  description: "Code Snippets",
+};
 
 export default function Page() {
   return (

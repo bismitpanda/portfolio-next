@@ -64,10 +64,10 @@ const components = {
       {...props}
     />
   ),
-  a: ({ className, ...props }: React.HTMLAttributes<HTMLAnchorElement>) => (
+  a: ({ className, ...props }: React.HTMLAttributes<HTMLAnchorElement> & { href: string }) => (
     <a
       className={cn("font-medium underline underline-offset-4", className)}
-      // target={props.href ? "_blank" : ""}
+      target={props.href ? "_blank" : ""}
       {...props}
     />
   ),

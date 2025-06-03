@@ -16,8 +16,8 @@ export interface ResumeData {
     name: string;
     location: string;
     email: string;
-    phone: string;
     linkedin: string;
+    github: string;
     website: string;
   };
   technologies: {
@@ -37,8 +37,8 @@ export const resumeData: ResumeData = {
     name: "Bismit Panda",
     location: "Gandhinagar, Gujarat",
     email: "contact@bismitpanda.com",
-    phone: "+91 8280016000",
     linkedin: "https://www.linkedin.com/in/bismit-panda-5432a824a/",
+    github: "https://github.com/bismitpanda",
     website: "https://bismitpanda.com",
   },
   aboutMe:

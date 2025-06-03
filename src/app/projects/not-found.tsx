@@ -1,5 +1,6 @@
+import { GitHubIcon } from "@/components/icons";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, FolderClosed, Home, Github } from "lucide-react";
+import { ArrowLeft, FolderClosed, Home } from "lucide-react";
 import Link from "next/link";
 
 export default function ProjectNotFound() {
@@ -43,7 +44,7 @@ export default function ProjectNotFound() {
               <p className="text-muted-foreground mb-4">Check out my open source work</p>
               <Button asChild variant="outline" size="sm" className="w-full">
                 <Link href="#" className="flex items-center justify-center gap-2">
-                  <Github className="h-4 w-4" />
+                  <GitHubIcon className="h-4 w-4" />
                   <span>GitHub Profile</span>
                 </Link>
               </Button>

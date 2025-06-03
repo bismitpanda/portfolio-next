@@ -3,8 +3,14 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { allPublishedBlogsByDate } from "@/lib/content";
 import { formatDate } from "date-fns";
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "All Blogs | Bismit Panda's Blog",
+  description: "All Blogs",
+};
 
 export default function Page() {
   const latestBlog = allPublishedBlogsByDate[0];

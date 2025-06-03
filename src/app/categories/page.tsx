@@ -8,7 +8,13 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { allCategoriesByCount } from "@/lib/content";
+import type { Metadata } from "next";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "All Categories | Bismit Panda's Blog",
+  description: "All Categories",
+};
 
 export default function Page() {
   return (

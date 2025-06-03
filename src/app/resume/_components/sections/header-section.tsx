@@ -13,8 +13,8 @@ export function HeaderSection({ data }: { data: ResumeData["personalInfo"] }) {
           <Text>{data.email}</Text>
         </Link>
         <Text style={styles.separator}>|</Text>
-        <Link src={`tel:${data.phone}`} style={[styles.contactItem, styles.link]}>
-          <Text>{data.phone}</Text>
+        <Link src={data.github} style={[styles.contactItem, styles.link]}>
+          <Text>{data.github}</Text>
         </Link>
         <Text style={styles.separator}>|</Text>
         <Link src={data.linkedin} style={[styles.contactItem, styles.link]}>

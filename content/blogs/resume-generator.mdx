@@ -1,0 +1,196 @@
+---
+title: "Building a Dynamic Resume Generator with Next.js and React PDF"
+excerpt: "A dynamic resume generator that can be used to generate a pdf of a resume."
+date: "2025-06-03"
+category: "Typescript"
+image: "/images/blogs/resume-generator.png"
+---
+
+I recently built my profile and I wanted to embed a resume generator that converts structured data into a clean PDF resume. The idea came from wanting to maintain my resume as code - something I could version control, easily update, and generate consistently formatted PDFs from.
+
+## The Problem
+
+Managing resumes is a pain. You have different versions for different roles, formatting gets messed up when you convert between file types, and keeping everything consistent across updates is tedious. I wanted something that would let me maintain my resume data in a structured format and generate professional PDFs on demand.
+
+## The Setup
+
+I went with Next.js as I am using that for my profile
+
+- **React PDF** - For generating PDFs from React components
+- **TypeScript** - For type safety across the data structure
+- **Tailwind + Shadcn** - For any web components (though the PDF uses its own styling)
+
+The core idea is simple: define your resume data once in a structured format, then render it as a PDF using React components.
+
+## Data Structure
+
+I started by defining a clear data structure for resume content:
+
+```ts
+export interface ResumeData {
+  personalInfo: {
+    name: string;
+    location: string;
+    email: string;
+    linkedin: string;
+    github: string;
+    website: string;
+  };
+  technologies: {
+    languages: string;
+    softwareAndFrameworks: string;
+  };
+  aboutMe: string;
+  projects: Project[];
+  experience: Experience[];
+  education: Education[];
+  achievements: Achievement[];
+  certifications: Certification[];
+}
+```
+
+I use `content-collections` to manage data and the types and data is fetched from there. Everything stays in sync because it's all referencing the same source data.
+
+## PDF Generation
+
+The PDF generation happens through a Next.js API route at `/resume`. When you hit this endpoint, it renders a React PDF document and returns the binary data:
+
+```ts
+export async function GET() {
+  const buffer = await renderToBuffer(Resume());
+
+  return new NextResponse(buffer, {
+    headers: {
+      "Content-Type": "application/pdf",
+      "Content-Disposition": "inline; filename=resume.pdf",
+      "Content-Length": buffer.length.toString(),
+    },
+  });
+}
+```
+
+The `Resume` component is where the magic happens. It's a React PDF document that renders each section:
+
+```typescript
+export function Resume() {
+  return (
+    <Document title="Bismit Panda's Resume" author="Bismit Panda" subject="Resume">
+      <Page size="LETTER" style={styles.page}>
+        <HeaderSection data={resumeData.personalInfo} />
+        <AboutMeSection content={resumeData.aboutMe} />
+        <ProjectsSection projects={resumeData.projects} />
+        <ExperienceSection experience={resumeData.experience} />
+        <TechnologiesSection technologies={resumeData.technologies} />
+        <EducationSection education={resumeData.education} />
+        <AchievementsSection achievements={resumeData.achievements} />
+        <CertificationsSection certifications={resumeData.certifications} />
+      </Page>
+    </Document>
+  );
+}
+```
+
+## Component Structure
+
+Each section is its own component. Here's how the experience section works:
+
+```typescript
+export function ExperienceSection({ experience }: { experience: Experience[] }) {
+  return (
+    <View style={styles.section}>
+      <Text style={styles.sectionTitle}>Experience</Text>
+      {experience.map((exp, index) => (
+        <View key={index} style={styles.entryContainer}>
+          <View style={styles.entryHeader}>
+            <Text style={styles.entryTitle}>
+              {exp.title}, {exp.company}
+            </Text>
+            <Text style={styles.entryDate}>
+              {formatDate(exp.startDate, "MMM yyyy")} -{" "}
+              {exp.endDate ? formatDate(exp.endDate, "MMM yyyy") : "Present"}
+            </Text>
+          </View>
+          <Text style={styles.paragraph}>{exp.description}</Text>
+          <View style={styles.highlightsList}>
+            {exp.highlights.map((highlight, highlightIndex) => (
+              <View key={highlightIndex} style={styles.highlight}>
+                <Text style={styles.bullet}>•</Text>
+                <Text style={styles.highlightText}>{highlight.trim()}.</Text>
+              </View>
+            ))}
+          </View>
+        </View>
+      ))}
+    </View>
+  );
+}
+```
+
+React PDF uses its own styling system that's similar to React Native. You define styles using `StyleSheet.create()` and apply them to components.
+
+## Styling
+
+Styling PDFs is different from web styling. I needed to use plain CSS-in-JS like styles.
+
+Here's a snippet of the styles I used:
+
+```ts
+export const styles = StyleSheet.create({
+  page: {
+    fontFamily: "Helvetica",
+    fontSize: 10,
+    lineHeight: 1.5,
+    paddingTop: 25,
+    paddingBottom: 25,
+    paddingLeft: 30,
+    paddingRight: 30,
+    backgroundColor: "#ffffff",
+  },
+  sectionTitle: {
+    fontSize: 12,
+    fontWeight: "bold",
+    marginBottom: 6,
+    paddingBottom: 1,
+    borderBottomWidth: 1,
+    borderBottomColor: "#000000",
+    borderBottomStyle: "solid",
+  },
+  // ... more styles
+});
+```
+
+## How It Works
+
+Using it is straightforward:
+
+1. Update your resume data in `resume-data.ts`
+2. Navigate to `http://localhost:3000/resume`
+3. Your browser displays or downloads the generated PDF
+
+The PDF generates fresh each time, so any data changes are immediately reflected.
+
+## What I Learned
+
+The biggest challenge was getting the layout right. React PDF's layout engine is powerful but different from CSS. Spending time understanding how flexbox works in this context saved me a lot of debugging later.
+
+Data structure matters a lot. Having clean, typed interfaces made it easy to add new sections or modify existing ones without breaking anything.
+
+PDF generation is surprisingly fast. Even with multiple sections and complex layouts, the generation happens almost instantly.
+
+## Next Steps
+
+This setup works great for my needs, but there are some obvious extensions which I may add later:
+
+- **Multiple templates** - Different layouts for different job types
+- **Web preview** - Show how the resume looks before generating the PDF
+- **Dynamic sections** - Include/exclude sections based on the target role (e.g. if the user is applying for a frontend role, exclude the backend experience)
+- **Better styling** - More sophisticated layouts and typography
+
+The foundation is solid though. Having my resume as code means I can iterate quickly, keep everything in version control, and generate consistent PDFs whenever I need them.
+
+## Code
+
+- [Resume Generator](https://github.com/bismitpanda/portfolio-next/tree/main/src/app/resume/route.ts)
+- [Resume Data](https://github.com/bismitpanda/portfolio-next/blob/main/src/lib/resume-data.ts)
+- [Resume Components](https://github.com/bismitpanda/portfolio-next/tree/main/src/app/resume/_components)
+- [Resume Styles](https://github.com/bismitpanda/portfolio-next/blob/main/src/app/resume/_components/styles.ts)

@@ -4,6 +4,12 @@ import { EducationSection } from "./_components/sections/education-section";
 import { ExperienceSection } from "./_components/sections/experience-section";
 import { HeroSection } from "./_components/sections/hero-section";
 import { SkillsSection } from "./_components/sections/skills-section";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "About | Bismit Panda",
+  description: "About Bismit Panda",
+};
 
 export default function Page() {
   return (

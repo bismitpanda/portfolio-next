@@ -1,8 +1,15 @@
+import { GitHubIcon } from "@/components/icons";
 import { Button } from "@/components/ui/button";
 import { allGithubProjects, allHostedProjects } from "@/lib/content";
-import { ExternalLink, Github } from "lucide-react";
+import { ExternalLink } from "lucide-react";
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "All Projects | Bismit Panda's Projects",
+  description: "All Projects",
+};
 
 export default function Page() {
   return (
@@ -122,7 +129,7 @@ export default function Page() {
                     <Button asChild variant="outline" className="gap-2">
                       {project.githubUrl && (
                         <Link href={project.githubUrl} target="_blank" rel="noopener noreferrer">
-                          <Github className="h-4 w-4 text-muted-foreground" />
+                          <GitHubIcon className="h-4 w-4 text-muted-foreground" />
                           <span>View on GitHub</span>
                         </Link>
                       )}

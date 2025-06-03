@@ -5,6 +5,16 @@ import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
+export async function generateMetadata({ params }: { params: Promise<{ category: string }> }) {
+  const { category: _category } = await params;
+  const category = allCategoriesByCount.find((c) => c.slug === _category);
+
+  return {
+    title: `${category?.name} | Bismit Panda's Blog`,
+    description: category?.description,
+  };
+}
+
 export async function generateStaticParams() {
   return allCategoriesByCount.map((category) => ({ category: category.slug }));
 }

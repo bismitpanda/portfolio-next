@@ -8,9 +8,24 @@ import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/h
 import { allPublishedBlogsByDate } from "@/lib/content";
 import { formatDate } from "date-fns";
 import { ArrowLeft, ArrowRight } from "lucide-react";
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const blog = allPublishedBlogsByDate.find((blog) => blog.slug === slug);
+
+  return {
+    title: `${blog?.title} | Bismit Panda's Blog`,
+    description: blog?.excerpt,
+  };
+}
 
 export async function generateStaticParams() {
   return allPublishedBlogsByDate.map((blog) => ({ slug: blog.slug }));

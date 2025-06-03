@@ -1,9 +1,20 @@
+import { GitHubIcon } from "@/components/icons";
 import { Button } from "@/components/ui/button";
 import { allProjectsByDate } from "@/lib/content";
-import { ArrowLeft, ExternalLink, Github } from "lucide-react";
+import { ArrowLeft, ExternalLink } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const project = allProjectsByDate.find((project) => project.slug === slug);
+
+  return {
+    title: `${project?.title} | Bismit Panda's Projects`,
+    description: project?.description,
+  };
+}
 
 export async function generateStaticParams() {
   return allProjectsByDate.map((project) => ({ slug: project.slug }));
@@ -44,7 +55,7 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
             {project.githubUrl && (
               <Button asChild variant="outline" size="lg" className="gap-2">
                 <Link href={project.githubUrl} target="_blank" rel="noopener noreferrer">
-                  <Github className="h-4 w-4" />
+                  <GitHubIcon className="h-4 w-4" />
                   <span>View Code</span>
                 </Link>
               </Button>
