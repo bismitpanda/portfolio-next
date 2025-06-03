@@ -1,4 +1,5 @@
-import { Blog } from "@/components/blog";
+import { BlogCard } from "@/components/blog-card";
+import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { allPublishedBlogsByDate } from "@/lib/content";
 import { formatDate } from "date-fns";
@@ -23,8 +24,8 @@ export default function Page() {
             <div className="grid md:grid-cols-2 gap-8 items-center">
               <div className="order-2 md:order-1">
                 <div className="text-sm font-medium text-neutral-300 mb-2">
-                  <Link href={`/categories/${latestBlog.categorySlug}`} className="underline">
-                    {latestBlog.category}
+                  <Link href={`/categories/${latestBlog.categorySlug}`}>
+                    <Badge variant="outline">{latestBlog.category}</Badge>
                   </Link>{" "}
                   • {formatDate(latestBlog.date, "MMMM do, yyyy")}
                 </div>
@@ -59,7 +60,7 @@ export default function Page() {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {allPublishedBlogsByDate.slice(1).map((post) => (
-            <Blog blog={post} key={post.slug} />
+            <BlogCard blog={post} key={post.slug} />
           ))}
         </div>
       </section>

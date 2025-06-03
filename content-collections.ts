@@ -153,7 +153,7 @@ const blogs = defineCollection({
     }
 
     const relatedBlogs = siblings
-      .filter((blog) => blog.category === data.category)
+      .filter((blog) => !blog.draft && blog.category === data.category)
       .slice(0, 3)
       .map((blog) => ({
         ...blog,

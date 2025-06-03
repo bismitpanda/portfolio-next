@@ -1,13 +1,14 @@
 challenge: Balancing compression ratios with decryption performance.
 client: Bismit Panda (Me)
-description: A “Very Fast and Secure” virtual filesystem in Rust with compression
+description:
+  A “Very Fast and Secure” virtual filesystem in Rust with compression
   and encryption.
-featuredImage: /images/VFS Featured Image.png
+featuredImage: /images/projects/featured-images/vfs.png
 githubUrl: https://github.com/bismitpanda/vfs
 projectType: github
 role: Developer
 solution: Chose LZ4 for speed and AES-GCM for authenticated encryption.
 technologies:
-- Rust
+  - Rust
 title: VFS
 year: 2023

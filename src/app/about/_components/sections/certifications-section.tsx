@@ -20,9 +20,6 @@ export function CertificationsSection() {
                       {certification.title}
                     </h3>
                     <p className="text-muted-foreground mb-2 text-sm">{certification.provider}</p>
-                    <p className="text-muted-foreground mb-2 text-sm">
-                      {certification.description.join(" ")}
-                    </p>
                   </div>
                   <p className="text-sm text-muted-foreground mb-4">
                     {formatDate(certification.date, "MMM yyyy")}
@@ -30,6 +27,9 @@ export function CertificationsSection() {
                       ` - ${formatDate(addMonths(certification.date, certification.validity), "MMM yyyy")}`}
                   </p>
                 </div>
+                <p className="text-muted-foreground mb-2 text-sm">
+                  {certification.description.join(" ")}
+                </p>
                 <div className="flex flex-row justify-between gap-2">
                   <Link
                     href={certification.link}

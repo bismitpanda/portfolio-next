@@ -1,6 +1,6 @@
 import { routes, socialRoutes } from "../routes";
-import { Github, Linkedin, Mail, Twitter } from "lucide-react";
-import Image from "next/image";
+import { GitHubIcon, LinkedInIcon, Logo, TwitterXIcon } from "@/components/icons";
+import { Mail } from "lucide-react";
 import Link from "next/link";
 
 export function Footer() {
@@ -13,7 +13,7 @@ export function Footer() {
               href="/"
               className="font-serif text-3xl font-bold tracking-tight flex gap-x-4 items-center"
             >
-              <Image src="/logo.svg" alt="Logo" width={42} height={42} />
+              <Logo className="size-[42px]" />
               Bismit Panda
             </Link>
             <p className="mt-4 text-muted-foreground">
@@ -42,31 +42,43 @@ export function Footer() {
             <h3 className="text-xl font-medium mb-4">Connect</h3>
             <div className="flex space-x-4">
               <Link
-                href={socialRoutes.email}
+                href={socialRoutes.email.url}
                 className="text-muted-foreground hover:text-foreground transition-colors"
+                aria-label={socialRoutes.email.label}
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 <Mail className="h-6 w-6" />
                 <span className="sr-only">Email</span>
               </Link>
               <Link
-                href={socialRoutes.linkedIn}
+                href={socialRoutes.linkedIn.url}
                 className="text-muted-foreground hover:text-foreground transition-colors"
+                aria-label={socialRoutes.linkedIn.label}
+                target="_blank"
+                rel="noopener noreferrer"
               >
-                <Linkedin className="h-6 w-6" />
+                <LinkedInIcon className="h-6 w-6" />
                 <span className="sr-only">LinkedIn</span>
               </Link>
               <Link
-                href={socialRoutes.github}
+                href={socialRoutes.github.url}
                 className="text-muted-foreground hover:text-foreground transition-colors"
+                aria-label={socialRoutes.github.label}
+                target="_blank"
+                rel="noopener noreferrer"
               >
-                <Github className="h-6 w-6" />
+                <GitHubIcon className="h-6 w-6" />
                 <span className="sr-only">GitHub</span>
               </Link>
               <Link
-                href={socialRoutes.x}
+                href={socialRoutes.x.url}
                 className="text-muted-foreground hover:text-foreground transition-colors"
+                aria-label={socialRoutes.x.label}
+                target="_blank"
+                rel="noopener noreferrer"
               >
-                <Twitter className="h-6 w-6" />
+                <TwitterXIcon className="h-6 w-6" />
                 <span className="sr-only">Twitter</span>
               </Link>
             </div>

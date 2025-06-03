@@ -1,9 +1,7 @@
-import { Badge } from "@/components/ui/badge";
+import { BlogCard } from "@/components/blog-card";
 import { Button } from "@/components/ui/button";
 import { allPublishedBlogsByDate, allCategoriesByCount } from "@/lib/content";
-import { formatDate } from "date-fns";
 import { ArrowLeft } from "lucide-react";
-import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
@@ -19,7 +17,9 @@ export default async function Page({ params }: { params: Promise<{ category: str
     notFound();
   }
 
-  const filteredPosts = allPublishedBlogsByDate.filter((post) => post.category === category.name);
+  const filteredPosts = allPublishedBlogsByDate.filter(
+    (post) => post.categorySlug === category.slug,
+  );
 
   return (
     <div className="pt-20">
@@ -39,29 +39,7 @@ export default async function Page({ params }: { params: Promise<{ category: str
         {filteredPosts.length > 0 ? (
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredPosts.map((post) => (
-              <Link
-                key={post.slug}
-                href={`/blog/${post.slug}`}
-                className="hover:scale-[1.02] transition-transform block rounded-lg overflow-hidden bg-neutral-900"
-              >
-                <div className="aspect-video overflow-hidden">
-                  <Image
-                    src={post.image}
-                    alt={post.title}
-                    width={400}
-                    height={200}
-                    className="w-full h-full object-cover transition-transform duration-500"
-                  />
-                </div>
-                <div className="p-6">
-                  <div className="text-sm font-medium text-muted-foreground mb-2">
-                    <Badge variant="outline">{post.category}</Badge> •{" "}
-                    {formatDate(post.date, "MMMM do, yyyy")}
-                  </div>
-                  <h3 className="text-2xl font-bold mb-2 transition-colors">{post.title}</h3>
-                  <p className="text-muted-foreground">{post.excerpt}</p>
-                </div>
-              </Link>
+              <BlogCard key={post.slug} blog={post} />
             ))}
           </div>
         ) : (

@@ -4,12 +4,15 @@ export const routes = [
   { name: "Projects", path: "/projects" },
   { name: "Snippets", path: "/snippets" },
   { name: "Blog", path: "/blog" },
-  { name: "Resume", path: "/resume.pdf", external: true },
+  { name: "Resume", path: "/resume", external: true },
 ];
 
 export const socialRoutes = {
-  linkedIn: "https://www.linkedin.com/in/bismit-panda-5432a824a",
-  github: "https://github.com/bismitpanda",
-  x: "https://x.com/bismitpanda",
-  email: "mailto:contact@bismitpanda.com",
+  linkedIn: {
+    label: "linkedin.com/in/bismit-panda-5432a824a",
+    url: "https://www.linkedin.com/in/bismit-panda-5432a824a",
+  },
+  github: { label: "github.com/bismitpanda", url: "https://github.com/bismitpanda" },
+  x: { label: "x.com/bismitpanda", url: "https://x.com/bismitpanda" },
+  email: { label: "contact@bismitpanda.com", url: "mailto:contact@bismitpanda.com" },
 };

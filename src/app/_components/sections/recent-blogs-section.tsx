@@ -1,4 +1,4 @@
-import { Blog } from "@/components/blog";
+import { BlogCard } from "@/components/blog-card";
 import { allPublishedBlogsByDate } from "@/lib/content";
 import Link from "next/link";
 
@@ -14,7 +14,7 @@ export function RecentBlogsSection() {
 
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
         {allPublishedBlogsByDate.slice(0, 3).map((post) => (
-          <Blog key={post.slug} blog={post} />
+          <BlogCard key={post.slug} blog={post} />
         ))}
       </div>
     </section>

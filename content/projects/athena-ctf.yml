@@ -1,18 +1,22 @@
 challenge: Building a platform for hosting CTFs with a focus on security and scalability.
 client: Bismit Panda (Me)
 description: A platform for hosting CTFs
-featuredImage: /images/Athena Featured Image.png
+featuredImage: /images/projects/featured-images/athena-ctf.png
 githubUrl: https://github.com/athena-ctf/athena
 projectType: github
 role: Developer
-solution: Built a platform for hosting CTFs with a focus on security and scalability.
+solution:
+  Built a platform for hosting CTFs with a focus on security and scalability.
   It supports multiple CTFs, multiple challenges, and multiple teams.
 technologies:
-- React
-- Next.js
-- Tailwind CSS
-- TypeScript
-- Node.js
-- PostgreSQL
+  - React
+  - Next.js
+  - Tailwind CSS
+  - TypeScript
+  - Node.js
+  - PostgreSQL
+  - Rust
+  - Docker
+  - Redis
 title: Athena
 year: 2024

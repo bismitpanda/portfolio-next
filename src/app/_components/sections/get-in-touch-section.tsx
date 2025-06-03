@@ -1,5 +1,6 @@
 import { socialRoutes } from "../routes";
-import { Mail, Linkedin, Github, Twitter } from "lucide-react";
+import { GitHubIcon, LinkedInIcon, TwitterXIcon } from "@/components/icons";
+import { Mail } from "lucide-react";
 import Link from "next/link";
 
 export function GetInTouchSection() {
@@ -14,32 +15,44 @@ export function GetInTouchSection() {
         </div>
         <div className="flex flex-col gap-6 items-start">
           <Link
-            href={socialRoutes.email}
+            href={socialRoutes.email.url}
             className="flex items-center gap-4 text-xl text-muted-foreground hover:text-foreground group"
+            aria-label={socialRoutes.email.label}
+            target="_blank"
+            rel="noopener noreferrer"
           >
             <Mail className="h-6 w-6 group-hover:scale-110 transition-transform" />
-            <span className="link-underline">{socialRoutes.email}</span>
+            <span className="link-underline">{socialRoutes.email.label}</span>
           </Link>
           <Link
-            href={socialRoutes.linkedIn}
+            href={socialRoutes.linkedIn.url}
             className="flex items-center gap-4 text-xl text-muted-foreground hover:text-foreground group"
+            aria-label={socialRoutes.linkedIn.label}
+            target="_blank"
+            rel="noopener noreferrer"
           >
-            <Linkedin className="h-6 w-6 group-hover:scale-110 transition-transform" />
-            <span className="link-underline">{socialRoutes.linkedIn}</span>
+            <LinkedInIcon className="h-6 w-6 group-hover:scale-110 transition-transform" />
+            <span className="link-underline">{socialRoutes.linkedIn.label}</span>
           </Link>
           <Link
-            href={socialRoutes.github}
+            href={socialRoutes.github.url}
             className="flex items-center gap-4 text-xl text-muted-foreground hover:text-foreground group"
+            aria-label={socialRoutes.github.label}
+            target="_blank"
+            rel="noopener noreferrer"
           >
-            <Github className="h-6 w-6 group-hover:scale-110 transition-transform" />
-            <span className="link-underline">{socialRoutes.github}</span>
+            <GitHubIcon className="h-6 w-6 group-hover:scale-110 transition-transform" />
+            <span className="link-underline">{socialRoutes.github.label}</span>
           </Link>
           <Link
-            href={socialRoutes.x}
+            href={socialRoutes.x.url}
             className="flex items-center gap-4 text-xl text-muted-foreground hover:text-foreground group"
+            aria-label={socialRoutes.x.label}
+            target="_blank"
+            rel="noopener noreferrer"
           >
-            <Twitter className="h-6 w-6 group-hover:scale-110 transition-transform" />
-            <span className="link-underline">{socialRoutes.x}</span>
+            <TwitterXIcon className="h-6 w-6 group-hover:scale-110 transition-transform" />
+            <span className="link-underline">{socialRoutes.x.label}</span>
           </Link>
         </div>
       </div>

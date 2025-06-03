@@ -1,11 +1,11 @@
 "use client";
 
 import { routes } from "../routes";
+import { Logo } from "@/components/icons";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { Menu, MoveUpRight, X } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
@@ -15,13 +15,13 @@ export function Navigation() {
   const pathname = usePathname();
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-xs border-b border-border">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-background/60 backdrop-blur-xs border-b border-border">
       <div className="container-custom flex items-center justify-between h-20">
         <Link
           href="/"
           className="font-serif text-2xl font-bold tracking-tight flex gap-x-4 items-center"
         >
-          <Image src="/logo.svg" alt="Logo" width={42} height={42} />
+          <Logo className="size-[42px]" />
           Bismit Panda
         </Link>
 
