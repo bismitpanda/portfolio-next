@@ -1,16 +1,21 @@
 ---
-title: "Building a Dynamic Resume Generator with Next.js and React PDF"
-excerpt: "A dynamic resume generator that can be used to generate a pdf of a resume."
+title: "Generate Beautiful Resumes with React PDF and Next.js"
+excerpt: A dynamic, code-based resume generator that lets you version control your resume and export professional PDFs on demand.
 date: "2025-06-03"
 category: "Typescript"
 image: "/images/blogs/resume-generator.png"
 ---
 
-I recently built my profile and I wanted to embed a resume generator that converts structured data into a clean PDF resume. The idea came from wanting to maintain my resume as code - something I could version control, easily update, and generate consistently formatted PDFs from.
+While building my personal site, I wanted a smarter way to handle resumes—something version-controlled, customizable, and always up-to-date. That’s when I decided to build a dynamic resume generator using Next.js and React PDF. The idea came from wanting to maintain my resume as code - something I could version control, easily update, and generate consistently formatted PDFs from.
 
 ## The Problem
 
 Managing resumes is a pain. You have different versions for different roles, formatting gets messed up when you convert between file types, and keeping everything consistent across updates is tedious. I wanted something that would let me maintain my resume data in a structured format and generate professional PDFs on demand.
+
+<Callout title="Why not Google Docs or Canva?" icon="info" variant="info">
+  A resume is a document that showcases your skills and experience. I was not going to spend time on
+  designing a resume and battling with the formatting.
+</Callout>
 
 ## The Setup
 
@@ -18,7 +23,6 @@ I went with Next.js as I am using that for my profile
 
 - **React PDF** - For generating PDFs from React components
 - **TypeScript** - For type safety across the data structure
-- **Tailwind + Shadcn** - For any web components (though the PDF uses its own styling)
 
 The core idea is simple: define your resume data once in a structured format, then render it as a PDF using React components.
 
@@ -68,6 +72,11 @@ export async function GET() {
   });
 }
 ```
+
+<Callout title="Note" icon="circle-check-big" variant="success">
+  This API route leverages `renderToBuffer()` from `@react-pdf/renderer`, turning my React-based
+  Resume component into a binary PDF response.
+</Callout>
 
 The `Resume` component is where the magic happens. It's a React PDF document that renders each section:
 
@@ -159,13 +168,39 @@ export const styles = StyleSheet.create({
 });
 ```
 
+<Callout title="Can I add custom fonts?" icon="info" variant="info">
+  Yes, you can add custom fonts. You can import `Font` from `@react-pdf/renderer` and then register your font like so:
+
+```ts
+import { Font } from "@react-pdf/renderer";
+
+const font = Font.register({
+  family: "MyFont",
+  src: "path/to/my-font.ttf",
+});
+```
+
+Then you can use the font in your styles like so:
+
+```ts
+import { StyleSheet } from "@react-pdf/renderer";
+
+const styles = StyleSheet.create({
+  text: {
+    fontFamily: "MyFont",
+  },
+});
+```
+
+</Callout>
+
 ## How It Works
 
 Using it is straightforward:
 
 1. Update your resume data in `resume-data.ts`
 2. Navigate to `http://localhost:3000/resume`
-3. Your browser displays or downloads the generated PDF
+3. Your browser displays generated PDF (It may download automatically depending on your browser settings)
 
 The PDF generates fresh each time, so any data changes are immediately reflected.
 

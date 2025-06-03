@@ -28,10 +28,10 @@ DynamicIcon.displayName = "DynamicIcon";
 const variants = cva("bg-muted/50", {
   variants: {
     variant: {
-      info: "border-blue-900 bg-blue-950 [&_code]:bg-blue-900",
-      success: "border-green-900 bg-green-950 [&_code]:bg-green-900",
-      warning: "border-yellow-800 bg-yellow-300/25 [&_code]:bg-yellow-300/25",
-      error: "border-red-900 bg-red-950 [&_code]:bg-red-900",
+      info: "border-blue-900 bg-blue-950",
+      success: "border-green-900 bg-green-950",
+      warning: "border-yellow-800 bg-yellow-300/25",
+      error: "border-red-900 bg-red-950",
     },
   },
 });

@@ -144,7 +144,7 @@ const components = {
   }) => {
     const filename = meta ? meta.split("=")[1] : null;
     return (
-      <figure className="overflow-hidden rounded-lg mt-6">
+      <figure className="overflow-hidden rounded-lg mt-6 w-full">
         <figcaption className="flex justify-between items-center text-xs p-2 px-4 leading-normal rounded-t-lg bg-gray-700 text-white">
           {filename && <p className="mb-0">{filename}</p>}
           <p className="text-xs text-white font-mono font-semibold">{lang}</p>
