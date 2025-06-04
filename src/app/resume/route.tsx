@@ -3,7 +3,7 @@ import { renderToBuffer } from "@react-pdf/renderer";
 import { NextResponse } from "next/server";
 
 export async function GET() {
-  const buffer = await renderToBuffer(Resume());
+  const buffer = await renderToBuffer(<Resume />);
 
   return new NextResponse(buffer, {
     headers: {

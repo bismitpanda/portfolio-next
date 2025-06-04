@@ -12,6 +12,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: blog.date,
     changeFrequency: "weekly" as const,
     priority: 0.5,
+    images: [`https://bismitpanda.com/images/blogs/${blog.image}`],
   }));
 
   const categoryUrls = allCategoriesByCount.map((category) => ({
@@ -26,6 +27,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: new Date(project.year, 0, 1),
     changeFrequency: "weekly" as const,
     priority: 0.5,
+    images: [`https://bismitpanda.com/images/projects/${project.featuredImage}`],
   }));
 
   const snippetUrls = allSnippetsByDate.map((snippet) => ({
@@ -41,6 +43,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
       changeFrequency: "yearly",
       priority: 1,
+    },
+    {
+      url: "https://bismitpanda.com/about",
+      lastModified: new Date(),
+      changeFrequency: "yearly",
+      priority: 0.7,
+    },
+    {
+      url: "https://bismitpanda.com/resume",
+      lastModified: new Date(),
+      changeFrequency: "yearly",
+      priority: 0.7,
     },
     {
       url: "https://bismitpanda.com/blog",
