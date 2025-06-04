@@ -1,20 +1,22 @@
-challenge: Building a multi-section marketing site with dynamic metrics, testimonial
-  carousels, and seamless brand-logo integration under a unified design system.
+challenge: >
+  Building a multi-section marketing site with dynamic metrics, testimonial carousels, and
+  seamless brand-logo integration under a unified design system.
 client: Green Card Inc.
-description: An all-in-one U.S. concierge service site offering visa assistance, housing,
-  tax filing, incubator support, media services, and EB-5 loan programs to ease immigrant
-  transitions.
+description: >
+  An all-in-one U.S. concierge service site offering visa assistance, housing, tax filing,
+  incubator support, media services, and EB-5 loan programs to ease immigrant transitions.
 featuredImage: https://openventure.com/opengraph-image.png
 liveUrl: https://openventure.com
 projectType: hosted
 role: Lead Developer
-solution: Developed a Next.js/React front end with Tailwind CSS, integrated headless
-  CMS for content sections and dynamic counters, and implemented a responsive carousel
-  for client testimonials.
+solution: >
+  Developed a Next.js/React front end with Tailwind CSS, integrated headless CMS for content
+  sections and dynamic counters, and implemented a responsive carousel for client
+  testimonials.
 technologies:
-- Next.js
-- React
-- Tailwind CSS
-- TypeScript
+  - Next.js
+  - React
+  - Tailwind CSS
+  - TypeScript
 title: Open Venture
 year: 2025

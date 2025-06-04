@@ -31,12 +31,16 @@ export default async function Image({ params }: { params: Promise<{ slug: string
 
   return new ImageResponse(
     (
-      <div tw="text-6xl bg-white flex flex-col items-start justify-between font-[Typewriter_Serial] w-full h-full p-10">
-        <div tw="text-lg text-gray-500">{formatDate(blog.date, "MMM d, yyyy")}</div>
-        <div tw="flex flex-col items-start justify-between">
-          <div tw="text-purple-500 mb-6">Blog:</div>
-          <div tw="font-bold mb-6">{blog.title}</div>
-          <div tw="text-lg text-gray-500">{blog.excerpt}</div>
+      <div tw="text-6xl flex font-[Typewriter_Serial] w-full h-full relative bg-white">
+        <div tw="flex flex-col w-full h-full justify-between p-10">
+          <div tw="text-lg text-gray-500">
+            {`${formatDate(blog.date, "MMM d, yyyy")} • ${blog.readingTime}`}
+          </div>
+          <div tw="flex flex-col items-start justify-between">
+            <div tw="text-[#aa6f1a] mb-6">Blog:</div>
+            <div tw="font-bold mb-6">{blog.title}</div>
+            <div tw="text-lg text-gray-500">{blog.excerpt}</div>
+          </div>
         </div>
       </div>
     ),

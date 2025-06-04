@@ -1,3 +1,4 @@
+import { ProjectCarousel } from "./_components/project-carousel";
 import { GitHubIcon } from "@/components/icons";
 import { Button } from "@/components/ui/button";
 import { allProjectsByDate } from "@/lib/content";
@@ -120,6 +121,10 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
             </div>
           </div>
         </div>
+
+        {project.gallery.length > 0 && (
+          <ProjectCarousel gallery={project.gallery} title={project.title} />
+        )}
       </article>
     </div>
   );

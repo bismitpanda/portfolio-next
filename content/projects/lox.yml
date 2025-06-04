@@ -1,18 +1,17 @@
-challenge:
-  Implementing lexical analysis, parsing, and a register-based VM in C while
-  managing manual memory and avoiding security pitfalls.
+challenge: >
+  Implementing lexical analysis, parsing, and a register-based VM in C while managing manual
+  memory and avoiding security pitfalls.
 client: Bismit Panda (Me)
-description:
-  Lox is a C-based implementation of a programming language following the
-  Compiler + VM architecture, directly inspired by crafting interpreters.
+description: >
+  Lox is a C-based implementation of a programming language following the Compiler + VM
+  architecture, directly inspired by crafting interpreters.
 featuredImage: /images/projects/featured-images/lox.png
 githubUrl: https://github.com/bismitpanda/lox
 projectType: github
 role: Developer
-solution:
-  Built a hand-rolled lexer, recursive-descent parser, and a bytecode compiler
-  with an accompanying virtual machine, using C for maximum control over performance
-  and footprint.
+solution: >
+  Built a hand-rolled lexer, recursive-descent parser, and a bytecode compiler with an
+  accompanying virtual machine, using C for maximum control over performance and footprint.
 technologies:
   - C
   - CMake

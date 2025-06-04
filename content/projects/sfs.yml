@@ -1,11 +1,14 @@
-challenge: Emulating POSIX-like operations in an in-memory JS environment.
+challenge: >
+  Emulating POSIX-like operations in an in-memory JS environment.
 client: Bismit Panda (Me)
-description: A TypeScript sandboxed file system for browser-based demos and tutorials.
+description: >
+  A TypeScript sandboxed file system for browser-based demos and tutorials.
 featuredImage: /images/projects/featured-images/sfs.png
 githubUrl: https://github.com/bismitpanda/sfs
 projectType: github
 role: Developer
-solution: Built a virtual FS tree with async API mirroring Node’s `fs/promises`.
+solution: >
+  Built a virtual FS tree with async API mirroring Node’s `fs/promises`.
 technologies:
   - TypeScript
 title: SFS

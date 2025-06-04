@@ -48,7 +48,7 @@ export function Callout({
     <Alert className={cn(variants({ variant }), "my-6", className)} {...props}>
       {icon && <DynamicIcon name={icon} className="mr-4 text-2xl" />}
       {title && <AlertTitle>{title}</AlertTitle>}
-      <AlertDescription>{children}</AlertDescription>
+      <AlertDescription className="text-white">{children}</AlertDescription>
     </Alert>
   );
 }

@@ -1,20 +1,28 @@
-challenge: Presenting my work in a clear, interactive way.
+challenge: >
+  Presenting my work in a clear, interactive way.
 client: Bismit Panda (Me)
-description: A portfolio website for me.
-featured: true
+description: >
+  A portfolio website for me.
+isFeatured: true
 featuredImage: https://bismitpanda.com/opengraph-image.png
 githubUrl: https://github.com/bismitpanda/portfolio-next
 liveUrl: https://bismitpanda.com
 projectType: hosted
 role: Full-stack Developer
-solution: Implemented a portfolio website with Next.js, shadcn/ui, React, TypeScript,
-  Tailwind CSS, and Node.js.
+solution: >
+  Implemented a portfolio website with Next.js, shadcn/ui, React, TypeScript, Tailwind CSS,
+  and Node.js.
 technologies:
-- Next.js
-- shadcn/ui
-- React
-- TypeScript
-- Tailwind CSS
-- Node.js
+  - Next.js
+  - shadcn/ui
+  - React
+  - TypeScript
+  - Tailwind CSS
+  - Node.js
 title: Portfolio
 year: 2025
+gallery:
+  - /images/projects/portfolio/gallery/image 1.png
+  - /images/projects/portfolio/gallery/image 2.png
+  - /images/projects/portfolio/gallery/image 3.png
+  - /images/projects/portfolio/gallery/image 4.png

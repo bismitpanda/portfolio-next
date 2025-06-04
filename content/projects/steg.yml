@@ -1,11 +1,14 @@
-challenge: Avoiding noticeable artifacts in the steganographically encoded images.
+challenge: >
+  Avoiding noticeable artifacts in the steganographically encoded images.
 client: Bismit Panda (Me)
-description: A Rust library for simple image steganography, hiding messages in images.
+description: >
+  A Rust library for simple image steganography, hiding messages in images.
 featuredImage: /images/projects/featured-images/steg.png
 githubUrl: https://github.com/bismitpanda/steg
 projectType: github
 role: Developer
-solution: Implemented LSB encoding with randomized bit positions and optional encryption.
+solution: >
+  Implemented LSB encoding with randomized bit positions and optional encryption.
 technologies:
   - Rust
 title: Steg

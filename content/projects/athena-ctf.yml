@@ -1,11 +1,13 @@
-challenge: Building a platform for hosting CTFs with a focus on security and scalability.
+challenge: >
+  Building a platform for hosting CTFs with a focus on security and scalability.
 client: Bismit Panda (Me)
-description: A platform for hosting CTFs
+description: >
+  A platform for hosting CTFs with a focus on security and scalability.
 featuredImage: /images/projects/featured-images/athena-ctf.png
 githubUrl: https://github.com/athena-ctf/athena
 projectType: github
 role: Developer
-solution:
+solution: >
   Built a platform for hosting CTFs with a focus on security and scalability.
   It supports multiple CTFs, multiple challenges, and multiple teams.
 technologies:

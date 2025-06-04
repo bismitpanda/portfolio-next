@@ -1,20 +1,19 @@
-challenge:
-  Designing a flexible AST and VM in Rust that can support variable mutability,
-  complex operators, and custom data types without sacrificing performance.
+challenge: >
+  Designing a flexible AST and VM in Rust that can support variable mutability, complex
+  operators, and custom data types without sacrificing performance.
 client: Bismit Panda (Me)
-description:
-  This is a toy interpreter for the panda programming language, featuring
-  both an AST tree-walker evaluator and a compiler + VM architecture. It’s inspired
-  by the Monkey language implementation in Go.
-featured: true
+description: >
+  This is a toy interpreter for the panda programming language, featuring both an AST
+  tree-walker evaluator and a compiler + VM architecture. It’s inspired by the Monkey
+  language implementation in Go.
+isFeatured: true
 featuredImage: /images/projects/featured-images/panda.png
 githubUrl: https://github.com/bismitpanda/panda
 projectType: github
 role: Developer
-solution:
-  Built an AST-based interpreter and a separate compiler + VM pipeline in
-  Rust, leveraging enums for node types and a bytecode VM to execute compiled instructions
-  efficiently.
+solution: >
+  Built an AST-based interpreter and a separate compiler + VM pipeline in Rust, leveraging
+  enums for node types and a bytecode VM to execute compiled instructions efficiently.
 technologies:
   - Rust
 title: Panda

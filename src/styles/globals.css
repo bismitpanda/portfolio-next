@@ -186,4 +186,8 @@
   .non-existent-blog-link {
     @apply inline-block cursor-not-allowed rounded-sm border-[1px] border-yellow-800 bg-yellow-700/40 px-1 py-0.5 text-sm text-yellow-100 !no-underline hover:bg-yellow-700/60;
   }
+
+  .font-heading {
+    @apply font-sans;
+  }
 }

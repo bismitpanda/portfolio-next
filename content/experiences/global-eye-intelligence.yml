@@ -1,7 +1,10 @@
 company: Global Eye Intelligence
-description: I worked on the development of a web platform, scraping modules and AI agent ecosystem for geopolitical intelligence processing.
+description: >
+  I worked on the development of a web platform, scraping modules and AI agent ecosystem
+  for geopolitical intelligence processing.
 highlights:
-  - Spearheaded development of a web platform and AI agent ecosystem for geopolitical intelligence processing
+  - Spearheaded development of a web platform and AI agent ecosystem for geopolitical
+    intelligence processing
   - Led a team of 6+ developers across frontend, AI pipeline, and scraping modules
   - Achieved 80% reduction in manual data aggregation via automation and custom AI tooling
 startDate: 2025-01-01

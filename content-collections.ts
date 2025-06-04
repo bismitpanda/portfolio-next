@@ -58,7 +58,8 @@ const projectSchema = z.object({
   projectType: z.enum(["hosted", "github"]),
   liveUrl: z.string().optional(),
   githubUrl: z.string().optional(),
-  featured: z.boolean().default(false),
+  isFeatured: z.boolean().default(false),
+  gallery: z.string().array().default([]),
 });
 
 const experienceSchema = z.object({

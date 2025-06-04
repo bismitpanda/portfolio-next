@@ -1,14 +1,15 @@
-challenge: Solving a sudoku using provided constraints.
+challenge: >
+  Solving a sudoku using provided constraints.
 client: Bismit Panda (Me)
-description:
-  A Sudoku puzzle solver implemented in Rust, utilizing Crook's algorithm.
-  This project showcases algorithmic problem-solving skills and proficiency in Rust
-  programming.
+description: >
+  A Sudoku puzzle solver implemented in Rust, utilizing Crook's algorithm. This project
+  showcases algorithmic problem-solving skills and proficiency in Rust programming.
 featuredImage: /images/projects/featured-images/sudoku-solver.png
 githubUrl: https://github.com/bismitpanda/sudoku_solver
 projectType: github
 role: Developer
-solution: Built a generic matrix builder and verified against known puzzles.
+solution: >
+  Built a generic matrix builder and verified against known puzzles.
 technologies:
   - Rust
 title: Sudoku Solver

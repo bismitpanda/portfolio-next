@@ -14,21 +14,37 @@ import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { cn } from "@/lib/utils";
 import { useMDXComponent } from "@content-collections/mdx/react";
+import type * as AccordionPrimitive from "@radix-ui/react-accordion";
 import Link from "next/link";
 
 const components = {
   Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
+  AccordionContent: ({
+    className,
+    ...props
+  }: React.ComponentProps<typeof AccordionPrimitive.Content>) => (
+    <AccordionContent className={cn("font-sans text-base", className)} {...props} />
+  ),
+  AccordionItem: ({
+    className,
+    ...props
+  }: React.ComponentProps<typeof AccordionPrimitive.Item>) => (
+    <AccordionItem className={cn("font-sans", className)} {...props} />
+  ),
+  AccordionTrigger: ({
+    className,
+    ...props
+  }: React.ComponentProps<typeof AccordionPrimitive.Trigger>) => (
+    <AccordionTrigger className={cn("font-sans text-lg", className)} {...props} />
+  ),
   Button,
-  h1: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
+  h1: ({ className, ...props }: React.ComponentProps<typeof AccordionPrimitive.Item>) => (
     <h1 className={cn("font-heading mt-2 scroll-m-20 text-4xl font-bold", className)} {...props} />
   ),
   h2: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h2
       className={cn(
-        "font-heading mt-16 scroll-m-20 border-b pb-4 text-xl font-semibold tracking-tight first:mt-0",
+        "font-heading mt-16 scroll-m-20 border-b pb-4 text-2xl font-semibold tracking-tight first:mt-0",
         className,
       )}
       {...props}
@@ -37,7 +53,7 @@ const components = {
   h3: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h3
       className={cn(
-        "font-heading mt-8 scroll-m-20 text-lg font-semibold tracking-tight",
+        "font-heading mt-8 scroll-m-20 text-xl font-semibold tracking-tight",
         className,
       )}
       {...props}
@@ -54,19 +70,25 @@ const components = {
   ),
   h5: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h5
-      className={cn("mt-8 scroll-m-20 text-lg font-semibold tracking-tight", className)}
+      className={cn(
+        "font-heading mt-8 scroll-m-20 text-base font-semibold tracking-tight",
+        className,
+      )}
       {...props}
     />
   ),
   h6: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h6
-      className={cn("mt-8 scroll-m-20 text-base font-semibold tracking-tight", className)}
+      className={cn(
+        "font-heading mt-8 scroll-m-20 text-base font-semibold tracking-tight",
+        className,
+      )}
       {...props}
     />
   ),
   a: ({ className, ...props }: React.HTMLAttributes<HTMLAnchorElement> & { href: string }) => (
     <a
-      className={cn("font-medium underline underline-offset-4", className)}
+      className={cn("underline underline-offset-4", className)}
       target={props.href ? "_blank" : ""}
       {...props}
     />
@@ -145,7 +167,7 @@ const components = {
     const filename = meta ? meta.split("=")[1] : null;
     return (
       <figure className="overflow-hidden rounded-lg mt-6 w-full">
-        <figcaption className="flex justify-between items-center text-xs p-2 px-4 leading-normal rounded-t-lg bg-gray-700 text-white">
+        <figcaption className="flex justify-between items-center text-sm p-2 px-4 leading-normal rounded-t-lg bg-gray-700 text-white">
           {filename && <p className="mb-0">{filename}</p>}
           <p className="text-xs text-white font-mono font-semibold">{lang}</p>
         </figcaption>
@@ -211,7 +233,7 @@ const components = {
     />
   ),
   Link: ({ className, ...props }: React.ComponentProps<typeof Link>) => (
-    <Link className={cn("font-medium underline underline-offset-4", className)} {...props} />
+    <Link className={cn("underline underline-offset-4", className)} {...props} />
   ),
   LinkedCard: ({ className, ...props }: React.ComponentProps<typeof Link>) => (
     <Link
