@@ -3,7 +3,7 @@ challenge: >
 client: Bismit Panda (Me)
 description: >
   A TypeScript sandboxed file system for browser-based demos and tutorials.
-featuredImage: /images/projects/featured-images/sfs.png
+featuredImage: /images/projects/sfs/featured-image.png
 githubUrl: https://github.com/bismitpanda/sfs
 projectType: github
 role: Developer

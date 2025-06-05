@@ -1,6 +1,6 @@
 "use client";
 
-import type { MermaidConfig } from "mermaid";
+import mermaid, { type MermaidConfig } from "mermaid";
 import { useEffect, useId, useRef, useState } from "react";
 
 export function Mermaid({ chart }: { chart: string }) {
@@ -15,12 +15,10 @@ export function Mermaid({ chart }: { chart: string }) {
       const mermaidConfig: MermaidConfig = {
         startOnLoad: false,
         securityLevel: "loose",
-        fontFamily: "inherit",
+        fontFamily: "JetBrains Mono",
         themeCSS: "margin: 1.5rem auto 0;",
         theme: "dark",
       };
-
-      const { default: mermaid } = await import("mermaid");
 
       try {
         mermaid.initialize(mermaidConfig);

@@ -9,13 +9,13 @@ import "@/styles/globals.css";
 import "@/styles/shiki.css";
 import "@/styles/mdx.css";
 
-const inter = Fustat({
+const fustat = Fustat({
   subsets: ["latin"],
   variable: "--font-fustat",
   display: "swap",
 });
 
-const playfair = Playfair_Display({
+const playfairDisplay = Playfair_Display({
   subsets: ["latin"],
   variable: "--font-playfair",
   display: "swap",
@@ -41,7 +41,7 @@ export default function Layout({
   return (
     <html lang="en" className="scroll-smooth dark" suppressHydrationWarning>
       <body
-        className={`${inter.variable} ${playfair.variable} ${jetBrainsMono.variable} font-sans antialiased`}
+        className={`${fustat.variable} ${playfairDisplay.variable} ${jetBrainsMono.variable} font-sans antialiased`}
       >
         <div className="min-h-screen bg-background text-foreground">
           <Navigation />

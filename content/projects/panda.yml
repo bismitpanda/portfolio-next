@@ -7,7 +7,7 @@ description: >
   tree-walker evaluator and a compiler + VM architecture. It’s inspired by the Monkey
   language implementation in Go.
 isFeatured: true
-featuredImage: /images/projects/featured-images/panda.png
+featuredImage: /images/projects/panda/featured-image.png
 githubUrl: https://github.com/bismitpanda/panda
 projectType: github
 role: Developer

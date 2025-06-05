@@ -3,7 +3,7 @@ challenge: >
 client: Bismit Panda (Me)
 description: >
   A platform for hosting CTFs with a focus on security and scalability.
-featuredImage: /images/projects/featured-images/athena-ctf.png
+featuredImage: /images/projects/athena-ctf/featured-image.png
 githubUrl: https://github.com/athena-ctf/athena
 projectType: github
 role: Developer

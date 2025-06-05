@@ -3,7 +3,7 @@ challenge: >
 client: Bismit Panda (Me)
 description: >
   A “Very Fast and Secure” virtual filesystem in Rust with compression and encryption.
-featuredImage: /images/projects/featured-images/vfs.png
+featuredImage: /images/projects/vfs/featured-image.png
 githubUrl: https://github.com/bismitpanda/vfs
 projectType: github
 role: Developer

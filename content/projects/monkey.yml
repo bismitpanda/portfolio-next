@@ -5,7 +5,7 @@ client: Bismit Panda (Me)
 description: >
   An interpreter/compiler for the Monkey language as presented in Thorsten Ball’s books,
   extended with extra built-in functions and VM introspection utilities.
-featuredImage: /images/projects/featured-images/monkey.png
+featuredImage: /images/projects/monkey/featured-image.png
 githubUrl: https://github.com/bismitpanda/monkey
 projectType: github
 role: Developer

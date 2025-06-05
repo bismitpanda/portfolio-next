@@ -4,7 +4,7 @@ client: Bismit Panda (Me)
 description: >
   A Sudoku puzzle solver implemented in Rust, utilizing Crook's algorithm. This project
   showcases algorithmic problem-solving skills and proficiency in Rust programming.
-featuredImage: /images/projects/featured-images/sudoku-solver.png
+featuredImage: /images/projects/sudoku-solver/featured-image.png
 githubUrl: https://github.com/bismitpanda/sudoku_solver
 projectType: github
 role: Developer
