@@ -27,7 +27,9 @@ export default async function Image({ params }: { params: Promise<{ slug: string
     notFound();
   }
 
-  const typewriter = await readFile(join(process.cwd(), "assets/Typewriter-Serial-Regular.ttf"));
+  const typewriter = await readFile(
+    join(process.cwd(), "assets/fonts/Typewriter-Serial-Regular.ttf"),
+  );
 
   return new ImageResponse(
     (
