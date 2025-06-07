@@ -9,20 +9,20 @@ export function HeaderSection({ data }: { data: ResumeData["personalInfo"] }) {
       <View style={styles.contactInfo}>
         <Text style={styles.contactItem}>{data.location}</Text>
         <Text style={styles.separator}>|</Text>
-        <Link src={`mailto:${data.email}`} style={[styles.contactItem, styles.link]}>
-          <Text>{data.email}</Text>
+        <Link src={data.socials.email.url} style={[styles.contactItem, styles.link]}>
+          <Text>{data.socials.email.label}</Text>
         </Link>
         <Text style={styles.separator}>|</Text>
-        <Link src={data.github} style={[styles.contactItem, styles.link]}>
-          <Text>{data.github}</Text>
+        <Link src={data.socials.github.url} style={[styles.contactItem, styles.link]}>
+          <Text>{data.socials.github.label}</Text>
         </Link>
         <Text style={styles.separator}>|</Text>
-        <Link src={data.linkedin} style={[styles.contactItem, styles.link]}>
-          <Text>{data.linkedin}</Text>
+        <Link src={data.socials.linkedin.url} style={[styles.contactItem, styles.link]}>
+          <Text>{data.socials.linkedin.label}</Text>
         </Link>
         <Text style={styles.separator}>|</Text>
-        <Link src={data.website} style={[styles.contactItem, styles.link]}>
-          <Text>{data.website}</Text>
+        <Link src={data.socials.website.url} style={[styles.contactItem, styles.link]}>
+          <Text>{data.socials.website.label}</Text>
         </Link>
       </View>
     </View>

@@ -15,10 +15,24 @@ export interface ResumeData {
   personalInfo: {
     name: string;
     location: string;
-    email: string;
-    linkedin: string;
-    github: string;
-    website: string;
+    socials: {
+      email: {
+        label: string;
+        url: string;
+      };
+      linkedin: {
+        label: string;
+        url: string;
+      };
+      github: {
+        label: string;
+        url: string;
+      };
+      website: {
+        label: string;
+        url: string;
+      };
+    };
   };
   technologies: {
     languages: string;
@@ -36,10 +50,24 @@ export const resumeData: ResumeData = {
   personalInfo: {
     name: "Bismit Panda",
     location: "Gandhinagar, Gujarat",
-    email: "contact@bismitpanda.com",
-    linkedin: "https://www.linkedin.com/in/bismit-panda-5432a824a/",
-    github: "https://github.com/bismitpanda",
-    website: "https://bismitpanda.com",
+    socials: {
+      email: {
+        label: "contact@bismitpanda.com",
+        url: "mailto:contact@bismitpanda.com",
+      },
+      linkedin: {
+        label: "linkedin.com/in/bismit-panda-5432a824a/",
+        url: "https://www.linkedin.com/in/bismit-panda-5432a824a/",
+      },
+      github: {
+        label: "github.com/bismitpanda",
+        url: "https://github.com/bismitpanda",
+      },
+      website: {
+        label: "bismitpanda.com",
+        url: "https://bismitpanda.com",
+      },
+    },
   },
   aboutMe:
     "I am Bismit Panda, a pre-final year B.Tech Computer Science student with a specialization in Cyber Security at Rashtriya Raksha University. Skilled in Java, Python, C++, C, Rust, Golang, and web technologies, I have made projects in image manipulation, management systems, and interactive games.",

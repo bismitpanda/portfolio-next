@@ -6,6 +6,7 @@ import {
   transformerNotationHighlight,
   transformerNotationFocus,
 } from "@shikijs/transformers";
+import { compareDesc } from "date-fns";
 import { readFileSync } from "fs";
 import { slug } from "github-slugger";
 import readingTime from "reading-time";
@@ -121,7 +122,8 @@ const blogs = defineCollection({
     const headings: Headings = [];
 
     const blogSlug = slug(data.title);
-    const siblings = (await context.collection.documents()).filter(
+    const allSiblings = await context.collection.documents();
+    const siblings = allSiblings.filter(
       (blog) => !blog.draft && blog._meta.fileName != data._meta.fileName,
     );
     let next: { slug: string; title: string } | undefined = undefined;
@@ -139,22 +141,17 @@ const blogs = defineCollection({
           throw new Error(`Blog has multiple nexts: "${data.title}"`);
         }
 
-        if (!sibling.draft) {
-          next = { title: sibling.title, slug: slug(sibling.title) };
-        }
+        next = { title: sibling.title, slug: slug(sibling.title) };
       }
 
       if (prev && previous && slug(sibling.title) === previous) {
-        if (sibling.draft) {
-          prev = undefined;
-        } else {
-          prev.title = sibling.title;
-        }
+        prev.title = sibling.title;
       }
     }
 
     const relatedBlogs = siblings
-      .filter((blog) => !blog.draft && blog.category === data.category)
+      .filter((blog) => blog.category === data.category)
+      .toSorted((a, b) => compareDesc(a.date, b.date))
       .slice(0, 3)
       .map((blog) => ({
         ...blog,
