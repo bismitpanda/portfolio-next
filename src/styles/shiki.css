@@ -24,6 +24,44 @@
   @apply absolute left-5 text-[#B00] content-['-'];
 }
 
+.shiki[data-show-line-numbers="false"] .line.diff.add > *:first-child::before,
+.shiki[data-show-line-numbers="false"] .line.diff.remove > *:first-child::before {
+  @apply -left-3;
+}
+
+.shiki[data-show-line-numbers="true"]
+  code[data-line-numbers-max-digits="2"]
+  > .line.diff.add
+  > *:first-child::before,
+.shiki[data-show-line-numbers="true"]
+  code[data-line-numbers-max-digits="2"]
+  > .line.diff.remove
+  > *:first-child::before {
+  @apply left-7;
+}
+
+.shiki[data-show-line-numbers="true"]
+  code[data-line-numbers-max-digits="3"]
+  > .line.diff.add
+  > *:first-child::before,
+.shiki[data-show-line-numbers="true"]
+  code[data-line-numbers-max-digits="3"]
+  > .line.diff.remove
+  > *:first-child::before {
+  @apply left-9;
+}
+
+.shiki[data-show-line-numbers="true"]
+  code[data-line-numbers-max-digits="4"]
+  > .line.diff.add
+  > *:first-child::before,
+.shiki[data-show-line-numbers="true"]
+  code[data-line-numbers-max-digits="4"]
+  > .line.diff.remove
+  > *:first-child::before {
+  @apply left-11;
+}
+
 .shiki.has-focused .line:not(:is(.focused)) {
   @apply blur-[0.095rem];
 }
@@ -40,7 +78,7 @@
   @apply gap-0 p-4 font-mono;
 }
 
-.shiki code {
+.shiki[data-show-line-numbers="true"] code {
   counter-reset: step;
   counter-increment: step 0;
 }
@@ -53,7 +91,7 @@
   @apply inline-block w-full;
 }
 
-.shiki .line::before {
+.shiki[data-show-line-numbers="true"] .line::before {
   content: counter(step);
   counter-increment: step;
   display: inline-block;
@@ -63,14 +101,14 @@
   color: gray;
 }
 
-.shiki code[data-line-numbers-max-digits="2"] > .line::before {
+.shiki[data-show-line-numbers="true"] code[data-line-numbers-max-digits="2"] > .line::before {
   @apply w-5;
 }
 
-.shiki code[data-line-numbers-max-digits="3"] > .line::before {
-  width: 1.75rem;
+.shiki[data-show-line-numbers="true"] code[data-line-numbers-max-digits="3"] > .line::before {
+  @apply w-7;
 }
 
-.shiki code[data-line-numbers-max-digits="4"] > .line::before {
-  width: 2.25rem;
+.shiki[data-show-line-numbers="true"] code[data-line-numbers-max-digits="4"] > .line::before {
+  @apply w-9;
 }

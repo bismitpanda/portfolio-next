@@ -16,7 +16,6 @@ import rehypeSlug from "rehype-slug";
 import remarkGemoji from "remark-gemoji";
 import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
-import remarkWikiLink from "remark-wiki-link";
 import { codeToHtml, type ShikiTransformer } from "shiki";
 import { z } from "zod/v4";
 
@@ -184,17 +183,6 @@ const blogs = defineCollection({
               }
             },
           { headingsRef: headings },
-        ],
-        [
-          remarkWikiLink,
-          {
-            permalinks: siblings.map((sibling) => slug(sibling.title)),
-            pageResolver: (title: string) => [slug(title)],
-            hrefTemplate: (slug: string) => `/blog/${slug}`,
-            wikiLinkClassName: "existing-blog-link",
-            newClassName: "non-existent-blog-link",
-            aliasDivider: "|",
-          },
         ],
       ],
       rehypePlugins: [

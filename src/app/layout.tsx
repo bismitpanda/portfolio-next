@@ -28,6 +28,7 @@ const jetBrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://bismitpanda.com"),
   title: "Bismit Panda | Developer",
   description:
     "Portfolio of Bismit Panda, a Full Stack Developer specializing in React, Next.js, and Node.js",

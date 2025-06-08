@@ -2,6 +2,7 @@
 
 import { Callout } from "./callout";
 import { CopyButton } from "./copy-button";
+import { EmbedBlog } from "./embed-blog";
 import { Mermaid } from "./mermaid";
 import {
   Accordion,
@@ -156,15 +157,25 @@ const components = {
   pre: ({
     className,
     "data-code": code,
-    "data-meta": meta,
+    "data-meta": dataMeta,
     "data-language": lang,
     ...props
   }: React.HTMLAttributes<HTMLPreElement> & {
     "data-code": string;
-    "data-meta": string;
+    "data-meta"?: string;
     "data-language": string;
   }) => {
-    const filename = meta ? meta.split("=")[1] : null;
+    const meta = Object.fromEntries(
+      dataMeta
+        ?.split(" ")
+        .map((item) =>
+          item.includes("=") ? (item.split("=") as [string, string]) : [item, undefined],
+        ) ?? [],
+    );
+
+    const filename = meta.filename;
+    const noLineNumbers = "no-line-numbers" in meta;
+
     return (
       <figure className="overflow-hidden rounded-lg mt-6 w-full">
         <figcaption className="flex justify-between items-center text-sm p-2 px-4 leading-normal rounded-t-lg bg-gray-700 text-white">
@@ -180,6 +191,7 @@ const components = {
               className,
             )}
             {...props}
+            data-show-line-numbers={!noLineNumbers}
           />
         </div>
       </figure>
@@ -190,6 +202,7 @@ const components = {
   ),
   Callout,
   AspectRatio,
+  EmbedBlog,
   Step: ({ className, ...props }: React.ComponentProps<"h3">) => (
     <h3
       className={cn(

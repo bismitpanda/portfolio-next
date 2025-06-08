@@ -179,14 +179,6 @@
     @apply w-full;
   }
 
-  .existing-blog-link {
-    @apply inline-block rounded-sm border-[1px] border-blue-800 bg-blue-800/40 px-1 py-0.5 text-sm text-blue-100 !no-underline transition-colors duration-200 hover:bg-blue-800/60;
-  }
-
-  .non-existent-blog-link {
-    @apply inline-block cursor-not-allowed rounded-sm border-[1px] border-yellow-800 bg-yellow-700/40 px-1 py-0.5 text-sm text-yellow-100 !no-underline hover:bg-yellow-700/60;
-  }
-
   .font-heading {
     @apply font-sans;
   }

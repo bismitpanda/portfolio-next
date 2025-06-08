@@ -33,7 +33,7 @@ export function BlogCard({ blog }: { blog: Blog["relatedBlogs"][number] }) {
             size="lg"
             className="hover:bg-neutral-900 hover:text-white transition-colors cursor-pointer w-full mt-8"
           >
-            Read Article
+            Read Blog
           </Button>
         </Link>
       </div>

@@ -30,7 +30,7 @@ const variants = cva("bg-muted/50", {
     variant: {
       info: "border-blue-900 bg-blue-950",
       success: "border-green-900 bg-green-950",
-      warning: "border-yellow-800 bg-yellow-300/25",
+      warning: "border-yellow-400/25 bg-yellow-300/25",
       error: "border-red-900 bg-red-950",
     },
   },
