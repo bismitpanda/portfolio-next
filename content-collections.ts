@@ -5,6 +5,7 @@ import {
   transformerNotationDiff,
   transformerNotationHighlight,
   transformerNotationFocus,
+  transformerNotationErrorLevel,
 } from "@shikijs/transformers";
 import { compareDesc } from "date-fns";
 import { readFileSync } from "fs";
@@ -197,6 +198,7 @@ const blogs = defineCollection({
               transformerNotationDiff(),
               transformerNotationHighlight(),
               transformerNotationFocus(),
+              transformerNotationErrorLevel(),
               {
                 pre(hast) {
                   hast.properties["data-meta"] = this.options.meta?.__raw;

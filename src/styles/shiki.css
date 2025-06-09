@@ -8,6 +8,13 @@
   @apply -ml-4 !w-[calc(100%+2rem)] border-l-2 border-l-[#777] bg-[#424242] pl-3.5;
 }
 
+.shiki .line.highlighted.error {
+  @apply border-l-2 border-l-[#ff3f5e] bg-[#ff3f5e29];
+}
+.shiki .line.highlighted.warning {
+  @apply border-l-2 border-l-[#eab308] bg-[#eab30829];
+}
+
 .shiki .line.diff.add {
   @apply -ml-4 border-l-2 border-l-[#050] bg-[#0505] pl-3.5;
 }
@@ -74,7 +81,7 @@
   @apply blur-none;
 }
 
-.shiki {
+pre.shiki {
   @apply gap-0 p-4 font-mono;
 }
 
@@ -83,11 +90,11 @@
   counter-increment: step 0;
 }
 
-.shiki code {
+pre.shiki code {
   @apply inline-block w-full;
 }
 
-.shiki .line {
+pre.shiki .line {
   @apply inline-block w-full;
 }
 

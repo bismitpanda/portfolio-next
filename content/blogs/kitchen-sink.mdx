@@ -72,8 +72,8 @@ console.info(message); // [!code --]
 ```
 
 ```js filename=hello-world.ts
-var l1 = "";
-var l2 = "";
+var l1 = ""; // [!code error]
+var l2 = ""; // [!code warning]
 var l3 = "";
 var l4 = "";
 var l5 = "";
@@ -112,32 +112,37 @@ This is a link to a <EmbedBlog fileName="resume-generator.mdx" placeholder="blog
 
 ## MDX Components
 
-<Callout title="Hi">Test</Callout>
+<Callout title="Hi" variant="default">
+  Test `code`
+</Callout>
 
 <Callout title="Hi" icon="info" variant="info">
-  Test
+  Test `code`
 </Callout>
 
 <Callout title="Hi" icon="circle-check-big" variant="success">
-  Test
+  Test `code`
 </Callout>
 
 <Callout title="Hi" icon="triangle-alert" variant="warning">
-  Test
+  Test `code`
 </Callout>
 
-<Callout title="Hi" icon="bell" variant="error">
-  Test
+<Callout title="Hi" icon="skull" variant="error">
+  Test `code`
 </Callout>
 
-<Mermaid
-  chart={`graph TD;
+```mermaid
+graph TD;
     A-->B;
     A-->C;
     B-->D;
     C-->D;
-`}
-/>
+```
+
+```shell
+ls -l
+```
 
 <Button variant="outline" onClick={() => console.log("Hi")}>
   Hi

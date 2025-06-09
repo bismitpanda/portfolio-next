@@ -182,4 +182,24 @@
   .font-heading {
     @apply font-sans;
   }
+
+  .default-callout {
+    @apply border-zinc-700 !bg-zinc-800;
+  }
+
+  .info-callout {
+    @apply border-blue-900 !bg-blue-950;
+  }
+
+  .success-callout {
+    @apply border-green-900 !bg-green-950;
+  }
+
+  .warning-callout {
+    @apply border-yellow-400/25 !bg-yellow-300/25;
+  }
+
+  .error-callout {
+    @apply border-red-900 !bg-red-950;
+  }
 }

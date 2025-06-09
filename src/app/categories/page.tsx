@@ -37,7 +37,9 @@ export default function Page() {
                 <CardTitle className="text-2xl font-serif group-hover:text-primary transition-colors">
                   {category.name}
                 </CardTitle>
-                <CardDescription className="text-sm">{category.count} blogs</CardDescription>
+                <CardDescription className="text-sm">
+                  {category.count} {category.count > 1 ? "blogs" : "blog"}
+                </CardDescription>
               </CardHeader>
               <CardContent className="pb-3">
                 <p className="text-muted-foreground">{category.description}</p>

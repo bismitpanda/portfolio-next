@@ -1,9 +1,8 @@
 "use client";
 
 import { Callout } from "./callout";
-import { CopyButton } from "./copy-button";
+import { Codeblock } from "./codeblock";
 import { EmbedBlog } from "./embed-blog";
-import { Mermaid } from "./mermaid";
 import {
   Accordion,
   AccordionContent,
@@ -88,7 +87,7 @@ const components = {
     />
   ),
   a: ({ className, ...props }: React.HTMLAttributes<HTMLAnchorElement> & { href: string }) => (
-    <a
+    <Link
       className={cn("underline underline-offset-4", className)}
       target={props.href ? "_blank" : ""}
       {...props}
@@ -154,55 +153,10 @@ const components = {
       {...props}
     />
   ),
-  pre: ({
-    className,
-    "data-code": code,
-    "data-meta": dataMeta,
-    "data-language": lang,
-    ...props
-  }: React.HTMLAttributes<HTMLPreElement> & {
-    "data-code": string;
-    "data-meta"?: string;
-    "data-language": string;
-  }) => {
-    const meta = Object.fromEntries(
-      dataMeta
-        ?.split(" ")
-        .map((item) =>
-          item.includes("=") ? (item.split("=") as [string, string]) : [item, undefined],
-        ) ?? [],
-    );
-
-    const filename = meta.filename;
-    const noLineNumbers = "no-line-numbers" in meta;
-
-    return (
-      <figure className="overflow-hidden rounded-lg mt-6 w-full">
-        <figcaption className="flex justify-between items-center text-sm p-2 px-4 leading-normal rounded-t-lg bg-gray-700 text-white">
-          {filename && <p className="mb-0">{filename}</p>}
-          <p className="text-xs text-white font-mono font-semibold">{lang}</p>
-        </figcaption>
-
-        <div className="relative">
-          <CopyButton code={code} />
-          <pre
-            className={cn(
-              "mb-4 max-h-[650px] overflow-x-auto rounded-b-lg py-3 px-2 relative",
-              className,
-            )}
-            {...props}
-            data-show-line-numbers={!noLineNumbers}
-          />
-        </div>
-      </figure>
-    );
-  },
+  pre: Codeblock,
   code: ({ className, ...props }: React.HTMLAttributes<HTMLElement>) => (
     <code className={cn("relative rounded font-mono text-sm", className)} {...props} />
   ),
-  Callout,
-  AspectRatio,
-  EmbedBlog,
   Step: ({ className, ...props }: React.ComponentProps<"h3">) => (
     <h3
       className={cn(
@@ -245,9 +199,6 @@ const components = {
       {...props}
     />
   ),
-  Link: ({ className, ...props }: React.ComponentProps<typeof Link>) => (
-    <Link className={cn("underline underline-offset-4", className)} {...props} />
-  ),
   LinkedCard: ({ className, ...props }: React.ComponentProps<typeof Link>) => (
     <Link
       className={cn(
@@ -257,7 +208,9 @@ const components = {
       {...props}
     />
   ),
-  Mermaid,
+  Callout,
+  AspectRatio,
+  EmbedBlog,
 };
 
 interface MdxProps {

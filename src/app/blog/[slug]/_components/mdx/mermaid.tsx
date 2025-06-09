@@ -18,6 +18,7 @@ export function Mermaid({ chart }: { chart: string }) {
         fontFamily: "JetBrains Mono",
         themeCSS: "margin: 1.5rem auto 0;",
         theme: "dark",
+        look: "handDrawn",
       };
 
       try {

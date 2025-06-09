@@ -145,14 +145,16 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
             </div>
           )}
 
-          <div>
-            <h2 className="text-2xl font-bold mb-8">Related Blogs</h2>
-            <div className="grid md:grid-cols-2 gap-8">
-              {blog.relatedBlogs.map((relatedPost) => (
-                <BlogCard blog={relatedPost} key={relatedPost.slug} />
-              ))}
+          {blog.relatedBlogs.length > 0 && (
+            <div className="mt-12">
+              <h2 className="text-2xl font-bold mb-8">Related Blogs</h2>
+              <div className="grid md:grid-cols-2 gap-8">
+                {blog.relatedBlogs.map((relatedPost) => (
+                  <BlogCard blog={relatedPost} key={relatedPost.slug} />
+                ))}
+              </div>
             </div>
-          </div>
+          )}
         </div>
       </article>
     </div>

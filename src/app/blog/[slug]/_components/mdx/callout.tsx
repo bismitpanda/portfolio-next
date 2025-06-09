@@ -25,13 +25,14 @@ const DynamicIcon = memo(({ name, ...props }: DynamicIconProps) => {
 });
 DynamicIcon.displayName = "DynamicIcon";
 
-const variants = cva("bg-muted/50", {
+const variants = cva("", {
   variants: {
     variant: {
-      info: "border-blue-900 bg-blue-950",
-      success: "border-green-900 bg-green-950",
-      warning: "border-yellow-400/25 bg-yellow-300/25",
-      error: "border-red-900 bg-red-950",
+      default: "default-callout",
+      info: "info-callout",
+      success: "success-callout",
+      warning: "warning-callout",
+      error: "error-callout",
     },
   },
 });
@@ -45,9 +46,14 @@ export function Callout({
   ...props
 }: React.ComponentProps<typeof Alert> & VariantProps<typeof variants> & { icon?: IconName }) {
   return (
-    <Alert className={cn(variants({ variant }), "my-6", className)} {...props}>
-      {icon && <DynamicIcon name={icon} className="mr-4 text-2xl" />}
-      {title && <AlertTitle className="text-lg font-bold">{title}</AlertTitle>}
+    <Alert
+      className={cn(variants({ variant }), "my-6 flex flex-col gap-y-2", className)}
+      {...props}
+    >
+      <div className="flex flex-row items-center gap-2 justify-start">
+        {icon && <DynamicIcon name={icon} className="size-4 text-2xl" />}
+        {title && <AlertTitle className="text-lg font-bold">{title}</AlertTitle>}
+      </div>
       <AlertDescription className="text-white text-base">{children}</AlertDescription>
     </Alert>
   );
