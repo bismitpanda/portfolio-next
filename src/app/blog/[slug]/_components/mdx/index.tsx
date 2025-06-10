@@ -3,6 +3,7 @@
 import { Callout } from "./callout";
 import { Codeblock } from "./codeblock";
 import { EmbedBlog } from "./embed-blog";
+import { Kbd } from "./kbd";
 import {
   Accordion,
   AccordionContent,
@@ -211,6 +212,7 @@ const components = {
   Callout,
   AspectRatio,
   EmbedBlog,
+  Kbd,
 };
 
 interface MdxProps {
