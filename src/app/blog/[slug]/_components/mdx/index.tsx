@@ -174,11 +174,11 @@ const components = {
     />
   ),
   Tabs: ({ className, ...props }: React.ComponentProps<typeof Tabs>) => (
-    <Tabs className={cn("relative mt-6 w-full", className)} {...props} />
+    <Tabs className={cn("relative mt-6", className)} {...props} />
   ),
   TabsList: ({ className, ...props }: React.ComponentProps<typeof TabsList>) => (
     <TabsList
-      className={cn("w-full justify-start rounded-none border-b bg-transparent p-0", className)}
+      className={cn("justify-start rounded-none border-b bg-transparent p-0", className)}
       {...props}
     />
   ),

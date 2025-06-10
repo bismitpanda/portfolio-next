@@ -10,8 +10,8 @@ export const customCodeblockHandlers: Record<string, CodeblockFn> = {
     return <Mermaid chart={code} />;
   },
 
-  shell: (code: string) => {
-    return <Shell code={code} />;
+  shell: (code: string, meta: Record<string, string | undefined>) => {
+    return <Shell code={code} meta={meta} />;
   },
 };
 

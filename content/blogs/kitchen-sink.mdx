@@ -40,7 +40,7 @@ _italics_
 
 [title](https://www.example.com)
 
-![alt text](/logo.svg)
+![alt text](/images/blogs/kitchen-sink.png)
 
 ## Extended Elements
 
@@ -144,6 +144,16 @@ graph TD;
 ls -l
 ```
 
+```shell tabs=pnpm,npm,yarn,bun separator=---
+pnpm add react
+---
+npm install react
+---
+yarn add react
+---
+bun add react
+```
+
 We can use <Kbd>Ctrl+Z</Kbd> or <Kbd>Cmd+Z</Kbd> to undo.
 
 <Button variant="outline" onClick={() => console.log("Hi")}>
@@ -170,7 +180,7 @@ We can use <Kbd>Ctrl+Z</Kbd> or <Kbd>Cmd+Z</Kbd> to undo.
 </Accordion>
 
 <Tabs defaultValue="account" className="w-[400px]">
-  <TabsList className="grid w-full grid-cols-2">
+  <TabsList>
     <TabsTrigger value="account">Account</TabsTrigger>
     <TabsTrigger value="password">Password</TabsTrigger>
   </TabsList>
