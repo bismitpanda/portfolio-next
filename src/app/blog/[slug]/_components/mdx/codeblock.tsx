@@ -48,9 +48,9 @@ export function Codeblock({
 
   return (
     <figure className="overflow-hidden rounded-lg mt-6 w-full">
-      <figcaption className="flex justify-between items-center text-sm p-2 px-4 leading-normal rounded-t-lg bg-gray-700 text-white">
+      <figcaption className="flex justify-between items-center text-xs border-b-zinc-700 border-b font-mono font-semibold p-2 px-4 leading-normal rounded-t-lg bg-muted text-muted-foreground">
         {filename && <p className="mb-0">{filename}</p>}
-        <p className="text-xs text-white font-mono font-semibold">{lang}</p>
+        <p>{lang}</p>
       </figcaption>
 
       <div className="relative">

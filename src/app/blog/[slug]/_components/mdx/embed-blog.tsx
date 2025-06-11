@@ -20,7 +20,7 @@ export function EmbedBlog({ fileName, placeholder }: { fileName: string; placeho
           {placeholder ?? blog.title}
         </Link>
       </HoverCardTrigger>
-      <HoverCardContent className="w-lg">
+      <HoverCardContent className="w-sm md:w-lg">
         <div className="flex flex-col gap-2">
           <div className="text-sm text-muted-foreground">
             <Link href={`/categories/${blog.categorySlug}`}>

@@ -3,7 +3,9 @@
 import { Callout } from "./callout";
 import { Codeblock } from "./codeblock";
 import { EmbedBlog } from "./embed-blog";
+import { GithubLink } from "./github-link";
 import { Kbd } from "./kbd";
+import { Link } from "./link";
 import {
   Accordion,
   AccordionContent,
@@ -16,7 +18,6 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { cn } from "@/lib/utils";
 import { useMDXComponent } from "@content-collections/mdx/react";
 import type * as AccordionPrimitive from "@radix-ui/react-accordion";
-import Link from "next/link";
 
 const components = {
   Accordion,
@@ -87,13 +88,7 @@ const components = {
       {...props}
     />
   ),
-  a: ({ className, ...props }: React.HTMLAttributes<HTMLAnchorElement> & { href: string }) => (
-    <Link
-      className={cn("underline underline-offset-4", className)}
-      target={props.href ? "_blank" : ""}
-      {...props}
-    />
-  ),
+  a: Link,
   p: ({ className, ...props }: React.HTMLAttributes<HTMLParagraphElement>) => (
     <p className={cn("leading-[1.65rem] [&:not(:first-child)]:mt-6", className)} {...props} />
   ),
@@ -213,6 +208,7 @@ const components = {
   AspectRatio,
   EmbedBlog,
   Kbd,
+  GithubLink,
 };
 
 interface MdxProps {
