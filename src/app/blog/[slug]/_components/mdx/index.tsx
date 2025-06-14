@@ -17,7 +17,7 @@ import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { cn } from "@/lib/utils";
 import { useMDXComponent } from "@content-collections/mdx/react";
-import type * as AccordionPrimitive from "@radix-ui/react-accordion";
+import type { Accordion as AccordionPrimitive } from "radix-ui";
 
 const components = {
   Accordion,

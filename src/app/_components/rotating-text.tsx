@@ -4,10 +4,9 @@ import { cn } from "@/lib/utils";
 import {
   motion,
   AnimatePresence,
+  type animationControls,
   type Transition,
   type VariantLabels,
-  type Target,
-  type AnimationControls,
   type TargetAndTransition,
 } from "motion/react";
 import React, {
@@ -18,6 +17,8 @@ import React, {
   useMemo,
   useState,
 } from "react";
+
+type AnimationControls = ReturnType<typeof animationControls>;
 
 export interface RotatingTextRef {
   next: () => void;
@@ -33,9 +34,9 @@ export interface RotatingTextProps
   > {
   texts: string[];
   transition?: Transition;
-  initial?: boolean | Target | VariantLabels;
+  initial?: boolean | TargetAndTransition | VariantLabels;
   animate?: boolean | VariantLabels | AnimationControls | TargetAndTransition;
-  exit?: Target | VariantLabels;
+  exit?: TargetAndTransition | VariantLabels;
   animatePresenceMode?: "sync" | "wait";
   animatePresenceInitial?: boolean;
   rotationInterval?: number;
