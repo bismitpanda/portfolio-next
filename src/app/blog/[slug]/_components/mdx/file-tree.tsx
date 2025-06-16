@@ -19,14 +19,33 @@ interface FileTreeProps {
   defaultOpen?: boolean;
 }
 
+function sortTree(items: (File | Folder)[]): (File | Folder)[] {
+  return items
+    .map((item) => ({
+      ...item,
+      ...(item.type === "folder" ? { children: sortTree(item.children) } : {}),
+    }))
+    .sort((a, b) => {
+      if (a.type !== b.type) {
+        return a.type === "folder" ? -1 : 1;
+      }
+      return a.name.localeCompare(b.name, undefined, {
+        numeric: true,
+        sensitivity: "base",
+      });
+    });
+}
+
 export function FileTree({ tree, defaultOpen = false }: FileTreeProps) {
+  const sortedTree = sortTree(tree);
+
   return (
     <div className="flex w-full flex-col bg-muted/50 mt-6 text-muted-foreground rounded-lg">
       <div className="flex flex-1 flex-col gap-2 overflow-auto p-2">
         <div className="relative flex w-full min-w-0 flex-col p-2">
           <div className="w-full text-sm">
             <ul className="flex w-full min-w-0 flex-col gap-1">
-              {tree.map((item, index) => (
+              {sortedTree.map((item, index) => (
                 <Tree key={index} item={item} defaultOpen={defaultOpen} />
               ))}
             </ul>

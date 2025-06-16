@@ -1,6 +1,6 @@
 import { defineCollection, defineConfig } from "@content-collections/core";
 import { compileMDX } from "@content-collections/mdx";
-import rehypeShiki from "@shikijs/rehype";
+import rehypeShiki, { type RehypeShikiOptions } from "@shikijs/rehype";
 import {
   transformerNotationDiff,
   transformerNotationHighlight,
@@ -212,7 +212,7 @@ const blogs = defineCollection({
               } satisfies ShikiTransformer,
             ],
             inline: "tailing-curly-colon",
-          },
+          } satisfies RehypeShikiOptions,
         ],
       ],
     });

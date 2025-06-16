@@ -26,11 +26,66 @@ I went with Next.js as I am using that for my profile
 
 The core idea is simple: define your resume data once in a structured format, then render it as a PDF using React components.
 
+### File Structure
+
+<FileTree
+  tree={[
+    {
+      type: "folder",
+      name: "app",
+      children: [
+        {
+          type: "folder",
+          name: "resume",
+          children: [
+            {
+              type: "folder",
+              name: "_components",
+              children: [
+                {
+                  type: "folder",
+                  name: "sections",
+                  children: [
+                    { type: "file", name: "header-section.tsx" },
+                    { type: "file", name: "about-me-section.tsx" },
+                    { type: "file", name: "projects-section.tsx" },
+                    { type: "file", name: "experience-section.tsx" },
+                    { type: "file", name: "technologies-section.tsx" },
+                    { type: "file", name: "education-section.tsx" },
+                    { type: "file", name: "achievements-section.tsx" },
+                    { type: "file", name: "certifications-section.tsx" },
+                  ],
+                },
+                { type: "file", name: "resume.tsx" },
+                { type: "file", name: "styles.ts" },
+              ],
+            },
+            { type: "file", name: "route.tsx" },
+          ],
+        },
+        { type: "file", name: "globals.css" },
+        { type: "file", name: "layout.tsx" },
+      ],
+    },
+    {
+      type: "folder",
+      name: "lib",
+      children: [{ type: "file", name: "resume-data.ts" }],
+    },
+    { type: "file", name: ".eslintrc.json" },
+    { type: "file", name: ".gitignore" },
+    { type: "file", name: "next.config.ts" },
+    { type: "file", name: "package.json" },
+    { type: "file", name: "README.md" },
+  ]}
+  defaultOpen
+/>
+
 ## Data Structure
 
 I started by defining a clear data structure for resume content:
 
-```ts filename=resume-data.ts
+```ts filename=lib/resume-data.ts
 export interface ResumeData {
   personalInfo: {
     name: string;
@@ -59,7 +114,7 @@ I use `content-collections` to manage data and the types and data is fetched fro
 
 The PDF generation happens through a Next.js API route at `/resume`. When you hit this endpoint, it renders a React PDF document and returns the binary data:
 
-```tsx filename=route.tsx
+```tsx filename=app/resume/route.tsx
 export async function GET() {
   const buffer = await renderToBuffer(<Resume />);
 
@@ -76,7 +131,7 @@ export async function GET() {
 <Callout title="Note" icon="circle-check-big" variant="info">
   You can use `route.ts` instead of `route.tsx` and then call the `Resume` component directly as a function like shown below:
 
-```ts filename=route.ts
+```ts filename=app/resume/route.ts
 export async function GET() {
   const buffer = await renderToBuffer(Resume());
 }
@@ -84,14 +139,9 @@ export async function GET() {
 
 </Callout>
 
-<Callout title="Note" icon="circle-check-big" variant="success">
-  This API route leverages `renderToBuffer()` from `@react-pdf/renderer`, turning my React-based
-  Resume component into a binary PDF response.
-</Callout>
-
 The `Resume` component is where the magic happens. It's a React PDF document that renders each section:
 
-```tsx filename=resume.tsx
+```tsx filename=app/resume/_components/resume.tsx
 export function Resume() {
   return (
     <Document title="Bismit Panda's Resume" author="Bismit Panda" subject="Resume">
@@ -114,7 +164,7 @@ export function Resume() {
 
 Each section is its own component. Here's how the experience section works:
 
-```tsx filename=experience-section.tsx
+```tsx filename=app/resume/_components/experience-section.tsx
 export function ExperienceSection({ experience }: { experience: Experience[] }) {
   return (
     <View style={styles.section}>
@@ -154,7 +204,7 @@ Styling PDFs is different from web styling. I needed to use plain CSS-in-JS like
 
 Here's a snippet of the styles I used:
 
-```ts filename=styles.ts
+```ts filename=app/resume/_components/styles.ts
 export const styles = StyleSheet.create({
   page: {
     fontFamily: "Helvetica",
@@ -182,7 +232,7 @@ export const styles = StyleSheet.create({
 <Callout title="Can I add custom fonts?" icon="info" variant="info">
   Yes, you can add custom fonts. You can import `Font` from `@react-pdf/renderer` and then register your font like so:
 
-```ts filename=styles.ts
+```ts filename=app/resume/_components/styles.ts
 import { Font } from "@react-pdf/renderer";
 
 const font = Font.register({
@@ -193,7 +243,7 @@ const font = Font.register({
 
 Then you can use the font in your styles like so:
 
-```ts filename=styles.ts
+```ts filename=app/resume/_components/styles.ts
 import { StyleSheet } from "@react-pdf/renderer";
 
 // Register the font before using it
