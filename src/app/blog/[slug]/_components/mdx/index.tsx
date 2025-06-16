@@ -3,6 +3,7 @@
 import { Callout } from "./callout";
 import { Codeblock } from "./codeblock";
 import { EmbedBlog } from "./embed-blog";
+import { FileTree } from "./file-tree";
 import { GithubLink } from "./github-link";
 import { Kbd } from "./kbd";
 import { Link } from "./link";
@@ -209,6 +210,7 @@ const components = {
   EmbedBlog,
   Kbd,
   GithubLink,
+  FileTree,
 };
 
 interface MdxProps {

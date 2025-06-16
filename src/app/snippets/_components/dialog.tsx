@@ -10,10 +10,10 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import type { Snippet } from "@/lib/content";
+import { useCopyToClipboard } from "@uidotdev/usehooks";
 import { Check, Copy, Download } from "lucide-react";
 import Link from "next/link";
 import type React from "react";
-import { useState } from "react";
 import { toast } from "sonner";
 
 interface CodeSnippetDialogProps {
@@ -22,16 +22,10 @@ interface CodeSnippetDialogProps {
 }
 
 export function CodeSnippetDialog({ snippet, children }: CodeSnippetDialogProps) {
-  const [copied, setCopied] = useState(false);
+  const [copiedText, copyToClipboard] = useCopyToClipboard();
 
-  const copyToClipboard = () => {
-    navigator.clipboard
-      .writeText(snippet.code)
-      .then(() => {
-        setCopied(true);
-        setTimeout(() => setCopied(false), 2000);
-      })
-      .catch(() => toast.error("Could not copy"));
+  const handleCopy = () => {
+    copyToClipboard(snippet.code).catch(() => toast.error("Could not copy"));
   };
 
   return (
@@ -69,9 +63,9 @@ export function CodeSnippetDialog({ snippet, children }: CodeSnippetDialogProps)
             size="sm"
             variant="ghost"
             className="absolute top-2 right-2 h-8 w-8 p-0 cursor-pointer"
-            onClick={copyToClipboard}
+            onClick={handleCopy}
           >
-            {copied ? <Check className="size-4" /> : <Copy className="h-4 w-4" />}
+            {copiedText ? <Check className="size-4" /> : <Copy className="h-4 w-4" />}
             <span className="sr-only">Copy code</span>
           </Button>
         </div>

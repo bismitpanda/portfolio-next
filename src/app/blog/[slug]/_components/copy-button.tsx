@@ -2,20 +2,14 @@
 
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { useCopyToClipboard } from "@uidotdev/usehooks";
 import { Check, Copy } from "lucide-react";
-import { useState } from "react";
 import { toast } from "sonner";
 
 export function CopyButton({ code, className }: { code: string; className?: string }) {
-  const [copied, setCopied] = useState(false);
+  const [copiedText, copyToClipboard] = useCopyToClipboard();
   const handleCopy = () => {
-    navigator.clipboard
-      .writeText(code)
-      .then(() => {
-        setCopied(true);
-        setTimeout(() => setCopied(false), 2000);
-      })
-      .catch(() => toast.error("Could not copy"));
+    copyToClipboard(code).catch(() => toast.error("Could not copy"));
   };
 
   return (
@@ -25,7 +19,7 @@ export function CopyButton({ code, className }: { code: string; className?: stri
       size="icon"
       onClick={handleCopy}
     >
-      {copied ? <Check className="size-4 text-green-400" /> : <Copy className="size-4" />}
+      {copiedText ? <Check className="size-4 text-green-400" /> : <Copy className="size-4" />}
     </Button>
   );
 }

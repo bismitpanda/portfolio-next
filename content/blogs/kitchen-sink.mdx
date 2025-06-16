@@ -221,3 +221,35 @@ Some instructions for task 4
 </Steps>
 
 <LinkedCard href="https://google.com">Let's do something</LinkedCard>
+
+<FileTree
+  tree={[
+    {
+      type: "folder",
+      name: "app",
+      children: [
+        {
+          type: "folder",
+          name: "api",
+          children: [
+            {
+              type: "folder",
+              name: "hello",
+              children: [{ type: "file", name: "route.ts" }],
+            },
+            { type: "file", name: "route.ts" },
+          ],
+        },
+        { type: "folder", name: "blog", children: [{ type: "file", name: "page.tsx" }] },
+        { type: "file", name: "page.tsx" },
+        { type: "file", name: "layout.tsx" },
+      ],
+    },
+    { type: "file", name: ".eslintrc.json" },
+    { type: "file", name: ".gitignore" },
+    { type: "file", name: "next.config.js" },
+    { type: "file", name: "tailwind.config.js" },
+    { type: "file", name: "package.json" },
+    { type: "file", name: "README.md" },
+  ]}
+/>
