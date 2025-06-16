@@ -212,6 +212,9 @@ const blogs = defineCollection({
               } satisfies ShikiTransformer,
             ],
             inline: "tailing-curly-colon",
+            langAlias: {
+              "file-tree": "text",
+            },
           },
         ],
       ],
