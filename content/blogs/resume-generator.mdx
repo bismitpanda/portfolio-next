@@ -6,7 +6,7 @@ category: Typescript
 image: /images/blogs/resume-generator.png
 ---
 
-While building my personal site, I wanted a smarter way to handle resumes—something version-controlled, customizable, and always up-to-date. That’s when I decided to build a dynamic resume generator using Next.js and React PDF. The idea came from wanting to maintain my resume as code - something I could version control, easily update, and generate consistently formatted PDFs from.
+While building my personal site, I wanted a smarter way to handle resumes, something version-controlled, customizable, and always up-to-date. That's when I decided to build a dynamic resume generator using Next.js and React PDF.
 
 ## The Problem
 
@@ -108,7 +108,7 @@ export interface ResumeData {
 }
 ```
 
-I use `content-collections` to manage data and the types and data is fetched from there. Everything stays in sync because it's all referencing the same source data.
+I use `content-collections` to manage data and the types and data is fetched from there. Everything stays in sync because it's all referencing the same data source.
 
 ## PDF Generation
 
@@ -129,6 +129,21 @@ export async function GET() {
 ```
 
 <Callout title="Note" icon="circle-check-big" variant="info">
+  You can use `Content-Disposition: "attachment"` to force the browser to download the PDF instead of displaying it in the browser.
+
+```ts filename=app/resume/route.tsx
+  return new NextResponse(buffer, {
+    headers: {
+      "Content-Type": "application/pdf",
+      "Content-Disposition": "attachment; filename=resume.pdf",
+      "Content-Length": buffer.length.toString(),
+    },
+  });
+```
+
+  </Callout>
+
+<Callout title="Note" icon="circle-check-big" variant="info">
   You can use `route.ts` instead of `route.tsx` and then call the `Resume` component directly as a function like shown below:
 
 ```ts filename=app/resume/route.ts
@@ -139,7 +154,7 @@ export async function GET() {
 
 </Callout>
 
-The `Resume` component is where the magic happens. It's a React PDF document that renders each section:
+The `Resume` component is where the core rendering happens. It's a React PDF document that renders each section. The data is fetched from the `resume-data.ts` file.
 
 ```tsx filename=app/resume/_components/resume.tsx
 export function Resume() {
@@ -196,11 +211,9 @@ export function ExperienceSection({ experience }: { experience: Experience[] }) 
 }
 ```
 
-React PDF uses its own styling system that's similar to React Native. You define styles using `StyleSheet.create()` and apply them to components.
-
 ## Styling
 
-Styling PDFs is different from web styling. I needed to use plain CSS-in-JS like styles.
+Styling PDFs is different from web styling. It uses plain CSS-in-JS like styles. You define styles using `StyleSheet.create()` and apply them to components.
 
 Here's a snippet of the styles I used:
 
@@ -273,15 +286,11 @@ The biggest challenge was getting the layout right. React PDF's layout engine is
 
 Data structure matters a lot. Having clean, typed interfaces made it easy to add new sections or modify existing ones without breaking anything.
 
-PDF generation is surprisingly fast. Even with multiple sections and complex layouts, the generation happens almost instantly.
-
 ## Next Steps
 
 This setup works great for my needs, but there are some obvious extensions which I may add later:
 
 - **Multiple templates** - Different layouts for different job types
-- **Web preview** - Show how the resume looks before generating the PDF
-- **Dynamic sections** - Include/exclude sections based on the target role (e.g. if the user is applying for a frontend role, exclude the backend experience)
 - **Better styling** - More sophisticated layouts and typography
 
 The foundation is solid though. Having my resume as code means I can iterate quickly, keep everything in version control, and generate consistent PDFs whenever I need them.
