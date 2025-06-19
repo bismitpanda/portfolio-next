@@ -30,12 +30,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     images: [`https://bismitpanda.com/images/projects/${project.featuredImage}`],
   }));
 
-  const snippetUrls = allSnippetsByDate.map((snippet) => ({
-    url: `https://bismitpanda.com/snippets/${snippet.codeFile}`,
-    lastModified: snippet.date,
-    changeFrequency: "weekly" as const,
-    priority: 0.5,
-  }));
+  const snippetUrls = allSnippetsByDate.flatMap((snippet) =>
+    snippet.codes.map((code) => ({
+      url: `https://bismitpanda.com/snippets/${code.codeFile}`,
+      lastModified: snippet.date,
+      changeFrequency: "weekly" as const,
+      priority: 0.5,
+    })),
+  );
 
   return [
     {

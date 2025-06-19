@@ -1,6 +1,9 @@
-codeFile: untar.go
 date: "2025-04-26"
 description: >
   A simple script to extract compressed tar files.
-language: Go
 name: Untar
+codes:
+  - language: Go
+    codeFile: untar.go
+  - language: Bash
+    codeFile: untar.sh

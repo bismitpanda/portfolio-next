@@ -28,9 +28,22 @@ export default function Page() {
                 <div className="p-6 grow">
                   <h3 className="text-xl font-bold mb-2 group-hover:text-primary transition-colors flex items-center space-x-4">
                     <span>{snippet.name}</span>
-                    <Badge variant="outline" className="bg-muted/50 font-mono">
-                      {snippet.language}
-                    </Badge>
+                    <div className="flex flex-row gap-2 items-center justify-center">
+                      {snippet.codes.slice(0, 2).map((code) => (
+                        <Badge
+                          variant="outline"
+                          className="bg-muted/50 font-mono"
+                          key={code.language}
+                        >
+                          {code.language}
+                        </Badge>
+                      ))}
+                      {snippet.codes.length > 2 && (
+                        <Badge variant="outline" className="bg-muted/50 font-mono">
+                          +{snippet.codes.length - 2}
+                        </Badge>
+                      )}
+                    </div>
                   </h3>
                   <p className="text-muted-foreground text-sm">{snippet.description}</p>
                 </div>

@@ -8,7 +8,7 @@ import {
   transformerNotationErrorLevel,
 } from "@shikijs/transformers";
 import { compareDesc } from "date-fns";
-import { readFileSync } from "fs";
+import { readFile } from "fs/promises";
 import { slug } from "github-slugger";
 import readingTime from "reading-time";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
@@ -41,8 +41,12 @@ const blogSchema = z.object({
 const snippetSchema = z.object({
   name: z.string(),
   description: z.string(),
-  codeFile: z.string(),
-  language: z.string(),
+  codes: z.array(
+    z.object({
+      language: z.string(),
+      codeFile: z.string(),
+    }),
+  ),
   date: z.coerce.date(),
 });
 
@@ -193,7 +197,7 @@ const blogs = defineCollection({
         [
           rehypeShiki,
           {
-            theme: "material-theme-darker",
+            theme: "vitesse-dark",
             transformers: [
               transformerNotationDiff(),
               transformerNotationHighlight(),
@@ -246,19 +250,32 @@ const snippets = defineCollection({
   parser: "yaml",
   schema: snippetSchema,
   transform: async (data, { cache }) => {
-    const code = readFileSync(`content/snippets/files/${data.codeFile}`).toString().trim();
+    const codes = [];
 
-    const html = await cache(
-      { code },
-      ({ code }) =>
-        codeToHtml(code, {
-          lang: data.language.toLowerCase(),
-          theme: "material-theme-darker",
-        }),
-      { key: "__snippets" },
-    );
+    for (const code of data.codes) {
+      const codeContent = (
+        await readFile(`content/snippets/files/${code.codeFile}`, "utf-8")
+      ).trim();
+      const html = await cache(
+        { code },
+        ({ code }) =>
+          codeToHtml(codeContent, {
+            lang: code.language.toLowerCase(),
+            theme: "vitesse-dark",
+            meta: {
+              "data-show-line-numbers": "true",
+            },
+          }),
+        { key: "__snippets" },
+      );
+      codes.push({
+        html,
+        code: codeContent,
+        ...code,
+      });
+    }
 
-    return { ...data, code, html };
+    return { ...data, codes };
   },
 });
 

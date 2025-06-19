@@ -4,11 +4,11 @@ import (
 	"archive/tar"
 	"archive/zip"
 	"compress/bzip2"
-	"flag"
 	"fmt"
 	"io"
 	"os"
 	"path/filepath"
+	"strings"
 
 	"github.com/klauspost/compress/zstd"
 	"github.com/klauspost/pgzip"
@@ -33,137 +33,150 @@ var exts = map[string]string{
 	".tlz":  "lzma",
 }
 
-var filename, outdir string
-
-func init() {
-	flag.StringVar(&filename, "file", "", "To file to un-archive")
-	dst := mustv(os.Getwd())
-	flag.StringVar(&outdir, "outdir", dst, "The output directory")
-}
-
-func mustv[T any](value T, err error) T {
-	if err != nil {
-		panic(err)
+func extractArchive(filename, outdir string) error {
+	if err := os.MkdirAll(outdir, 0755); err != nil {
+		return err
 	}
 
-	return value
-}
-
-func must(err error) {
-	if err != nil {
-		panic(err)
-	}
-}
-
-func main() {
-	flag.Parse()
-
-	os.MkdirAll(outdir, 0755)
-
-	ext := filepath.Ext(filename)
+	ext := strings.ToLower(filepath.Ext(filename))
 	compress, ok := exts[ext]
 	if !ok {
-		fmt.Printf("[ERR] Invalid extension %s.\n", ext)
-		return
-	} else {
-		fmt.Printf("[INF] Detected \"%s\" compression.\n", compress)
+		return fmt.Errorf("unsupported extension: %s", ext)
 	}
 
-	var reader io.Reader
-
-	buf := mustv(os.Open(filename))
-
-	defer buf.Close()
+	file, err := os.Open(filename)
+	if err != nil {
+		return err
+	}
+	defer file.Close()
 
 	if compress == "zip" {
-		extractZip(buf, outdir)
-	} else {
-		switch compress {
-		case "gzip":
-			reader = mustv(pgzip.NewReader(buf))
-		case "bzip2":
-			reader = bzip2.NewReader(buf)
-		case "xz":
-			reader = mustv(xz.NewReader(buf))
-		case "lzma":
-			reader = mustv(lzma.NewReader(buf))
-		case "zstd":
-			reader = mustv(zstd.NewReader(buf))
-		case "tar":
-			reader = buf
-		}
-
-		extractTar(reader, outdir)
+		return extractZip(file, outdir)
 	}
+	return extractTar(file, outdir, compress)
 }
 
-func extractZip(reader *os.File, dst string) {
-	stat, _ := reader.Stat()
-	r := mustv(zip.NewReader(reader, stat.Size()))
+func sanitizePath(dst, target string) (string, error) {
+	target = filepath.Join(dst, target)
+	if !strings.HasPrefix(target, filepath.Clean(dst)+string(os.PathSeparator)) {
+		return "", fmt.Errorf("unsafe path: %s", target)
+	}
+	return target, nil
+}
+
+func extractZip(file *os.File, dst string) error {
+	stat, err := file.Stat()
+	if err != nil {
+		return err
+	}
+
+	r, err := zip.NewReader(file, stat.Size())
+	if err != nil {
+		return err
+	}
 
 	for _, header := range r.File {
+		target, err := sanitizePath(dst, header.Name)
+		if err != nil {
+			continue
+		}
+
 		if header.Mode().IsDir() {
-			target := filepath.Join(dst, header.Name)
-
-			must(os.MkdirAll(target, 0755))
-
-			fmt.Printf("[INFO] Created folder \"%s\".\n", target)
+			os.MkdirAll(target, 0755)
 		} else {
-			target := filepath.Join(dst, header.Name)
+			os.MkdirAll(filepath.Dir(target), 0755)
 
-			f := mustv(os.OpenFile(target, os.O_CREATE|os.O_RDWR, header.Mode()))
+			src, err := header.Open()
+			if err != nil {
+				return err
+			}
 
-			headerBuf, _ := header.OpenRaw()
+			outFile, err := os.OpenFile(target, os.O_CREATE|os.O_RDWR|os.O_TRUNC, header.Mode())
+			if err != nil {
+				src.Close()
+				return err
+			}
 
-			mustv(io.Copy(f, headerBuf))
+			_, err = io.Copy(outFile, src)
+			src.Close()
+			outFile.Close()
 
-			fmt.Printf("[INFO] Created file \"%s\".\n", target)
-
-			f.Close()
+			if err != nil {
+				return err
+			}
 		}
 	}
+	return nil
 }
 
-func extractTar(reader io.Reader, dst string) {
+func extractTar(file *os.File, dst, compress string) error {
+	var reader io.Reader = file
+
+	switch compress {
+	case "gzip":
+		gr, err := pgzip.NewReader(file)
+		if err != nil {
+			return err
+		}
+		defer gr.Close()
+		reader = gr
+	case "bzip2":
+		reader = bzip2.NewReader(file)
+	case "xz":
+		xr, err := xz.NewReader(file)
+		if err != nil {
+			return err
+		}
+		reader = xr
+	case "lzma":
+		lr, err := lzma.NewReader(file)
+		if err != nil {
+			return err
+		}
+		reader = lr
+	case "zstd":
+		zr, err := zstd.NewReader(file)
+		if err != nil {
+			return err
+		}
+		defer zr.Close()
+		reader = zr
+	}
+
 	tarReader := tar.NewReader(reader)
 
 	for {
-		if tarReader == nil {
-			fmt.Println("[ERR] Could not read file.")
-			break
-		}
-
 		header, err := tarReader.Next()
 		if err == io.EOF {
 			break
 		}
-
 		if err != nil {
-			panic(err)
+			return err
 		}
 
-		if header == nil {
+		target, err := sanitizePath(dst, header.Name)
+		if err != nil {
 			continue
 		}
 
-		target := filepath.Join(dst, header.Name)
-
 		switch header.Typeflag {
-
 		case tar.TypeDir:
-			if _, err := os.Stat(target); err != nil {
-				must(os.MkdirAll(target, 0755))
+			os.MkdirAll(target, 0755)
+		case tar.TypeReg:
+			os.MkdirAll(filepath.Dir(target), 0755)
 
-				fmt.Printf("[INFO] Created folder \"%s\".\n", target)
+			outFile, err := os.OpenFile(target, os.O_CREATE|os.O_RDWR|os.O_TRUNC, os.FileMode(header.Mode))
+			if err != nil {
+				return err
 			}
 
-		case tar.TypeReg:
-			f := mustv(os.OpenFile(target, os.O_CREATE|os.O_RDWR, os.FileMode(header.Mode)))
+			_, err = io.Copy(outFile, tarReader)
+			outFile.Close()
 
-			mustv(io.Copy(f, tarReader))
-
-			fmt.Printf("[INFO] Created file \"%s\".\n", target)
-			f.Close()
+			if err != nil {
+				return err
+			}
 		}
 	}
+	return nil
 }
