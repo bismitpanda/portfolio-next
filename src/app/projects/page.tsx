@@ -1,4 +1,4 @@
-import { GitHubIcon } from "@/components/icons";
+import { GithubDark } from "@/components/icons";
 import { Button } from "@/components/ui/button";
 import { allGithubProjects, allHostedProjects } from "@/lib/content";
 import { ExternalLink } from "lucide-react";
@@ -15,7 +15,7 @@ export default function Page() {
   return (
     <div className="pt-20">
       <section className="container-custom section-spacing">
-        <div className="max-w-3xl mx-auto text-center mb-16">
+        <div className="mx-auto mb-16 max-w-3xl text-center">
           <h1 className="heading-xl mb-6">Projects</h1>
           <p className="body-lg text-muted-foreground">
             A showcase of my work, featuring web applications, design projects, and experiments.
@@ -27,29 +27,29 @@ export default function Page() {
 
           <div className="grid gap-16 md:gap-24">
             {allHostedProjects.map((project, index) => (
-              <div key={project.slug} className="group">
+              <div className="group" key={project.slug}>
                 <div
-                  className={`grid md:grid-cols-2 gap-12 items-center ${index % 2 === 1 ? "md:grid-flow-dense" : ""}`}
+                  className={`grid items-center gap-12 md:grid-cols-2 ${index % 2 === 1 ? "md:grid-flow-dense" : ""}`}
                 >
                   <div className={index % 2 === 1 ? "md:col-start-2" : ""}>
-                    <span className="text-8xl font-bold text-muted/30 group-hover:text-muted transition-colors">
+                    <span className="font-bold text-8xl text-muted/30 transition-colors group-hover:text-muted">
                       {(index + 1).toString().padStart(2, "0")}
                     </span>
-                    <h2 className="text-4xl font-bold mb-6 -mt-8 group-hover:translate-y-1 transition-transform">
+                    <h2 className="-mt-8 mb-6 font-bold text-4xl transition-transform group-hover:translate-y-1">
                       {project.title}
                     </h2>
-                    <p className="text-xl text-muted-foreground mb-6">{project.description}</p>
-                    <div className="flex flex-wrap gap-2 mb-8">
+                    <p className="mb-6 text-muted-foreground text-xl">{project.description}</p>
+                    <div className="mb-8 flex flex-wrap gap-2">
                       {project.technologies.map((tech) => (
                         <span
+                          className="rounded-full bg-muted px-3 py-1 text-muted-foreground text-sm"
                           key={tech}
-                          className="px-3 py-1 bg-muted text-muted-foreground rounded-full text-sm"
                         >
                           {tech}
                         </span>
                       ))}
                     </div>
-                    <Button asChild variant="outline" size="lg">
+                    <Button asChild size="lg" variant="outline">
                       <Link href={`/projects/${project.slug}`}>View Project</Link>
                     </Button>
                   </div>
@@ -57,15 +57,15 @@ export default function Page() {
                     className={`overflow-hidden rounded-lg ${index % 2 === 1 ? "md:col-start-1" : ""}`}
                   >
                     <Link
+                      className="block aspect-video overflow-hidden rounded-lg bg-muted transition-transform duration-500 group-hover:scale-105"
                       href={`/projects/${project.slug}`}
-                      className="aspect-video bg-muted rounded-lg overflow-hidden transition-transform group-hover:scale-105 duration-500 block"
                     >
                       <Image
-                        src={project.featuredImage}
                         alt={project.title}
-                        width={800}
+                        className="h-full w-full object-cover"
                         height={600}
-                        className="w-full h-full object-cover"
+                        src={project.featuredImage}
+                        width={800}
                       />
                     </Link>
                   </div>
@@ -78,41 +78,41 @@ export default function Page() {
         <div>
           <h2 className="heading-lg mb-10">Other Projects</h2>
 
-          <p className="text-xl text-muted-foreground mb-10 max-w-3xl">
+          <p className="mb-10 max-w-3xl text-muted-foreground text-xl">
             These projects focus on computer science fundamentals and systems programming.
             They&apos;re available on GitHub for code review and educational purposes.
           </p>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             {allGithubProjects.map((project) => (
               <div
+                className="group overflow-hidden rounded-lg border border-border bg-card transition-shadow hover:shadow-lg"
                 key={project.slug}
-                className="group bg-card border border-border rounded-lg overflow-hidden hover:shadow-lg transition-shadow"
               >
-                <div className="flex flex-col h-full justify-between">
+                <div className="flex h-full flex-col justify-between">
                   <div>
                     <Link
+                      className="block aspect-video overflow-hidden bg-muted transition-transform duration-300 group-hover:scale-102"
                       href={`/projects/${project.slug}`}
-                      className="aspect-video bg-muted overflow-hidden transition-transform group-hover:scale-102 duration-300 block"
                     >
                       <Image
-                        src={project.featuredImage}
                         alt={project.title}
-                        width={800}
+                        className="h-full w-full object-cover opacity-90 transition-opacity group-hover:opacity-100"
                         height={600}
-                        className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity"
+                        src={project.featuredImage}
+                        width={800}
                       />
                     </Link>
                     <div className="p-6">
-                      <h3 className="text-2xl font-bold mb-3 group-hover:text-primary transition-colors">
+                      <h3 className="mb-3 font-bold text-2xl transition-colors group-hover:text-primary">
                         {project.title}
                       </h3>
-                      <p className="text-muted-foreground mb-6">{project.description}</p>
-                      <div className="flex flex-wrap gap-2 mb-6">
+                      <p className="mb-6 text-muted-foreground">{project.description}</p>
+                      <div className="mb-6 flex flex-wrap gap-2">
                         {project.technologies.map((tech) => (
                           <span
+                            className="rounded-full bg-muted px-3 py-1 text-muted-foreground text-sm"
                             key={tech}
-                            className="px-3 py-1 bg-muted text-muted-foreground rounded-full text-sm"
                           >
                             {tech}
                           </span>
@@ -120,16 +120,16 @@ export default function Page() {
                       </div>
                     </div>
                   </div>
-                  <div className="p-6 flex flex-row justify-between items-center">
-                    <Button asChild variant="outline" className="gap-2">
+                  <div className="flex flex-row items-center justify-between p-6">
+                    <Button asChild className="gap-2" variant="outline">
                       <Link href={`/projects/${project.slug}`}>
                         View Project <ExternalLink className="h-4 w-4 text-muted-foreground" />
                       </Link>
                     </Button>
-                    <Button asChild variant="outline" className="gap-2">
+                    <Button asChild className="gap-2" variant="outline">
                       {project.githubUrl && (
-                        <Link href={project.githubUrl} target="_blank" rel="noopener noreferrer">
-                          <GitHubIcon className="h-4 w-4 text-muted-foreground" />
+                        <Link href={project.githubUrl} rel="noopener noreferrer" target="_blank">
+                          <GithubDark className="h-4 w-4 text-muted-foreground" />
                           <span>View on GitHub</span>
                         </Link>
                       )}

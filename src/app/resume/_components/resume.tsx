@@ -12,7 +12,7 @@ import { Document, Page } from "@react-pdf/renderer";
 
 export function Resume() {
   return (
-    <Document title="Bismit Panda's Resume" author="Bismit Panda" subject="Resume">
+    <Document author="Bismit Panda" subject="Resume" title="Bismit Panda's Resume">
       <Page size="LETTER" style={styles.page}>
         <HeaderSection data={resumeData.personalInfo} />
         <AboutMeSection content={resumeData.aboutMe} />

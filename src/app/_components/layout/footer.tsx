@@ -1,17 +1,18 @@
 import { routes, socialRoutes } from "../routes";
-import { GitHubIcon, LinkedInIcon, Logo, TwitterXIcon } from "@/components/icons";
+import { GithubDark, Linkedin, XDark } from "@/components/icons";
+import { Logo } from "@/components/icons/logo";
 import { Mail } from "lucide-react";
 import Link from "next/link";
 
 export function Footer() {
   return (
-    <footer className="border-t border-border py-12 mt-20">
+    <footer className="mt-20 border-border border-t py-12">
       <div className="container-custom">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+        <div className="grid grid-cols-1 gap-10 md:grid-cols-3">
           <div>
             <Link
+              className="flex items-center gap-x-4 font-bold font-serif text-3xl tracking-tight"
               href="/"
-              className="font-serif text-3xl font-bold tracking-tight flex gap-x-4 items-center"
             >
               <Logo className="size-[42px]" />
               Bismit Panda
@@ -23,13 +24,13 @@ export function Footer() {
           </div>
 
           <div>
-            <h3 className="text-xl font-medium mb-4">Quick Links</h3>
+            <h3 className="mb-4 font-medium text-xl">Quick Links</h3>
             <ul className="space-y-2">
               {routes.map((route) => (
                 <li key={route.path}>
                   <Link
+                    className="text-muted-foreground transition-colors hover:text-foreground"
                     href={route.path}
-                    className="text-muted-foreground hover:text-foreground transition-colors"
                   >
                     {route.name}
                   </Link>
@@ -39,53 +40,53 @@ export function Footer() {
           </div>
 
           <div>
-            <h3 className="text-xl font-medium mb-4">Connect</h3>
+            <h3 className="mb-4 font-medium text-xl">Connect</h3>
             <div className="flex space-x-4">
               <Link
-                href={socialRoutes.email.url}
-                className="text-muted-foreground hover:text-foreground transition-colors"
                 aria-label={socialRoutes.email.label}
-                target="_blank"
+                className="text-muted-foreground transition-colors hover:text-foreground"
+                href={socialRoutes.email.url}
                 rel="noopener noreferrer"
+                target="_blank"
               >
                 <Mail className="h-6 w-6" />
                 <span className="sr-only">Email</span>
               </Link>
               <Link
-                href={socialRoutes.linkedIn.url}
-                className="text-muted-foreground hover:text-foreground transition-colors"
                 aria-label={socialRoutes.linkedIn.label}
-                target="_blank"
+                className="text-muted-foreground transition-colors hover:text-foreground"
+                href={socialRoutes.linkedIn.url}
                 rel="noopener noreferrer"
+                target="_blank"
               >
-                <LinkedInIcon className="h-6 w-6" />
+                <Linkedin className="h-6 w-6" />
                 <span className="sr-only">LinkedIn</span>
               </Link>
               <Link
-                href={socialRoutes.github.url}
-                className="text-muted-foreground hover:text-foreground transition-colors"
                 aria-label={socialRoutes.github.label}
-                target="_blank"
+                className="text-muted-foreground transition-colors hover:text-foreground"
+                href={socialRoutes.github.url}
                 rel="noopener noreferrer"
+                target="_blank"
               >
-                <GitHubIcon className="h-6 w-6" />
+                <GithubDark className="h-6 w-6" />
                 <span className="sr-only">GitHub</span>
               </Link>
               <Link
-                href={socialRoutes.x.url}
-                className="text-muted-foreground hover:text-foreground transition-colors"
                 aria-label={socialRoutes.x.label}
-                target="_blank"
+                className="text-muted-foreground transition-colors hover:text-foreground"
+                href={socialRoutes.x.url}
                 rel="noopener noreferrer"
+                target="_blank"
               >
-                <TwitterXIcon className="h-6 w-6" />
+                <XDark className="h-6 w-6" />
                 <span className="sr-only">Twitter</span>
               </Link>
             </div>
           </div>
         </div>
 
-        <div className="mt-12 pt-6 border-t border-border text-center text-muted-foreground">
+        <div className="mt-12 border-border border-t pt-6 text-center text-muted-foreground">
           <p>© {new Date().getFullYear()} Bismit Panda. All rights reserved.</p>
         </div>
       </div>

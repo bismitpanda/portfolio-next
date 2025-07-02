@@ -3,8 +3,8 @@ import Link from "next/link";
 
 export function AboutSection() {
   return (
-    <section id="about" className="container-custom section-spacing">
-      <div className="grid md:grid-cols-3 gap-12">
+    <section className="container-custom section-spacing" id="about">
+      <div className="grid gap-12 md:grid-cols-3">
         <div>
           <h2 className="heading-lg mb-6">About</h2>
         </div>
@@ -23,10 +23,10 @@ export function AboutSection() {
             to help other developers level up their skills.
           </p>
           <div className="flex flex-wrap gap-4">
-            <Button asChild variant="outline" size="lg">
+            <Button asChild size="lg" variant="outline">
               <Link href="/about">Full Background</Link>
             </Button>
-            <Button asChild variant="outline" size="lg">
+            <Button asChild size="lg" variant="outline">
               <Link href="/blog">Read My Blog</Link>
             </Button>
           </div>

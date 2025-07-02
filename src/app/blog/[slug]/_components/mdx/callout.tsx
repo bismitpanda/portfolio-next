@@ -50,11 +50,11 @@ export function Callout({
       className={cn(variants({ variant }), "my-6 flex flex-col gap-y-2", className)}
       {...props}
     >
-      <div className="flex flex-row items-center gap-2 justify-start">
-        {icon && <DynamicIcon name={icon} className="size-4 text-2xl" />}
-        {title && <AlertTitle className="text-lg font-bold">{title}</AlertTitle>}
+      <div className="flex flex-row items-center justify-start gap-2">
+        {icon && <DynamicIcon className="size-4 text-2xl" name={icon} />}
+        {title && <AlertTitle className="font-bold text-lg">{title}</AlertTitle>}
       </div>
-      <AlertDescription className="text-white text-base">{children}</AlertDescription>
+      <AlertDescription className="text-base text-white">{children}</AlertDescription>
     </Alert>
   );
 }

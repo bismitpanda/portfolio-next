@@ -5,7 +5,6 @@ import { Toaster as Sonner, type ToasterProps } from "sonner";
 const Toaster = ({ ...props }: ToasterProps) => {
   return (
     <Sonner
-      theme="dark"
       className="toaster group"
       style={
         {
@@ -14,6 +13,7 @@ const Toaster = ({ ...props }: ToasterProps) => {
           "--normal-border": "var(--border)",
         } as React.CSSProperties
       }
+      theme="dark"
       {...props}
     />
   );

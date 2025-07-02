@@ -24,6 +24,7 @@ export async function generateMetadata({
   return {
     title: `${blog?.title} | Bismit Panda's Blog`,
     description: blog?.excerpt,
+    keywords: blog?.category && [blog.category, "blog", "bismit panda", "bismit"],
   };
 }
 
@@ -43,23 +44,23 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
     <div className="pt-20">
       <article className="container-custom section-spacing relative">
         <div className="mb-10">
-          <Button asChild variant="ghost" className="group">
-            <Link href="/blog" className="flex items-center gap-2">
-              <ArrowLeft className="h-4 w-4 group-hover:-translate-x-1 transition-transform" />
+          <Button asChild className="group" variant="ghost">
+            <Link className="flex items-center gap-2" href="/blog">
+              <ArrowLeft className="group-hover:-translate-x-1 h-4 w-4 transition-transform" />
               <span>Back to Blog</span>
             </Link>
           </Button>
         </div>
 
-        <div className="max-w-3xl mx-auto">
+        <div className="mx-auto max-w-3xl">
           <div className="mb-10">
-            <div className="text-sm font-medium text-muted-foreground mb-4">
+            <div className="mb-4 font-medium text-muted-foreground text-sm">
               <Link href={`/categories/${blog.categorySlug}`}>
                 <Badge variant="outline">{blog.category}</Badge>
               </Link>{" "}
               • {formatDate(blog.date, "MMMM do, yyyy")} • {blog.readingTime}
             </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">{blog.title}</h1>
+            <h1 className="mb-6 font-bold text-4xl md:text-5xl lg:text-6xl">{blog.title}</h1>
             <div className="flex items-center gap-4">
               <Avatar>
                 <AvatarImage src="/me-small.png" />
@@ -72,19 +73,19 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
                     <span className="link-underline">Bismit Panda</span>
                   </HoverCardTrigger>
                   <HoverCardContent asChild>
-                    <div className="w-200 mx-auto p-8 rounded-lg">
+                    <div className="mx-auto w-200 rounded-lg p-8">
                       <div className="flex items-center gap-6">
-                        <div className="w-20 h-20 rounded-full overflow-hidden flex-shrink-0">
+                        <div className="h-20 w-20 flex-shrink-0 overflow-hidden rounded-full">
                           <Image
-                            src="/placeholder.png"
                             alt="Bismit Panda"
-                            width={80}
+                            className="h-full w-full object-cover"
                             height={80}
-                            className="w-full h-full object-cover"
+                            src="/placeholder.png"
+                            width={80}
                           />
                         </div>
                         <div>
-                          <h3 className="text-xl font-bold mb-2">Bismit Panda</h3>
+                          <h3 className="mb-2 font-bold text-xl">Bismit Panda</h3>
                           <p className="text-muted-foreground">
                             Full Stack Developer with a passion for typography and user experience.
                             Writing about web development, design, and the intersection of
@@ -100,18 +101,18 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
           </div>
 
           <div className="mb-12">
-            <div className="aspect-16/9 rounded-lg overflow-hidden">
+            <div className="aspect-16/9 overflow-hidden rounded-lg">
               <Image
-                src={blog.image}
                 alt={blog.title}
-                width={1200}
+                className="h-full w-full object-cover"
                 height={600}
-                className="w-full h-full object-cover"
+                src={blog.image}
+                width={1200}
               />
             </div>
           </div>
 
-          <div className="font-semibold text-muted-foreground italic mb-4">{blog.excerpt}</div>
+          <div className="mb-4 font-semibold text-muted-foreground italic">{blog.excerpt}</div>
 
           <TableOfContents headings={blog.headings} />
 
@@ -120,35 +121,35 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
           </div>
 
           {(!!blog.next || !!blog.prev) && (
-            <div className="w-full flex flex-row items-center justify-between mt-12 pt-6 border-t border-t-gray-500 mb-16">
+            <div className="mt-12 mb-16 flex w-full flex-row items-center justify-between border-t border-t-gray-500 pt-6">
               {blog.prev ? (
                 <Link
+                  className="flex flex-row items-center gap-x-2 font-serif hover:underline"
                   href={`/blog/${blog.prev.slug}`}
-                  className="hover:underline flex flex-row font-serif gap-x-2 items-center"
                 >
-                  <ArrowLeft strokeWidth={1} className="size-5" /> {blog.prev.title}
+                  <ArrowLeft className="size-5" strokeWidth={1} /> {blog.prev.title}
                 </Link>
               ) : (
-                <div></div>
+                <div />
               )}
 
               {blog.next ? (
                 <Link
+                  className="flex flex-row items-center gap-x-2 font-serif hover:underline"
                   href={`/blog/${blog.next.slug}`}
-                  className="hover:underline flex flex-row font-serif gap-x-2 items-center"
                 >
-                  {blog.next.title} <ArrowRight strokeWidth={1} className="size-5" />
+                  {blog.next.title} <ArrowRight className="size-5" strokeWidth={1} />
                 </Link>
               ) : (
-                <div></div>
+                <div />
               )}
             </div>
           )}
 
           {blog.relatedBlogs.length > 0 && (
             <div className="mt-12">
-              <h2 className="text-2xl font-bold mb-8">Related Blogs</h2>
-              <div className="grid md:grid-cols-2 gap-8">
+              <h2 className="mb-8 font-bold text-2xl">Related Blogs</h2>
+              <div className="grid gap-8 md:grid-cols-2">
                 {blog.relatedBlogs.map((relatedPost) => (
                   <BlogCard blog={relatedPost} key={relatedPost.slug} />
                 ))}

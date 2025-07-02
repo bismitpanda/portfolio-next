@@ -4,29 +4,29 @@ import { formatDate } from "date-fns";
 export function AchievementsSection() {
   return (
     <section className="container-custom section-spacing">
-      <div className="grid md:grid-cols-3 gap-12">
+      <div className="grid gap-12 md:grid-cols-3">
         <div>
-          <h2 className="text-4xl font-medium md:text-5xl mb-6">Achievements</h2>
+          <h2 className="mb-6 font-medium text-4xl md:text-5xl">Achievements</h2>
         </div>
         <div className="md:col-span-2">
           <div className="space-y-12">
             {allAchievementsByDate.map((achievement) => {
               return (
-                <div key={achievement.title + achievement.organization} className="group">
-                  <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-4">
+                <div className="group" key={achievement.title + achievement.organization}>
+                  <div className="mb-4 flex flex-col md:flex-row md:items-start md:justify-between">
                     <div>
-                      <h3 className="text-2xl font-bold mb-1 group-hover:text-primary transition-colors">
+                      <h3 className="mb-1 font-bold text-2xl transition-colors group-hover:text-primary">
                         {achievement.title}
                       </h3>
-                      <p className="text-xl text-muted-foreground mb-2">
+                      <p className="mb-2 text-muted-foreground text-xl">
                         {achievement.organization}
                       </p>
                     </div>
-                    <div className="text-sm text-muted-foreground md:text-right">
+                    <div className="text-muted-foreground text-sm md:text-right">
                       <p className="font-medium">{formatDate(achievement.date, "MMM yyyy")}</p>
                     </div>
                   </div>
-                  <ul className="list-disc list-inside text-muted-foreground space-y-1">
+                  <ul className="list-inside list-disc space-y-1 text-muted-foreground">
                     {achievement.description.map((item, i) => (
                       <li key={i}>{item}</li>
                     ))}

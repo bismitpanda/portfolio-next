@@ -1,5 +1,5 @@
 import { ProjectCarousel } from "./_components/project-carousel";
-import { GitHubIcon } from "@/components/icons";
+import { GithubDark } from "@/components/icons";
 import { Button } from "@/components/ui/button";
 import { allProjectsByDate } from "@/lib/content";
 import { ArrowLeft, ExternalLink } from "lucide-react";
@@ -14,6 +14,12 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return {
     title: `${project?.title} | Bismit Panda's Projects`,
     description: project?.description,
+    keywords: project?.technologies && [
+      ...project.technologies,
+      "projects",
+      "bismit panda",
+      "bismit",
+    ],
   };
 }
 
@@ -33,30 +39,30 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
     <div className="pt-20">
       <article className="container-custom section-spacing">
         <div className="mb-10">
-          <Button asChild variant="ghost" className="group">
-            <Link href="/projects" className="flex items-center gap-2">
-              <ArrowLeft className="h-4 w-4 group-hover:-translate-x-1 transition-transform" />
+          <Button asChild className="group" variant="ghost">
+            <Link className="flex items-center gap-2" href="/projects">
+              <ArrowLeft className="group-hover:-translate-x-1 h-4 w-4 transition-transform" />
               <span>Back to Projects</span>
             </Link>
           </Button>
         </div>
 
-        <div className="max-w-3xl mx-auto mb-12">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">{project.title}</h1>
-          <p className="text-xl text-muted-foreground mb-8">{project.description}</p>
+        <div className="mx-auto mb-12 max-w-3xl">
+          <h1 className="mb-6 font-bold text-4xl md:text-5xl lg:text-6xl">{project.title}</h1>
+          <p className="mb-8 text-muted-foreground text-xl">{project.description}</p>
           <div className="flex flex-wrap gap-6">
             {project.liveUrl && (
-              <Button asChild size="lg" className="gap-2">
-                <Link href={project.liveUrl} target="_blank" rel="noopener noreferrer">
+              <Button asChild className="gap-2" size="lg">
+                <Link href={project.liveUrl} rel="noopener noreferrer" target="_blank">
                   <span>View Live Site</span>
                   <ExternalLink className="h-4 w-4" />
                 </Link>
               </Button>
             )}
             {project.githubUrl && (
-              <Button asChild variant="outline" size="lg" className="gap-2">
-                <Link href={project.githubUrl} target="_blank" rel="noopener noreferrer">
-                  <GitHubIcon className="h-4 w-4" />
+              <Button asChild className="gap-2" size="lg" variant="outline">
+                <Link href={project.githubUrl} rel="noopener noreferrer" target="_blank">
+                  <GithubDark className="h-4 w-4" />
                   <span>View Code</span>
                 </Link>
               </Button>
@@ -65,40 +71,40 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
         </div>
 
         <div className="mb-16">
-          <div className="aspect-video rounded-lg overflow-hidden">
+          <div className="aspect-video overflow-hidden rounded-lg">
             <Image
-              src={project.featuredImage}
               alt={project.title}
-              width={1600}
+              className="h-full w-full object-cover"
               height={800}
-              className="w-full h-full object-cover"
+              src={project.featuredImage}
+              width={1600}
             />
           </div>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-12 mb-16">
+        <div className="mb-16 grid gap-12 md:grid-cols-3">
           <div>
-            <h2 className="text-2xl font-bold mb-6">Project Details</h2>
+            <h2 className="mb-6 font-bold text-2xl">Project Details</h2>
             <div className="space-y-4">
               <div>
-                <h3 className="text-sm text-muted-foreground uppercase">Client</h3>
+                <h3 className="text-muted-foreground text-sm uppercase">Client</h3>
                 <p className="text-lg">{project.client}</p>
               </div>
               <div>
-                <h3 className="text-sm text-muted-foreground uppercase">Year</h3>
+                <h3 className="text-muted-foreground text-sm uppercase">Year</h3>
                 <p className="text-lg">{project.year}</p>
               </div>
               <div>
-                <h3 className="text-sm text-muted-foreground uppercase">Role</h3>
+                <h3 className="text-muted-foreground text-sm uppercase">Role</h3>
                 <p className="text-lg">{project.role}</p>
               </div>
               <div>
-                <h3 className="text-sm text-muted-foreground uppercase">Technologies</h3>
-                <div className="flex flex-wrap gap-2 mt-2">
+                <h3 className="text-muted-foreground text-sm uppercase">Technologies</h3>
+                <div className="mt-2 flex flex-wrap gap-2">
                   {project.technologies.map((tech) => (
                     <span
+                      className="rounded-full bg-muted px-3 py-1 text-muted-foreground text-sm"
                       key={tech}
-                      className="px-3 py-1 bg-muted text-muted-foreground rounded-full text-sm"
                     >
                       {tech}
                     </span>
@@ -111,11 +117,11 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
           <div className="md:col-span-2">
             <div className="space-y-8">
               <div>
-                <h2 className="text-2xl font-bold mb-4">The Challenge</h2>
+                <h2 className="mb-4 font-bold text-2xl">The Challenge</h2>
                 <p className="text-lg text-muted-foreground">{project.challenge}</p>
               </div>
               <div>
-                <h2 className="text-2xl font-bold mb-4">The Solution</h2>
+                <h2 className="mb-4 font-bold text-2xl">The Solution</h2>
                 <p className="text-lg text-muted-foreground">{project.solution}</p>
               </div>
             </div>

@@ -3,9 +3,9 @@ import { compileMDX } from "@content-collections/mdx";
 import rehypeShiki, { type RehypeShikiOptions } from "@shikijs/rehype";
 import {
   transformerNotationDiff,
-  transformerNotationHighlight,
-  transformerNotationFocus,
   transformerNotationErrorLevel,
+  transformerNotationFocus,
+  transformerNotationHighlight,
 } from "@shikijs/transformers";
 import { compareDesc } from "date-fns";
 import { readFile } from "fs/promises";
@@ -130,8 +130,8 @@ const blogs = defineCollection({
     const siblings = allSiblings.filter(
       (blog) => !blog.draft && blog._meta.fileName != data._meta.fileName,
     );
-    let next: { slug: string; title: string } | undefined = undefined;
-    let prev: { slug: string; title: string } | undefined =
+    let next: { slug: string; title: string } | undefined;
+    const prev: { slug: string; title: string } | undefined =
       previous === undefined
         ? undefined
         : {
@@ -225,7 +225,7 @@ const blogs = defineCollection({
       { content: data.content, _meta: data._meta },
       () => headings,
       {
-        key: `__headings`,
+        key: "__headings",
       },
     );
 

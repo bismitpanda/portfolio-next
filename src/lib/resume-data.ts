@@ -1,10 +1,10 @@
 import {
+  type Achievement,
   allAchievementsByDate,
   allCertificationsByDate,
   allEducationsByDate,
   allExperiencesByDate,
   allFeaturedProjects,
-  type Achievement,
   type Certification,
   type Education,
   type Experience,

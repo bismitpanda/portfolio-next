@@ -8,7 +8,7 @@ import Link from "next/link";
 export function HeroSection() {
   return (
     <section className="container-custom section-spacing">
-      <div className="max-w-3xl mx-auto text-center mb-16">
+      <div className="mx-auto mb-16 max-w-3xl text-center">
         <h1 className="heading-xl mb-6">About Me</h1>
         <p className="body-lg text-muted-foreground">
           Full Stack Developer with a passion for creating beautiful, functional, and accessible web
@@ -16,43 +16,43 @@ export function HeroSection() {
         </p>
       </div>
 
-      <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
+      <div className="mb-16 grid items-center gap-12 md:grid-cols-2">
         <div className="relative">
           <motion.div
-            className="absolute -top-10 -left-10 w-40 h-40 bg-muted rounded-full opacity-50"
             animate={{
               y: [10, -10],
               x: [5, 0, -10],
               transition: {
                 duration: 3,
-                repeat: Infinity,
+                repeat: Number.POSITIVE_INFINITY,
                 repeatType: "reverse",
               },
             }}
+            className="-top-10 -left-10 absolute h-40 w-40 rounded-full bg-muted opacity-50"
           />
           <motion.div
-            className="absolute -bottom-20 -right-20 w-60 h-60 bg-muted rounded-full opacity-50 hidden md:block"
             animate={{
               y: [-10, 10],
               x: [0, 10, 0, -5],
               transition: {
                 duration: 4,
-                repeat: Infinity,
+                repeat: Number.POSITIVE_INFINITY,
                 repeatType: "reverse",
               },
             }}
+            className="-bottom-20 -right-20 absolute hidden h-60 w-60 rounded-full bg-muted opacity-50 md:block"
           />
-          <div className="relative z-10 aspect-square bg-muted rounded-2xl overflow-hidden border border-border">
+          <div className="relative z-10 aspect-square overflow-hidden rounded-2xl border border-border bg-muted">
             <Image
-              src="/placeholder.png"
               alt="Bismit Panda"
-              width={600}
+              className="h-full w-full object-cover"
               height={600}
-              className="w-full h-full object-cover"
+              src="/placeholder.png"
+              width={600}
             />
           </div>
         </div>
-        <div className="space-y-6 z-10">
+        <div className="z-10 space-y-6">
           <p className="body-lg">
             I&apos;m a passionate developer with over 5 years of experience building web
             applications. I specialize in React, Next.js, and Node.js, creating responsive and
@@ -71,7 +71,7 @@ export function HeroSection() {
             <Button asChild size="lg">
               <Link href="/blog">Read My Blog</Link>
             </Button>
-            <Button asChild variant="outline" size="lg">
+            <Button asChild size="lg" variant="outline">
               <Link href="/snippets">View Snippets</Link>
             </Button>
           </div>

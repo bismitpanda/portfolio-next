@@ -47,8 +47,8 @@ export function Codeblock({
   const noLineNumbers = "no-line-numbers" in meta;
 
   return (
-    <figure className="overflow-hidden rounded-lg mt-6 w-full">
-      <figcaption className="flex justify-between items-center text-xs border-b-zinc-700 border-b font-mono font-semibold p-2 px-4 leading-normal rounded-t-lg bg-muted text-muted-foreground">
+    <figure className="mt-6 w-full overflow-hidden rounded-lg">
+      <figcaption className="flex items-center justify-between rounded-t-lg border-b border-b-zinc-700 bg-muted p-2 px-4 font-mono font-semibold text-muted-foreground text-xs leading-normal">
         {filename && <p className="mb-0">{filename}</p>}
         <p>{lang}</p>
       </figcaption>
@@ -57,7 +57,7 @@ export function Codeblock({
         <CopyButton code={code} />
         <pre
           className={cn(
-            "mb-4 max-h-[650px] overflow-x-auto rounded-b-lg py-3 px-2 relative",
+            "relative mb-4 max-h-[650px] overflow-x-auto rounded-b-lg px-2 py-3",
             className,
           )}
           {...props}

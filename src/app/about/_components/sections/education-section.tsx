@@ -5,35 +5,35 @@ import { formatDate } from "date-fns";
 export function EducationSection() {
   return (
     <section className="container-custom section-spacing">
-      <div className="grid md:grid-cols-3 gap-12">
+      <div className="grid gap-12 md:grid-cols-3">
         <div>
-          <h2 className="text-4xl font-medium md:text-5xl mb-6">Education</h2>
+          <h2 className="mb-6 font-medium text-4xl md:text-5xl">Education</h2>
         </div>
         <div className="md:col-span-2">
           <div className="space-y-12">
             {allEducationsByDate.map((education) => (
               <div
-                className={cn("group", education.isOnGoing ? "" : "border-l-2 border-border pl-6")}
+                className={cn("group", education.isOnGoing ? "" : "border-border border-l-2 pl-6")}
                 key={education.title}
               >
-                <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-4">
+                <div className="mb-4 flex flex-col md:flex-row md:items-start md:justify-between">
                   <div>
-                    <h3 className="text-2xl font-bold mb-1 group-hover:text-primary transition-colors">
+                    <h3 className="mb-1 font-bold text-2xl transition-colors group-hover:text-primary">
                       {education.title}
                     </h3>
-                    <p className="text-xl text-muted-foreground mb-2">{education.institution}</p>
+                    <p className="mb-2 text-muted-foreground text-xl">{education.institution}</p>
                   </div>
-                  <div className="text-sm text-muted-foreground md:text-right">
+                  <div className="text-muted-foreground text-sm md:text-right">
                     <p className="font-medium">
                       {formatDate(education.startDate, "MMM yyyy")} -{" "}
                       {education.isOnGoing ? "Present" : formatDate(education.endDate!, "MMM yyyy")}
                     </p>
                   </div>
                 </div>
-                <p className="text-lg leading-relaxed text-muted-foreground mb-4">
+                <p className="mb-4 text-lg text-muted-foreground leading-relaxed">
                   {education.description}
                 </p>
-                <ul className="list-disc list-inside text-muted-foreground space-y-1">
+                <ul className="list-inside list-disc space-y-1 text-muted-foreground">
                   {education.achievements.map((achievement) => (
                     <li key={achievement}>{achievement}</li>
                   ))}

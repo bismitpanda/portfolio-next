@@ -20,21 +20,21 @@ export default function Page() {
   return (
     <div className="pt-20">
       <section className="container-custom section-spacing">
-        <div className="max-w-3xl mx-auto text-center mb-16">
+        <div className="mx-auto mb-16 max-w-3xl text-center">
           <h1 className="heading-xl mb-6">Categories</h1>
           <p className="body-lg text-muted-foreground">
             Browse blogs by topic to find exactly what you&apos;re looking for.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {allCategoriesByCount.map((category) => (
             <Card
+              className="group border border-border bg-card transition-shadow hover:shadow-lg"
               key={category.slug}
-              className="group border border-border bg-card hover:shadow-lg transition-shadow"
             >
               <CardHeader className="pb-3">
-                <CardTitle className="text-2xl font-serif group-hover:text-primary transition-colors">
+                <CardTitle className="font-serif text-2xl transition-colors group-hover:text-primary">
                   {category.name}
                 </CardTitle>
                 <CardDescription className="text-sm">
@@ -45,7 +45,7 @@ export default function Page() {
                 <p className="text-muted-foreground">{category.description}</p>
               </CardContent>
               <CardFooter>
-                <Button asChild variant="outline" className="w-full">
+                <Button asChild className="w-full" variant="outline">
                   <Link href={`/categories/${category.slug}`}>View Blogs</Link>
                 </Button>
               </CardFooter>

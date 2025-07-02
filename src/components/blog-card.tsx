@@ -7,32 +7,32 @@ import Link from "next/link";
 
 export function BlogCard({ blog }: { blog: Blog["relatedBlogs"][number] }) {
   return (
-    <div className="group rounded-lg overflow-hidden bg-neutral-900 h-full flex flex-col">
-      <div className="aspect-video bg-neutral-100 overflow-hidden">
+    <div className="group flex h-full flex-col overflow-hidden rounded-lg bg-neutral-900">
+      <div className="aspect-video overflow-hidden bg-neutral-100">
         <Image
-          src={blog.image}
           alt={blog.title}
-          width={400}
+          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
           height={200}
-          className="w-full h-full object-cover transition-transform group-hover:scale-105 duration-500"
+          src={blog.image}
+          width={400}
         />
       </div>
       <div className="px-6 pt-6">
-        <div className="text-sm font-medium text-muted-foreground mb-2">
+        <div className="mb-2 font-medium text-muted-foreground text-sm">
           <Link href={`/categories/${blog.categorySlug}`}>
             <Badge variant="outline">{blog.category}</Badge>
           </Link>{" "}
           • {formatDate(blog.date, "MMMM do, yyyy")}
         </div>
-        <h3 className="text-2xl font-bold mb-2">{blog.title}</h3>
-        <p className="text-neutral-400 line-clamp-3">{blog.excerpt}</p>
+        <h3 className="mb-2 font-bold text-2xl">{blog.title}</h3>
+        <p className="line-clamp-3 text-neutral-400">{blog.excerpt}</p>
       </div>
-      <div className="px-6 pb-6 flex-1 flex flex-col justify-end">
-        <Link href={`/blog/${blog.slug}`} className="cursor-pointer w-full">
+      <div className="flex flex-1 flex-col justify-end px-6 pb-6">
+        <Link className="w-full cursor-pointer" href={`/blog/${blog.slug}`}>
           <Button
-            variant="outline"
+            className="mt-8 w-full cursor-pointer transition-colors hover:bg-neutral-900 hover:text-white"
             size="lg"
-            className="hover:bg-neutral-900 hover:text-white transition-colors cursor-pointer w-full mt-8"
+            variant="outline"
           >
             Read Blog
           </Button>

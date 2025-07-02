@@ -2,7 +2,7 @@ import { Footer } from "./_components/layout/footer";
 import { Navigation } from "./_components/layout/navigation";
 import { Toaster } from "@/components/ui/sonner";
 import type { Metadata } from "next";
-import { Fustat, Playfair_Display, JetBrains_Mono } from "next/font/google";
+import { Fustat, JetBrains_Mono, Playfair_Display } from "next/font/google";
 import type { ReactNode } from "react";
 import "katex/dist/katex.css";
 import "@/styles/globals.css";
@@ -40,7 +40,7 @@ export default function Layout({
   children: ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth dark" suppressHydrationWarning>
+    <html className="dark scroll-smooth" lang="en" suppressHydrationWarning>
       <body
         className={`${fustat.variable} ${playfairDisplay.variable} ${jetBrainsMono.variable} font-sans antialiased`}
       >
@@ -49,7 +49,7 @@ export default function Layout({
           <main>{children}</main>
           <Footer />
         </div>
-        <Toaster richColors position="bottom-right" />
+        <Toaster position="bottom-right" richColors />
       </body>
     </html>
   );

@@ -1,8 +1,8 @@
-import * as React from "react";
 import type { SVGProps } from "react";
+import * as React from "react";
 
 const SvgJest = (props: SVGProps<SVGSVGElement>) => (
-  <svg xmlns="http://www.w3.org/2000/svg" width={16} height={16} {...props}>
+  <svg height={16} width={16} xmlns="http://www.w3.org/2000/svg" {...props}>
     <g fill="none" stroke="#f38ba8" strokeLinecap="round" strokeLinejoin="round">
       <path d="M7.5 6 5.56 1.5h9.94l-2 4.5" />
       <path d="m12.5 6-2-2.5-2 2.5m1 1.5h2m2 1.5c1 1-.5 2.75-3 4s-4.5 1.5-6 1.5c-2 0-3-1-3-2.9q0-1.35 1.5-2.1" />

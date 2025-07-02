@@ -14,10 +14,10 @@ export function CopyButton({ code, className }: { code: string; className?: stri
 
   return (
     <Button
-      className={cn("absolute right-0 cursor-pointer top-0 z-20", className)}
-      variant="ghost"
-      size="icon"
+      className={cn("absolute top-0 right-0 z-20 cursor-pointer", className)}
       onClick={handleCopy}
+      size="icon"
+      variant="ghost"
     >
       {copiedText ? <Check className="size-4 text-green-400" /> : <Copy className="size-4" />}
     </Button>

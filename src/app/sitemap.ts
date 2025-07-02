@@ -1,7 +1,7 @@
 import {
-  allPublishedBlogsByDate,
   allCategoriesByCount,
   allProjectsByDate,
+  allPublishedBlogsByDate,
   allSnippetsByDate,
 } from "@/lib/content";
 import type { MetadataRoute } from "next";

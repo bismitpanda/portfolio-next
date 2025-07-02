@@ -1,14 +1,14 @@
-import * as React from "react";
 import type { SVGProps } from "react";
+import * as React from "react";
 
 const SvgRustConfig = (props: SVGProps<SVGSVGElement>) => (
-  <svg xmlns="http://www.w3.org/2000/svg" width={16} height={16} {...props}>
+  <svg height={16} width={16} xmlns="http://www.w3.org/2000/svg" {...props}>
     <path
+      d="M11.5 13.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2m1.75-4 1.75 3-1.75 3h-3.5L8 12.5l1.75-3z"
       fill="none"
       stroke="#7f849c"
       strokeLinecap="round"
       strokeLinejoin="round"
-      d="M11.5 13.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2m1.75-4 1.75 3-1.75 3h-3.5L8 12.5l1.75-3z"
     />
     <g
       fill="none"

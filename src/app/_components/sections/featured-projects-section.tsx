@@ -6,11 +6,11 @@ import Link from "next/link";
 export function FeaturedProjectsSection() {
   return (
     <section className="container-custom section-spacing">
-      <div className="flex flex-col md:flex-row justify-between items-baseline mb-16">
+      <div className="mb-16 flex flex-col items-baseline justify-between md:flex-row">
         <h2 className="heading-lg">Featured Projects</h2>
         <Link
+          className="link-underline mt-4 text-lg text-muted-foreground md:mt-0"
           href="/projects"
-          className="link-underline text-lg text-muted-foreground mt-4 md:mt-0"
         >
           View All Projects
         </Link>
@@ -18,28 +18,28 @@ export function FeaturedProjectsSection() {
 
       <div className="grid gap-24">
         {allFeaturedProjects.map((project, index) => (
-          <div key={project.slug} className="group">
-            <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div className="group" key={project.slug}>
+            <div className="grid items-center gap-12 md:grid-cols-2">
               <div>
-                <span className="text-8xl font-bold text-muted/30 group-hover:text-muted transition-colors">
+                <span className="font-bold text-8xl text-muted/30 transition-colors group-hover:text-muted">
                   0{index + 1}
                 </span>
-                <h3 className="text-4xl font-bold mb-6 -mt-8 group-hover:translate-y-1 transition-transform">
+                <h3 className="-mt-8 mb-6 font-bold text-4xl transition-transform group-hover:translate-y-1">
                   {project.title}
                 </h3>
-                <p className="text-xl text-muted-foreground mb-8">{project.description}</p>
-                <Button asChild variant="outline" size="lg">
+                <p className="mb-8 text-muted-foreground text-xl">{project.description}</p>
+                <Button asChild size="lg" variant="outline">
                   <Link href={`/projects/${project.slug}`}>View Project</Link>
                 </Button>
               </div>
               <div className="overflow-hidden rounded-lg">
-                <div className="aspect-video bg-muted rounded-lg overflow-hidden transition-transform group-hover:scale-105 duration-500">
+                <div className="aspect-video overflow-hidden rounded-lg bg-muted transition-transform duration-500 group-hover:scale-105">
                   <Image
-                    src={project.featuredImage}
                     alt={project.title}
-                    width={480}
+                    className="h-full w-full object-cover"
                     height={270}
-                    className="w-full h-full object-cover"
+                    src={project.featuredImage}
+                    width={480}
                   />
                 </div>
               </div>

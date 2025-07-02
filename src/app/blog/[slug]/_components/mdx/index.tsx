@@ -42,12 +42,12 @@ const components = {
   ),
   Button,
   h1: ({ className, ...props }: React.ComponentProps<typeof AccordionPrimitive.Item>) => (
-    <h1 className={cn("font-heading mt-2 scroll-m-20 text-4xl font-bold", className)} {...props} />
+    <h1 className={cn("mt-2 scroll-m-20 font-bold font-heading text-4xl", className)} {...props} />
   ),
   h2: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h2
       className={cn(
-        "font-heading mt-16 scroll-m-20 border-b pb-4 text-2xl font-semibold tracking-tight first:mt-0",
+        "mt-16 scroll-m-20 border-b pb-4 font-heading font-semibold text-2xl tracking-tight first:mt-0",
         className,
       )}
       {...props}
@@ -56,7 +56,7 @@ const components = {
   h3: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h3
       className={cn(
-        "font-heading mt-8 scroll-m-20 text-xl font-semibold tracking-tight",
+        "mt-8 scroll-m-20 font-heading font-semibold text-xl tracking-tight",
         className,
       )}
       {...props}
@@ -65,7 +65,7 @@ const components = {
   h4: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h4
       className={cn(
-        "font-heading mt-8 scroll-m-20 text-lg font-semibold tracking-tight",
+        "mt-8 scroll-m-20 font-heading font-semibold text-lg tracking-tight",
         className,
       )}
       {...props}
@@ -74,7 +74,7 @@ const components = {
   h5: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h5
       className={cn(
-        "font-heading mt-8 scroll-m-20 text-base font-semibold tracking-tight",
+        "mt-8 scroll-m-20 font-heading font-semibold text-base tracking-tight",
         className,
       )}
       {...props}
@@ -83,7 +83,7 @@ const components = {
   h6: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h6
       className={cn(
-        "font-heading mt-8 scroll-m-20 text-base font-semibold tracking-tight",
+        "mt-8 scroll-m-20 font-heading font-semibold text-base tracking-tight",
         className,
       )}
       {...props}
@@ -116,7 +116,7 @@ const components = {
   ),
   img: ({ className, alt, ...props }: React.ImgHTMLAttributes<HTMLImageElement>) => (
     // eslint-disable-next-line @next/next/no-img-element
-    <img className={cn("rounded-md", className)} alt={alt} {...props} />
+    <img alt={alt} className={cn("rounded-md", className)} {...props} />
   ),
   hr: ({ ...props }: React.HTMLAttributes<HTMLHRElement>) => (
     <hr className="my-4 md:my-8" {...props} />
@@ -130,7 +130,7 @@ const components = {
     </div>
   ),
   tr: ({ className, ...props }: React.HTMLAttributes<HTMLTableRowElement>) => (
-    <tr className={cn("last:border-b-none m-0 border-b", className)} {...props} />
+    <tr className={cn("m-0 border-b last:border-b-none", className)} {...props} />
   ),
   th: ({ className, ...props }: React.HTMLAttributes<HTMLTableCellElement>) => (
     <th
@@ -157,7 +157,7 @@ const components = {
   Step: ({ className, ...props }: React.ComponentProps<"h3">) => (
     <h3
       className={cn(
-        "font-heading mt-8 scroll-m-20 text-xl font-semibold tracking-tight",
+        "mt-8 scroll-m-20 font-heading font-semibold text-xl tracking-tight",
         className,
       )}
       {...props}
@@ -181,7 +181,7 @@ const components = {
   TabsTrigger: ({ className, ...props }: React.ComponentProps<typeof TabsTrigger>) => (
     <TabsTrigger
       className={cn(
-        "relative h-9 rounded-none border-b-2 border-b-transparent bg-transparent px-4 pb-3 pt-2 font-semibold text-muted-foreground shadow-none transition-none data-[state=active]:border-b-primary data-[state=active]:text-foreground data-[state=active]:shadow-none",
+        "relative h-9 rounded-none border-b-2 border-b-transparent bg-transparent px-4 pt-2 pb-3 font-semibold text-muted-foreground shadow-none transition-none data-[state=active]:border-b-primary data-[state=active]:text-foreground data-[state=active]:shadow-none",
         className,
       )}
       {...props}
@@ -190,7 +190,7 @@ const components = {
   TabsContent: ({ className, ...props }: React.ComponentProps<typeof TabsContent>) => (
     <TabsContent
       className={cn(
-        "relative [&_h3.font-heading]:text-base [&_h3.font-heading]:font-semibold",
+        "relative [&_h3.font-heading]:font-semibold [&_h3.font-heading]:text-base",
         className,
       )}
       {...props}

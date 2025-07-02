@@ -1,11 +1,11 @@
 "use client";
 
 import { routes } from "../routes";
-import { Logo } from "@/components/icons";
+import { Logo } from "@/components/icons/logo";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { Menu, MoveUpRight, X } from "lucide-react";
-import { motion, AnimatePresence } from "motion/react";
+import { AnimatePresence, motion } from "motion/react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
@@ -15,41 +15,41 @@ export function Navigation() {
   const pathname = usePathname();
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
-      <div className="container-custom flex items-center justify-between h-20">
+    <header className="fixed top-0 right-0 left-0 z-50 border-border border-b bg-background/80 backdrop-blur-md">
+      <div className="container-custom flex h-20 items-center justify-between">
         <Link
+          className="flex items-center gap-x-4 font-bold font-serif text-2xl tracking-tight"
           href="/"
-          className="font-serif text-2xl font-bold tracking-tight flex gap-x-4 items-center"
         >
           <Logo className="size-[42px]" />
           Bismit Panda
         </Link>
 
-        <nav className="hidden md:flex items-center space-x-8">
+        <nav className="hidden items-center space-x-8 md:flex">
           {routes.map((route) => (
             <Link
-              key={route.path}
-              href={route.path}
               className={cn(
                 "link-underline text-lg transition-colors",
                 pathname === route.path
                   ? "text-foreground"
                   : "text-muted-foreground hover:text-foreground",
-                route.external ? "group flex flex-row gap-x-1 items-center justify-between" : "",
+                route.external ? "group flex flex-row items-center justify-between gap-x-1" : "",
               )}
-              target={route.external ? "_blank" : undefined}
+              href={route.path}
+              key={route.path}
               rel={route.external ? "noopener noreferrer" : undefined}
+              target={route.external ? "_blank" : undefined}
             >
               {route.name}
               {route.external && (
-                <MoveUpRight className="group-hover:opacity-100 group-hover:w-4 w-0 opacity-0 transition-all size-4" />
+                <MoveUpRight className="size-4 w-0 opacity-0 transition-all group-hover:w-4 group-hover:opacity-100" />
               )}
             </Link>
           ))}
         </nav>
 
         <div className="flex items-center gap-2 md:hidden">
-          <Button variant="ghost" size="icon" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+          <Button onClick={() => setIsMenuOpen(!isMenuOpen)} size="icon" variant="ghost">
             {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </Button>
         </div>
@@ -58,26 +58,26 @@ export function Navigation() {
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div
-            className="md:hidden fixed inset-0 top-20 bg-background z-40 py-6"
-            initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
+            className="fixed inset-0 top-20 z-40 bg-background py-6 md:hidden"
             exit={{ height: 0, opacity: 0 }}
+            initial={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.3 }}
           >
-            <nav className="flex flex-col space-y-6 text-center bg-background/90">
+            <nav className="flex flex-col space-y-6 bg-background/90 text-center">
               {routes.map((route) => (
                 <Link
-                  key={route.path}
-                  href={route.path}
                   className={cn(
-                    "text-2xl py-2 transition-colors",
+                    "py-2 text-2xl transition-colors",
                     pathname === route.path
                       ? "text-foreground"
                       : "text-muted-foreground hover:text-foreground",
                   )}
+                  href={route.path}
+                  key={route.path}
                   onClick={() => setIsMenuOpen(false)}
-                  target={route.external ? "_blank" : undefined}
                   rel={route.external ? "noopener noreferrer" : undefined}
+                  target={route.external ? "_blank" : undefined}
                 >
                   {route.name}
                 </Link>

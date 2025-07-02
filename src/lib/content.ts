@@ -1,20 +1,20 @@
 import {
+  type Achievement,
   allAchievements,
   allBlogs,
   allCategories,
+  allCertifications,
+  allEducations,
+  allExperiences,
   allProjects,
   allSnippets,
-  allExperiences,
-  allEducations,
-  allCertifications,
-  type Achievement,
   type Blog,
   type Category,
-  type Snippet,
-  type Project,
-  type Experience,
-  type Education,
   type Certification,
+  type Education,
+  type Experience,
+  type Project,
+  type Snippet,
 } from "../../.content-collections/generated";
 import { compareDesc } from "date-fns";
 

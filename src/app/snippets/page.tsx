@@ -14,32 +14,32 @@ export default function Page() {
   return (
     <div className="pt-20">
       <section className="container-custom section-spacing">
-        <div className="max-w-3xl mx-auto text-center mb-16">
+        <div className="mx-auto mb-16 max-w-3xl text-center">
           <h1 className="heading-xl mb-6">Code Snippets</h1>
           <p className="body-lg text-muted-foreground">
             A collection of useful code snippets and patterns I frequently use in my projects.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {allSnippetsByDate.map((snippet) => (
             <CodeSnippetDialog key={snippet.name} snippet={snippet}>
-              <div className="group bg-card border border-border rounded-lg overflow-hidden hover:shadow-lg transition-shadow cursor-pointer h-full flex flex-col">
-                <div className="p-6 grow">
-                  <h3 className="text-xl font-bold mb-2 group-hover:text-primary transition-colors flex items-center space-x-4">
+              <div className="group flex h-full cursor-pointer flex-col overflow-hidden rounded-lg border border-border bg-card transition-shadow hover:shadow-lg">
+                <div className="grow p-6">
+                  <h3 className="mb-2 flex items-center space-x-4 font-bold text-xl transition-colors group-hover:text-primary">
                     <span>{snippet.name}</span>
-                    <div className="flex flex-row gap-2 items-center justify-center">
+                    <div className="flex flex-row items-center justify-center gap-2">
                       {snippet.codes.slice(0, 2).map((code) => (
                         <Badge
-                          variant="outline"
                           className="bg-muted/50 font-mono"
                           key={code.language}
+                          variant="outline"
                         >
                           {code.language}
                         </Badge>
                       ))}
                       {snippet.codes.length > 2 && (
-                        <Badge variant="outline" className="bg-muted/50 font-mono">
+                        <Badge className="bg-muted/50 font-mono" variant="outline">
                           +{snippet.codes.length - 2}
                         </Badge>
                       )}
@@ -48,7 +48,7 @@ export default function Page() {
                   <p className="text-muted-foreground text-sm">{snippet.description}</p>
                 </div>
                 <div className="px-6 pb-6">
-                  <Button variant="outline" className="w-full">
+                  <Button className="w-full" variant="outline">
                     View Snippet
                   </Button>
                 </div>
@@ -58,10 +58,10 @@ export default function Page() {
         </div>
 
         <div className="mt-16 text-center">
-          <p className="text-muted-foreground mb-6">
+          <p className="mb-6 text-muted-foreground">
             Looking for more code examples? Check out my projects and blog posts.
           </p>
-          <div className="flex flex-wrap gap-4 justify-center">
+          <div className="flex flex-wrap justify-center gap-4">
             <Button asChild variant="outline">
               <Link href="/projects">View Projects</Link>
             </Button>

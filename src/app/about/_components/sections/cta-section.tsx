@@ -4,16 +4,16 @@ import Link from "next/link";
 export function CtaSection() {
   return (
     <section className="container-custom section-spacing">
-      <div className="max-w-3xl mx-auto text-center">
+      <div className="mx-auto max-w-3xl text-center">
         <h2 className="heading-md mb-6">Interested in working together?</h2>
-        <p className="body-lg text-muted-foreground mb-8">
+        <p className="body-lg mb-8 text-muted-foreground">
           I&apos;m currently available for freelance projects and full-time opportunities.
         </p>
-        <div className="flex flex-wrap gap-4 justify-center">
+        <div className="flex flex-wrap justify-center gap-4">
           <Button asChild size="lg">
             <Link href="/#contact">Get In Touch</Link>
           </Button>
-          <Button asChild variant="outline" size="lg">
+          <Button asChild size="lg" variant="outline">
             <Link href="/projects">View My Projects</Link>
           </Button>
         </div>

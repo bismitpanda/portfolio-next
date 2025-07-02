@@ -2,11 +2,11 @@
 
 import {
   Carousel,
+  type CarouselApi,
   CarouselContent,
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-  type CarouselApi,
 } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
 import Image from "next/image";
@@ -33,26 +33,26 @@ export function ProjectCarousel({ gallery, title }: { gallery: string[]; title: 
 
   return (
     <div className="mb-16">
-      <h2 className="text-4xl font-bold mb-8">Project Gallery</h2>
+      <h2 className="mb-8 font-bold text-4xl">Project Gallery</h2>
       <Carousel
-        plugins={[plugin.current]}
         className="w-full"
-        setApi={setApi}
         opts={{
           loop: true,
           align: "start",
         }}
+        plugins={[plugin.current]}
+        setApi={setApi}
       >
         <CarouselContent>
           {gallery.map((image, index) => (
             <CarouselItem key={index}>
-              <div key={index} className="aspect-video rounded-lg overflow-hidden">
+              <div className="aspect-video overflow-hidden rounded-lg" key={index}>
                 <Image
-                  src={image}
                   alt={`${title} - Image ${index + 1}`}
-                  width={800}
+                  className="h-full w-full object-cover"
                   height={600}
-                  className="w-full h-full object-cover"
+                  src={image}
+                  width={800}
                 />
               </div>
             </CarouselItem>
@@ -61,11 +61,11 @@ export function ProjectCarousel({ gallery, title }: { gallery: string[]; title: 
         <CarouselPrevious />
         <CarouselNext />
       </Carousel>
-      <div className="flex justify-center gap-3 mt-4">
+      <div className="mt-4 flex justify-center gap-3">
         {Array.from({ length: count }).map((_, index) => (
           <div
+            className={`h-3 w-3 rounded-full border border-white ${current === index + 1 ? "bg-white" : ""} cursor-pointer transition-colors duration-300 hover:bg-white/50`}
             key={index}
-            className={`w-3 h-3 rounded-full border border-white ${current === index + 1 ? "bg-white" : ""} cursor-pointer hover:bg-white/50 transition-colors duration-300`}
             onClick={() => api?.scrollTo(index)}
           />
         ))}

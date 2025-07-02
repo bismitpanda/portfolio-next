@@ -5,8 +5,8 @@ import { useEffect, useId, useRef, useState } from "react";
 
 export function Mermaid({ chart }: { chart: string }) {
   const id = useId();
-  const [svg, setSvg] = useState("");
-  const containerRef = useRef<HTMLDivElement>(null!);
+  const [svgString, setSvgString] = useState("");
+  const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     void renderChart();
@@ -26,14 +26,16 @@ export function Mermaid({ chart }: { chart: string }) {
         const { svg } = await mermaid.render(
           id.replaceAll(":", ""),
           chart.replaceAll("\\n", "\n"),
-          containerRef.current,
+          // biome-ignore lint/style/noNonNullAssertion: This will be set
+          containerRef.current!,
         );
-        setSvg(svg);
+        setSvgString(svg);
       } catch (error) {
-        console.error("Error while rendering mermaid", error);
+        throw new Error("Error while rendering mermaid", { cause: error });
       }
     }
   }, [chart, id]);
 
-  return <div ref={containerRef} dangerouslySetInnerHTML={{ __html: svg }} />;
+  // biome-ignore lint/security/noDangerouslySetInnerHtml: Valid use case
+  return <div dangerouslySetInnerHTML={{ __html: svgString }} ref={containerRef} />;
 }
