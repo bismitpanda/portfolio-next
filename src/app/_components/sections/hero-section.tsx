@@ -2,8 +2,6 @@
 
 import { RotatingText } from "../rotating-text";
 import { Button } from "@/components/ui/button";
-import { motion } from "motion/react";
-import Image from "next/image";
 import Link from "next/link";
 
 const roles = [
@@ -46,40 +44,8 @@ export function HeroSection() {
             </Button>
           </div>
         </div>
-        <div className="relative">
-          <motion.div
-            animate={{
-              y: [10, -10],
-              x: [5, 0, -10],
-              transition: {
-                duration: 3,
-                repeat: Number.POSITIVE_INFINITY,
-                repeatType: "reverse",
-              },
-            }}
-            className="-top-10 -left-10 absolute h-40 w-40 rounded-full bg-muted opacity-50"
-          />
-          <motion.div
-            animate={{
-              y: [-10, 10],
-              x: [0, 10, 0, -5],
-              transition: {
-                duration: 4,
-                repeat: Number.POSITIVE_INFINITY,
-                repeatType: "reverse",
-              },
-            }}
-            className="-bottom-20 -right-20 absolute hidden h-60 w-60 rounded-full bg-muted opacity-50 md:block"
-          />
-          <div className="relative z-10 aspect-square overflow-hidden rounded-2xl border border-border bg-muted">
-            <Image
-              alt="Bismit Panda"
-              className="h-full w-full object-cover"
-              height={600}
-              src="/placeholder.png"
-              width={600}
-            />
-          </div>
+        <div className="z-50 aspect-square overflow-hidden rounded-2xl border border-border bg-muted size-full">
+          <img alt="Bismit Panda" className="h-full w-full object-cover" src="/images/photo.png" />
         </div>
       </div>
     </section>
