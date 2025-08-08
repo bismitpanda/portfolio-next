@@ -1,4 +1,5 @@
 import { skills } from "@/lib/constants";
+import Link from "next/link";
 
 export function SkillsSection() {
   return (
@@ -15,10 +16,13 @@ export function SkillsSection() {
                   <span className="mr-4 text-muted-foreground text-sm transition-colors group-hover:text-foreground">
                     {(index + 1).toString().padStart(2, "0")}
                   </span>
-                  <span className="flex items-center gap-3 text-xl transition-transform group-hover:translate-x-2">
+                  <Link
+                    href={skill.url}
+                    className="flex items-center gap-3 text-xl transition-transform group-hover:translate-x-2"
+                  >
                     <skill.icon className="size-5" />
                     {skill.label}
-                  </span>
+                  </Link>
                 </div>
               </div>
             ))}
