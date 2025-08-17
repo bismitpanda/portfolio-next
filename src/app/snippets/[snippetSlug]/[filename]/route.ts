@@ -4,6 +4,7 @@ import { allSnippetsByDate } from "@/lib/content";
 export function generateStaticParams() {
   return allSnippetsByDate.flatMap((snippet) =>
     snippet.codes.map((code) => ({
+      snippetSlug: snippet.slug,
       filename: code.codeFile,
     })),
   );
