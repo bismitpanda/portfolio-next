@@ -1,7 +1,5 @@
 import { footerRoutes, socialRoutes } from "../routes";
-import { GithubDark, Linkedin, XDark } from "@/components/icons";
 import { Logo } from "@/components/icons/logo";
-import { Mail } from "lucide-react";
 import Link from "next/link";
 
 export function Footer() {
@@ -31,7 +29,7 @@ export function Footer() {
                   <Link
                     className="text-muted-foreground transition-colors hover:text-foreground"
                     href={route.path}
-                    rel={route.external ? "noopener noreferrer" : undefined}
+                    rel={route.external ? "nofollow noopener noreferrer" : undefined}
                     target={route.external ? "_blank" : undefined}
                   >
                     {route.name}
@@ -44,46 +42,19 @@ export function Footer() {
           <div>
             <h3 className="mb-4 font-medium text-xl">Connect</h3>
             <div className="flex space-x-4">
-              <Link
-                aria-label={socialRoutes.email.label}
-                className="text-muted-foreground transition-colors hover:text-foreground"
-                href={socialRoutes.email.url}
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                <Mail className="h-6 w-6" />
-                <span className="sr-only">Email</span>
-              </Link>
-              <Link
-                aria-label={socialRoutes.linkedIn.label}
-                className="text-muted-foreground transition-colors hover:text-foreground"
-                href={socialRoutes.linkedIn.url}
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                <Linkedin className="h-6 w-6" />
-                <span className="sr-only">LinkedIn</span>
-              </Link>
-              <Link
-                aria-label={socialRoutes.github.label}
-                className="text-muted-foreground transition-colors hover:text-foreground"
-                href={socialRoutes.github.url}
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                <GithubDark className="h-6 w-6" />
-                <span className="sr-only">GitHub</span>
-              </Link>
-              <Link
-                aria-label={socialRoutes.x.label}
-                className="text-muted-foreground transition-colors hover:text-foreground"
-                href={socialRoutes.x.url}
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                <XDark className="h-6 w-6" />
-                <span className="sr-only">Twitter</span>
-              </Link>
+              {socialRoutes.map(({ title, url, icon: Icon }) => (
+                <Link
+                  aria-label={title}
+                  className="text-muted-foreground transition-colors hover:text-foreground"
+                  href={url}
+                  rel="nofollow noopener noreferrer"
+                  target="_blank"
+                  key={title}
+                >
+                  <Icon className="size-6" />
+                  <span className="sr-only">{title}</span>
+                </Link>
+              ))}
             </div>
           </div>
         </div>

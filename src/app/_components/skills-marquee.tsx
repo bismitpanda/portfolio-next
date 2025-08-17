@@ -12,7 +12,7 @@ export function SkillsMarquee() {
         {skills.map((skill) => (
           <Tooltip key={skill.label}>
             <TooltipTrigger asChild>
-              <Link href={skill.url}>
+              <Link href={skill.url} rel="nofollow noopener noreferrer" target="_blank">
                 <skill.icon className="size-5 grayscale-50" />
                 <span className="sr-only">{skill.label}</span>
               </Link>

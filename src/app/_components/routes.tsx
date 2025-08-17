@@ -1,4 +1,5 @@
-import { GithubDark } from "@/components/icons";
+import { GithubDark, Linkedin, XDark } from "@/components/icons";
+import { Mail } from "lucide-react";
 import type { ReactNode } from "react";
 
 type Route = {
@@ -29,18 +30,36 @@ export const navigationRoutes: Route[] = [
   },
 ];
 
-export const socialRoutes = {
-  linkedIn: {
+type SocialRoute = {
+  icon: ({ className }: { className: string }) => ReactNode;
+  title: string;
+  label: string;
+  url: string;
+};
+
+export const socialRoutes: SocialRoute[] = [
+  {
+    icon: ({ className }) => <Linkedin className={className} />,
+    title: "LinkedIn",
     label: "linkedin.com/in/bismit-panda-5432a824a",
     url: "https://www.linkedin.com/in/bismit-panda-5432a824a",
   },
-  github: {
+  {
+    icon: ({ className }) => <GithubDark className={className} />,
+    title: "GitHub",
     label: "github.com/bismitpanda",
     url: "https://github.com/bismitpanda",
   },
-  x: { label: "x.com/bismitpanda", url: "https://x.com/bismitpanda" },
-  email: {
+  {
+    icon: ({ className }) => <XDark className={className} />,
+    title: "X",
+    label: "x.com/bismitpanda",
+    url: "https://x.com/bismitpanda",
+  },
+  {
+    icon: ({ className }) => <Mail className={className} />,
+    title: "Email",
     label: "contact@bismitpanda.com",
     url: "mailto:contact@bismitpanda.com",
   },
-};
+];
