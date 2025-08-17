@@ -1,12 +1,7 @@
 "use client";
 
-import { Callout } from "./callout";
-import { Codeblock } from "./codeblock";
-import { EmbedBlog } from "./embed-blog";
-import { FileTree } from "./file-tree";
-import { GithubLink } from "./github-link";
-import { Kbd } from "./kbd";
-import { Link } from "./link";
+import { useMDXComponent } from "@content-collections/mdx/react";
+import type { Accordion as AccordionPrimitive } from "radix-ui";
 import {
   Accordion,
   AccordionContent,
@@ -17,8 +12,13 @@ import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { cn } from "@/lib/utils";
-import { useMDXComponent } from "@content-collections/mdx/react";
-import type { Accordion as AccordionPrimitive } from "radix-ui";
+import { Callout } from "./callout";
+import { Codeblock } from "./codeblock";
+import { EmbedBlog } from "./embed-blog";
+import { FileTree } from "./file-tree";
+import { GithubLink } from "./github-link";
+import { Kbd } from "./kbd";
+import { Link } from "./link";
 
 const components = {
   Accordion,
@@ -26,7 +26,10 @@ const components = {
     className,
     ...props
   }: React.ComponentProps<typeof AccordionPrimitive.Content>) => (
-    <AccordionContent className={cn("font-sans text-base", className)} {...props} />
+    <AccordionContent
+      className={cn("font-sans text-base", className)}
+      {...props}
+    />
   ),
   AccordionItem: ({
     className,
@@ -38,11 +41,23 @@ const components = {
     className,
     ...props
   }: React.ComponentProps<typeof AccordionPrimitive.Trigger>) => (
-    <AccordionTrigger className={cn("font-sans text-lg", className)} {...props} />
+    <AccordionTrigger
+      className={cn("font-sans text-lg", className)}
+      {...props}
+    />
   ),
   Button,
-  h1: ({ className, ...props }: React.ComponentProps<typeof AccordionPrimitive.Item>) => (
-    <h1 className={cn("mt-2 scroll-m-20 font-bold font-heading text-4xl", className)} {...props} />
+  h1: ({
+    className,
+    ...props
+  }: React.ComponentProps<typeof AccordionPrimitive.Item>) => (
+    <h1
+      className={cn(
+        "mt-2 scroll-m-20 font-bold font-heading text-4xl",
+        className,
+      )}
+      {...props}
+    />
   ),
   h2: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h2
@@ -91,7 +106,10 @@ const components = {
   ),
   a: Link,
   p: ({ className, ...props }: React.HTMLAttributes<HTMLParagraphElement>) => (
-    <p className={cn("leading-[1.65rem] [&:not(:first-child)]:mt-6", className)} {...props} />
+    <p
+      className={cn("leading-[1.65rem] [&:not(:first-child)]:mt-6", className)}
+      {...props}
+    />
   ),
   strong: ({ className, ...props }: React.HTMLAttributes<HTMLElement>) => (
     <strong className={cn("font-semibold", className)} {...props} />
@@ -112,9 +130,16 @@ const components = {
     <li className={cn("mt-2", className)} {...props} />
   ),
   blockquote: ({ className, ...props }: React.HTMLAttributes<HTMLElement>) => (
-    <blockquote className={cn("mt-6 border-l-2 pl-6 italic", className)} {...props} />
+    <blockquote
+      className={cn("mt-6 border-l-2 pl-6 italic", className)}
+      {...props}
+    />
   ),
-  img: ({ className, alt, ...props }: React.ImgHTMLAttributes<HTMLImageElement>) => (
+  img: ({
+    className,
+    alt,
+    ...props
+  }: React.ImgHTMLAttributes<HTMLImageElement>) => (
     // eslint-disable-next-line @next/next/no-img-element
     <img alt={alt} className={cn("rounded-md", className)} {...props} />
   ),
@@ -124,13 +149,19 @@ const components = {
   table: ({ className, ...props }: React.HTMLAttributes<HTMLTableElement>) => (
     <div className="my-6 w-full overflow-y-auto">
       <table
-        className={cn("relative w-full overflow-hidden border-none text-sm", className)}
+        className={cn(
+          "relative w-full overflow-hidden border-none text-sm",
+          className,
+        )}
         {...props}
       />
     </div>
   ),
   tr: ({ className, ...props }: React.HTMLAttributes<HTMLTableRowElement>) => (
-    <tr className={cn("m-0 border-b last:border-b-none", className)} {...props} />
+    <tr
+      className={cn("m-0 border-b last:border-b-none", className)}
+      {...props}
+    />
   ),
   th: ({ className, ...props }: React.HTMLAttributes<HTMLTableCellElement>) => (
     <th
@@ -152,7 +183,10 @@ const components = {
   ),
   pre: Codeblock,
   code: ({ className, ...props }: React.HTMLAttributes<HTMLElement>) => (
-    <code className={cn("relative rounded font-mono text-sm", className)} {...props} />
+    <code
+      className={cn("relative rounded font-mono text-sm", className)}
+      {...props}
+    />
   ),
   Step: ({ className, ...props }: React.ComponentProps<"h3">) => (
     <h3
@@ -172,13 +206,22 @@ const components = {
   Tabs: ({ className, ...props }: React.ComponentProps<typeof Tabs>) => (
     <Tabs className={cn("relative mt-6", className)} {...props} />
   ),
-  TabsList: ({ className, ...props }: React.ComponentProps<typeof TabsList>) => (
+  TabsList: ({
+    className,
+    ...props
+  }: React.ComponentProps<typeof TabsList>) => (
     <TabsList
-      className={cn("justify-start rounded-none border-b bg-transparent p-0", className)}
+      className={cn(
+        "justify-start rounded-none border-b bg-transparent p-0",
+        className,
+      )}
       {...props}
     />
   ),
-  TabsTrigger: ({ className, ...props }: React.ComponentProps<typeof TabsTrigger>) => (
+  TabsTrigger: ({
+    className,
+    ...props
+  }: React.ComponentProps<typeof TabsTrigger>) => (
     <TabsTrigger
       className={cn(
         "relative h-9 rounded-none border-b-2 border-b-transparent bg-transparent px-4 pt-2 pb-3 font-semibold text-muted-foreground shadow-none transition-none data-[state=active]:border-b-primary data-[state=active]:text-foreground data-[state=active]:shadow-none",
@@ -187,7 +230,10 @@ const components = {
       {...props}
     />
   ),
-  TabsContent: ({ className, ...props }: React.ComponentProps<typeof TabsContent>) => (
+  TabsContent: ({
+    className,
+    ...props
+  }: React.ComponentProps<typeof TabsContent>) => (
     <TabsContent
       className={cn(
         "relative [&_h3.font-heading]:font-semibold [&_h3.font-heading]:text-base",

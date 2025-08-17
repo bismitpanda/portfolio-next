@@ -1,14 +1,14 @@
 "use client";
 
-import { cn } from "@/lib/utils";
 import {
-  motion,
   AnimatePresence,
+  type AnimatePresenceProps,
+  motion,
   type Transition,
   type Variants,
-  type AnimatePresenceProps,
 } from "motion/react";
-import { useState, useEffect, Children } from "react";
+import { Children, useEffect, useState } from "react";
+import { cn } from "@/lib/utils";
 
 export type TextLoopProps = {
   children: React.ReactNode[];
@@ -63,7 +63,7 @@ export function TextLoop({
           animate="animate"
           exit="exit"
           transition={transition}
-          variants={variants || motionVariants}
+          variants={variants ?? motionVariants}
         >
           {items[currentIndex]}
         </motion.div>

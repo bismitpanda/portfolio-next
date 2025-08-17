@@ -1,13 +1,15 @@
-import { allCertificationsByDate } from "@/lib/content";
 import { addMonths, formatDate } from "date-fns";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
+import { allCertificationsByDate } from "@/lib/content";
 
 export function CertificationsSection() {
   return (
     <section className="container-custom section-spacing">
       <div>
-        <h2 className="mb-16 font-medium text-4xl md:text-5xl">Certifications</h2>
+        <h2 className="mb-16 font-medium text-4xl md:text-5xl">
+          Certifications
+        </h2>
       </div>
       <div className="md:col-span-2">
         <div className="grid gap-6 md:grid-cols-2">
@@ -19,7 +21,9 @@ export function CertificationsSection() {
                     <h3 className="mb-2 font-bold text-xl transition-colors group-hover:text-primary">
                       {certification.title}
                     </h3>
-                    <p className="mb-2 text-muted-foreground text-sm">{certification.provider}</p>
+                    <p className="mb-2 text-muted-foreground text-sm">
+                      {certification.provider}
+                    </p>
                   </div>
                   <p className="mb-4 text-muted-foreground text-sm">
                     {formatDate(certification.date, "MMM yyyy")}
@@ -37,7 +41,8 @@ export function CertificationsSection() {
                     rel="noopener noreferrer"
                     target="_blank"
                   >
-                    View Certificate <ArrowRight className="h-4 w-4 text-muted-foreground" />
+                    View Certificate{" "}
+                    <ArrowRight className="h-4 w-4 text-muted-foreground" />
                   </Link>
                   {certification.verificationLink && (
                     <Link

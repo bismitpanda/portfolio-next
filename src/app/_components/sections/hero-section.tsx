@@ -1,8 +1,8 @@
 "use client";
 
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { TextLoop } from "@/components/ui/text-loop";
-import Link from "next/link";
 
 const roles = [
   "Full Stack Developer",
@@ -17,9 +17,11 @@ export function HeroSection() {
       <div className="grid items-center gap-12 md:grid-cols-2">
         <div className="space-y-8">
           <div>
-            <p className="mb-2 font-medium text-lg text-muted-foreground">Hello, I&apos;m</p>
+            <p className="mb-2 font-medium text-lg text-muted-foreground">
+              Hello, I&apos;m
+            </p>
             <h1 className="heading-xl mb-4">Bismit Panda</h1>
-            <TextLoop className="font-mono text-xl md:text-2xl text-muted-foreground">
+            <TextLoop className="font-mono text-muted-foreground text-xl md:text-2xl">
               {roles.map((role) => (
                 <span key={role}>{role}</span>
               ))}
@@ -32,13 +34,22 @@ export function HeroSection() {
             <Button asChild className="px-8 text-lg" size="lg">
               <Link href="/about">Learn More</Link>
             </Button>
-            <Button asChild className="px-8 text-lg" size="lg" variant="outline">
+            <Button
+              asChild
+              className="px-8 text-lg"
+              size="lg"
+              variant="outline"
+            >
               <Link href="/projects">View Projects</Link>
             </Button>
           </div>
         </div>
-        <div className="aspect-square overflow-hidden rounded-4xl border border-border bg-muted size-full">
-          <img alt="Bismit Panda" className="h-full w-full object-cover" src="/images/photo.png" />
+        <div className="aspect-square size-full overflow-hidden rounded-4xl border border-border bg-muted">
+          <img
+            alt="Bismit Panda"
+            className="h-full w-full object-cover"
+            src="/images/photo.png"
+          />
         </div>
       </div>
     </section>

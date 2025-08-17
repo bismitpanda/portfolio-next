@@ -1,3 +1,4 @@
+import type { JSX, SVGProps } from "react";
 import {
   AwsDark,
   BetterAuthDark,
@@ -18,7 +19,6 @@ import {
   Tailwindcss,
   Typescript,
 } from "@/components/icons";
-import type { SVGProps, JSX } from "react";
 
 type Icon = (props: SVGProps<SVGSVGElement>) => JSX.Element;
 

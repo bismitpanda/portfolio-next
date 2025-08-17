@@ -1,10 +1,10 @@
-import { GithubDark } from "@/components/icons";
-import { Button } from "@/components/ui/button";
-import { allGithubProjects, allHostedProjects } from "@/lib/content";
 import { ExternalLink } from "lucide-react";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { GithubDark } from "@/components/icons";
+import { Button } from "@/components/ui/button";
+import { allGithubProjects, allHostedProjects } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "All Projects | Bismit Panda's Projects",
@@ -18,7 +18,8 @@ export default function Page() {
         <div className="mx-auto mb-16 max-w-3xl text-center">
           <h1 className="heading-xl mb-6">Projects</h1>
           <p className="body-lg text-muted-foreground">
-            A showcase of my work, featuring web applications, design projects, and experiments.
+            A showcase of my work, featuring web applications, design projects,
+            and experiments.
           </p>
         </div>
 
@@ -38,7 +39,9 @@ export default function Page() {
                     <h2 className="-mt-8 mb-6 font-bold text-4xl transition-transform group-hover:translate-y-1">
                       {project.title}
                     </h2>
-                    <p className="mb-6 text-muted-foreground text-xl">{project.description}</p>
+                    <p className="mb-6 text-muted-foreground text-xl">
+                      {project.description}
+                    </p>
                     <div className="mb-8 flex flex-wrap gap-2">
                       {project.technologies.map((tech) => (
                         <span
@@ -50,7 +53,9 @@ export default function Page() {
                       ))}
                     </div>
                     <Button asChild size="lg" variant="outline">
-                      <Link href={`/projects/${project.slug}`}>View Project</Link>
+                      <Link href={`/projects/${project.slug}`}>
+                        View Project
+                      </Link>
                     </Button>
                   </div>
                   <div
@@ -79,8 +84,9 @@ export default function Page() {
           <h2 className="heading-lg mb-10">Other Projects</h2>
 
           <p className="mb-10 max-w-3xl text-muted-foreground text-xl">
-            These projects focus on computer science fundamentals and systems programming.
-            They&apos;re available on GitHub for code review and educational purposes.
+            These projects focus on computer science fundamentals and systems
+            programming. They&apos;re available on GitHub for code review and
+            educational purposes.
           </p>
 
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
@@ -107,7 +113,9 @@ export default function Page() {
                       <h3 className="mb-3 font-bold text-2xl transition-colors group-hover:text-primary">
                         {project.title}
                       </h3>
-                      <p className="mb-6 text-muted-foreground">{project.description}</p>
+                      <p className="mb-6 text-muted-foreground">
+                        {project.description}
+                      </p>
                       <div className="mb-6 flex flex-wrap gap-2">
                         {project.technologies.map((tech) => (
                           <span
@@ -123,12 +131,17 @@ export default function Page() {
                   <div className="flex flex-row items-center justify-between p-6">
                     <Button asChild className="gap-2" variant="outline">
                       <Link href={`/projects/${project.slug}`}>
-                        View Project <ExternalLink className="h-4 w-4 text-muted-foreground" />
+                        View Project{" "}
+                        <ExternalLink className="h-4 w-4 text-muted-foreground" />
                       </Link>
                     </Button>
                     <Button asChild className="gap-2" variant="outline">
                       {project.githubUrl && (
-                        <Link href={project.githubUrl} rel="noopener noreferrer" target="_blank">
+                        <Link
+                          href={project.githubUrl}
+                          rel="noopener noreferrer"
+                          target="_blank"
+                        >
                           <GithubDark className="h-4 w-4 text-muted-foreground" />
                           <span>View on GitHub</span>
                         </Link>

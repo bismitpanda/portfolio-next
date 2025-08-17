@@ -3,7 +3,12 @@ import * as React from "react";
 
 const SvgPostcss = (props: SVGProps<SVGSVGElement>) => (
   <svg height={16} width={16} xmlns="http://www.w3.org/2000/svg" {...props}>
-    <g fill="none" stroke="#f38ba8" strokeLinecap="round" strokeLinejoin="round">
+    <g
+      fill="none"
+      stroke="#f38ba8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
       <path d="M14.5 8A6.5 6.5 0 0 1 8 14.5 6.5 6.5 0 0 1 1.5 8 6.5 6.5 0 0 1 8 1.5 6.5 6.5 0 0 1 14.5 8" />
       <path d="m8 1.5 6 9H2z" />
       <path d="M5.5 5.5h5v5h-5z" />

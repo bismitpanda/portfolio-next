@@ -1,5 +1,10 @@
 "use client";
 
+import { useCopyToClipboard } from "@uidotdev/usehooks";
+import { Check, Copy, Download } from "lucide-react";
+import Link from "next/link";
+import { useState } from "react";
+import { toast } from "sonner";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
@@ -11,11 +16,6 @@ import {
 } from "@/components/ui/dialog";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import type { Snippet } from "@/lib/content";
-import { useCopyToClipboard } from "@uidotdev/usehooks";
-import { Check, Copy, Download } from "lucide-react";
-import Link from "next/link";
-import { useState } from "react";
-import { toast } from "sonner";
 
 interface CodeSnippetDialogProps {
   snippet: Snippet;
@@ -28,7 +28,9 @@ export function CodeSnippetDialog({ snippet, open }: CodeSnippetDialogProps) {
   const [snippetCode, setSnippetCode] = useState(snippet.codes[0]);
 
   const handleCopy = () => {
-    copyToClipboard(snippetCode.code).catch(() => toast.error("Could not copy"));
+    copyToClipboard(snippetCode.code).catch(() =>
+      toast.error("Could not copy"),
+    );
   };
 
   return (
@@ -48,7 +50,11 @@ export function CodeSnippetDialog({ snippet, open }: CodeSnippetDialogProps) {
               <span>{snippet.name}</span>
               <div className="flex flex-row items-center justify-center gap-2">
                 {snippet.codes.slice(0, 2).map((code) => (
-                  <Badge className="bg-muted/50 font-mono" key={code.language} variant="outline">
+                  <Badge
+                    className="bg-muted/50 font-mono"
+                    key={code.language}
+                    variant="outline"
+                  >
                     {code.language}
                   </Badge>
                 ))}
@@ -59,7 +65,9 @@ export function CodeSnippetDialog({ snippet, open }: CodeSnippetDialogProps) {
                 )}
               </div>
             </h3>
-            <p className="text-muted-foreground text-sm">{snippet.description}</p>
+            <p className="text-muted-foreground text-sm">
+              {snippet.description}
+            </p>
           </div>
           <div className="px-6 pb-6">
             <Button className="w-full" variant="outline">
@@ -74,7 +82,11 @@ export function CodeSnippetDialog({ snippet, open }: CodeSnippetDialogProps) {
             <DialogTitle className="text-2xl">{snippet.name}</DialogTitle>
             <div className="flex items-center gap-2">
               {snippet.codes.map((code) => (
-                <Badge className="bg-muted/50 font-mono" key={code.language} variant="outline">
+                <Badge
+                  className="bg-muted/50 font-mono"
+                  key={code.language}
+                  variant="outline"
+                >
                   {code.language}
                 </Badge>
               ))}
@@ -100,13 +112,20 @@ export function CodeSnippetDialog({ snippet, open }: CodeSnippetDialogProps) {
             ))}
           </TabsList>
           {snippet.codes.map((code) => (
-            <TabsContent className="relative" key={code.language} value={code.language}>
-              <div className="group max-h-[70vh] max-w-[848px] overflow-x-scroll overflow-y-scroll rounded-lg bg-[#121212] ">
+            <TabsContent
+              className="relative"
+              key={code.language}
+              value={code.language}
+            >
+              <div className="group max-h-[70vh] max-w-[848px] overflow-x-scroll overflow-y-scroll rounded-lg bg-[#121212]">
                 <div
                   className="whitespace-pre-wrap font-mono text-sm"
                   dangerouslySetInnerHTML={{ __html: snippetCode.html }}
                 />
-                <Link href={`/snippets/${snippetCode.codeFile}`} target="_blank">
+                <Link
+                  href={`/snippets/${snippet.slug}/${snippetCode.codeFile}`}
+                  target="_blank"
+                >
                   <Button
                     aria-label="Download code"
                     className="absolute top-2 right-12 h-8 w-0 cursor-pointer p-0 opacity-0 transition-all group-hover:w-8 group-hover:opacity-100"
@@ -123,8 +142,14 @@ export function CodeSnippetDialog({ snippet, open }: CodeSnippetDialogProps) {
                   size="sm"
                   variant="ghost"
                 >
-                  {copiedText ? <Check className="size-4" /> : <Copy className="h-4 w-4" />}
-                  <span className="sr-only">{copiedText ? "Copied" : "Copy code"}</span>
+                  {copiedText ? (
+                    <Check className="size-4" />
+                  ) : (
+                    <Copy className="h-4 w-4" />
+                  )}
+                  <span className="sr-only">
+                    {copiedText ? "Copied" : "Copy code"}
+                  </span>
                 </Button>
               </div>
             </TabsContent>

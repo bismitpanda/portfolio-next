@@ -10,7 +10,12 @@ const SvgFolderThemes = (props: SVGProps<SVGSVGElement>) => (
       strokeLinecap="round"
       strokeLinejoin="round"
     />
-    <g fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.4}>
+    <g
+      fill="none"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth={2.4}
+    >
       <path
         d="M12 21a9 9 0 0 1 0-18c4.97 0 9 3.582 9 8 0 1.06-.474 2.078-1.318 2.828S17.693 15 16.5 15H14a2 2 0 0 0-1 3.75A1.3 1.3 0 0 1 12 21"
         stroke="#f5e0dc"

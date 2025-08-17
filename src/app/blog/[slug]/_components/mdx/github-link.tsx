@@ -1,7 +1,13 @@
-import { GithubDark } from "@/components/icons";
 import Link from "next/link";
+import { GithubDark } from "@/components/icons";
 
-export function GithubLink({ owner, repo = "" }: { owner: string; repo?: string }) {
+export function GithubLink({
+  owner,
+  repo = "",
+}: {
+  owner: string;
+  repo?: string;
+}) {
   const path = repo ? `${owner}/${repo}` : owner;
 
   return (

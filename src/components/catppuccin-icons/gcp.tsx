@@ -4,7 +4,10 @@ import * as React from "react";
 const SvgGcp = (props: SVGProps<SVGSVGElement>) => (
   <svg height={16} width={16} xmlns="http://www.w3.org/2000/svg" {...props}>
     <g fill="none" strokeLinejoin="round">
-      <path d="M5.576 5.627a3.266 3.266 0 0 1 4.451-.339h-.009.458" stroke="#f38ba8" />
+      <path
+        d="M5.576 5.627a3.266 3.266 0 0 1 4.451-.339h-.009.458"
+        stroke="#f38ba8"
+      />
       <path
         d="m11.78 3.984.064-.553a5.87 5.87 0 0 0-3.879-1.467A5.876 5.876 0 0 0 2.309 6.29"
         stroke="#f38ba8"

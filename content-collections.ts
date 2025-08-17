@@ -175,8 +175,13 @@ const blogs = defineCollection({
             (tree) => {
               for (const node of tree.children) {
                 if (node.type === "heading") {
-                  if (node.children.length !== 1 || node.children[0].type !== "text") {
-                    throw new Error(`Invalid heading with depth ${node.depth} in "${data.title}"`);
+                  if (
+                    node.children.length !== 1 ||
+                    node.children[0].type !== "text"
+                  ) {
+                    throw new Error(
+                      `Invalid heading with depth ${node.depth} in "${data.title}"`,
+                    );
                   }
 
                   headingsRef.push({
@@ -251,10 +256,14 @@ const snippets = defineCollection({
   schema: snippetSchema,
   transform: async (data, { cache }) => {
     const codes = [];
+    const snippetSlug = slug(data.name);
 
     for (const code of data.codes) {
       const codeContent = (
-        await readFile(`content/snippets/files/${code.codeFile}`, "utf-8")
+        await readFile(
+          `content/snippets/files/${snippetSlug}/${code.codeFile}`,
+          "utf-8",
+        )
       ).trim();
       const html = await cache(
         { code },
@@ -275,7 +284,7 @@ const snippets = defineCollection({
       });
     }
 
-    return { ...data, codes };
+    return { ...data, slug: snippetSlug, codes };
   },
 });
 

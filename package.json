@@ -7,9 +7,10 @@
     "serve": "next build && next start",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
     "typecheck": "tsc --noEmit",
-    "format": "prettier --write \"**/*.{ts,tsx,js,jsx,mdx,css,html,json,yml}\""
+    "check": "biome check .",
+    "check:write": "biome check --write .",
+    "check:unsafe": "biome check --unsafe --write ."
   },
   "dependencies": {
     "@radix-ui/react-dialog": "^1.1.15",
@@ -35,27 +36,19 @@
     "zod": "^4.0.17"
   },
   "devDependencies": {
+    "@biomejs/biome": "2.2.0",
     "@content-collections/core": "^0.10.0",
     "@content-collections/integrations": "^0.2.1",
     "@content-collections/mdx": "^0.2.2",
     "@content-collections/next": "^0.2.6",
-    "@eslint/eslintrc": "^3.3.1",
-    "@eslint/js": "^9.33.0",
     "@shikijs/rehype": "^3.9.2",
     "@shikijs/transformers": "^3.9.2",
     "@tailwindcss/postcss": "^4.1.12",
-    "@trivago/prettier-plugin-sort-imports": "^5.2.2",
     "@types/node": "^24.3.0",
     "@types/react": "^19.1.10",
     "@types/react-dom": "^19.1.7",
-    "@typescript-eslint/eslint-plugin": "^8.39.1",
-    "@typescript-eslint/parser": "^8.39.1",
-    "eslint": "^9.33.0",
-    "eslint-config-next": "15.4.6",
     "github-slugger": "^2.0.0",
     "mdx-bundler": "^10.1.1",
-    "prettier": "^3.6.2",
-    "prettier-plugin-tailwindcss": "^0.6.14",
     "rehype-autolink-headings": "^7.1.0",
     "rehype-katex": "^7.0.1",
     "rehype-slug": "^6.0.0",
@@ -68,8 +61,6 @@
     "tw-animate-css": "^1.3.7",
     "typescript": "^5.9.2"
   },
-  "trustedDependencies": [
-    "@tailwindcss/oxide"
-  ],
+  "trustedDependencies": ["@tailwindcss/oxide"],
   "packageManager": "pnpm@10.14.0+sha512.ad27a79641b49c3e481a16a805baa71817a04bbe06a38d17e60e2eaee83f6a146c6a688125f5792e48dd5ba30e7da52a5cda4c3992b9ccf333f9ce223af84748"
 }

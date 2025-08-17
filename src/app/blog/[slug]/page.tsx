@@ -1,17 +1,21 @@
-import { Mdx } from "./_components/mdx";
-import { TableOfContents } from "./_components/toc";
-import { BlogCard } from "@/components/blog-card";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card";
-import { allPublishedBlogsByDate } from "@/lib/content";
 import { formatDate } from "date-fns";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { BlogCard } from "@/components/blog-card";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import {
+  HoverCard,
+  HoverCardContent,
+  HoverCardTrigger,
+} from "@/components/ui/hover-card";
+import { allPublishedBlogsByDate } from "@/lib/content";
+import { Mdx } from "./_components/mdx";
+import { TableOfContents } from "./_components/toc";
 
 export async function generateMetadata({
   params,
@@ -24,7 +28,12 @@ export async function generateMetadata({
   return {
     title: `${blog?.title} | Bismit Panda's Blog`,
     description: blog?.excerpt,
-    keywords: blog?.category && [blog.category, "blog", "bismit panda", "bismit"],
+    keywords: blog?.category && [
+      blog.category,
+      "blog",
+      "bismit panda",
+      "bismit",
+    ],
   };
 }
 
@@ -32,7 +41,11 @@ export async function generateStaticParams() {
   return allPublishedBlogsByDate.map((blog) => ({ slug: blog.slug }));
 }
 
-export default async function Page({ params }: { params: Promise<{ slug: string }> }) {
+export default async function Page({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
   const { slug } = await params;
   const blog = allPublishedBlogsByDate.find((blog) => blog.slug === slug);
 
@@ -60,7 +73,9 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
               </Link>{" "}
               • {formatDate(blog.date, "MMMM do, yyyy")} • {blog.readingTime}
             </div>
-            <h1 className="mb-6 font-bold text-4xl md:text-5xl lg:text-6xl">{blog.title}</h1>
+            <h1 className="mb-6 font-bold text-4xl md:text-5xl lg:text-6xl">
+              {blog.title}
+            </h1>
             <div className="flex items-center gap-4">
               <Avatar>
                 <AvatarImage src="/me-small.png" />
@@ -85,11 +100,14 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
                           />
                         </div>
                         <div>
-                          <h3 className="mb-2 font-bold text-xl">Bismit Panda</h3>
+                          <h3 className="mb-2 font-bold text-xl">
+                            Bismit Panda
+                          </h3>
                           <p className="text-muted-foreground">
-                            Full Stack Developer with a passion for typography and user experience.
-                            Writing about web development, design, and the intersection of
-                            technology and creativity.
+                            Full Stack Developer with a passion for typography
+                            and user experience. Writing about web development,
+                            design, and the intersection of technology and
+                            creativity.
                           </p>
                         </div>
                       </div>
@@ -112,7 +130,9 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
             </div>
           </div>
 
-          <div className="mb-4 font-semibold text-muted-foreground italic">{blog.excerpt}</div>
+          <div className="mb-4 font-semibold text-muted-foreground italic">
+            {blog.excerpt}
+          </div>
 
           <TableOfContents headings={blog.headings} />
 
@@ -127,7 +147,8 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
                   className="flex flex-row items-center gap-x-2 font-serif hover:underline"
                   href={`/blog/${blog.prev.slug}`}
                 >
-                  <ArrowLeft className="size-5" strokeWidth={1} /> {blog.prev.title}
+                  <ArrowLeft className="size-5" strokeWidth={1} />{" "}
+                  {blog.prev.title}
                 </Link>
               ) : (
                 <div />
@@ -138,7 +159,8 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
                   className="flex flex-row items-center gap-x-2 font-serif hover:underline"
                   href={`/blog/${blog.next.slug}`}
                 >
-                  {blog.next.title} <ArrowRight className="size-5" strokeWidth={1} />
+                  {blog.next.title}{" "}
+                  <ArrowRight className="size-5" strokeWidth={1} />
                 </Link>
               ) : (
                 <div />

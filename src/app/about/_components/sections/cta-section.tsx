@@ -1,5 +1,5 @@
-import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import { Button } from "@/components/ui/button";
 
 export function CtaSection() {
   return (
@@ -7,7 +7,8 @@ export function CtaSection() {
       <div className="mx-auto max-w-3xl text-center">
         <h2 className="heading-md mb-6">Interested in working together?</h2>
         <p className="body-lg mb-8 text-muted-foreground">
-          I&apos;m currently available for freelance projects and full-time opportunities.
+          I&apos;m currently available for freelance projects and full-time
+          opportunities.
         </p>
         <div className="flex flex-wrap justify-center gap-4">
           <Button asChild size="lg">

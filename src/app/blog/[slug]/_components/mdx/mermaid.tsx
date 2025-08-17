@@ -26,7 +26,6 @@ export function Mermaid({ chart }: { chart: string }) {
         const { svg } = await mermaid.render(
           id.replaceAll(":", ""),
           chart.replaceAll("\\n", "\n"),
-          // biome-ignore lint/style/noNonNullAssertion: This will be set
           containerRef.current!,
         );
         setSvgString(svg);
@@ -36,6 +35,7 @@ export function Mermaid({ chart }: { chart: string }) {
     }
   }, [chart, id]);
 
-  // biome-ignore lint/security/noDangerouslySetInnerHtml: Valid use case
-  return <div dangerouslySetInnerHTML={{ __html: svgString }} ref={containerRef} />;
+  return (
+    <div dangerouslySetInnerHTML={{ __html: svgString }} ref={containerRef} />
+  );
 }

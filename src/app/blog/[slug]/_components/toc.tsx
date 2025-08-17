@@ -1,7 +1,7 @@
 "use client";
 
-import type { Blog } from "@/lib/content";
 import Link from "next/link";
+import type { Blog } from "@/lib/content";
 
 export function TableOfContents({ headings }: { headings: Blog["headings"] }) {
   return (
@@ -18,7 +18,9 @@ export function TableOfContents({ headings }: { headings: Blog["headings"] }) {
                 href={`#${heading.slug}`}
                 onClick={(e) => {
                   e.preventDefault();
-                  document.getElementById(heading.slug)?.scrollIntoView({ behavior: "smooth" });
+                  document
+                    .getElementById(heading.slug)
+                    ?.scrollIntoView({ behavior: "smooth" });
                 }}
                 style={{ paddingLeft: `${heading.depth * 10}px` }}
               >

@@ -10,7 +10,12 @@ const SvgXcode = (props: SVGProps<SVGSVGElement>) => (
       strokeLinecap="round"
       strokeLinejoin="round"
     />
-    <g fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.884}>
+    <g
+      fill="none"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth={1.884}
+    >
       <path
         d="M14 12 .34 25.703c-1.443 1.447-3.267-.728-1.996-2.003L12 10"
         stroke="#cdd6f4"

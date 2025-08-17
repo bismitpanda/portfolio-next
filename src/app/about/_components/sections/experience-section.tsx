@@ -1,5 +1,5 @@
-import { allExperiencesByDate } from "@/lib/content";
 import { format, formatDistance } from "date-fns";
+import { allExperiencesByDate } from "@/lib/content";
 
 export function ExperienceSection() {
   return (
@@ -18,7 +18,7 @@ export function ExperienceSection() {
               });
               return (
                 <div
-                  className={`group${exp.isOnGoing ? "" : " border-border border-l-2 pl-6"}`}
+                  className={`group${exp.isOnGoing ? "" : "border-border border-l-2 pl-6"}`}
                   key={exp.title + exp.company}
                 >
                   <div className="mb-4 flex flex-col md:flex-row md:items-start md:justify-between">
@@ -26,14 +26,18 @@ export function ExperienceSection() {
                       <h3 className="mb-1 font-bold text-2xl transition-colors group-hover:text-primary">
                         {exp.title}
                       </h3>
-                      <p className="mb-2 text-muted-foreground text-xl">{exp.company}</p>
+                      <p className="mb-2 text-muted-foreground text-xl">
+                        {exp.company}
+                      </p>
                     </div>
                     <div className="text-muted-foreground text-sm md:text-right">
                       <p className="font-medium">
                         {format(start, "MMM yyyy")} -{" "}
                         {exp.isOnGoing ? "Present" : format(end, "MMM yyyy")}
                       </p>
-                      <p className={exp.isOnGoing ? "text-primary" : undefined}>{duration}</p>
+                      <p className={exp.isOnGoing ? "text-primary" : undefined}>
+                        {duration}
+                      </p>
                     </div>
                   </div>
                   <p className="mb-4 text-lg text-muted-foreground leading-relaxed">

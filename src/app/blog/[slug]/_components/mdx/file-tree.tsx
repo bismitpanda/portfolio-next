@@ -1,7 +1,11 @@
-import { catppuccinIcons } from "@/components/catppuccin-icons";
-import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
-import { fileExtensions, fileNames, folderNames } from "@/lib/catppuccin-icons";
 import { ChevronRight } from "lucide-react";
+import { catppuccinIcons } from "@/components/catppuccin-icons";
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "@/components/ui/collapsible";
+import { fileExtensions, fileNames, folderNames } from "@/lib/catppuccin-icons";
 
 type File = {
   type: "file";
@@ -56,11 +60,19 @@ export function FileTree({ tree, defaultOpen = false }: FileTreeProps) {
   );
 }
 
-function Tree({ item, defaultOpen }: { item: File | Folder; defaultOpen?: boolean }) {
+function Tree({
+  item,
+  defaultOpen,
+}: {
+  item: File | Folder;
+  defaultOpen?: boolean;
+}) {
   if (item.type === "file") {
     const Icon =
       catppuccinIcons[
-        fileNames[item.name] ?? fileExtensions[item.name.split(".").pop() ?? ""] ?? "_file"
+        fileNames[item.name] ??
+          fileExtensions[item.name.split(".").pop() ?? ""] ??
+          "_file"
       ];
     return (
       <button className="flex w-full items-center gap-2 overflow-hidden rounded-md p-2 text-left text-sm transition focus-visible:ring-2">

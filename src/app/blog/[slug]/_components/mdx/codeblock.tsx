@@ -1,9 +1,12 @@
+import { cn } from "@/lib/utils";
 import { CopyButton } from "../copy-button";
 import { Mermaid } from "./mermaid";
 import { Shell } from "./shell";
-import { cn } from "@/lib/utils";
 
-type CodeblockFn = (code: string, meta: Record<string, string | undefined>) => React.ReactNode;
+type CodeblockFn = (
+  code: string,
+  meta: Record<string, string | undefined>,
+) => React.ReactNode;
 
 export const customCodeblockHandlers: Record<string, CodeblockFn> = {
   mermaid: (code: string) => {
@@ -20,7 +23,9 @@ const parseMeta = (dataMeta: string) => {
     dataMeta
       ?.split(" ")
       .map((item) =>
-        item.includes("=") ? (item.split("=") as [string, string]) : [item, undefined],
+        item.includes("=")
+          ? (item.split("=") as [string, string])
+          : [item, undefined],
       ) ?? [],
   );
 };

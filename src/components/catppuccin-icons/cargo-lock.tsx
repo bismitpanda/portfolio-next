@@ -14,7 +14,12 @@ const SvgCargoLock = (props: SVGProps<SVGSVGElement>) => (
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-      <path d="M6.499 2.5 9.5 4v3" stroke="#fab387" strokeLinecap="round" strokeLinejoin="round" />
+      <path
+        d="M6.499 2.5 9.5 4v3"
+        stroke="#fab387"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
       <path
         d="M12.498 5.5V2L9.538.5 3.5 3.5v.997l-3 1.501v3.54l6 2.962"
         stroke="#fab387"

@@ -1,11 +1,11 @@
 "use client";
 
-import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
-import { cn } from "@/lib/utils";
 import { cva, type VariantProps } from "class-variance-authority";
 import dynamicIconImports from "lucide-react/dynamicIconImports";
 import dynamic from "next/dynamic";
 import { memo } from "react";
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+import { cn } from "@/lib/utils";
 
 type IconName = keyof typeof dynamicIconImports;
 
@@ -44,17 +44,26 @@ export function Callout({
   variant,
   className,
   ...props
-}: React.ComponentProps<typeof Alert> & VariantProps<typeof variants> & { icon?: IconName }) {
+}: React.ComponentProps<typeof Alert> &
+  VariantProps<typeof variants> & { icon?: IconName }) {
   return (
     <Alert
-      className={cn(variants({ variant }), "my-6 flex flex-col gap-y-2", className)}
+      className={cn(
+        variants({ variant }),
+        "my-6 flex flex-col gap-y-2",
+        className,
+      )}
       {...props}
     >
       <div className="flex flex-row items-center justify-start gap-2">
         {icon && <DynamicIcon className="size-4 text-2xl" name={icon} />}
-        {title && <AlertTitle className="font-bold text-lg">{title}</AlertTitle>}
+        {title && (
+          <AlertTitle className="font-bold text-lg">{title}</AlertTitle>
+        )}
       </div>
-      <AlertDescription className="text-base text-white">{children}</AlertDescription>
+      <AlertDescription className="text-base text-white">
+        {children}
+      </AlertDescription>
     </Alert>
   );
 }

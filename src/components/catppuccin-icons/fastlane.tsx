@@ -4,7 +4,10 @@ import * as React from "react";
 const SvgFastlane = (props: SVGProps<SVGSVGElement>) => (
   <svg height={16} width={16} xmlns="http://www.w3.org/2000/svg" {...props}>
     <g fill="none" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M4.5 13.5 3.05 8.42m-.06-3.86a2 2 0 1 0 .06 3.86L4.5 13.5" stroke="#74c7ec" />
+      <path
+        d="M4.5 13.5 3.05 8.42m-.06-3.86a2 2 0 1 0 .06 3.86L4.5 13.5"
+        stroke="#74c7ec"
+      />
       <path d="m2.5 6.5 3.88-2.82A2 2 0 1 1 10 2.3" stroke="#f38ba8" />
       <path d="M14.3 8.33a2 2 0 1 0-2.43-3L8.01 2.5" stroke="#89b4fa" />
       <path d="M10.06 14.89a2 2 0 1 0 2-3.3L13.5 6.5" stroke="#a6e3a1" />

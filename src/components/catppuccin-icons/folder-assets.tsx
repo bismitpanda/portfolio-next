@@ -10,7 +10,12 @@ const SvgFolderAssets = (props: SVGProps<SVGSVGElement>) => (
       strokeLinecap="round"
       strokeLinejoin="round"
     />
-    <path d="M12.923 11.904H7.5L10.212 7Z" fill="none" stroke="#f9e2af" strokeLinejoin="round" />
+    <path
+      d="M12.923 11.904H7.5L10.212 7Z"
+      fill="none"
+      stroke="#f9e2af"
+      strokeLinejoin="round"
+    />
     <path
       d="M11.662 9.641a2.569 2.596 0 1 1-1.308 2.263"
       fill="none"

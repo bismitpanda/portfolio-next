@@ -1,7 +1,7 @@
-import { styles } from "../styles";
-import type { Education } from "@/lib/content";
 import { Text, View } from "@react-pdf/renderer";
 import { formatDate } from "date-fns";
+import type { Education } from "@/lib/content";
+import { styles } from "../styles";
 
 export function EducationSection({ education }: { education: Education[] }) {
   return (

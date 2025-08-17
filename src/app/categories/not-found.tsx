@@ -1,7 +1,7 @@
-import { Button } from "@/components/ui/button";
-import { allCategoriesByCount } from "@/lib/content";
 import { ArrowLeft, Home } from "lucide-react";
 import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { allCategoriesByCount } from "@/lib/content";
 
 export default function CategoryNotFound() {
   return (
@@ -12,8 +12,9 @@ export default function CategoryNotFound() {
           <h2 className="heading-md mb-6">Category Not Found</h2>
 
           <p className="body-lg mb-8 text-muted-foreground">
-            We couldn&apos;t find the category you&apos;re looking for. It might have been renamed
-            or removed, or perhaps you followed an outdated link.
+            We couldn&apos;t find the category you&apos;re looking for. It might
+            have been renamed or removed, or perhaps you followed an outdated
+            link.
           </p>
 
           <div className="flex flex-wrap justify-center gap-4">
@@ -40,7 +41,10 @@ export default function CategoryNotFound() {
                   href={`/categories/${category.slug}`}
                   key={category.slug}
                 >
-                  <Button className="cursor-pointer rounded-full" variant="outline">
+                  <Button
+                    className="cursor-pointer rounded-full"
+                    variant="outline"
+                  >
                     {category.name}
                   </Button>
                 </Link>

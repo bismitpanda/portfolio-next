@@ -35,7 +35,13 @@ const SvgOrg = (props: SVGProps<SVGSVGElement>) => (
       strokeLinejoin="round"
       strokeMiterlimit={10}
     />
-    <path d="M10.5 6.5" fill="none" stroke="#94e2d5" strokeLinecap="round" strokeLinejoin="round" />
+    <path
+      d="M10.5 6.5"
+      fill="none"
+      stroke="#94e2d5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
   </svg>
 );
 export default SvgOrg;

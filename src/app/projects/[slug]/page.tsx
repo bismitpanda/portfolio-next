@@ -1,13 +1,17 @@
-import { ProjectCarousel } from "./_components/project-carousel";
-import { GithubDark } from "@/components/icons";
-import { Button } from "@/components/ui/button";
-import { allProjectsByDate } from "@/lib/content";
 import { ArrowLeft, ExternalLink } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { GithubDark } from "@/components/icons";
+import { Button } from "@/components/ui/button";
+import { allProjectsByDate } from "@/lib/content";
+import { ProjectCarousel } from "./_components/project-carousel";
 
-export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
   const { slug } = await params;
   const project = allProjectsByDate.find((project) => project.slug === slug);
 
@@ -27,7 +31,11 @@ export async function generateStaticParams() {
   return allProjectsByDate.map((project) => ({ slug: project.slug }));
 }
 
-export default async function Page({ params }: { params: Promise<{ slug: string }> }) {
+export default async function Page({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
   const { slug } = await params;
   const project = allProjectsByDate.find((project) => project.slug === slug);
 
@@ -48,12 +56,20 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
         </div>
 
         <div className="mx-auto mb-12 max-w-3xl">
-          <h1 className="mb-6 font-bold text-4xl md:text-5xl lg:text-6xl">{project.title}</h1>
-          <p className="mb-8 text-muted-foreground text-xl">{project.description}</p>
+          <h1 className="mb-6 font-bold text-4xl md:text-5xl lg:text-6xl">
+            {project.title}
+          </h1>
+          <p className="mb-8 text-muted-foreground text-xl">
+            {project.description}
+          </p>
           <div className="flex flex-wrap gap-6">
             {project.liveUrl && (
               <Button asChild className="gap-2" size="lg">
-                <Link href={project.liveUrl} rel="noopener noreferrer" target="_blank">
+                <Link
+                  href={project.liveUrl}
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
                   <span>View Live Site</span>
                   <ExternalLink className="h-4 w-4" />
                 </Link>
@@ -61,7 +77,11 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
             )}
             {project.githubUrl && (
               <Button asChild className="gap-2" size="lg" variant="outline">
-                <Link href={project.githubUrl} rel="noopener noreferrer" target="_blank">
+                <Link
+                  href={project.githubUrl}
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
                   <GithubDark className="h-4 w-4" />
                   <span>View Code</span>
                 </Link>
@@ -87,19 +107,27 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
             <h2 className="mb-6 font-bold text-2xl">Project Details</h2>
             <div className="space-y-4">
               <div>
-                <h3 className="text-muted-foreground text-sm uppercase">Client</h3>
+                <h3 className="text-muted-foreground text-sm uppercase">
+                  Client
+                </h3>
                 <p className="text-lg">{project.client}</p>
               </div>
               <div>
-                <h3 className="text-muted-foreground text-sm uppercase">Year</h3>
+                <h3 className="text-muted-foreground text-sm uppercase">
+                  Year
+                </h3>
                 <p className="text-lg">{project.year}</p>
               </div>
               <div>
-                <h3 className="text-muted-foreground text-sm uppercase">Role</h3>
+                <h3 className="text-muted-foreground text-sm uppercase">
+                  Role
+                </h3>
                 <p className="text-lg">{project.role}</p>
               </div>
               <div>
-                <h3 className="text-muted-foreground text-sm uppercase">Technologies</h3>
+                <h3 className="text-muted-foreground text-sm uppercase">
+                  Technologies
+                </h3>
                 <div className="mt-2 flex flex-wrap gap-2">
                   {project.technologies.map((tech) => (
                     <span
@@ -118,11 +146,15 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
             <div className="space-y-8">
               <div>
                 <h2 className="mb-4 font-bold text-2xl">The Challenge</h2>
-                <p className="text-lg text-muted-foreground">{project.challenge}</p>
+                <p className="text-lg text-muted-foreground">
+                  {project.challenge}
+                </p>
               </div>
               <div>
                 <h2 className="mb-4 font-bold text-2xl">The Solution</h2>
-                <p className="text-lg text-muted-foreground">{project.solution}</p>
+                <p className="text-lg text-muted-foreground">
+                  {project.solution}
+                </p>
               </div>
             </div>
           </div>

@@ -1,6 +1,6 @@
+import { formatDate } from "date-fns";
 import { allEducationsByDate } from "@/lib/content";
 import { cn } from "@/lib/utils";
-import { formatDate } from "date-fns";
 
 export function EducationSection() {
   return (
@@ -13,7 +13,10 @@ export function EducationSection() {
           <div className="space-y-12">
             {allEducationsByDate.map((education) => (
               <div
-                className={cn("group", education.isOnGoing ? "" : "border-border border-l-2 pl-6")}
+                className={cn(
+                  "group",
+                  education.isOnGoing ? "" : "border-border border-l-2 pl-6",
+                )}
                 key={education.title}
               >
                 <div className="mb-4 flex flex-col md:flex-row md:items-start md:justify-between">
@@ -21,12 +24,16 @@ export function EducationSection() {
                     <h3 className="mb-1 font-bold text-2xl transition-colors group-hover:text-primary">
                       {education.title}
                     </h3>
-                    <p className="mb-2 text-muted-foreground text-xl">{education.institution}</p>
+                    <p className="mb-2 text-muted-foreground text-xl">
+                      {education.institution}
+                    </p>
                   </div>
                   <div className="text-muted-foreground text-sm md:text-right">
                     <p className="font-medium">
                       {formatDate(education.startDate, "MMM yyyy")} -{" "}
-                      {education.isOnGoing ? "Present" : formatDate(education.endDate!, "MMM yyyy")}
+                      {education.isOnGoing
+                        ? "Present"
+                        : formatDate(education.endDate!, "MMM yyyy")}
                     </p>
                   </div>
                 </div>

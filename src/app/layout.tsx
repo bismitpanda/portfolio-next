@@ -1,9 +1,9 @@
-import { Footer } from "./_components/layout/footer";
-import { Navigation } from "./_components/layout/navigation";
-import { Toaster } from "@/components/ui/sonner";
 import type { Metadata } from "next";
 import { Fustat, JetBrains_Mono, Playfair_Display } from "next/font/google";
 import type { ReactNode } from "react";
+import { Toaster } from "@/components/ui/sonner";
+import { Footer } from "./_components/layout/footer";
+import { Navigation } from "./_components/layout/navigation";
 import "katex/dist/katex.css";
 import "@/styles/globals.css";
 import "@/styles/shiki.css";

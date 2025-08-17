@@ -1,5 +1,5 @@
-import { cn } from "@/lib/utils";
 import NextLink from "next/link";
+import { cn } from "@/lib/utils";
 
 export function Link({
   className,
@@ -16,6 +16,11 @@ export function Link({
       />
     );
   } catch {
-    return <NextLink className={cn("underline underline-offset-4", className)} {...props} />;
+    return (
+      <NextLink
+        className={cn("underline underline-offset-4", className)}
+        {...props}
+      />
+    );
   }
 }

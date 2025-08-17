@@ -1,6 +1,6 @@
-import { footerRoutes, socialRoutes } from "../routes";
-import { Logo } from "@/components/icons/logo";
 import Link from "next/link";
+import { Logo } from "@/components/icons/logo";
+import { footerRoutes, socialRoutes } from "../routes";
 
 export function Footer() {
   return (
@@ -16,8 +16,8 @@ export function Footer() {
               Bismit Panda
             </Link>
             <p className="mt-4 text-muted-foreground">
-              Full Stack Developer specializing in creating beautiful, functional websites and
-              applications.
+              Full Stack Developer specializing in creating beautiful,
+              functional websites and applications.
             </p>
           </div>
 
@@ -29,7 +29,11 @@ export function Footer() {
                   <Link
                     className="text-muted-foreground transition-colors hover:text-foreground"
                     href={route.path}
-                    rel={route.external ? "nofollow noopener noreferrer" : undefined}
+                    rel={
+                      route.external
+                        ? "nofollow noopener noreferrer"
+                        : undefined
+                    }
                     target={route.external ? "_blank" : undefined}
                   >
                     {route.name}

@@ -1,9 +1,13 @@
-import { styles } from "../styles";
-import type { Certification } from "@/lib/content";
 import { Text, View } from "@react-pdf/renderer";
 import { addMonths, formatDate } from "date-fns";
+import type { Certification } from "@/lib/content";
+import { styles } from "../styles";
 
-export function CertificationsSection({ certifications }: { certifications: Certification[] }) {
+export function CertificationsSection({
+  certifications,
+}: {
+  certifications: Certification[];
+}) {
   return (
     <View style={styles.section}>
       <Text style={styles.sectionTitle}>Certifications</Text>
@@ -15,7 +19,8 @@ export function CertificationsSection({ certifications }: { certifications: Cert
             </Text>
             <Text style={styles.achievementDate}>
               {formatDate(cert.date, "MMM yyyy")}
-              {cert.validity && ` - ${formatDate(addMonths(cert.date, cert.validity), "MMM yyyy")}`}
+              {cert.validity &&
+                ` - ${formatDate(addMonths(cert.date, cert.validity), "MMM yyyy")}`}
             </Text>
           </View>
           <View style={styles.highlightsList}>

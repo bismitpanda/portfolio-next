@@ -3,7 +3,12 @@ import * as React from "react";
 
 const SvgVsCodium = (props: SVGProps<SVGSVGElement>) => (
   <svg height={16} width={16} xmlns="http://www.w3.org/2000/svg" {...props}>
-    <g fill="none" stroke="#89b4fa" strokeLinecap="round" strokeLinejoin="round">
+    <g
+      fill="none"
+      stroke="#89b4fa"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
       <path d="M1.63 7.61c-.08 2.45.7 3.91 2.37 4.39a5.53 5.53 0 0 1 3.5 2.5" />
       <path d="M3.5 3.5c1.19.76 1.78 1.53 1.78 2.32S4.2 8.52 4.56 10c.45 1.82 2.94 2 2.94 4.5" />
       <path d="M7.5 7.5c-.47.08-.96.24-1.47.5-.76.39-1.47 1.54-1.47 2" />

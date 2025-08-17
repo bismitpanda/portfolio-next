@@ -1,5 +1,8 @@
 "use client";
 
+import Autoplay from "embla-carousel-autoplay";
+import Image from "next/image";
+import { useEffect, useRef, useState } from "react";
 import {
   Carousel,
   type CarouselApi,
@@ -8,11 +11,14 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import Autoplay from "embla-carousel-autoplay";
-import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
 
-export function ProjectCarousel({ gallery, title }: { gallery: string[]; title: string }) {
+export function ProjectCarousel({
+  gallery,
+  title,
+}: {
+  gallery: string[];
+  title: string;
+}) {
   const plugin = useRef(Autoplay({ delay: 4000 }));
   const [api, setApi] = useState<CarouselApi>();
   const [current, setCurrent] = useState(0);
@@ -46,7 +52,10 @@ export function ProjectCarousel({ gallery, title }: { gallery: string[]; title: 
         <CarouselContent>
           {gallery.map((image, index) => (
             <CarouselItem key={index}>
-              <div className="aspect-video overflow-hidden rounded-lg" key={index}>
+              <div
+                className="aspect-video overflow-hidden rounded-lg"
+                key={index}
+              >
                 <Image
                   alt={`${title} - Image ${index + 1}`}
                   className="h-full w-full object-cover"

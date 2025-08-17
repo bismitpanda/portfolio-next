@@ -9,7 +9,12 @@ const SvgLuau = (props: SVGProps<SVGSVGElement>) => (
       stroke="#89dceb"
       strokeLinejoin="round"
     />
-    <path d="m9.2 5-.7 2.8 2.8.7.7-2.8z" fill="none" stroke="#cdd6f4" strokeLinejoin="round" />
+    <path
+      d="m9.2 5-.7 2.8 2.8.7.7-2.8z"
+      fill="none"
+      stroke="#cdd6f4"
+      strokeLinejoin="round"
+    />
   </svg>
 );
 export default SvgLuau;

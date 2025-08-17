@@ -1,6 +1,6 @@
-import { GithubDark, Linkedin, XDark } from "@/components/icons";
 import { Mail } from "lucide-react";
 import type { ReactNode } from "react";
+import { GithubDark, Linkedin, XDark } from "@/components/icons";
 
 type Route = {
   name: ReactNode;

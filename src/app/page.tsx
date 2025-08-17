@@ -1,12 +1,12 @@
+import { ArrowRight } from "lucide-react";
+import type { Metadata } from "next";
+import Link from "next/link";
 import { AboutSection } from "./_components/sections/about-section";
 import { FeaturedProjectsSection } from "./_components/sections/featured-projects-section";
 import { GetInTouchSection } from "./_components/sections/get-in-touch-section";
 import { HeroSection } from "./_components/sections/hero-section";
 import { RecentBlogsSection } from "./_components/sections/recent-blogs-section";
 import { SkillsMarquee } from "./_components/skills-marquee";
-import { ArrowRight } from "lucide-react";
-import type { Metadata } from "next";
-import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Home | Bismit Panda",

@@ -1,10 +1,10 @@
+import type { MetadataRoute } from "next";
 import {
   allCategoriesByCount,
   allProjectsByDate,
   allPublishedBlogsByDate,
   allSnippetsByDate,
 } from "@/lib/content";
-import type { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const blogUrls = allPublishedBlogsByDate.map((blog) => ({
@@ -27,12 +27,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: new Date(project.year, 0, 1),
     changeFrequency: "weekly" as const,
     priority: 0.5,
-    images: [`https://bismitpanda.com/images/projects/${project.featuredImage}`],
+    images: [
+      `https://bismitpanda.com/images/projects/${project.featuredImage}`,
+    ],
   }));
 
   const snippetUrls = allSnippetsByDate.flatMap((snippet) =>
     snippet.codes.map((code) => ({
-      url: `https://bismitpanda.com/snippets/${code.codeFile}`,
+      url: `https://bismitpanda.com/snippets/${snippet.slug}/${code.codeFile}`,
       lastModified: snippet.date,
       changeFrequency: "weekly" as const,
       priority: 0.5,

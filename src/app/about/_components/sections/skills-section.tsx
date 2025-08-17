@@ -1,5 +1,5 @@
-import { skills } from "@/lib/constants";
 import Link from "next/link";
+import { skills } from "@/lib/constants";
 
 export function SkillsSection() {
   return (
@@ -11,7 +11,10 @@ export function SkillsSection() {
         <div className="md:col-span-2">
           <div className="grid grid-cols-2 gap-x-16 gap-y-8">
             {skills.map((skill, index) => (
-              <div className="group border-border border-b pb-2" key={skill.label}>
+              <div
+                className="group border-border border-b pb-2"
+                key={skill.label}
+              >
                 <div className="flex items-baseline">
                   <span className="mr-4 text-muted-foreground text-sm transition-colors group-hover:text-foreground">
                     {(index + 1).toString().padStart(2, "0")}

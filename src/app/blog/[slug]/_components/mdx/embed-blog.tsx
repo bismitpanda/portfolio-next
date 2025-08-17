@@ -1,12 +1,24 @@
-import { Badge } from "@/components/ui/badge";
-import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card";
-import { allPublishedBlogsByDate } from "@/lib/content";
 import { formatDate } from "date-fns";
 import { NotepadText } from "lucide-react";
 import Link from "next/link";
+import { Badge } from "@/components/ui/badge";
+import {
+  HoverCard,
+  HoverCardContent,
+  HoverCardTrigger,
+} from "@/components/ui/hover-card";
+import { allPublishedBlogsByDate } from "@/lib/content";
 
-export function EmbedBlog({ fileName, placeholder }: { fileName: string; placeholder?: string }) {
-  const blog = allPublishedBlogsByDate.find((blog) => blog._meta.fileName === fileName);
+export function EmbedBlog({
+  fileName,
+  placeholder,
+}: {
+  fileName: string;
+  placeholder?: string;
+}) {
+  const blog = allPublishedBlogsByDate.find(
+    (blog) => blog._meta.fileName === fileName,
+  );
   if (!blog) return null;
 
   return (

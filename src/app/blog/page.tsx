@@ -1,14 +1,14 @@
 "use client";
 
-import { BlogCard } from "@/components/blog-card";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { allCategoriesByCount, allPublishedBlogsByDate } from "@/lib/content";
 import { formatDate } from "date-fns";
 import { ChevronLeft, ChevronRight, Filter } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
+import { BlogCard } from "@/components/blog-card";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { allCategoriesByCount, allPublishedBlogsByDate } from "@/lib/content";
 
 export default function Page() {
   const [currentPage, setCurrentPage] = useState(1);
@@ -19,7 +19,8 @@ export default function Page() {
 
   const filteredBlogs = useMemo(() => {
     const blogs = allPublishedBlogsByDate.filter((blog) => {
-      const categoryMatch = selectedCategory === "all" || blog.categorySlug === selectedCategory;
+      const categoryMatch =
+        selectedCategory === "all" || blog.categorySlug === selectedCategory;
       return categoryMatch;
     });
 
@@ -52,9 +53,25 @@ export default function Page() {
       return [1, 2, 3, 4, 5, "...", totalPages];
     }
     if (currentPage > totalPages - 4) {
-      return [1, "...", totalPages - 4, totalPages - 3, totalPages - 2, totalPages - 1, totalPages];
+      return [
+        1,
+        "...",
+        totalPages - 4,
+        totalPages - 3,
+        totalPages - 2,
+        totalPages - 1,
+        totalPages,
+      ];
     }
-    return [1, "...", currentPage - 1, currentPage, currentPage + 1, "...", totalPages];
+    return [
+      1,
+      "...",
+      currentPage - 1,
+      currentPage,
+      currentPage + 1,
+      "...",
+      totalPages,
+    ];
   };
 
   const pageNumbers = getPageNumbers();
@@ -65,7 +82,8 @@ export default function Page() {
         <div className="mx-auto mb-16 max-w-3xl text-center">
           <h1 className="heading-xl mb-6">Blog</h1>
           <p className="body-lg text-neutral-500">
-            Thoughts, insights, and perspectives on design, development, and the digital landscape.
+            Thoughts, insights, and perspectives on design, development, and the
+            digital landscape.
           </p>
         </div>
 
@@ -115,7 +133,10 @@ export default function Page() {
         {selectedCategory === "all" && currentPage === 1 && (
           <div className="mb-20">
             <div className="mb-8 text-center">
-              <Badge className="border-primary/20 bg-primary/10 text-primary" variant="outline">
+              <Badge
+                className="border-primary/20 bg-primary/10 text-primary"
+                variant="outline"
+              >
                 Featured Blog
               </Badge>
             </div>
@@ -131,8 +152,13 @@ export default function Page() {
                   <h2 className="mb-4 font-bold text-4xl transition-colors md:text-5xl">
                     {latestBlog.title}
                   </h2>
-                  <p className="mb-6 text-neutral-400 text-xl">{latestBlog.excerpt}</p>
-                  <Link className="cursor-pointer" href={`/blog/${latestBlog.slug}`}>
+                  <p className="mb-6 text-neutral-400 text-xl">
+                    {latestBlog.excerpt}
+                  </p>
+                  <Link
+                    className="cursor-pointer"
+                    href={`/blog/${latestBlog.slug}`}
+                  >
                     <Button
                       className="cursor-pointer transition-colors hover:bg-neutral-900 hover:text-white"
                       size="lg"
@@ -196,7 +222,10 @@ export default function Page() {
                           {page}
                         </Button>
                       ) : (
-                        <span className="px-2 text-muted-foreground" key={`ellipsis-${index}`}>
+                        <span
+                          className="px-2 text-muted-foreground"
+                          key={`ellipsis-${index}`}
+                        >
                           ...
                         </span>
                       ),
@@ -219,7 +248,10 @@ export default function Page() {
                       <span className="font-medium text-foreground">
                         {startBlogNum}-{endBlogNum}
                       </span>{" "}
-                      of <span className="font-medium text-foreground">{filteredBlogs.length}</span>{" "}
+                      of{" "}
+                      <span className="font-medium text-foreground">
+                        {filteredBlogs.length}
+                      </span>{" "}
                       blogs
                     </p>
                   </div>

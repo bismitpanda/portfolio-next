@@ -1,9 +1,13 @@
-import { styles } from "../styles";
-import type { Experience } from "@/lib/content";
 import { Text, View } from "@react-pdf/renderer";
 import { formatDate } from "date-fns";
+import type { Experience } from "@/lib/content";
+import { styles } from "../styles";
 
-export function ExperienceSection({ experience }: { experience: Experience[] }) {
+export function ExperienceSection({
+  experience,
+}: {
+  experience: Experience[];
+}) {
   return (
     <View style={styles.section}>
       <Text style={styles.sectionTitle}>Experience</Text>

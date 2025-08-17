@@ -1,15 +1,15 @@
 "use client";
 
-import { navigationRoutes, footerRoutes } from "../routes";
-import { CommandMenu } from "@/components/command-menu";
-import { Logo } from "@/components/icons/logo";
-import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
 import { Menu, MoveUpRight, X } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
+import { CommandMenu } from "@/components/command-menu";
+import { Logo } from "@/components/icons/logo";
+import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
+import { footerRoutes, navigationRoutes } from "../routes";
 
 export function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -26,7 +26,7 @@ export function Navigation() {
           Bismit Panda
         </Link>
 
-        <nav className="hidden items-center md:flex space-x-8">
+        <nav className="hidden items-center space-x-8 md:flex">
           {navigationRoutes.map((route) => (
             <Link
               className={cn(
@@ -35,7 +35,8 @@ export function Navigation() {
                 pathname === route.path
                   ? "text-foreground"
                   : "text-muted-foreground hover:text-foreground",
-                route.external && "group flex flex-row items-center justify-between gap-x-1",
+                route.external &&
+                  "group flex flex-row items-center justify-between gap-x-1",
               )}
               href={route.path}
               key={route.path}
@@ -52,8 +53,16 @@ export function Navigation() {
         </nav>
 
         <div className="flex items-center gap-2 md:hidden">
-          <Button onClick={() => setIsMenuOpen(!isMenuOpen)} size="icon" variant="ghost">
-            {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          <Button
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            size="icon"
+            variant="ghost"
+          >
+            {isMenuOpen ? (
+              <X className="h-6 w-6" />
+            ) : (
+              <Menu className="h-6 w-6" />
+            )}
           </Button>
         </div>
       </div>

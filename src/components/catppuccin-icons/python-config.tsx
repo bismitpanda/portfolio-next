@@ -10,7 +10,12 @@ const SvgPythonConfig = (props: SVGProps<SVGSVGElement>) => (
       strokeLinecap="round"
       strokeLinejoin="round"
     />
-    <g fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.083}>
+    <g
+      fill="none"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth={1.083}
+    >
       <path
         d="M6.961 4.192h-2.77m5.54 0V1.884C9.73 1.146 9.083.5 8.345.5h-2.77c-.738 0-1.384.646-1.384 1.384v2.308H1.884C1.146 4.192.5 4.838.5 5.577v1.846c0 .738.646 1.384 1.366 1.384"
         stroke="#89b4fa"

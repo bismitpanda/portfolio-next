@@ -37,7 +37,12 @@ const fileIcons: FileIcons = {
   },
   angular: {
     fileExtensions: ["ng-template"],
-    fileNames: ["angular-cli.json", ".angular-cli.json", "angular.json", "ng-package.json"],
+    fileNames: [
+      "angular-cli.json",
+      ".angular-cli.json",
+      "angular.json",
+      "ng-package.json",
+    ],
   },
   "ansible-lint": {
     fileNames: [".ansible-lint", "ansible-lint.yml", "ansible-lint.yaml"],
@@ -197,7 +202,11 @@ const fileIcons: FileIcons = {
     fileNames: ["bitbucket-pipelines.yaml", "bitbucket-pipelines.yml"],
   },
   blitz: {
-    fileNames: ["blitz.config.js", "blitz.config.ts", ".blitz.config.compiled.js"],
+    fileNames: [
+      "blitz.config.js",
+      "blitz.config.ts",
+      ".blitz.config.compiled.js",
+    ],
   },
   bower: {
     fileNames: [".bowerrc", "bower.json"],
@@ -293,7 +302,12 @@ const fileIcons: FileIcons = {
     ],
   },
   contributing: {
-    fileNames: ["contributing.md", "contributing.rst", "contributing.txt", "contributing"],
+    fileNames: [
+      "contributing.md",
+      "contributing.rst",
+      "contributing.txt",
+      "contributing",
+    ],
   },
   "cpp-header": {
     fileExtensions: ["hh", "hpp", "hxx", "h++", "hp", "tcc", "inl"],
@@ -391,7 +405,12 @@ const fileIcons: FileIcons = {
     fileExtensions: ["djt"],
   },
   "docker-compose": {
-    fileExtensions: ["docker-compose.yml", "docker-compose.yaml", "compose.yaml", "compose.yml"],
+    fileExtensions: [
+      "docker-compose.yml",
+      "docker-compose.yaml",
+      "compose.yaml",
+      "compose.yml",
+    ],
     fileNames: [
       "docker-compose.yml",
       "docker-compose.override.yml",
@@ -638,7 +657,11 @@ const fileIcons: FileIcons = {
     ],
   },
   flutter: {
-    fileNames: [".flutter-plugins", ".flutter-plugins-dependencies", ".metadata"],
+    fileNames: [
+      ".flutter-plugins",
+      ".flutter-plugins-dependencies",
+      ".metadata",
+    ],
   },
   font: {
     fileExtensions: [
@@ -808,7 +831,12 @@ const fileIcons: FileIcons = {
     fileNames: ["procfile"],
   },
   histoire: {
-    fileNames: ["histoire.config.ts", "histoire.config.js", ".histoire.js", ".histoire.ts"],
+    fileNames: [
+      "histoire.config.ts",
+      "histoire.config.js",
+      ".histoire.js",
+      ".histoire.ts",
+    ],
   },
   html: {
     fileExtensions: ["htm", "html", "xhtml", "html_vm", "asp"],
@@ -1176,13 +1204,23 @@ const fileIcons: FileIcons = {
     fileNames: ["nativescript.config.ts", "nativescript.config.js"],
   },
   nest: {
-    fileNames: ["nest-cli.json", ".nest-cli.json", "nestconfig.json", ".nestconfig.json"],
+    fileNames: [
+      "nest-cli.json",
+      ".nest-cli.json",
+      "nestconfig.json",
+      ".nestconfig.json",
+    ],
   },
   netlify: {
     fileNames: ["netlify.json", "netlify.yml", "netlify.yaml", "netlify.toml"],
   },
   next: {
-    fileNames: ["next.config.js", "next.config.mjs", "next.config.ts", "next.config.mts"],
+    fileNames: [
+      "next.config.js",
+      "next.config.mjs",
+      "next.config.ts",
+      "next.config.mts",
+    ],
   },
   nextflow: {
     fileExtensions: ["nf"],
@@ -1270,7 +1308,12 @@ const fileIcons: FileIcons = {
     fileExtensions: ["php"],
   },
   phrase: {
-    fileNames: [".phrase.yml", ".phraseapp.yml", ".phrase.yaml", ".phraseapp.yaml"],
+    fileNames: [
+      ".phrase.yml",
+      ".phraseapp.yml",
+      ".phrase.yaml",
+      ".phraseapp.yaml",
+    ],
   },
   phtml: {
     fileExtensions: ["phtml"],
@@ -1495,7 +1538,12 @@ const fileIcons: FileIcons = {
     fileNames: ["ruff.toml", ".ruff.toml"],
   },
   "rust-config": {
-    fileNames: ["rustfmt.toml", ".rustfmt.toml", "rust-toolchain.toml", "clippy.toml"],
+    fileNames: [
+      "rustfmt.toml",
+      ".rustfmt.toml",
+      "rust-toolchain.toml",
+      "clippy.toml",
+    ],
   },
   rust: {
     fileExtensions: ["rs", "ron"],
@@ -1604,7 +1652,11 @@ const fileIcons: FileIcons = {
     fileExtensions: ["sol"],
   },
   "sonar-cloud": {
-    fileNames: ["sonar-project.properties", ".sonarcloud.properties", "sonarcloud.yaml"],
+    fileNames: [
+      "sonar-project.properties",
+      ".sonarcloud.properties",
+      "sonarcloud.yaml",
+    ],
   },
   spwn: {
     fileExtensions: ["spwn"],
@@ -1665,7 +1717,12 @@ const fileIcons: FileIcons = {
     fileExtensions: ["sc", "scd"],
   },
   "svelte-config": {
-    fileNames: ["svelte.config.js", "svelte.config.ts", "svelte.config.cjs", "svelte.config.mjs"],
+    fileNames: [
+      "svelte.config.js",
+      "svelte.config.ts",
+      "svelte.config.cjs",
+      "svelte.config.mjs",
+    ],
   },
   svelte: {
     fileExtensions: ["svelte"],
@@ -1889,7 +1946,14 @@ const fileIcons: FileIcons = {
     ],
   },
   vital: {
-    fileExtensions: ["vital", "vitalbank", "vitallfo", "vitalskin", "vitaltable", "vitaltheme"],
+    fileExtensions: [
+      "vital",
+      "vitalbank",
+      "vitallfo",
+      "vitalskin",
+      "vitaltable",
+      "vitaltheme",
+    ],
   },
   vite: {
     fileNames: [

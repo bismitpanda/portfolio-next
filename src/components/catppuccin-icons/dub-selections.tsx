@@ -19,7 +19,12 @@ const SvgDubSelections = (props: SVGProps<SVGSVGElement>) => (
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-      <path d="M8.35 6.142" stroke="#eba0ac" strokeLinecap="round" strokeLinejoin="round" />
+      <path
+        d="M8.35 6.142"
+        stroke="#eba0ac"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
       <path
         d="M15 11.5c.27 0 .5.22.5.5v3a.5.5 0 0 1-.5.5h-5a.5.5 0 0 1-.5-.5v-3c0-.28.22-.5.5-.5zm-4 0V10a1.5 1.5 0 0 1 3 0v1.5"
         stroke="#7f849c"

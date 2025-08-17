@@ -1,6 +1,6 @@
-import { styles } from "../styles";
-import type { ResumeData } from "@/lib/resume-data";
 import { Text, View } from "@react-pdf/renderer";
+import type { ResumeData } from "@/lib/resume-data";
+import { styles } from "../styles";
 
 export function TechnologiesSection({
   technologies,
@@ -16,7 +16,9 @@ export function TechnologiesSection({
       </View>
       <View style={styles.techRow}>
         <Text style={styles.techLabel}>Software and Frameworks: </Text>
-        <Text style={styles.techContent}>{technologies.softwareAndFrameworks}</Text>
+        <Text style={styles.techContent}>
+          {technologies.softwareAndFrameworks}
+        </Text>
       </View>
     </View>
   );

@@ -67,8 +67,8 @@ import CppHeader from "./cpp-header";
 import Csharp from "./csharp";
 import Cspell from "./cspell";
 import Css from "./css";
-import Css3 from "./css3";
 import CssMap from "./css-map";
+import Css3 from "./css3";
 import Csv from "./csv";
 import Cucumber from "./cucumber";
 import Cuda from "./cuda";
@@ -462,7 +462,10 @@ import Zap from "./zap";
 import Zig from "./zig";
 import Zip from "./zip";
 
-export const catppuccinIcons: Record<string, React.ComponentType<React.SVGProps<SVGSVGElement>>> = {
+export const catppuccinIcons: Record<
+  string,
+  React.ComponentType<React.SVGProps<SVGSVGElement>>
+> = {
   _file: _File,
   _folder: _Folder,
   _root: _Root,

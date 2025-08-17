@@ -1,7 +1,13 @@
-import { CopyButton } from "../copy-button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { CopyButton } from "../copy-button";
 
-export function Shell({ code, meta }: { code: string; meta: Record<string, string | undefined> }) {
+export function Shell({
+  code,
+  meta,
+}: {
+  code: string;
+  meta: Record<string, string | undefined>;
+}) {
   const tabs = meta.tabs?.split(",");
   const separator = meta.separator ?? "---";
 
@@ -22,7 +28,11 @@ export function Shell({ code, meta }: { code: string; meta: Record<string, strin
           ))}
         </TabsList>
         {codes.map((code, index) => (
-          <TabsContent className="relative" key={index} value={tabs[index] ?? ""}>
+          <TabsContent
+            className="relative"
+            key={index}
+            value={tabs[index] ?? ""}
+          >
             <pre className="default-callout relative mb-4 max-h-[650px] overflow-x-auto rounded-b-lg px-2 py-3">
               <CopyButton className="top-1.5 right-1" code={code} />
               <code className="text-white">

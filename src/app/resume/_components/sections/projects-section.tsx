@@ -1,6 +1,6 @@
-import { styles } from "../styles";
-import type { Project } from "@/lib/content";
 import { Link, Text, View } from "@react-pdf/renderer";
+import type { Project } from "@/lib/content";
+import { styles } from "../styles";
 
 export function ProjectsSection({ projects }: { projects: Project[] }) {
   return (

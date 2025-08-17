@@ -13,7 +13,10 @@ const SvgCssMap = (props: SVGProps<SVGSVGElement>) => (
         stroke="#f38ba8"
       />
       <path d="M10 3.5h5.5l-1.27 9.8L10 15l-4.23-1.7L5.6 12" stroke="#89b4fa" />
-      <path d="M9.46 5.5h3.08L12 11l-2 1-2-1-.05-.5m.55-2h3.62" stroke="#cdd6f4" />
+      <path
+        d="M9.46 5.5h3.08L12 11l-2 1-2-1-.05-.5m.55-2h3.62"
+        stroke="#cdd6f4"
+      />
     </g>
   </svg>
 );

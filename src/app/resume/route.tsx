@@ -1,5 +1,5 @@
-import { Resume } from "./_components/resume";
 import { renderToBuffer } from "@react-pdf/renderer";
+import { Resume } from "./_components/resume";
 
 export const dynamic = "force-static";
 

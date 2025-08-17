@@ -1,8 +1,0 @@
-# Ignore artifacts:
-build
-coverage
-
-.content-collections
-.next
-
-node_modules

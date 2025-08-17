@@ -1,7 +1,7 @@
-import { GithubDark } from "@/components/icons";
-import { Button } from "@/components/ui/button";
 import { ArrowLeft, FolderClosed, Home } from "lucide-react";
 import Link from "next/link";
+import { GithubDark } from "@/components/icons";
+import { Button } from "@/components/ui/button";
 
 export default function ProjectNotFound() {
   return (
@@ -19,8 +19,9 @@ export default function ProjectNotFound() {
           <h2 className="heading-md mb-6">Project Not Found</h2>
 
           <p className="body-lg mb-8 text-muted-foreground">
-            This project seems to be missing from our portfolio. It might be under development,
-            archived, or perhaps it never existed in the first place.
+            This project seems to be missing from our portfolio. It might be
+            under development, archived, or perhaps it never existed in the
+            first place.
           </p>
 
           <div className="flex flex-wrap justify-center gap-4">
@@ -41,9 +42,14 @@ export default function ProjectNotFound() {
           <div className="mt-16 gap-6">
             <div className="rounded-lg border border-border bg-card p-6 text-left">
               <h3 className="mb-4 font-bold text-xl">GitHub Projects</h3>
-              <p className="mb-4 text-muted-foreground">Check out my open source work</p>
+              <p className="mb-4 text-muted-foreground">
+                Check out my open source work
+              </p>
               <Button asChild className="w-full" size="sm" variant="outline">
-                <Link className="flex items-center justify-center gap-2" href="#">
+                <Link
+                  className="flex items-center justify-center gap-2"
+                  href="#"
+                >
                   <GithubDark className="h-4 w-4" />
                   <span>GitHub Profile</span>
                 </Link>

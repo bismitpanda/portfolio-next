@@ -1,5 +1,29 @@
 "use client";
 
+import { useCommandState } from "cmdk";
+import type { LucideProps } from "lucide-react";
+import {
+  BriefcaseBusinessIcon,
+  CircleUserIcon,
+  CornerDownLeftIcon,
+  FileCode2Icon,
+  HomeIcon,
+  MailIcon,
+  RssIcon,
+  SearchIcon,
+  UserIcon,
+} from "lucide-react";
+import Image from "next/image";
+import { useRouter } from "next/navigation";
+import React, { useCallback, useEffect, useMemo, useState } from "react";
+import { GithubDark, Linkedin, XDark } from "@/components/icons";
+import type { Blog, Project, Snippet } from "@/lib/content";
+import {
+  allProjectsByDate,
+  allPublishedBlogsByDate,
+  allSnippetsByDate,
+} from "@/lib/content";
+import { cn } from "@/lib/utils";
 import { Logo } from "./icons/logo";
 import { Button } from "./ui/button";
 import {
@@ -12,26 +36,6 @@ import {
   CommandSeparator,
 } from "./ui/command";
 import { Separator } from "./ui/separator";
-import { GithubDark, Linkedin, XDark } from "@/components/icons";
-import { allPublishedBlogsByDate, allProjectsByDate, allSnippetsByDate } from "@/lib/content";
-import type { Blog, Project, Snippet } from "@/lib/content";
-import { cn } from "@/lib/utils";
-import { useCommandState } from "cmdk";
-import type { LucideProps } from "lucide-react";
-import {
-  BriefcaseBusinessIcon,
-  CircleUserIcon,
-  CornerDownLeftIcon,
-  HomeIcon,
-  MailIcon,
-  RssIcon,
-  SearchIcon,
-  UserIcon,
-  FileCode2Icon,
-} from "lucide-react";
-import Image from "next/image";
-import { useRouter } from "next/navigation";
-import React, { useCallback, useEffect, useMemo, useState } from "react";
 
 type CommandLinkItem = {
   title: string;
@@ -166,17 +170,17 @@ export function CommandMenu() {
       <Button
         variant="outline"
         className={cn(
-          "h-9 gap-2 rounded-full bg-background px-3 text-muted-foreground select-none hover:bg-accent hover:text-accent-foreground border-border",
+          "h-9 select-none gap-2 rounded-full border-border bg-background px-3 text-muted-foreground hover:bg-accent hover:text-accent-foreground",
           "shadow-xs",
         )}
         onClick={() => setOpen(true)}
       >
         <SearchIcon className="size-4" />
-        <span className="font-sans text-sm font-medium sm:hidden">Search</span>
-        <CommandMenuKbd className="hidden tracking-wider sm:in-[.os-macos_&]:flex font-mono">
+        <span className="font-medium font-sans text-sm sm:hidden">Search</span>
+        <CommandMenuKbd className="hidden font-mono tracking-wider sm:in-[.os-macos_&]:flex">
           ⌘K
         </CommandMenuKbd>
-        <CommandMenuKbd className="hidden sm:not-[.os-macos_&]:flex font-mono">
+        <CommandMenuKbd className="hidden font-mono sm:not-[.os-macos_&]:flex">
           Ctrl K
         </CommandMenuKbd>
       </Button>
@@ -184,7 +188,11 @@ export function CommandMenu() {
         <CommandInput placeholder="Type a command or search..." />
         <CommandList className="min-h-80">
           <CommandEmpty>No results found.</CommandEmpty>
-          <CommandLinkGroup heading="Menu" links={MENU_LINKS} onLinkSelect={handleOpenLink} />
+          <CommandLinkGroup
+            heading="Menu"
+            links={MENU_LINKS}
+            onLinkSelect={handleOpenLink}
+          />
           <CommandSeparator />
           <CommandLinkGroup
             heading="Projects"
@@ -258,7 +266,7 @@ function CommandLinkGroup({
             <div className="flex flex-col">
               <span>{link.title}</span>
               {link.description && (
-                <span className="text-xs text-muted-foreground line-clamp-1 text-ellipsis">
+                <span className="line-clamp-1 text-ellipsis text-muted-foreground text-xs">
                   {link.description}
                 </span>
               )}
@@ -311,7 +319,7 @@ function CommandMenuFooter() {
     <>
       <div className="flex h-10" />
 
-      <div className="absolute inset-x-0 bottom-0 flex h-10 items-center justify-between gap-2 border-t bg-background/80 backdrop-blur-sm px-4 text-xs font-medium">
+      <div className="absolute inset-x-0 bottom-0 flex h-10 items-center justify-between gap-2 border-t bg-background/80 px-4 font-medium text-xs backdrop-blur-sm">
         <Logo className="size-6 text-muted-foreground" aria-hidden />
 
         <div className="flex shrink-0 items-center gap-2">
@@ -319,7 +327,10 @@ function CommandMenuFooter() {
           <CommandMenuKbd>
             <CornerDownLeftIcon className="size-4" />
           </CommandMenuKbd>
-          <Separator orientation="vertical" className="data-[orientation=vertical]:h-4" />
+          <Separator
+            orientation="vertical"
+            className="data-[orientation=vertical]:h-4"
+          />
           <span className="text-muted-foreground">Exit</span>
           <CommandMenuKbd>Esc</CommandMenuKbd>
         </div>
@@ -332,7 +343,7 @@ function CommandMenuKbd({ className, ...props }: React.ComponentProps<"kbd">) {
   return (
     <kbd
       className={cn(
-        "pointer-events-none flex h-5 min-w-6 items-center justify-center gap-1 rounded-sm bg-muted px-1 font-sans text-[13px] font-normal text-muted-foreground shadow-xs select-none",
+        "pointer-events-none flex h-5 min-w-6 select-none items-center justify-center gap-1 rounded-sm bg-muted px-1 font-normal font-sans text-[13px] text-muted-foreground shadow-xs",
         className,
       )}
       {...props}
@@ -361,7 +372,7 @@ function projectToCommandLinkItem(project: Project): CommandLinkItem {
 function snippetToCommandLinkItem(snippet: Snippet): CommandLinkItem {
   return {
     title: snippet.name,
-    href: `/snippets?display=${snippet.name}`,
+    href: `/snippets?display=${snippet.slug}`,
     keywords: ["snippet", "code", "pattern"],
     description: snippet.description,
   };

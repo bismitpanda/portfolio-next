@@ -32,7 +32,9 @@
 }
 
 .shiki[data-show-line-numbers="false"] .line.diff.add > *:first-child::before,
-.shiki[data-show-line-numbers="false"] .line.diff.remove > *:first-child::before {
+.shiki[data-show-line-numbers="false"]
+  .line.diff.remove
+  > *:first-child::before {
   @apply -left-3;
 }
 
@@ -108,14 +110,20 @@ pre.shiki .line {
   color: gray;
 }
 
-.shiki[data-show-line-numbers="true"] code[data-line-numbers-max-digits="2"] > .line::before {
+.shiki[data-show-line-numbers="true"]
+  code[data-line-numbers-max-digits="2"]
+  > .line::before {
   @apply w-5;
 }
 
-.shiki[data-show-line-numbers="true"] code[data-line-numbers-max-digits="3"] > .line::before {
+.shiki[data-show-line-numbers="true"]
+  code[data-line-numbers-max-digits="3"]
+  > .line::before {
   @apply w-7;
 }
 
-.shiki[data-show-line-numbers="true"] code[data-line-numbers-max-digits="4"] > .line::before {
+.shiki[data-show-line-numbers="true"]
+  code[data-line-numbers-max-digits="4"]
+  > .line::before {
   @apply w-9;
 }

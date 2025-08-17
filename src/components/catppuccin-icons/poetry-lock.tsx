@@ -23,7 +23,10 @@ const SvgPoetryLock = (props: SVGProps<SVGSVGElement>) => (
       strokeLinecap="round"
       strokeLinejoin="round"
     />
-    <path d="m0 0 7.778 7.923q.104-.107.205-.215Z" fill="url(#poetry-lock_svg__a)" />
+    <path
+      d="m0 0 7.778 7.923q.104-.107.205-.215Z"
+      fill="url(#poetry-lock_svg__a)"
+    />
     <path
       d="M.5.5h10a10 10 0 0 1-3.306 7.43"
       fill="none"

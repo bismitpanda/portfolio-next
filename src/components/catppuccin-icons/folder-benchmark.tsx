@@ -8,7 +8,10 @@ const SvgFolderBenchmark = (props: SVGProps<SVGSVGElement>) => (
         d="M4.5 4.5H12c.83 0 1.5.67 1.5 1.5v.5m-7.5 7H2A1.5 1.5 0 0 1 .5 12V3.5a1 1 0 0 1 1-1h5a1 1 0 0 1 1 1v1"
         stroke="#cdd6f4"
       />
-      <path d="M15 14.5c.339-.587.5-1.273.5-2a4 4 0 1 0-7.465 2m2.965 0 2-2.5" stroke="#fab387" />
+      <path
+        d="M15 14.5c.339-.587.5-1.273.5-2a4 4 0 1 0-7.465 2m2.965 0 2-2.5"
+        stroke="#fab387"
+      />
     </g>
   </svg>
 );

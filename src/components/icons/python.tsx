@@ -2,7 +2,12 @@ import type { SVGProps } from "react";
 import * as React from "react";
 
 const SvgPython = (props: SVGProps<SVGSVGElement>) => (
-  <svg fill="none" viewBox="16 16 32 32" xmlns="http://www.w3.org/2000/svg" {...props}>
+  <svg
+    fill="none"
+    viewBox="16 16 32 32"
+    xmlns="http://www.w3.org/2000/svg"
+    {...props}
+  >
     <path
       d="M31.885 16c-8.124 0-7.617 3.523-7.617 3.523l.01 3.65h7.752v1.095H21.197S16 23.678 16 31.876c0 8.196 4.537 7.906 4.537 7.906h2.708v-3.804s-.146-4.537 4.465-4.537h7.688s4.32.07 4.32-4.175v-7.019S40.374 16 31.885 16m-4.275 2.454a1.394 1.394 0 1 1 0 2.79 1.393 1.393 0 0 1-1.395-1.395c0-.771.624-1.395 1.395-1.395"
       fill="url(#python_svg__a)"

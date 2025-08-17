@@ -1,5 +1,5 @@
-import { styles } from "../styles";
 import { Text, View } from "@react-pdf/renderer";
+import { styles } from "../styles";
 
 export function AboutMeSection({ content }: { content: string }) {
   return (

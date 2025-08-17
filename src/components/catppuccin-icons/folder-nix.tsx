@@ -10,7 +10,12 @@ const SvgFolderNix = (props: SVGProps<SVGSVGElement>) => (
       strokeLinecap="round"
       strokeLinejoin="round"
     />
-    <g fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.143}>
+    <g
+      fill="none"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth={2.143}
+    >
       <path
         d="M8 11.557h1.634m.648-.933L8.724 13.19"
         stroke="#74c7ec"

@@ -1,7 +1,7 @@
-import { Button } from "@/components/ui/button";
-import { allFeaturedProjects } from "@/lib/content";
 import Image from "next/image";
 import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { allFeaturedProjects } from "@/lib/content";
 
 export function FeaturedProjectsSection() {
   return (
@@ -27,7 +27,9 @@ export function FeaturedProjectsSection() {
                 <h3 className="-mt-8 mb-6 font-bold text-4xl transition-transform group-hover:translate-y-1">
                   {project.title}
                 </h3>
-                <p className="mb-8 text-muted-foreground text-xl">{project.description}</p>
+                <p className="mb-8 text-muted-foreground text-xl">
+                  {project.description}
+                </p>
                 <Button asChild size="lg" variant="outline">
                   <Link href={`/projects/${project.slug}`}>View Project</Link>
                 </Button>
