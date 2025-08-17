@@ -1,11 +1,11 @@
 import { Text, View } from "@react-pdf/renderer";
-import type { ResumeData } from "@/lib/resume-data";
+import type { User } from "@/lib/constants";
 import { styles } from "../styles";
 
 export function TechnologiesSection({
   technologies,
 }: {
-  technologies: ResumeData["technologies"];
+  technologies: User["technologies"];
 }) {
   return (
     <View style={styles.section}>

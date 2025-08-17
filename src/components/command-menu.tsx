@@ -79,6 +79,12 @@ const MENU_LINKS: CommandLinkItem[] = [
     icon: CircleUserIcon,
     openInNewTab: true,
   },
+  {
+    title: "VCard",
+    href: "/vcard",
+    icon: CircleUserIcon,
+    openInNewTab: true,
+  },
 ];
 
 const SOCIAL_LINK_ITEMS: CommandLinkItem[] = [
@@ -278,7 +284,7 @@ function CommandLinkGroup({
   );
 }
 
-type CommandKind = "page" | "link";
+type CommandKind = "resume" | "vcard" | "page" | "link";
 
 type CommandMetaMap = Map<
   string,
@@ -291,7 +297,11 @@ function buildCommandMetaMap() {
   const commandMetaMap: CommandMetaMap = new Map();
 
   commandMetaMap.set("Resume", {
-    commandKind: "link",
+    commandKind: "resume",
+  });
+
+  commandMetaMap.set("VCard", {
+    commandKind: "vcard",
   });
 
   SOCIAL_LINK_ITEMS.forEach((item) => {
@@ -306,6 +316,8 @@ function buildCommandMetaMap() {
 const COMMAND_META_MAP = buildCommandMetaMap();
 
 const ENTER_ACTION_LABELS: Record<CommandKind, string> = {
+  resume: "Download Resume",
+  vcard: "Download VCard",
   page: "Go to Page",
   link: "Open Link",
 };

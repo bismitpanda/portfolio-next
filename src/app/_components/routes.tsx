@@ -1,6 +1,7 @@
-import { Mail } from "lucide-react";
+import { Mail, Phone } from "lucide-react";
 import type { ReactNode } from "react";
 import { GithubDark, Linkedin, XDark } from "@/components/icons";
+import { user } from "@/lib/constants";
 
 type Route = {
   name: ReactNode;
@@ -16,6 +17,7 @@ export const footerRoutes: Route[] = [
   { name: "Snippets", path: "/snippets" },
   { name: "Blog", path: "/blog" },
   { name: "Resume", path: "/resume", external: true },
+  { name: "VCard", path: "/vcard", external: true },
 ];
 
 export const navigationRoutes: Route[] = [
@@ -41,25 +43,31 @@ export const socialRoutes: SocialRoute[] = [
   {
     icon: ({ className }) => <Linkedin className={className} />,
     title: "LinkedIn",
-    label: "linkedin.com/in/bismit-panda-5432a824a",
-    url: "https://www.linkedin.com/in/bismit-panda-5432a824a",
+    label: user.socials.linkedin.label,
+    url: user.socials.linkedin.url,
   },
   {
     icon: ({ className }) => <GithubDark className={className} />,
     title: "GitHub",
-    label: "github.com/bismitpanda",
-    url: "https://github.com/bismitpanda",
+    label: user.socials.github.label,
+    url: user.socials.github.url,
   },
   {
     icon: ({ className }) => <XDark className={className} />,
     title: "X",
-    label: "x.com/bismitpanda",
-    url: "https://x.com/bismitpanda",
+    label: user.socials.twitter.label,
+    url: user.socials.twitter.url,
   },
   {
     icon: ({ className }) => <Mail className={className} />,
     title: "Email",
-    label: "contact@bismitpanda.com",
-    url: "mailto:contact@bismitpanda.com",
+    label: user.socials.email.label,
+    url: user.socials.email.url,
+  },
+  {
+    icon: ({ className }) => <Phone className={className} />,
+    title: "Phone",
+    label: user.socials.phone.label,
+    url: user.socials.phone.url,
   },
 ];

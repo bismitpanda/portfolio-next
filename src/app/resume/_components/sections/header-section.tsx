@@ -1,11 +1,13 @@
 import { Link, Text, View } from "@react-pdf/renderer";
-import type { ResumeData } from "@/lib/resume-data";
+import type { User } from "@/lib/constants";
 import { styles } from "../styles";
 
-export function HeaderSection({ data }: { data: ResumeData["personalInfo"] }) {
+export function HeaderSection({ data }: { data: User }) {
   return (
     <View style={styles.header}>
-      <Text style={styles.name}>{data.name}</Text>
+      <Text style={styles.name}>
+        {data.firstName} {data.lastName}
+      </Text>
       <View style={styles.contactInfo}>
         <Text style={styles.contactItem}>{data.location}</Text>
         <Text style={styles.separator}>|</Text>
@@ -14,6 +16,13 @@ export function HeaderSection({ data }: { data: ResumeData["personalInfo"] }) {
           style={[styles.contactItem, styles.link]}
         >
           <Text>{data.socials.email.label}</Text>
+        </Link>
+        <Text style={styles.separator}>|</Text>
+        <Link
+          src={data.socials.phone.url}
+          style={[styles.contactItem, styles.link]}
+        >
+          <Text>{data.socials.phone.label}</Text>
         </Link>
         <Text style={styles.separator}>|</Text>
         <Link
