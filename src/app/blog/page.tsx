@@ -3,17 +3,15 @@
 import { BlogCard } from "@/components/blog-card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import { allCategoriesByCount, allPublishedBlogsByDate } from "@/lib/content";
 import { formatDate } from "date-fns";
-import { ChevronLeft, ChevronRight, Filter, Search } from "lucide-react";
+import { ChevronLeft, ChevronRight, Filter } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 
 export default function Page() {
   const [currentPage, setCurrentPage] = useState(1);
-  const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("all");
   const blogsPerPage = 9;
 
@@ -21,26 +19,20 @@ export default function Page() {
 
   const filteredBlogs = useMemo(() => {
     const blogs = allPublishedBlogsByDate.filter((blog) => {
-      const searchMatch =
-        searchQuery === "" ||
-        blog.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        blog.excerpt.toLowerCase().includes(searchQuery.toLowerCase());
-
       const categoryMatch = selectedCategory === "all" || blog.categorySlug === selectedCategory;
-
-      return searchMatch && categoryMatch;
+      return categoryMatch;
     });
 
-    if (searchQuery === "" && selectedCategory === "all") {
+    if (selectedCategory === "all") {
       return blogs.slice(1);
     }
 
     return blogs;
-  }, [searchQuery, selectedCategory]);
+  }, [selectedCategory]);
 
   useEffect(() => {
     setCurrentPage(1);
-  }, [searchQuery, selectedCategory]);
+  }, [selectedCategory]);
 
   const totalPages = Math.ceil(filteredBlogs.length / blogsPerPage);
 
@@ -78,17 +70,6 @@ export default function Page() {
         </div>
 
         <div className="mb-12">
-          <div className="relative mx-auto mb-8 max-w-2xl">
-            <Search className="-translate-y-1/2 absolute top-1/2 left-4 h-5 w-5 text-muted-foreground" />
-            <Input
-              className="rounded-full border-2 border-border py-3 pr-4 pl-12 text-lg transition-colors focus:border-primary"
-              onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Search blogs..."
-              type="text"
-              value={searchQuery}
-            />
-          </div>
-
           <div className="mb-8 flex flex-wrap items-center justify-center gap-4">
             <div className="flex items-center gap-2 text-muted-foreground">
               <Filter className="h-4 w-4" />
@@ -131,7 +112,7 @@ export default function Page() {
           </div>
         </div>
 
-        {searchQuery === "" && selectedCategory === "all" ? (
+        {selectedCategory === "all" && currentPage === 1 && (
           <div className="mb-20">
             <div className="mb-8 text-center">
               <Badge className="border-primary/20 bg-primary/10 text-primary" variant="outline">
@@ -175,7 +156,7 @@ export default function Page() {
               </div>
             </div>
           </div>
-        ) : null}
+        )}
 
         {filteredBlogs.length > 0 ? (
           <>
@@ -250,7 +231,7 @@ export default function Page() {
           <div className="py-20 text-center">
             <h2 className="mb-2 font-bold text-2xl">No Blogs Found</h2>
             <p className="text-muted-foreground">
-              Try adjusting your search or filter to find what you&apos;re looking for.
+              Try adjusting your filter to find what you&apos;re looking for.
             </p>
           </div>
         )}

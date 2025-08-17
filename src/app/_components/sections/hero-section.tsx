@@ -1,7 +1,7 @@
 "use client";
 
-import { RotatingText } from "../rotating-text";
 import { Button } from "@/components/ui/button";
+import { TextLoop } from "@/components/ui/text-loop";
 import Link from "next/link";
 
 const roles = [
@@ -19,18 +19,11 @@ export function HeroSection() {
           <div>
             <p className="mb-2 font-medium text-lg text-muted-foreground">Hello, I&apos;m</p>
             <h1 className="heading-xl mb-4">Bismit Panda</h1>
-            <RotatingText
-              animate={{ y: 0 }}
-              exit={{ y: "-120%" }}
-              initial={{ y: "100%" }}
-              mainClassName="text-xl md:text-2xl text-muted-foreground font-mono"
-              rotationInterval={5000}
-              splitLevelClassName="overflow-hidden pb-0.5 sm:pb-1 md:pb-1"
-              staggerDuration={0.025}
-              staggerFrom={"last"}
-              texts={roles}
-              transition={{ type: "spring", damping: 30, stiffness: 400 }}
-            />
+            <TextLoop className="font-mono text-xl md:text-2xl text-muted-foreground">
+              {roles.map((role) => (
+                <span key={role}>{role}</span>
+              ))}
+            </TextLoop>
           </div>
           <p className="body-lg max-w-md text-muted-foreground">
             I create beautiful, functional websites and applications.
@@ -44,7 +37,7 @@ export function HeroSection() {
             </Button>
           </div>
         </div>
-        <div className="z-50 aspect-square overflow-hidden rounded-2xl border border-border bg-muted size-full">
+        <div className="aspect-square overflow-hidden rounded-4xl border border-border bg-muted size-full">
           <img alt="Bismit Panda" className="h-full w-full object-cover" src="/images/photo.png" />
         </div>
       </div>

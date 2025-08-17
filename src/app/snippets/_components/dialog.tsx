@@ -14,15 +14,16 @@ import type { Snippet } from "@/lib/content";
 import { useCopyToClipboard } from "@uidotdev/usehooks";
 import { Check, Copy, Download } from "lucide-react";
 import Link from "next/link";
-import { type ReactNode, useState } from "react";
+import { useState } from "react";
 import { toast } from "sonner";
 
 interface CodeSnippetDialogProps {
   snippet: Snippet;
-  children: ReactNode;
+  open: boolean;
 }
 
-export function CodeSnippetDialog({ snippet, children }: CodeSnippetDialogProps) {
+export function CodeSnippetDialog({ snippet, open }: CodeSnippetDialogProps) {
+  const [isOpen, setIsOpen] = useState(open);
   const [copiedText, copyToClipboard] = useCopyToClipboard();
   const [snippetCode, setSnippetCode] = useState(snippet.codes[0]);
 
@@ -32,13 +33,41 @@ export function CodeSnippetDialog({ snippet, children }: CodeSnippetDialogProps)
 
   return (
     <Dialog
+      open={isOpen}
       onOpenChange={(open) => {
+        setIsOpen(open);
         if (!open) {
           setSnippetCode(snippet.codes[0]);
         }
       }}
     >
-      <DialogTrigger asChild>{children}</DialogTrigger>
+      <DialogTrigger asChild>
+        <div className="group flex h-full cursor-pointer flex-col overflow-hidden rounded-lg border border-border bg-card transition-shadow hover:shadow-lg">
+          <div className="grow p-6">
+            <h3 className="mb-2 flex items-center space-x-4 font-bold text-xl transition-colors group-hover:text-primary">
+              <span>{snippet.name}</span>
+              <div className="flex flex-row items-center justify-center gap-2">
+                {snippet.codes.slice(0, 2).map((code) => (
+                  <Badge className="bg-muted/50 font-mono" key={code.language} variant="outline">
+                    {code.language}
+                  </Badge>
+                ))}
+                {snippet.codes.length > 2 && (
+                  <Badge className="bg-muted/50 font-mono" variant="outline">
+                    +{snippet.codes.length - 2}
+                  </Badge>
+                )}
+              </div>
+            </h3>
+            <p className="text-muted-foreground text-sm">{snippet.description}</p>
+          </div>
+          <div className="px-6 pb-6">
+            <Button className="w-full" variant="outline">
+              View Snippet
+            </Button>
+          </div>
+        </div>
+      </DialogTrigger>
       <DialogContent className="w-4xl sm:max-w-none">
         <DialogHeader>
           <div className="flex items-center space-x-8">

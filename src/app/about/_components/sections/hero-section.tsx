@@ -15,10 +15,10 @@ export function HeroSection() {
       </div>
 
       <div className="mb-16 grid items-center gap-12 md:grid-cols-2">
-        <div className="z-50 aspect-square overflow-hidden rounded-2xl border border-border bg-muted size-full">
+        <div className="aspect-square overflow-hidden rounded-4xl border border-border bg-muted size-full">
           <img alt="Bismit Panda" className="h-full w-full object-cover" src="/images/photo.png" />
         </div>
-        <div className="z-10 space-y-6">
+        <div className="space-y-6">
           <p className="body-lg">
             I&apos;m a passionate developer with over 5 years of experience building web
             applications. I specialize in React, Next.js, and Node.js, creating responsive and

@@ -1,6 +1,7 @@
 "use client";
 
-import { routes } from "../routes";
+import { navigationRoutes, footerRoutes } from "../routes";
+import { CommandMenu } from "@/components/command-menu";
 import { Logo } from "@/components/icons/logo";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -25,15 +26,16 @@ export function Navigation() {
           Bismit Panda
         </Link>
 
-        <nav className="hidden items-center space-x-8 md:flex">
-          {routes.map((route) => (
+        <nav className="hidden items-center md:flex space-x-8">
+          {navigationRoutes.map((route) => (
             <Link
               className={cn(
-                "link-underline text-lg transition-colors",
+                "text-lg transition-colors",
+                route.type !== "icon" ? "link-underline" : "!mr-4",
                 pathname === route.path
                   ? "text-foreground"
                   : "text-muted-foreground hover:text-foreground",
-                route.external ? "group flex flex-row items-center justify-between gap-x-1" : "",
+                route.external && "group flex flex-row items-center justify-between gap-x-1",
               )}
               href={route.path}
               key={route.path}
@@ -41,11 +43,12 @@ export function Navigation() {
               target={route.external ? "_blank" : undefined}
             >
               {route.name}
-              {route.external && (
+              {route.external && route.type !== "icon" && (
                 <MoveUpRight className="size-4 w-0 opacity-0 transition-all group-hover:w-4 group-hover:opacity-100" />
               )}
             </Link>
           ))}
+          <CommandMenu />
         </nav>
 
         <div className="flex items-center gap-2 md:hidden">
@@ -59,13 +62,13 @@ export function Navigation() {
         {isMenuOpen && (
           <motion.div
             animate={{ height: "auto", opacity: 1 }}
-            className="fixed inset-0 top-20 z-40 bg-background py-6 md:hidden"
+            className="fixed inset-0 top-20 z-50 bg-background py-6 md:hidden"
             exit={{ height: 0, opacity: 0 }}
             initial={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.3 }}
           >
             <nav className="flex flex-col space-y-6 bg-background/90 text-center">
-              {routes.map((route) => (
+              {footerRoutes.map((route) => (
                 <Link
                   className={cn(
                     "py-2 text-2xl transition-colors",

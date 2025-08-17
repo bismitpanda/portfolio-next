@@ -1,4 +1,4 @@
-import { routes, socialRoutes } from "../routes";
+import { footerRoutes, socialRoutes } from "../routes";
 import { GithubDark, Linkedin, XDark } from "@/components/icons";
 import { Logo } from "@/components/icons/logo";
 import { Mail } from "lucide-react";
@@ -26,11 +26,13 @@ export function Footer() {
           <div>
             <h3 className="mb-4 font-medium text-xl">Quick Links</h3>
             <ul className="space-y-2">
-              {routes.map((route) => (
+              {footerRoutes.map((route) => (
                 <li key={route.path}>
                   <Link
                     className="text-muted-foreground transition-colors hover:text-foreground"
                     href={route.path}
+                    rel={route.external ? "noopener noreferrer" : undefined}
+                    target={route.external ? "_blank" : undefined}
                   >
                     {route.name}
                   </Link>

@@ -1,5 +1,4 @@
 import { CodeSnippetDialog } from "./_components/dialog";
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { allSnippetsByDate } from "@/lib/content";
 import type { Metadata } from "next";
@@ -10,7 +9,13 @@ export const metadata: Metadata = {
   description: "Code Snippets",
 };
 
-export default function Page() {
+export default async function Page({
+  searchParams,
+}: {
+  searchParams: Promise<{ display?: string }>;
+}) {
+  const { display } = await searchParams;
+
   return (
     <div className="pt-20">
       <section className="container-custom section-spacing">
@@ -23,37 +28,11 @@ export default function Page() {
 
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {allSnippetsByDate.map((snippet) => (
-            <CodeSnippetDialog key={snippet.name} snippet={snippet}>
-              <div className="group flex h-full cursor-pointer flex-col overflow-hidden rounded-lg border border-border bg-card transition-shadow hover:shadow-lg">
-                <div className="grow p-6">
-                  <h3 className="mb-2 flex items-center space-x-4 font-bold text-xl transition-colors group-hover:text-primary">
-                    <span>{snippet.name}</span>
-                    <div className="flex flex-row items-center justify-center gap-2">
-                      {snippet.codes.slice(0, 2).map((code) => (
-                        <Badge
-                          className="bg-muted/50 font-mono"
-                          key={code.language}
-                          variant="outline"
-                        >
-                          {code.language}
-                        </Badge>
-                      ))}
-                      {snippet.codes.length > 2 && (
-                        <Badge className="bg-muted/50 font-mono" variant="outline">
-                          +{snippet.codes.length - 2}
-                        </Badge>
-                      )}
-                    </div>
-                  </h3>
-                  <p className="text-muted-foreground text-sm">{snippet.description}</p>
-                </div>
-                <div className="px-6 pb-6">
-                  <Button className="w-full" variant="outline">
-                    View Snippet
-                  </Button>
-                </div>
-              </div>
-            </CodeSnippetDialog>
+            <CodeSnippetDialog
+              key={snippet.name}
+              snippet={snippet}
+              open={display === snippet.name}
+            />
           ))}
         </div>
 
