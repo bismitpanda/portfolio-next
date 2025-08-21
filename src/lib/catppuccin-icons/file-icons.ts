@@ -2289,11 +2289,25 @@ const { fileExtensions, fileNames } = Object.entries(fileIcons).reduce(
   ({ fileExtensions, fileNames }, [name, icon]) => ({
     fileExtensions: {
       ...fileExtensions,
-      ...icon.fileExtensions?.reduce((a, c) => ({ ...a, [c]: name }), {}),
+      ...icon.fileExtensions?.reduce(
+        (a, c) => {
+          a[c] = name;
+
+          return a;
+        },
+        {} as Record<string, string>,
+      ),
     },
     fileNames: {
       ...fileNames,
-      ...icon.fileNames?.reduce((a, c) => ({ ...a, [c]: name }), {}),
+      ...icon.fileNames?.reduce(
+        (a, c) => {
+          a[c] = name;
+
+          return a;
+        },
+        {} as Record<string, string>,
+      ),
     },
   }),
   {

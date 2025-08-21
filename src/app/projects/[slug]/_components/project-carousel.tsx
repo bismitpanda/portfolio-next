@@ -51,11 +51,8 @@ export function ProjectCarousel({
       >
         <CarouselContent>
           {gallery.map((image, index) => (
-            <CarouselItem key={index}>
-              <div
-                className="aspect-video overflow-hidden rounded-lg"
-                key={index}
-              >
+            <CarouselItem key={`${index}-${image}`}>
+              <div className="aspect-video overflow-hidden rounded-lg">
                 <Image
                   alt={`${title} - Image ${index + 1}`}
                   className="h-full w-full object-cover"
@@ -72,8 +69,10 @@ export function ProjectCarousel({
       </Carousel>
       <div className="mt-4 flex justify-center gap-3">
         {Array.from({ length: count }).map((_, index) => (
+          // biome-ignore lint/a11y: This is a carousel
           <div
             className={`h-3 w-3 rounded-full border border-white ${current === index + 1 ? "bg-white" : ""} cursor-pointer transition-colors duration-300 hover:bg-white/50`}
+            // biome-ignore lint/suspicious/noArrayIndexKey: Index never changes as is a valid key
             key={index}
             onClick={() => api?.scrollTo(index)}
           />

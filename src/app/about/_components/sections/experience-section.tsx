@@ -44,8 +44,8 @@ export function ExperienceSection() {
                     {exp.description}
                   </p>
                   <ul className="list-inside list-disc space-y-1 text-muted-foreground">
-                    {exp.highlights.map((item, i) => (
-                      <li key={i}>{item}</li>
+                    {exp.highlights.map((item) => (
+                      <li key={item}>{item}</li>
                     ))}
                   </ul>
                 </div>

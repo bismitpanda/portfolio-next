@@ -51,7 +51,7 @@ async function getVCardPhoto(url: string) {
       return null;
     }
 
-    const contentType = res.headers.get("Content-Type") || "";
+    const contentType = res.headers.get("Content-Type") ?? "";
     if (!contentType.startsWith("image/")) {
       return null;
     }

@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { TextLoop } from "@/components/ui/text-loop";
@@ -44,11 +45,12 @@ export function HeroSection() {
             </Button>
           </div>
         </div>
-        <div className="aspect-square size-full overflow-hidden rounded-4xl border border-border bg-muted">
-          <img
+        <div className="relative aspect-square size-full overflow-hidden rounded-4xl border border-border bg-muted">
+          <Image
             alt="Bismit Panda"
-            className="h-full w-full object-cover"
+            className="size-full object-cover aspect-square"
             src="/images/photo.png"
+            fill
           />
         </div>
       </div>

@@ -63,6 +63,7 @@ export function Marquee({
               "group-hover:[animation-play-state:paused]": pauseOnHover,
               "[animation-direction:reverse]": reverse,
             })}
+            // biome-ignore lint/suspicious/noArrayIndexKey: This is intentional
             key={i}
           >
             {children}

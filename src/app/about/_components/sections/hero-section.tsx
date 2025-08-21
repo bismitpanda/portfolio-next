@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
@@ -15,11 +16,12 @@ export function HeroSection() {
       </div>
 
       <div className="mb-16 grid items-center gap-12 md:grid-cols-2">
-        <div className="aspect-square size-full overflow-hidden rounded-4xl border border-border bg-muted">
-          <img
+        <div className="relative aspect-square size-full overflow-hidden rounded-4xl border border-border bg-muted">
+          <Image
             alt="Bismit Panda"
-            className="h-full w-full object-cover"
+            className="size-full object-cover aspect-square"
             src="/images/photo.png"
+            fill
           />
         </div>
         <div className="space-y-6">

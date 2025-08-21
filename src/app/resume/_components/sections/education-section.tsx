@@ -8,7 +8,10 @@ export function EducationSection({ education }: { education: Education[] }) {
     <View style={styles.section}>
       <Text style={styles.sectionTitle}>Education</Text>
       {education.map((edu, index) => (
-        <View key={index} style={styles.entryContainer}>
+        <View
+          key={`${index}-${edu.institution}-${edu.title}`}
+          style={styles.entryContainer}
+        >
           <View style={styles.entryHeader}>
             <Text style={styles.entryTitle}>
               {edu.institution}, {edu.title}
@@ -26,8 +29,11 @@ export function EducationSection({ education }: { education: Education[] }) {
               <View style={styles.educationItem}>
                 <Text style={styles.educationLabel}>Achievements: </Text>
                 <View style={styles.highlightsList}>
-                  {edu.achievements.map((highlight, highlightIndex) => (
-                    <View key={highlightIndex} style={styles.highlight}>
+                  {edu.achievements.map((highlight, index) => (
+                    <View
+                      key={`${index}-${highlight}`}
+                      style={styles.highlight}
+                    >
                       <Text style={styles.bullet}>•</Text>
                       <Text style={styles.highlightText}>{highlight}</Text>
                     </View>

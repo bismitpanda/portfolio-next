@@ -30,7 +30,7 @@ export function Shell({
         {codes.map((code, index) => (
           <TabsContent
             className="relative"
-            key={index}
+            key={tabs[index]}
             value={tabs[index] ?? ""}
           >
             <pre className="default-callout relative mb-4 max-h-[650px] overflow-x-auto rounded-b-lg px-2 py-3">

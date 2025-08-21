@@ -6,8 +6,8 @@ export function ProjectsSection({ projects }: { projects: Project[] }) {
   return (
     <View style={styles.section}>
       <Text style={styles.sectionTitle}>Projects</Text>
-      {projects.map((project, index) => (
-        <View key={index} style={styles.entryContainer}>
+      {projects.map((project) => (
+        <View key={project.slug} style={styles.entryContainer}>
           <View style={styles.projectHeader}>
             <Text style={styles.projectTitle}>{project.title}</Text>
             {project.liveUrl && (
@@ -20,8 +20,8 @@ export function ProjectsSection({ projects }: { projects: Project[] }) {
             {project.description
               .split(".")
               .slice(0, -1)
-              .map((highlight, highlightIndex) => (
-                <View key={highlightIndex} style={styles.highlight}>
+              .map((highlight, index) => (
+                <View key={`${index}-${highlight}`} style={styles.highlight}>
                   <Text style={styles.bullet}>•</Text>
                   <Text style={styles.highlightText}>{highlight.trim()}.</Text>
                 </View>

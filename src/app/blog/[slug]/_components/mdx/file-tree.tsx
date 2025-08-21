@@ -49,8 +49,12 @@ export function FileTree({ tree, defaultOpen = false }: FileTreeProps) {
         <div className="relative flex w-full min-w-0 flex-col p-2">
           <div className="w-full text-sm">
             <ul className="flex w-full min-w-0 flex-col gap-1">
-              {sortedTree.map((item, index) => (
-                <Tree defaultOpen={defaultOpen} item={item} key={index} />
+              {sortedTree.map((item) => (
+                <Tree
+                  defaultOpen={defaultOpen}
+                  item={item}
+                  key={`${item.type}-${item.name}`}
+                />
               ))}
             </ul>
           </div>
@@ -75,7 +79,10 @@ function Tree({
           "_file"
       ];
     return (
-      <button className="flex w-full items-center gap-2 overflow-hidden rounded-md p-2 text-left text-sm transition focus-visible:ring-2">
+      <button
+        type="button"
+        className="flex w-full items-center gap-2 overflow-hidden rounded-md p-2 text-left text-sm transition focus-visible:ring-2"
+      >
         <Icon />
         {item.name}
       </button>
@@ -91,7 +98,10 @@ function Tree({
         defaultOpen={defaultOpen}
       >
         <CollapsibleTrigger asChild>
-          <button className="flex w-full items-center gap-2 overflow-hidden rounded-md p-2 text-left text-sm transition focus-visible:ring-2">
+          <button
+            type="button"
+            className="flex w-full items-center gap-2 overflow-hidden rounded-md p-2 text-left text-sm transition focus-visible:ring-2"
+          >
             <ChevronRight className="h-4 w-4 transition-transform" />
             <Icon />
             {item.name}

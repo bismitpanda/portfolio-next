@@ -120,6 +120,7 @@ export function CodeSnippetDialog({ snippet, open }: CodeSnippetDialogProps) {
               <div className="group max-h-[70vh] max-w-[848px] overflow-x-scroll overflow-y-scroll rounded-lg bg-[#121212]">
                 <div
                   className="whitespace-pre-wrap font-mono text-sm"
+                  // biome-ignore lint/security/noDangerouslySetInnerHtml: html is generated from code block
                   dangerouslySetInnerHTML={{ __html: snippetCode.html }}
                 />
                 <Link

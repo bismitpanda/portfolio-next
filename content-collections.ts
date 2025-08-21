@@ -1,3 +1,4 @@
+import { readFile } from "node:fs/promises";
 import { defineCollection, defineConfig } from "@content-collections/core";
 import { compileMDX } from "@content-collections/mdx";
 import rehypeShiki, { type RehypeShikiOptions } from "@shikijs/rehype";
@@ -8,7 +9,6 @@ import {
   transformerNotationHighlight,
 } from "@shikijs/transformers";
 import { compareDesc } from "date-fns";
-import { readFile } from "fs/promises";
 import { slug } from "github-slugger";
 import readingTime from "reading-time";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
@@ -128,7 +128,7 @@ const blogs = defineCollection({
     const blogSlug = slug(data.title);
     const allSiblings = await context.collection.documents();
     const siblings = allSiblings.filter(
-      (blog) => !blog.draft && blog._meta.fileName != data._meta.fileName,
+      (blog) => !blog.draft && blog._meta.fileName !== data._meta.fileName,
     );
     let next: { slug: string; title: string } | undefined;
     const prev: { slug: string; title: string } | undefined =

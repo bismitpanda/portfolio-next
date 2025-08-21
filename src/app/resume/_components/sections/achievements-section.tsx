@@ -12,7 +12,10 @@ export function AchievementsSection({
     <View style={styles.section}>
       <Text style={styles.sectionTitle}>Achievements</Text>
       {achievements.map((achievement, index) => (
-        <View key={index} style={styles.entryContainer}>
+        <View
+          key={`${index}-${achievement.title}`}
+          style={styles.entryContainer}
+        >
           <View style={styles.achievementHeader}>
             <Text style={styles.achievementTitle}>{achievement.title}</Text>
             <Text style={styles.achievementDate}>
@@ -25,8 +28,8 @@ export function AchievementsSection({
             </Text>
           )}
           <View style={styles.highlightsList}>
-            {achievement.description.map((highlight, highlightIndex) => (
-              <View key={highlightIndex} style={styles.highlight}>
+            {achievement.description.map((highlight, index) => (
+              <View key={`${index}-${highlight}`} style={styles.highlight}>
                 <Text style={styles.bullet}>•</Text>
                 <Text style={styles.highlightText}>{highlight}</Text>
               </View>

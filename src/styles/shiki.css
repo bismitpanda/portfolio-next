@@ -87,7 +87,7 @@ pre.shiki {
   @apply gap-0 p-4 font-mono;
 }
 
-.shiki[data-show-line-numbers="true"] code {
+pre.shiki[data-show-line-numbers="true"] code {
   counter-reset: step;
   counter-increment: step 0;
 }

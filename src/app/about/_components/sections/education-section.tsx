@@ -33,7 +33,8 @@ export function EducationSection() {
                       {formatDate(education.startDate, "MMM yyyy")} -{" "}
                       {education.isOnGoing
                         ? "Present"
-                        : formatDate(education.endDate!, "MMM yyyy")}
+                        : // biome-ignore lint/style/noNonNullAssertion: If it is not ongoing, then it has an end date
+                          formatDate(education.endDate!, "MMM yyyy")}
                     </p>
                   </div>
                 </div>

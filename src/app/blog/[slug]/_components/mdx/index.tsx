@@ -140,7 +140,7 @@ const components = {
     alt,
     ...props
   }: React.ImgHTMLAttributes<HTMLImageElement>) => (
-    // eslint-disable-next-line @next/next/no-img-element
+    // biome-ignore lint/performance/noImgElement: Need to fix this
     <img alt={alt} className={cn("rounded-md", className)} {...props} />
   ),
   hr: ({ ...props }: React.HTMLAttributes<HTMLHRElement>) => (

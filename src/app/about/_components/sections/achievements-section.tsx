@@ -34,8 +34,8 @@ export function AchievementsSection() {
                     </div>
                   </div>
                   <ul className="list-inside list-disc space-y-1 text-muted-foreground">
-                    {achievement.description.map((item, i) => (
-                      <li key={i}>{item}</li>
+                    {achievement.description.map((item) => (
+                      <li key={item}>{item}</li>
                     ))}
                   </ul>
                 </div>

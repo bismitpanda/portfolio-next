@@ -31,6 +31,7 @@ export default function Page() {
     return blogs;
   }, [selectedCategory]);
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: This is intentional, since we want to reset the page when the category changes
   useEffect(() => {
     setCurrentPage(1);
   }, [selectedCategory]);
@@ -224,7 +225,10 @@ export default function Page() {
                       ) : (
                         <span
                           className="px-2 text-muted-foreground"
-                          key={`ellipsis-${index}`}
+                          key={`ellipsis-${
+                            // biome-ignore lint/suspicious/noArrayIndexKey: This is intentional
+                            index
+                          }`}
                         >
                           ...
                         </span>

@@ -12,7 +12,10 @@ export function CertificationsSection({
     <View style={styles.section}>
       <Text style={styles.sectionTitle}>Certifications</Text>
       {certifications.map((cert, index) => (
-        <View key={index} style={styles.entryContainer}>
+        <View
+          key={`${index}-${cert.title}-${cert.provider}`}
+          style={styles.entryContainer}
+        >
           <View style={styles.achievementHeader}>
             <Text style={styles.achievementTitle}>
               {cert.title}, Certification by {cert.provider}
@@ -24,8 +27,8 @@ export function CertificationsSection({
             </Text>
           </View>
           <View style={styles.highlightsList}>
-            {cert.description.map((highlight, highlightIndex) => (
-              <View key={highlightIndex} style={styles.highlight}>
+            {cert.description.map((highlight, index) => (
+              <View key={`${index}-${highlight}`} style={styles.highlight}>
                 <Text style={styles.bullet}>•</Text>
                 <Text style={styles.highlightText}>{highlight}</Text>
               </View>
