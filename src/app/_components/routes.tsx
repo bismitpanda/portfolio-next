@@ -8,6 +8,7 @@ type Route = {
   path: string;
   external?: boolean;
   type?: "icon";
+  ariaLabel?: string;
 };
 
 export const footerRoutes: Route[] = [
@@ -29,6 +30,7 @@ export const navigationRoutes: Route[] = [
     path: "https://github.com/bismitpanda",
     external: true,
     type: "icon",
+    ariaLabel: "GitHub",
   },
 ];
 

@@ -33,7 +33,7 @@ export function HeroSection() {
           </p>
           <div className="flex flex-wrap gap-4">
             <Button asChild className="px-8 text-lg" size="lg">
-              <Link href="/about">Learn More</Link>
+              <Link href="/about">More About Me</Link>
             </Button>
             <Button
               asChild
@@ -51,6 +51,7 @@ export function HeroSection() {
             className="size-full object-cover aspect-square"
             src="/images/photo.png"
             fill
+            priority
           />
         </div>
       </div>

@@ -21,7 +21,7 @@ export function FeaturedProjectsSection() {
           <div className="group" key={project.slug}>
             <div className="grid items-center gap-12 md:grid-cols-2">
               <div>
-                <span className="font-bold text-8xl text-muted/30 transition-colors group-hover:text-muted">
+                <span className="font-bold text-8xl text-muted-foreground/50 transition-colors group-hover:text-muted-foreground">
                   0{index + 1}
                 </span>
                 <h3 className="-mt-8 mb-6 font-bold text-4xl transition-transform group-hover:translate-y-1">

@@ -33,7 +33,7 @@ export default function Page() {
                   className={`grid items-center gap-12 md:grid-cols-2 ${index % 2 === 1 ? "md:grid-flow-dense" : ""}`}
                 >
                   <div className={index % 2 === 1 ? "md:col-start-2" : ""}>
-                    <span className="font-bold text-8xl text-muted/30 transition-colors group-hover:text-muted">
+                    <span className="font-bold text-8xl text-muted-foreground/50 transition-colors group-hover:text-muted-foreground">
                       {(index + 1).toString().padStart(2, "0")}
                     </span>
                     <h2 className="-mt-8 mb-6 font-bold text-4xl transition-transform group-hover:translate-y-1">

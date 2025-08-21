@@ -42,6 +42,7 @@ export function Navigation() {
               key={route.path}
               rel={route.external ? "noopener noreferrer" : undefined}
               target={route.external ? "_blank" : undefined}
+              aria-label={route.ariaLabel}
             >
               {route.name}
               {route.external && route.type !== "icon" && (
@@ -57,6 +58,7 @@ export function Navigation() {
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             size="icon"
             variant="ghost"
+            aria-label="Toggle menu"
           >
             {isMenuOpen ? (
               <X className="h-6 w-6" />

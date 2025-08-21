@@ -1,13 +1,13 @@
 import { Document, Page } from "@react-pdf/renderer";
 import { user } from "@/lib/constants";
-import { AboutMeSection } from "./sections/about-me-section";
-import { AchievementsSection } from "./sections/achievements-section";
-import { CertificationsSection } from "./sections/certifications-section";
-import { EducationSection } from "./sections/education-section";
-import { ExperienceSection } from "./sections/experience-section";
-import { HeaderSection } from "./sections/header-section";
-import { ProjectsSection } from "./sections/projects-section";
-import { TechnologiesSection } from "./sections/technologies-section";
+import { AboutMeSection } from "./sections/about-me";
+import { AchievementsSection } from "./sections/achievements";
+import { CertificationsSection } from "./sections/certifications";
+import { EducationSection } from "./sections/education";
+import { ExperienceSection } from "./sections/experience";
+import { HeaderSection } from "./sections/header";
+import { ProjectsSection } from "./sections/projects";
+import { TechnologiesSection } from "./sections/technologies";
 import { styles } from "./styles";
 
 export function Resume() {

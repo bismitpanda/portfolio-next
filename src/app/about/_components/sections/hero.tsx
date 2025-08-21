@@ -22,6 +22,7 @@ export function HeroSection() {
             className="size-full object-cover aspect-square"
             src="/images/photo.png"
             fill
+            priority
           />
         </div>
         <div className="space-y-6">

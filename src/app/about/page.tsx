@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import { AchievementsSection } from "./_components/sections/achievements-section";
-import { CertificationsSection } from "./_components/sections/certifications-section";
-import { EducationSection } from "./_components/sections/education-section";
-import { ExperienceSection } from "./_components/sections/experience-section";
-import { HeroSection } from "./_components/sections/hero-section";
-import { SkillsSection } from "./_components/sections/skills-section";
+import { AchievementsSection } from "./_components/sections/achievements";
+import { CertificationsSection } from "./_components/sections/certifications";
+import { EducationSection } from "./_components/sections/education";
+import { ExperienceSection } from "./_components/sections/experience";
+import { HeroSection } from "./_components/sections/hero";
+import { SkillsSection } from "./_components/sections/skills";
 
 export const metadata: Metadata = {
   title: "About | Bismit Panda",
