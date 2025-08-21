@@ -62,7 +62,7 @@ export const skills: Skill[] = [
     url: "https://isocpp.org/",
   },
   {
-    label: "Go",
+    label: "Golang",
     icon: GolangDark,
     type: "language",
     url: "https://go.dev/",

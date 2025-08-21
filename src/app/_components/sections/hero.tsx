@@ -52,6 +52,7 @@ export function HeroSection() {
             src="/images/photo.png"
             fill
             priority
+            fetchPriority="high"
           />
         </div>
       </div>
