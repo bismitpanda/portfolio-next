@@ -163,7 +163,6 @@ export default function Page() {
                     <Button
                       className="cursor-pointer transition-colors hover:bg-neutral-900 hover:text-white"
                       size="lg"
-                      variant="outline"
                     >
                       Read Blog
                     </Button>

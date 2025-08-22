@@ -35,7 +35,7 @@ export default function Page() {
               key={category.slug}
             >
               <CardHeader className="pb-3">
-                <CardTitle className="font-serif text-2xl transition-colors group-hover:text-primary">
+                <CardTitle className="font-serif text-2xl transition-colors group-hover:text-primary flex items-center justify-between">
                   {category.name}{" "}
                   <Badge className="bg-muted/50 font-mono" variant="outline">
                     {category.count} {category.count > 1 ? "blogs" : "blog"}

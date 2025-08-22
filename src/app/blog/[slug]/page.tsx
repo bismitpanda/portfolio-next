@@ -78,14 +78,11 @@ export default async function Page({
             </h1>
             <div className="flex items-center gap-4">
               <Avatar>
-                <AvatarImage asChild>
-                  <Image
-                    alt="Bismit Panda"
-                    src="/images/photo.png"
-                    width={32}
-                    height={32}
-                  />
-                </AvatarImage>
+                <AvatarImage
+                  alt="Bismit Panda"
+                  className="object-cover"
+                  src="/images/photo.png"
+                />
                 <AvatarFallback>BP</AvatarFallback>
               </Avatar>
               <div>
@@ -102,7 +99,7 @@ export default async function Page({
                             alt="Bismit Panda"
                             className="h-full w-full object-cover"
                             height={80}
-                            src="/placeholder.png"
+                            src="/images/photo.png"
                             width={80}
                           />
                         </div>

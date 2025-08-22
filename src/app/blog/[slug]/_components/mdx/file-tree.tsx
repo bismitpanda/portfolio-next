@@ -79,13 +79,15 @@ function Tree({
           "_file"
       ];
     return (
-      <button
-        type="button"
-        className="flex w-full items-center gap-2 overflow-hidden rounded-md p-2 text-left text-sm transition focus-visible:ring-2"
-      >
-        <Icon />
-        {item.name}
-      </button>
+      <li>
+        <button
+          type="button"
+          className="flex w-full items-center gap-2 overflow-hidden rounded-md p-2 text-left text-sm transition focus-visible:ring-2"
+        >
+          <Icon />
+          {item.name}
+        </button>
+      </li>
     );
   }
 
@@ -110,13 +112,11 @@ function Tree({
         <CollapsibleContent>
           <ul className="ml-3.5 flex min-w-0 flex-col gap-1 border-l px-2.5 py-0.5">
             {item.children.map((subItem) => (
-              <li key={`${subItem.name}-${subItem.type}`}>
-                <Tree
-                  defaultOpen={defaultOpen}
-                  item={subItem}
-                  key={`${subItem.name}-${subItem.type}`}
-                />
-              </li>
+              <Tree
+                defaultOpen={defaultOpen}
+                item={subItem}
+                key={`${subItem.name}-${subItem.type}`}
+              />
             ))}
           </ul>
         </CollapsibleContent>

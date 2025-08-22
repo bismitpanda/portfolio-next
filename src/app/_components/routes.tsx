@@ -17,6 +17,7 @@ export const footerRoutes: Route[] = [
   { name: "Projects", path: "/projects" },
   { name: "Snippets", path: "/snippets" },
   { name: "Blog", path: "/blog" },
+  { name: "Categories", path: "/categories" },
   { name: "Resume", path: "/resume", external: true },
   { name: "VCard", path: "/vcard", external: true },
 ];

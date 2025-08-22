@@ -23,7 +23,7 @@ export function Footer() {
 
           <div>
             <h1 className="mb-4 font-medium text-xl">Quick Links</h1>
-            <ul className="space-y-2">
+            <ul className="grid grid-cols-2 gap-2">
               {footerRoutes.map((route) => (
                 <li key={route.path}>
                   <Link

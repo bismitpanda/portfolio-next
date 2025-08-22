@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { allFeaturedProjects } from "@/lib/content";
+import { cn } from "@/lib/utils";
 
 export function FeaturedProjectsSection() {
   return (
@@ -34,7 +35,12 @@ export function FeaturedProjectsSection() {
                   <Link href={`/projects/${project.slug}`}>View Project</Link>
                 </Button>
               </div>
-              <div className="overflow-hidden rounded-lg">
+              <div
+                className={cn(
+                  "overflow-hidden rounded-lg",
+                  index % 2 === 1 && "md:-order-1",
+                )}
+              >
                 <div className="aspect-video overflow-hidden rounded-lg bg-muted transition-transform duration-500 group-hover:scale-105">
                   <Image
                     alt={project.title}

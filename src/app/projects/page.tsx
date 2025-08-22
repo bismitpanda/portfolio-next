@@ -32,7 +32,7 @@ export default function Page() {
                 <div
                   className={`grid items-center gap-12 md:grid-cols-2 ${index % 2 === 1 ? "md:grid-flow-dense" : ""}`}
                 >
-                  <div className={index % 2 === 1 ? "md:col-start-2" : ""}>
+                  <div>
                     <span className="font-bold text-8xl text-muted-foreground/20 transition-colors group-hover:text-muted-foreground/50">
                       {(index + 1).toString().padStart(2, "0")}
                     </span>
@@ -59,7 +59,7 @@ export default function Page() {
                     </Button>
                   </div>
                   <div
-                    className={`overflow-hidden rounded-lg ${index % 2 === 1 ? "md:col-start-1" : ""}`}
+                    className={`overflow-hidden rounded-lg ${index % 2 === 1 ? "md:-order-1" : ""}`}
                   >
                     <Link
                       className="block aspect-video overflow-hidden rounded-lg bg-muted transition-transform duration-500 group-hover:scale-105"
@@ -131,8 +131,7 @@ export default function Page() {
                   <div className="flex flex-row items-center justify-between p-6">
                     <Button asChild className="gap-2">
                       <Link href={`/projects/${project.slug}`}>
-                        View Project{" "}
-                        <ExternalLink className="h-4 w-4 text-muted-foreground" />
+                        View Project <ExternalLink className="h-4 w-4" />
                       </Link>
                     </Button>
                     <Button asChild className="gap-2" variant="outline">

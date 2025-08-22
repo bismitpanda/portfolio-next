@@ -41,7 +41,7 @@ const replaceKeyboardShortcuts = (input: string) => {
 
 export function Kbd({ children }: { children: React.ReactNode }) {
   return (
-    <span className="my-1 cursor-pointer rounded-lg border-b-2 border-b-zinc-600 bg-muted px-1 py-0.5 font-mono text-sm">
+    <span className="my-1 rounded-sm border-b-2 border-b-muted-foreground/50 bg-muted px-1.5 py-0.5 font-mono text-sm">
       {replaceKeyboardShortcuts(children as string)}
     </span>
   );
