@@ -1,16 +1,15 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
   Card,
-  CardContent,
   CardDescription,
   CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
 import { allCategoriesByCount } from "@/lib/content";
-import { Badge } from "@/components/ui/badge";
 
 export const metadata: Metadata = {
   title: "All Categories | Bismit Panda's Blog",

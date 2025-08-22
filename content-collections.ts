@@ -202,7 +202,7 @@ const blogs = defineCollection({
         [
           rehypeShiki,
           {
-            theme: "vitesse-dark",
+            theme: "ayu-dark",
             transformers: [
               transformerNotationDiff(),
               transformerNotationHighlight(),

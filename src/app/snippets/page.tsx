@@ -6,7 +6,8 @@ import { CodeSnippetDialog } from "./_components/dialog";
 
 export const metadata: Metadata = {
   title: "Code Snippets | Bismit Panda",
-  description: "Code Snippets",
+  description:
+    "A collection of useful code snippets and patterns I frequently use in my projects.",
 };
 
 export default async function Page({

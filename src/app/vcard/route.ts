@@ -1,11 +1,13 @@
-import { type NextRequest, NextResponse } from "next/server";
+import { readFile } from "node:fs/promises";
+import path from "node:path";
+import { NextResponse } from "next/server";
 import sharp from "sharp";
 import VCard from "vcard-creator";
 import { user } from "@/lib/constants";
 
 export const dynamic = "force-static";
 
-export async function GET(request: NextRequest) {
+export async function GET() {
   const card = new VCard();
 
   card
@@ -19,7 +21,7 @@ export async function GET(request: NextRequest) {
   card.addSocial(user.socials.github.url, "GitHub");
   card.addSocial(user.socials.twitter.url, "Twitter");
 
-  const photo = await getVCardPhoto(`${request.nextUrl.origin}/${user.avatar}`);
+  const photo = await getVCardPhoto(user.avatar);
   if (photo) {
     card.addPhoto(photo.image, photo.mine);
   }
@@ -40,23 +42,15 @@ export async function GET(request: NextRequest) {
 
 async function getVCardPhoto(url: string) {
   try {
-    const res = await fetch(url);
+    const publicPath = path.join(process.cwd(), "public");
+    const photoPath = path.join(publicPath, url);
 
-    if (!res.ok) {
+    const photo = await readFile(photoPath);
+    if (photo.length === 0) {
       return null;
     }
 
-    const buffer = Buffer.from(await res.arrayBuffer());
-    if (buffer.length === 0) {
-      return null;
-    }
-
-    const contentType = res.headers.get("Content-Type") ?? "";
-    if (!contentType.startsWith("image/")) {
-      return null;
-    }
-
-    const jpegBuffer = await convertImageToJpeg(buffer);
+    const jpegBuffer = await convertImageToJpeg(photo);
     const image = jpegBuffer.toString("base64");
 
     return {

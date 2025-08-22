@@ -8,7 +8,8 @@ import { allGithubProjects, allHostedProjects } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "All Projects | Bismit Panda's Projects",
-  description: "All Projects",
+  description:
+    "A showcase of my work, featuring web applications, design projects, and experiments.",
 };
 
 export default function Page() {
