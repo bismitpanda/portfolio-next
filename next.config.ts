@@ -1,5 +1,11 @@
 import { withContentCollections } from "@content-collections/next";
+import bundleAnalyzer from "@next/bundle-analyzer";
 import type { NextConfig } from "next";
+
+const withBundleAnalyzer = bundleAnalyzer({
+  enabled: process.env.ANALYZE === "true",
+  openAnalyzer: true,
+});
 
 const nextConfig: NextConfig = {
   images: {
@@ -24,4 +30,4 @@ const nextConfig: NextConfig = {
   // typedRoutes: true,
 };
 
-export default withContentCollections(nextConfig);
+export default withBundleAnalyzer(withContentCollections(nextConfig));

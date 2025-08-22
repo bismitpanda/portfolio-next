@@ -22,7 +22,7 @@ export function Footer() {
           </div>
 
           <div>
-            <h3 className="mb-4 font-medium text-xl">Quick Links</h3>
+            <h1 className="mb-4 font-medium text-xl">Quick Links</h1>
             <ul className="space-y-2">
               {footerRoutes.map((route) => (
                 <li key={route.path}>
@@ -44,7 +44,7 @@ export function Footer() {
           </div>
 
           <div>
-            <h3 className="mb-4 font-medium text-xl">Connect</h3>
+            <h1 className="mb-4 font-medium text-xl">Connect</h1>
             <div className="flex space-x-4">
               {socialRoutes.map(({ title, url, icon: Icon }) => (
                 <Link

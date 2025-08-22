@@ -24,6 +24,12 @@ export async function generateMetadata({
       "bismit panda",
       "bismit",
     ],
+    openGraph: {
+      title: project?.title,
+      description: project?.description,
+      url: `https://bismit.com/projects/${project?.slug}`,
+      images: [project?.featuredImage],
+    },
   };
 }
 
@@ -98,6 +104,8 @@ export default async function Page({
               height={800}
               src={project.featuredImage}
               width={1600}
+              priority
+              fetchPriority="high"
             />
           </div>
         </div>

@@ -15,6 +15,7 @@ export function BlogCard({ blog }: { blog: Blog["relatedBlogs"][number] }) {
           height={200}
           src={blog.image}
           width={400}
+          loading="lazy"
         />
       </div>
       <div className="px-6 pt-6">

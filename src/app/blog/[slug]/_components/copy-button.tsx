@@ -24,6 +24,7 @@ export function CopyButton({
       onClick={handleCopy}
       size="icon"
       variant="ghost"
+      aria-label="Copy to clipboard"
     >
       {copiedText ? (
         <Check className="size-4 text-green-400" />

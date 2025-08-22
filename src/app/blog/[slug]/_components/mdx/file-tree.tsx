@@ -110,11 +110,13 @@ function Tree({
         <CollapsibleContent>
           <ul className="ml-3.5 flex min-w-0 flex-col gap-1 border-l px-2.5 py-0.5">
             {item.children.map((subItem) => (
-              <Tree
-                defaultOpen={defaultOpen}
-                item={subItem}
-                key={`${subItem.name}-${subItem.type}`}
-              />
+              <li key={`${subItem.name}-${subItem.type}`}>
+                <Tree
+                  defaultOpen={defaultOpen}
+                  item={subItem}
+                  key={`${subItem.name}-${subItem.type}`}
+                />
+              </li>
             ))}
           </ul>
         </CollapsibleContent>

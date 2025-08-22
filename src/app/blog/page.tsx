@@ -82,7 +82,7 @@ export default function Page() {
       <section className="container-custom section-spacing">
         <div className="mx-auto mb-16 max-w-3xl text-center">
           <h1 className="heading-xl mb-6">Blog</h1>
-          <p className="body-lg text-neutral-500">
+          <p className="body-lg text-muted-foreground">
             Thoughts, insights, and perspectives on design, development, and the
             digital landscape.
           </p>

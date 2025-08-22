@@ -33,8 +33,7 @@
     "sharp": "^0.34.3",
     "sonner": "^2.0.7",
     "tailwind-merge": "^3.3.1",
-    "vcard-creator": "^0.7.2",
-    "zod": "^4.0.17"
+    "vcard-creator": "^0.7.2"
   },
   "devDependencies": {
     "@biomejs/biome": "2.1.4",
@@ -42,6 +41,7 @@
     "@content-collections/integrations": "^0.2.1",
     "@content-collections/mdx": "^0.2.2",
     "@content-collections/next": "^0.2.6",
+    "@next/bundle-analyzer": "^15.5.0",
     "@shikijs/rehype": "^3.11.0",
     "@shikijs/transformers": "^3.11.0",
     "@tailwindcss/postcss": "^4.1.12",

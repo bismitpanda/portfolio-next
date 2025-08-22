@@ -78,7 +78,14 @@ export default async function Page({
             </h1>
             <div className="flex items-center gap-4">
               <Avatar>
-                <AvatarImage src="/me-small.png" />
+                <AvatarImage asChild>
+                  <Image
+                    alt="Bismit Panda"
+                    src="/images/photo.png"
+                    width={32}
+                    height={32}
+                  />
+                </AvatarImage>
                 <AvatarFallback>BP</AvatarFallback>
               </Avatar>
               <div>
@@ -126,6 +133,8 @@ export default async function Page({
                 height={600}
                 src={blog.image}
                 width={1200}
+                priority
+                fetchPriority="high"
               />
             </div>
           </div>

@@ -46,7 +46,7 @@ export function CodeSnippetDialog({ snippet, open }: CodeSnippetDialogProps) {
       <DialogTrigger asChild>
         <div className="group flex h-full cursor-pointer flex-col overflow-hidden rounded-lg border border-border bg-card transition-shadow hover:shadow-lg">
           <div className="grow p-6">
-            <h3 className="mb-2 flex items-center space-x-4 font-bold text-xl transition-colors group-hover:text-primary">
+            <div className="mb-2 flex items-center space-x-4 font-bold text-xl transition-colors group-hover:text-primary">
               <span>{snippet.name}</span>
               <div className="flex flex-row items-center justify-center gap-2">
                 {snippet.codes.slice(0, 2).map((code) => (
@@ -64,7 +64,7 @@ export function CodeSnippetDialog({ snippet, open }: CodeSnippetDialogProps) {
                   </Badge>
                 )}
               </div>
-            </h3>
+            </div>
             <p className="text-muted-foreground text-sm">
               {snippet.description}
             </p>
