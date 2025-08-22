@@ -18,7 +18,7 @@ import remarkGemoji from "remark-gemoji";
 import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
 import { codeToHtml, type ShikiTransformer } from "shiki";
-import { z } from "zod/v4";
+import { z } from "zod";
 
 const categorySchema = z.object({
   name: z.string(),
@@ -122,6 +122,10 @@ const blogs = defineCollection({
   include: "*.mdx",
   schema: blogSchema,
   transform: async (_data, context) => {
+    if (_data.draft) {
+      return context.skip("blog is draft");
+    }
+
     const { previous, ...data } = _data;
     const headings: Headings = [];
 

@@ -390,7 +390,7 @@ function projectToCommandLinkItem(project: Project): CommandLinkItem {
 function snippetToCommandLinkItem(snippet: Snippet): CommandLinkItem {
   return {
     title: snippet.name,
-    href: `/snippets?display=${snippet.slug}`,
+    href: `/snippets/${snippet.slug}`,
     keywords: ["snippet", "code", "pattern"],
     description: snippet.description,
   };

@@ -1,0 +1,24 @@
+import type { Metadata } from "next";
+import { allSnippetsByDate } from "@/lib/content";
+import { SnippetsPage } from "../_components/snippets-page";
+
+export const metadata: Metadata = {
+  title: "Code Snippets | Bismit Panda",
+  description:
+    "A collection of useful code snippets and patterns I frequently use in my projects.",
+};
+
+export async function generateStaticParams() {
+  return allSnippetsByDate.map((snippet) => ({
+    snippetSlug: snippet.slug,
+  }));
+}
+
+export default async function Page({
+  params,
+}: {
+  params: Promise<{ snippetSlug: string }>;
+}) {
+  const { snippetSlug } = await params;
+  return <SnippetsPage display={snippetSlug} />;
+}
