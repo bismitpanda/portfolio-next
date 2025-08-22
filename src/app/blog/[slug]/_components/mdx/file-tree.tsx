@@ -1,11 +1,10 @@
 import { ChevronRight } from "lucide-react";
-import { catppuccinIcons } from "@/components/catppuccin-icons";
 import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
 } from "@/components/ui/collapsible";
-import { fileExtensions, fileNames, folderNames } from "@/lib/catppuccin-icons";
+import { getFileIcon, getFolderIcon } from "@/lib/catppuccin-icons";
 
 type File = {
   type: "file";
@@ -72,12 +71,7 @@ function Tree({
   defaultOpen?: boolean;
 }) {
   if (item.type === "file") {
-    const Icon =
-      catppuccinIcons[
-        fileNames[item.name] ??
-          fileExtensions[item.name.split(".").pop() ?? ""] ??
-          "_file"
-      ];
+    const Icon = getFileIcon(item.name);
     return (
       <li>
         <button
@@ -91,7 +85,7 @@ function Tree({
     );
   }
 
-  const Icon = catppuccinIcons[folderNames[item.name] ?? "_folder"];
+  const Icon = getFolderIcon(item.name);
 
   return (
     <li className="group relative">

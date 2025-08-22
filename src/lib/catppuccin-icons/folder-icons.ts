@@ -500,7 +500,7 @@ const { folderNames } = Object.entries(folderIcons).reduce(
       ...folderNames,
       ...icon.folderNames?.reduce(
         (a, c) => {
-          a[c] = `folder-${name}`;
+          a[c] = `folder_${name}`;
 
           return a;
         },
