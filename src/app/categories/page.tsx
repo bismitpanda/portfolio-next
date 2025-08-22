@@ -10,6 +10,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { allCategoriesByCount } from "@/lib/content";
+import { Badge } from "@/components/ui/badge";
 
 export const metadata: Metadata = {
   title: "All Categories | Bismit Panda's Blog",
@@ -35,17 +36,17 @@ export default function Page() {
             >
               <CardHeader className="pb-3">
                 <CardTitle className="font-serif text-2xl transition-colors group-hover:text-primary">
-                  {category.name}
+                  {category.name}{" "}
+                  <Badge className="bg-muted/50 font-mono" variant="outline">
+                    {category.count} {category.count > 1 ? "blogs" : "blog"}
+                  </Badge>
                 </CardTitle>
-                <CardDescription className="text-sm">
-                  {category.count} {category.count > 1 ? "blogs" : "blog"}
+                <CardDescription className="text-muted-foreground">
+                  {category.description}
                 </CardDescription>
               </CardHeader>
-              <CardContent className="pb-3">
-                <p className="text-muted-foreground">{category.description}</p>
-              </CardContent>
               <CardFooter>
-                <Button asChild className="w-full" variant="outline">
+                <Button asChild>
                   <Link href={`/categories/${category.slug}`}>View Blogs</Link>
                 </Button>
               </CardFooter>

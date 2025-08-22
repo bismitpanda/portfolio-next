@@ -70,9 +70,7 @@ export function CodeSnippetDialog({ snippet, open }: CodeSnippetDialogProps) {
             </p>
           </div>
           <div className="px-6 pb-6">
-            <Button className="w-full" variant="outline">
-              View Snippet
-            </Button>
+            <Button className="w-full">View Snippet</Button>
           </div>
         </div>
       </DialogTrigger>

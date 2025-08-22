@@ -33,7 +33,6 @@ export function BlogCard({ blog }: { blog: Blog["relatedBlogs"][number] }) {
           <Button
             className="mt-8 w-full cursor-pointer transition-colors hover:bg-neutral-900 hover:text-white"
             size="lg"
-            variant="outline"
           >
             Read Blog
           </Button>

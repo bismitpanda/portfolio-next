@@ -52,7 +52,7 @@ export default function Page() {
                         </span>
                       ))}
                     </div>
-                    <Button asChild size="lg" variant="outline">
+                    <Button asChild size="lg">
                       <Link href={`/projects/${project.slug}`}>
                         View Project
                       </Link>
@@ -129,7 +129,7 @@ export default function Page() {
                     </div>
                   </div>
                   <div className="flex flex-row items-center justify-between p-6">
-                    <Button asChild className="gap-2" variant="outline">
+                    <Button asChild className="gap-2">
                       <Link href={`/projects/${project.slug}`}>
                         View Project{" "}
                         <ExternalLink className="h-4 w-4 text-muted-foreground" />

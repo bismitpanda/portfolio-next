@@ -8,6 +8,7 @@ import {
   CornerDownLeftIcon,
   FileCode2Icon,
   HomeIcon,
+  ListIcon,
   MailIcon,
   RssIcon,
   SearchIcon,
@@ -67,6 +68,11 @@ const MENU_LINKS: CommandLinkItem[] = [
     title: "Snippets",
     href: "/snippets",
     icon: FileCode2Icon,
+  },
+  {
+    title: "Categories",
+    href: "/categories",
+    icon: ListIcon,
   },
   {
     title: "Blog",

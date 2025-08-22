@@ -43,10 +43,10 @@ export default async function Page({
             posts.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <Button asChild variant="outline">
+            <Button asChild>
               <Link href="/projects">View Projects</Link>
             </Button>
-            <Button asChild variant="outline">
+            <Button asChild>
               <Link href="/blog">Read Blog</Link>
             </Button>
           </div>

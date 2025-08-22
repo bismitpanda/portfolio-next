@@ -24,7 +24,7 @@ export function AboutSection() {
             skills.
           </p>
           <div className="flex flex-wrap gap-4">
-            <Button asChild size="lg" variant="outline">
+            <Button asChild size="lg">
               <Link href="/about">Full Background</Link>
             </Button>
             <Button asChild size="lg" variant="outline">

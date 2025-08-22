@@ -30,7 +30,7 @@ export function FeaturedProjectsSection() {
                 <p className="mb-8 text-muted-foreground text-xl">
                   {project.description}
                 </p>
-                <Button asChild size="lg" variant="outline">
+                <Button asChild size="lg">
                   <Link href={`/projects/${project.slug}`}>View Project</Link>
                 </Button>
               </div>
