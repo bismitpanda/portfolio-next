@@ -3,31 +3,33 @@ import { join } from "node:path";
 import { formatDate } from "date-fns";
 import { notFound } from "next/navigation";
 import { ImageResponse } from "next/og";
-import { allPublishedBlogsByDate } from "@/lib/content";
+import { allSnippetsByDate } from "@/lib/content";
 
-export const alt = "Bismit Panda's Blog";
+export const alt = "Bismit Panda's Snippet";
 export const size = {
   width: 1200,
   height: 630,
 };
 export const contentType = "image/png";
 
-export function generateStaticParams() {
-  return allPublishedBlogsByDate.map((blog) => ({
-    slug: blog.slug,
+export async function generateStaticParams() {
+  return allSnippetsByDate.map((snippet) => ({
+    snippetSlug: snippet.slug,
   }));
 }
 
 export default async function Image({
   params,
 }: {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ snippetSlug: string }>;
 }) {
-  const { slug } = await params;
+  const { snippetSlug } = await params;
 
-  const blog = allPublishedBlogsByDate.find((blog) => blog.slug === slug);
+  const snippet = allSnippetsByDate.find(
+    (snippet) => snippet.slug === snippetSlug,
+  );
 
-  if (!blog) {
+  if (!snippet) {
     notFound();
   }
 
@@ -55,13 +57,21 @@ export default async function Image({
         fontSize: "60px",
       }}
     >
-      <div tw="text-xl text-gray-500">
-        {`${formatDate(blog.date, "MMM d, yyyy")} • ${blog.readingTime}`}
+      <div tw="text-xl text-gray-500 flex justify-start items-center">
+        <span>{formatDate(snippet.date, "MMM d, yyyy")}</span>
+        {snippet.codes.map((code) => (
+          <span
+            tw="text-gray-500 text-lg px-1.5 py-1 border-gray-500 border rounded-lg mx-1"
+            key={code.language}
+          >
+            {code.language}
+          </span>
+        ))}
       </div>
       <div tw="flex flex-col items-start justify-between">
-        <div tw="text-[#aa6f1a] mb-6">Blog:</div>
-        <div tw="font-bold mb-6">{blog.title}</div>
-        <div tw="text-2xl text-gray-500">{blog.excerpt}</div>
+        <div tw="text-[#aa6f1a] mb-6">Snippet:</div>
+        <div tw="font-bold mb-6">{snippet.name}</div>
+        <div tw="text-2xl text-gray-500">{snippet.description}</div>
       </div>
     </div>,
     {

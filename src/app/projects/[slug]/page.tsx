@@ -15,20 +15,27 @@ export async function generateMetadata({
   const { slug } = await params;
   const project = allProjectsByDate.find((project) => project.slug === slug);
 
+  if (!project) {
+    return {
+      title: "Project Not Found | Bismit Panda's Projects",
+      description: "The project you are looking for does not exist.",
+    };
+  }
+
   return {
-    title: `${project?.title} | Bismit Panda's Projects`,
-    description: project?.description,
-    keywords: project?.technologies && [
+    title: `${project.title} | Bismit Panda's Projects`,
+    description: project.description,
+    keywords: project.technologies && [
       ...project.technologies,
       "projects",
       "bismit panda",
       "bismit",
     ],
     openGraph: {
-      title: project?.title,
-      description: project?.description,
-      url: `https://bismit.com/projects/${project?.slug}`,
-      images: [project?.featuredImage],
+      title: project.title,
+      description: project.description,
+      url: `https://bismit.com/projects/${project.slug}`,
+      images: [project.featuredImage],
     },
   };
 }

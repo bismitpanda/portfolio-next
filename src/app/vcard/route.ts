@@ -1,7 +1,6 @@
 import { readFile } from "node:fs/promises";
 import path from "node:path";
 import { NextResponse } from "next/server";
-import sharp from "sharp";
 import VCard from "vcard-creator";
 import { user } from "@/lib/constants";
 
@@ -50,32 +49,12 @@ async function getVCardPhoto(url: string) {
       return null;
     }
 
-    const jpegBuffer = await convertImageToJpeg(photo);
-    const image = jpegBuffer.toString("base64");
-
     return {
-      image,
+      image: photo.toString("base64"),
       mine: "jpeg",
     };
   } catch (error) {
     console.error("Error getting VCard photo:", error);
     return null;
-  }
-}
-
-async function convertImageToJpeg(imageBuffer: Buffer): Promise<Buffer> {
-  try {
-    const jpegBuffer = await sharp(imageBuffer)
-      .jpeg({
-        quality: 90,
-        progressive: true,
-        mozjpeg: true,
-      })
-      .toBuffer();
-
-    return jpegBuffer;
-  } catch (error) {
-    console.error("Error converting image to JPEG:", error);
-    throw error;
   }
 }

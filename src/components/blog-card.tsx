@@ -25,7 +25,7 @@ export function BlogCard({ blog }: { blog: Blog["relatedBlogs"][number] }) {
           </Link>{" "}
           • {formatDate(blog.date, "MMMM do, yyyy")}
         </div>
-        <h3 className="mb-2 font-bold text-2xl">{blog.title}</h3>
+        <p className="mb-2 font-bold text-2xl">{blog.title}</p>
         <p className="line-clamp-3 text-neutral-400">{blog.excerpt}</p>
       </div>
       <div className="flex flex-1 flex-col justify-end px-6 pb-6">

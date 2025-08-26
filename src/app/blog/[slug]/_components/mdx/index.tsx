@@ -1,6 +1,7 @@
 "use client";
 
 import { useMDXComponent } from "@content-collections/mdx/react";
+import { CheckSquareIcon, SquareIcon } from "lucide-react";
 import type { Accordion as AccordionPrimitive } from "radix-ui";
 import {
   Accordion,
@@ -135,7 +136,13 @@ const components = {
     <ol className={cn("my-6 ml-6 list-decimal", className)} {...props} />
   ),
   li: ({ className, ...props }: React.HTMLAttributes<HTMLElement>) => (
-    <li className={cn("mt-2", className)} {...props} />
+    <li
+      className={cn(
+        "mt-2 [.task-list-item]:flex [.task-list-item]:items-center [.task-list-item]:justify-start [.task-list-item]:gap-2",
+        className,
+      )}
+      {...props}
+    />
   ),
   blockquote: ({ className, ...props }: React.HTMLAttributes<HTMLElement>) => (
     <blockquote
@@ -196,6 +203,25 @@ const components = {
       {...props}
     />
   ),
+  input: ({
+    className,
+    type,
+    checked,
+    ...props
+  }: React.HTMLAttributes<HTMLInputElement> & {
+    type: string;
+    checked: boolean;
+  }) => {
+    if (type === "checkbox") {
+      return checked ? (
+        <CheckSquareIcon className="size-4" />
+      ) : (
+        <SquareIcon className="size-4" />
+      );
+    }
+
+    return <input {...props} className={className} />;
+  },
   Step: ({ className, ...props }: React.ComponentProps<"h3">) => (
     <h3
       className={cn(

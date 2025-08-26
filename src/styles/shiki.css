@@ -5,7 +5,7 @@
 }
 
 .shiki .line.highlighted {
-  @apply -ml-4 !w-[calc(100%+2rem)] border-l-2 border-l-[#777] bg-[#424242] pl-3.5;
+  @apply -ml-4 !w-[calc(100%+2rem)] border-l-2 border-l-[#777] bg-[#333] pl-3.5;
 }
 
 .shiki .line.highlighted.error {

@@ -56,11 +56,11 @@ export default async function Image({
         fontSize: "60px",
       }}
     >
-      <div tw="text-lg text-gray-500">{`${category.count} blogs`}</div>
+      <div tw="text-xl text-gray-500">{`${category.count} blogs`}</div>
       <div tw="flex flex-col items-start justify-between">
         <div tw="text-[#aa6f1a] mb-6">Category:</div>
         <div tw="font-bold mb-6">{category.name}</div>
-        <div tw="text-lg text-gray-500">{category.description}</div>
+        <div tw="text-2xl text-gray-500">{category.description}</div>
       </div>
     </div>,
     {

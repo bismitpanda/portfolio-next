@@ -152,7 +152,7 @@ export const user = {
   lastName: "Panda",
   username: "bismitpanda",
   location: "Gandhinagar, Gujarat",
-  avatar: "images/photo.png",
+  avatar: "images/vcard-photo.jpg",
   socials: {
     phone: {
       label: "+91 8280016000",
