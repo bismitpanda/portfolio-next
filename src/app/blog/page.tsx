@@ -15,7 +15,8 @@ export default function Page() {
   const [selectedCategory, setSelectedCategory] = useState("all");
   const blogsPerPage = 9;
 
-  const latestBlog = allPublishedBlogsByDate[0];
+  // biome-ignore lint/style/noNonNullAssertion: It is guaranteed that there will be at least one blog
+  const latestBlog = allPublishedBlogsByDate[0]!;
 
   const filteredBlogs = useMemo(() => {
     const blogs = allPublishedBlogsByDate.filter((blog) => {

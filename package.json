@@ -10,7 +10,9 @@
     "lint": "biome check",
     "typecheck": "next typegen && tsc --noEmit",
     "format": "biome format --write",
-    "check:write": "biome check --write"
+    "check:write": "biome check --write",
+    "analyze": "bun x unlighthouse --site https://bismitpanda.com --no-cache --enable-javascript --desktop --output-path .analytics",
+    "analyze:mobile": "bun x unlighthouse --site https://bismitpanda.com --no-cache --enable-javascript --mobile --output-path .analytics"
   },
   "dependencies": {
     "@react-pdf/renderer": "^4.3.0",
@@ -48,6 +50,7 @@
     "@types/node": "^24.3.0",
     "@types/react": "^19.1.11",
     "@types/react-dom": "^19.1.7",
+    "consola": "^3.4.2",
     "github-slugger": "^2.0.0",
     "mdx-bundler": "^10.1.1",
     "rehype-autolink-headings": "^7.1.0",

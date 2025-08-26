@@ -2,53 +2,57 @@ import { execSync } from "node:child_process";
 import fs from "node:fs/promises";
 import os from "node:os";
 import path from "node:path";
+import { consola } from "consola";
 
 const githubUrl = "https://github.com/catppuccin/vscode-icons.git";
-const repoDir = path.join(os.tmpdir(), "repo_clone_catppuccin-icons");
+const repoDir = path.join(
+  os.tmpdir(),
+  `repo_clone_catppuccin-icons_${Date.now()}`,
+);
 const tmpDir = path.join(process.cwd(), ".tmp");
 
 try {
   await fs.mkdir(tmpDir);
 
-  console.log("Cloning catppuccin-icons...");
+  consola.info("Cloning catppuccin-icons...");
   execSync(
     `git clone --depth=1 --single-branch --branch=main ${githubUrl} ${repoDir}`,
   );
 
-  console.log("Copying icons...");
+  consola.info("Copying icons...");
   await fs.cp(
     path.join(repoDir, "icons/mocha"),
     path.join(process.cwd(), "assets/catppuccin-icons"),
     { recursive: true, force: true },
   );
 
-  console.log("Copying file icons...");
+  consola.info("Copying file icons...");
   await fs.cp(
     path.join(repoDir, "src/defaults/fileIcons.ts"),
     path.join(tmpDir, "file-icons.ts"),
   );
 
-  console.log("Copying folder icons...");
+  consola.info("Copying folder icons...");
   await fs.cp(
     path.join(repoDir, "src/defaults/folderIcons.ts"),
     path.join(tmpDir, "folder-icons.ts"),
   );
 
-  console.log("Importing file icons...");
+  consola.info("Importing file icons...");
   const fileIconsFile = await import(path.join(tmpDir, "file-icons.ts"));
-  console.log("Importing folder icons...");
+  consola.info("Importing folder icons...");
   const folderIconsFile = await import(path.join(tmpDir, "folder-icons.ts"));
 
   const fileNames = fileIconsFile.fileNames;
   const fileExtensions = fileIconsFile.fileExtensions;
   const folderNames = folderIconsFile.folderNames;
 
-  console.log("Generating file icons...");
+  consola.info("Generating file icons...");
   execSync(
     "bun x @svgr/cli -d src/components/catppuccin-icons --filename-case kebab --no-prettier --typescript assets/catppuccin-icons",
   );
 
-  console.log("Writing file icons...");
+  consola.info("Writing file icons...");
   await fs.writeFile(
     path.join(process.cwd(), "src/lib/catppuccin-icons/file-icons.ts"),
     `export const fileNames: Record<string, string> = ${JSON.stringify(fileNames)};
@@ -56,28 +60,29 @@ try {
 export const fileExtensions: Record<string, string> = ${JSON.stringify(fileExtensions)};`,
   );
 
-  console.log("Writing folder icons...");
+  consola.info("Writing folder icons...");
   await fs.writeFile(
     path.join(process.cwd(), "src/lib/catppuccin-icons/folder-icons.ts"),
     `export const folderNames: Record<string, string> = ${JSON.stringify(folderNames)};`,
   );
 
-  console.log("Reading icon names...");
+  consola.info("Reading icon names...");
   const files = await fs.readdir(
     path.join(process.cwd(), "assets/catppuccin-icons"),
   );
 
-  const iconNames = files.map((file) => file.split(".")[0]);
+  // biome-ignore lint/style/noNonNullAssertion: It is guaranteed that the file will have a dot
+  const iconNames = files.map((file) => file.split(".")[0]!);
 
   const iconNameType = iconNames.map((file) => `"${file}"`).join("|");
 
-  console.log("Writing icon names...");
+  consola.info("Writing icon names...");
   await fs.writeFile(
     path.join(process.cwd(), "src/lib/catppuccin-icons/icons.ts"),
     `export type IconName = ${iconNameType};`,
   );
 
-  console.log("Writing icon map...");
+  consola.info("Writing icon map...");
   await fs.writeFile(
     path.join(process.cwd(), "src/lib/catppuccin-icons/index.ts"),
     `import * as C from "@/components/catppuccin-icons";
@@ -115,11 +120,13 @@ export const getFolderIcon = (name: string) =>
 `,
   );
 
-  console.log("Done!");
+  consola.success("Done!");
+} catch (error) {
+  consola.error(`Could not update icons: ${error}`);
 } finally {
-  console.log("Removing repo...");
+  consola.info("Removing repo...");
   await fs.rm(repoDir, { recursive: true, force: true });
 
-  console.log("Removing tmp...");
+  consola.info("Removing tmp...");
   await fs.rm(tmpDir, { recursive: true, force: true });
 }

@@ -7,6 +7,9 @@ import { user } from "@/lib/constants";
 export const dynamic = "force-static";
 
 export async function GET() {
+  const photoPath = path.join(process.cwd(), "public", user.vcardPhoto);
+  const photo = await readFile(photoPath);
+
   const card = new VCard();
 
   card
@@ -14,18 +17,13 @@ export async function GET() {
     .addAddress(user.location)
     .addPhoneNumber(user.socials.phone.label)
     .addEmail(user.socials.email.label)
-    .addURL(user.socials.website.url);
+    .addURL(user.socials.website.url)
+    .addSocial(user.socials.linkedin.url, "LinkedIn")
+    .addSocial(user.socials.github.url, "GitHub")
+    .addSocial(user.socials.twitter.url, "Twitter")
+    .addPhoto(photo.toString("base64"));
 
-  card.addSocial(user.socials.linkedin.url, "LinkedIn");
-  card.addSocial(user.socials.github.url, "GitHub");
-  card.addSocial(user.socials.twitter.url, "Twitter");
-
-  const photo = await getVCardPhoto(user.avatar);
-  if (photo) {
-    card.addPhoto(photo.image, photo.mine);
-  }
-
-  if (user.experience.length > 0) {
+  if (user.experience[0]) {
     const company = user.experience[0];
     card.addCompany(company.company).addJobtitle(company.title);
   }
@@ -37,24 +35,4 @@ export async function GET() {
       "Content-Disposition": `attachment; filename=${user.username}-vcard.vcf`,
     },
   });
-}
-
-async function getVCardPhoto(url: string) {
-  try {
-    const publicPath = path.join(process.cwd(), "public");
-    const photoPath = path.join(publicPath, url);
-
-    const photo = await readFile(photoPath);
-    if (photo.length === 0) {
-      return null;
-    }
-
-    return {
-      image: photo.toString("base64"),
-      mine: "jpeg",
-    };
-  } catch (error) {
-    console.error("Error getting VCard photo:", error);
-    return null;
-  }
 }

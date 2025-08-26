@@ -33,7 +33,8 @@ const replaceKeyboardShortcuts = (input: string) => {
 
   result = result.replace(pattern, (match) => {
     const key = keys.find((k) => k.toLowerCase() === match.toLowerCase());
-    return key ? keyboardSymbolMap[key] : match;
+    // biome-ignore lint/style/noNonNullAssertion: It is guaranteed that the key will be found
+    return key ? keyboardSymbolMap[key]! : match;
   });
 
   return result;

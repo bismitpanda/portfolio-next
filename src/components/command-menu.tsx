@@ -4,26 +4,22 @@ import { useCommandState } from "cmdk";
 import type { LucideProps } from "lucide-react";
 import {
   BriefcaseBusinessIcon,
-  CircleUserIcon,
   CornerDownLeftIcon,
   FileCode2Icon,
-  HomeIcon,
-  ListIcon,
-  MailIcon,
   RssIcon,
   SearchIcon,
-  UserIcon,
 } from "lucide-react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import React, { useCallback, useEffect, useMemo, useState } from "react";
-import { GithubDark, Linkedin, XDark } from "@/components/icons";
-import type { Blog, Project, Snippet } from "@/lib/content";
+import React, { useCallback, useEffect, useState } from "react";
+import type { CommandLinkItem } from "@/lib/command-menu-links";
 import {
-  allProjectsByDate,
-  allPublishedBlogsByDate,
-  allSnippetsByDate,
-} from "@/lib/content";
+  BLOG_LINKS,
+  MENU_LINKS,
+  PROJECT_LINKS,
+  SNIPPET_LINKS,
+  SOCIAL_LINK_ITEMS,
+} from "@/lib/command-menu-links";
 import { cn } from "@/lib/utils";
 import { Logo } from "./icons/logo";
 import { Button } from "./ui/button";
@@ -37,92 +33,6 @@ import {
   CommandSeparator,
 } from "./ui/command";
 import { Separator } from "./ui/separator";
-
-type CommandLinkItem = {
-  title: string;
-  href: string;
-  icon?: React.ComponentType<LucideProps>;
-  iconImage?: string;
-  keywords?: string[];
-  openInNewTab?: boolean;
-  description?: string;
-};
-
-const MENU_LINKS: CommandLinkItem[] = [
-  {
-    title: "Home",
-    href: "/",
-    icon: HomeIcon,
-  },
-  {
-    title: "About",
-    href: "/about",
-    icon: UserIcon,
-  },
-  {
-    title: "Projects",
-    href: "/projects",
-    icon: BriefcaseBusinessIcon,
-  },
-  {
-    title: "Snippets",
-    href: "/snippets",
-    icon: FileCode2Icon,
-  },
-  {
-    title: "Categories",
-    href: "/categories",
-    icon: ListIcon,
-  },
-  {
-    title: "Blog",
-    href: "/blog",
-    icon: RssIcon,
-  },
-  {
-    title: "Resume",
-    href: "/resume",
-    icon: CircleUserIcon,
-    openInNewTab: true,
-  },
-  {
-    title: "VCard",
-    href: "/vcard",
-    icon: CircleUserIcon,
-    openInNewTab: true,
-  },
-];
-
-const SOCIAL_LINK_ITEMS: CommandLinkItem[] = [
-  {
-    title: "LinkedIn",
-    href: "https://www.linkedin.com/in/bismit-panda-5432a824a",
-    icon: Linkedin,
-    openInNewTab: true,
-    description: "Connect on LinkedIn",
-  },
-  {
-    title: "GitHub",
-    href: "https://github.com/bismitpanda",
-    icon: GithubDark,
-    openInNewTab: true,
-    description: "View projects on GitHub",
-  },
-  {
-    title: "X (Twitter)",
-    href: "https://x.com/bismitpanda",
-    icon: XDark,
-    openInNewTab: true,
-    description: "Follow on X",
-  },
-  {
-    title: "Email",
-    href: "mailto:contact@bismitpanda.com",
-    icon: MailIcon,
-    openInNewTab: true,
-    description: "Send an email",
-  },
-];
 
 export function CommandMenu() {
   const router = useRouter();
@@ -168,15 +78,6 @@ export function CommandMenu() {
     [router],
   );
 
-  const { blogLinks, projectLinks, snippetLinks } = useMemo(
-    () => ({
-      blogLinks: allPublishedBlogsByDate.map(blogToCommandLinkItem),
-      projectLinks: allProjectsByDate.map(projectToCommandLinkItem),
-      snippetLinks: allSnippetsByDate.map(snippetToCommandLinkItem),
-    }),
-    [],
-  );
-
   return (
     <>
       <Button
@@ -208,21 +109,21 @@ export function CommandMenu() {
           <CommandSeparator />
           <CommandLinkGroup
             heading="Projects"
-            links={projectLinks}
+            links={PROJECT_LINKS}
             fallbackIcon={BriefcaseBusinessIcon}
             onLinkSelect={handleOpenLink}
           />
           <CommandSeparator />
           <CommandLinkGroup
             heading="Blog Posts"
-            links={blogLinks}
+            links={BLOG_LINKS}
             fallbackIcon={RssIcon}
             onLinkSelect={handleOpenLink}
           />
           <CommandSeparator />
           <CommandLinkGroup
             heading="Code Snippets"
-            links={snippetLinks}
+            links={SNIPPET_LINKS}
             fallbackIcon={FileCode2Icon}
             onLinkSelect={handleOpenLink}
           />
@@ -290,30 +191,29 @@ function CommandLinkGroup({
   );
 }
 
-type CommandKind = "resume" | "vcard" | "page" | "link";
-
-type CommandMetaMap = Map<
-  string,
-  {
-    commandKind: CommandKind;
-  }
->;
+type CommandMetaMap = Map<string, string>;
 
 function buildCommandMetaMap() {
   const commandMetaMap: CommandMetaMap = new Map();
 
-  commandMetaMap.set("Resume", {
-    commandKind: "resume",
-  });
-
-  commandMetaMap.set("VCard", {
-    commandKind: "vcard",
-  });
+  commandMetaMap.set("Resume", "Download Resume");
+  commandMetaMap.set("VCard", "Download VCard");
 
   SOCIAL_LINK_ITEMS.forEach((item) => {
-    commandMetaMap.set(item.title, {
-      commandKind: "link",
-    });
+    // biome-ignore lint/style/noNonNullAssertion: It is guaranteed that a social link will have a description
+    commandMetaMap.set(item.title, item.description!);
+  });
+
+  BLOG_LINKS.forEach((item) => {
+    commandMetaMap.set(item.title, "Read Blog Post");
+  });
+
+  PROJECT_LINKS.forEach((item) => {
+    commandMetaMap.set(item.title, "View Project");
+  });
+
+  SNIPPET_LINKS.forEach((item) => {
+    commandMetaMap.set(item.title, "View Snippet");
   });
 
   return commandMetaMap;
@@ -321,16 +221,9 @@ function buildCommandMetaMap() {
 
 const COMMAND_META_MAP = buildCommandMetaMap();
 
-const ENTER_ACTION_LABELS: Record<CommandKind, string> = {
-  resume: "Download Resume",
-  vcard: "Download VCard",
-  page: "Go to Page",
-  link: "Open Link",
-};
-
 function CommandMenuFooter() {
-  const selectedCommandKind = useCommandState(
-    (state) => COMMAND_META_MAP.get(state.value)?.commandKind ?? "page",
+  const selectedCommandMessage = useCommandState(
+    (state) => COMMAND_META_MAP.get(state.value) ?? "Go to Page",
   );
 
   return (
@@ -341,7 +234,7 @@ function CommandMenuFooter() {
         <Logo className="size-6 text-muted-foreground" aria-hidden />
 
         <div className="flex shrink-0 items-center gap-2">
-          <span>{ENTER_ACTION_LABELS[selectedCommandKind]}</span>
+          <span>{selectedCommandMessage}</span>
           <CommandMenuKbd>
             <CornerDownLeftIcon className="size-4" />
           </CommandMenuKbd>
@@ -367,31 +260,4 @@ function CommandMenuKbd({ className, ...props }: React.ComponentProps<"kbd">) {
       {...props}
     />
   );
-}
-
-function blogToCommandLinkItem(blog: Blog): CommandLinkItem {
-  return {
-    title: blog.title,
-    href: `/blog/${blog.slug}`,
-    keywords: ["blog", "post", "article"],
-    description: blog.excerpt,
-  };
-}
-
-function projectToCommandLinkItem(project: Project): CommandLinkItem {
-  return {
-    title: project.title,
-    href: `/projects/${project.slug}`,
-    keywords: ["project", "work", "portfolio"],
-    description: project.description,
-  };
-}
-
-function snippetToCommandLinkItem(snippet: Snippet): CommandLinkItem {
-  return {
-    title: snippet.name,
-    href: `/snippets/${snippet.slug}`,
-    keywords: ["snippet", "code", "pattern"],
-    description: snippet.description,
-  };
 }

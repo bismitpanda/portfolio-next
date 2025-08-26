@@ -55,12 +55,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.7,
     },
     {
-      url: "https://bismitpanda.com/resume",
-      lastModified: new Date(),
-      changeFrequency: "yearly",
-      priority: 0.7,
-    },
-    {
       url: "https://bismitpanda.com/blog",
       lastModified: new Date(),
       changeFrequency: "weekly",
@@ -77,6 +71,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 0.5,
+    },
+    {
+      url: "https://bismitpanda.com/resume",
+      lastModified: new Date(),
+      changeFrequency: "yearly",
+      priority: 0.7,
     },
     {
       url: "https://bismitpanda.com/snippets",

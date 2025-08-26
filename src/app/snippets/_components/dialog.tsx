@@ -25,7 +25,8 @@ interface CodeSnippetDialogProps {
 export function CodeSnippetDialog({ snippet, open }: CodeSnippetDialogProps) {
   const [isOpen, setIsOpen] = useState(open);
   const [copiedText, copyToClipboard] = useCopyToClipboard();
-  const [snippetCode, setSnippetCode] = useState(snippet.codes[0]);
+  // biome-ignore lint/style/noNonNullAssertion: It is guaranteed that a snippet will have at least one code
+  const [snippetCode, setSnippetCode] = useState(snippet.codes[0]!);
 
   const handleCopy = () => {
     copyToClipboard(snippetCode.code).catch(() =>
@@ -39,7 +40,8 @@ export function CodeSnippetDialog({ snippet, open }: CodeSnippetDialogProps) {
       onOpenChange={(open) => {
         setIsOpen(open);
         if (!open) {
-          setSnippetCode(snippet.codes[0]);
+          // biome-ignore lint/style/noNonNullAssertion: It is guaranteed that a snippet will have at least one code
+          setSnippetCode(snippet.codes[0]!);
         }
       }}
     >
@@ -94,7 +96,8 @@ export function CodeSnippetDialog({ snippet, open }: CodeSnippetDialogProps) {
         </DialogHeader>
         <Tabs
           className="mt-4"
-          defaultValue={snippet.codes[0].language}
+          // biome-ignore lint/style/noNonNullAssertion: It is guaranteed that a snippet will have at least one code
+          defaultValue={snippet.codes[0]!.language}
           onValueChange={(value) => {
             const code = snippet.codes.find((code) => code.language === value);
             if (code) {
