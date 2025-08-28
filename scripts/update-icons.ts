@@ -84,13 +84,11 @@ export const fileExtensions: Record<string, string> = ${JSON.stringify(fileExten
 
   consola.info("Writing icon map...");
   await fs.writeFile(
-    path.join(process.cwd(), "src/lib/catppuccin-icons/index.ts"),
+    path.join(process.cwd(), "src/lib/catppuccin-icons/icon-map.ts"),
     `import * as C from "@/components/catppuccin-icons";
-import { fileExtensions, fileNames } from "./file-icons";
-import { folderNames } from "./folder-icons";
 import type { IconName } from "./icons";
 
-const catppuccinIconMap: Record<
+export const iconMap: Record<
   IconName,
   React.ComponentType<React.SVGProps<SVGSVGElement>>
 > = {
@@ -106,18 +104,7 @@ const catppuccinIconMap: Record<
           .join("")},`,
     )
     .join("\n")}
-};
-
-export const getFileIcon = (name: string) =>
-  catppuccinIconMap[
-    (fileNames[name] ??
-      fileExtensions[name.split(".").pop() ?? ""] ??
-      "_file") as IconName
-  ];
-
-export const getFolderIcon = (name: string) =>
-  catppuccinIconMap[(folderNames[name] ?? "_folder") as IconName];
-`,
+};`,
   );
 
   consola.success("Done!");

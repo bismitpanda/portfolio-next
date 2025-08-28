@@ -1,10 +1,12 @@
-import { ChevronRight } from "lucide-react";
-import {
-  Collapsible,
-  CollapsibleContent,
-  CollapsibleTrigger,
-} from "@/components/ui/collapsible";
+"use client";
+import { useState } from "react";
 import { getFileIcon, getFolderIcon } from "@/lib/catppuccin-icons";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "../file-tree-accordion";
 
 type File = {
   type: "file";
@@ -70,6 +72,10 @@ function Tree({
   item: File | Folder;
   defaultOpen?: boolean;
 }) {
+  const [value, onValueChange] = useState(
+    defaultOpen ? `folder-${item.name}` : "",
+  );
+
   if (item.type === "file") {
     const Icon = getFileIcon(item.name);
     return (
@@ -85,36 +91,35 @@ function Tree({
     );
   }
 
-  const Icon = getFolderIcon(item.name);
+  const Icon = getFolderIcon(item.name, value !== "");
 
   return (
     <li className="group relative">
-      <Collapsible
-        className="group/collapsible [&[data-state=open]>button>svg:first-child]:rotate-90"
-        defaultOpen={defaultOpen}
+      <Accordion
+        type="single"
+        collapsible
+        value={value}
+        onValueChange={onValueChange}
+        className="group/collapsible"
       >
-        <CollapsibleTrigger asChild>
-          <button
-            type="button"
-            className="flex w-full items-center gap-2 overflow-hidden rounded-md p-2 text-left text-sm transition focus-visible:ring-2"
-          >
-            <ChevronRight className="h-4 w-4 transition-transform" />
+        <AccordionItem value={`folder-${item.name}`}>
+          <AccordionTrigger className="flex w-full items-center gap-2 overflow-hidden rounded-md p-2 text-left text-sm font-sans justify-start">
             <Icon />
             {item.name}
-          </button>
-        </CollapsibleTrigger>
-        <CollapsibleContent>
-          <ul className="ml-3.5 flex min-w-0 flex-col gap-1 border-l px-2.5 py-0.5">
-            {item.children.map((subItem) => (
-              <Tree
-                defaultOpen={defaultOpen}
-                item={subItem}
-                key={`${subItem.name}-${subItem.type}`}
-              />
-            ))}
-          </ul>
-        </CollapsibleContent>
-      </Collapsible>
+          </AccordionTrigger>
+          <AccordionContent>
+            <ul className="ml-3.5 flex min-w-0 flex-col gap-1 border-l px-2.5 py-0.5">
+              {item.children.map((subItem) => (
+                <Tree
+                  defaultOpen={defaultOpen}
+                  item={subItem}
+                  key={`${subItem.name}-${subItem.type}`}
+                />
+              ))}
+            </ul>
+          </AccordionContent>
+        </AccordionItem>
+      </Accordion>
     </li>
   );
 }
