@@ -1,22 +1,30 @@
 challenge: >
-  Designing a clean, trust-building interface with custom iconography, stat counters, and
-  integrated lead-capture forms.
+  Creating a credible and aspirational admissions platform that artfully blends AI-powered insights,
+  expert mentorship, and performance metrics—while guiding users toward booking a personalized consultation.
 client: Green Card Inc.
 description: >
-  An Ivy League admissions consultancy site offering AI-powered profile evaluation,
-  personalized mentorship, extracurricular planning, and interview prep.
+  A polished Next.js landing page enriched with a Sanity-driven blog CMS, positioning
+  Open Admits as a high-touch Ivy League admissions consultancy.
+  Showcases AI-powered evaluations, mentorship from elite alumni, strategic extracurricular
+  and research planning, mock interviews, and task tracking—all underpinned by insightful blog content.
 isFeatured: true
 featuredImage: https://openadmits.com/opengraph-image.png
 liveUrl: https://openadmits.com
 projectType: hosted
 role: UI/UX & Front-end Developer
 solution: >
-  Crafted a responsive Next.js site with Tailwind, built custom SVG-based icons, and
-  integrated Formik for booking calls directly from the hero section.
+  Designed an engaging, responsive interface using Next.js and Tailwind CSS with Shadcn/UI,
+  featuring custom SVG iconography to highlight AI evaluation, mentorship, activity planning,
+  interview prep, and roadmap task tracking.
+  Integrated Sanity CMS to publish thought-leadership blog content such as essay tips and
+  Ivy League strategy articles, and embedded seamless lead-capture and booking forms across
+  the site to drive user engagement.
 technologies:
   - Next.js
   - React
-  - Tailwind CSS
   - TypeScript
+  - Tailwind CSS
+  - Sanity CMS
+  - Shadcn/UI
 title: Open Admits
 year: 2025

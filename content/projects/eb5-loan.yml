@@ -1,22 +1,30 @@
 challenge: >
-  Presenting complex financial data (tables, timelines) in a clear, interactive way and
-  integrating calendar-booking calls seamlessly.
+  Conveying a complex, compliance-sensitive financial offering—requiring clear upfront cost comparisons,
+  risk disclosures, timeline breakdowns, and multilingual blog content—while retaining trust and
+  encouraging users to book a strategy call.
 client: Green Card Inc.
 description: >
-  A financing portal enabling investors to access the EB-5 Green Card program with half the
-  capital, complete with loan comparisons, process timelines, and due-diligence downloads.
+  A sleek Next.js landing page integrated with a Sanity-powered blog CMS,
+  delivering a compelling narrative around a $400K-upfront EB-5 loan solution.
+  Showcases dynamic cost-savings comparisons, fully-compliant financing details, investor
+  benefits (like faster work authorization, institutional-backed projects), and seamless expert
+  engagement via Calendly-embedded calls to action.
 featuredImage: https://eb5loan.com/opengraph-image.png
 liveUrl: https://eb5loan.com
 projectType: hosted
 role: Full-stack Developer
 solution: >
-  Implemented dynamic comparison tables with React and Tailwind, built an animated timeline
-  component, and embedded Calendly for call scheduling.
+  Built an interactive cost-comparison table highlighting the $400K vs $800K
+  investment scenarios, incorporated a staged animated timeline detailing key milestones
+  (from investment to Green Card delivery), and embedded Calendly for directly booking
+  strategy calls—integrated within a Next.js front end and Sanity CMS for blog content and updates.
 technologies:
   - Next.js
   - React
   - TypeScript
   - Tailwind CSS
   - Node.js
+  - Sanity
+  - Shadcn/UI
 title: EB5 Loan
 year: 2025

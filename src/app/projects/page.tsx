@@ -5,6 +5,7 @@ import Link from "next/link";
 import { GithubDark } from "@/components/icons";
 import { Button } from "@/components/ui/button";
 import { allGithubProjects, allHostedProjects } from "@/lib/content";
+import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
   title: "All Projects | Bismit Panda's Projects",
@@ -31,7 +32,10 @@ export default function Page() {
             {allHostedProjects.map((project, index) => (
               <div className="group" key={project.slug}>
                 <div
-                  className={`grid items-center gap-12 md:grid-cols-2 ${index % 2 === 1 ? "md:grid-flow-dense" : ""}`}
+                  className={cn(
+                    "grid items-center gap-12 md:grid-cols-2",
+                    index % 2 === 1 && "md:grid-flow-dense",
+                  )}
                 >
                   <div>
                     <span className="font-bold text-8xl text-muted-foreground/20 transition-colors group-hover:text-muted-foreground/50">
@@ -60,7 +64,10 @@ export default function Page() {
                     </Button>
                   </div>
                   <div
-                    className={`overflow-hidden rounded-lg ${index % 2 === 1 ? "md:-order-1" : ""}`}
+                    className={cn(
+                      "overflow-hidden rounded-lg",
+                      index % 2 === 1 && "md:-order-1",
+                    )}
                   >
                     <Link
                       className="block aspect-video overflow-hidden rounded-lg bg-muted transition-transform duration-500 group-hover:scale-105"

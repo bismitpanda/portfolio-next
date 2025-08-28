@@ -11,6 +11,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import { cn } from "@/lib/utils";
 
 export function ProjectCarousel({
   gallery,
@@ -71,7 +72,11 @@ export function ProjectCarousel({
         {Array.from({ length: count }).map((_, index) => (
           // biome-ignore lint/a11y: This is a carousel
           <div
-            className={`h-3 w-3 rounded-full border border-white ${current === index + 1 ? "bg-white" : ""} cursor-pointer transition-colors duration-300 hover:bg-white/50`}
+            className={cn(
+              "size-3 rounded-full border border-white",
+              current === index + 1 && "bg-white",
+              "cursor-pointer transition-colors duration-300 hover:bg-white/50",
+            )}
             // biome-ignore lint/suspicious/noArrayIndexKey: Index never changes as is a valid key
             key={index}
             onClick={() => api?.scrollTo(index)}

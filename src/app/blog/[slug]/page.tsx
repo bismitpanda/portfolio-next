@@ -15,7 +15,10 @@ import {
 } from "@/components/ui/hover-card";
 import { allPublishedBlogsByDate } from "@/lib/content";
 import { Mdx } from "./_components/mdx";
-import { TableOfContents } from "./_components/toc";
+import {
+  DesktopTableOfContents,
+  MobileTableOfContents,
+} from "./_components/toc";
 
 export async function generateMetadata({
   params,
@@ -65,7 +68,7 @@ export default async function Page({
           </Button>
         </div>
 
-        <div className="mx-auto max-w-3xl">
+        <div className="mx-auto max-w-6xl">
           <div className="mb-10">
             <div className="mb-4 font-medium text-muted-foreground text-sm">
               <Link href={`/categories/${blog.categorySlug}`}>
@@ -140,10 +143,13 @@ export default async function Page({
             {blog.excerpt}
           </div>
 
-          <TableOfContents headings={blog.headings} />
+          <MobileTableOfContents headings={blog.headings} />
 
-          <div className="prose prose-lg">
-            <Mdx code={blog.html} />
+          <div className="grid grid-cols-1 md:grid-cols-[1fr_250px] relative gap-4">
+            <div className="prose prose-lg min-w-0">
+              <Mdx code={blog.html} />
+            </div>
+            <DesktopTableOfContents headings={blog.headings} />
           </div>
 
           {(!!blog.next || !!blog.prev) && (

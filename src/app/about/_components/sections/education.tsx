@@ -21,12 +21,19 @@ export function EducationSection() {
               >
                 <div className="mb-4 flex flex-col md:flex-row md:items-start md:justify-between">
                   <div>
-                    <h3 className="mb-1 font-bold text-2xl transition-colors group-hover:text-primary">
-                      {education.title}
-                    </h3>
-                    <p className="mb-2 text-muted-foreground text-xl">
+                    <div className="mb-1 font-bold text-2xl transition-colors group-hover:text-primary">
                       {education.institution}
-                    </p>
+                      {education.isOnGoing && (
+                        <span className="relative flex items-center justify-center">
+                          <span className="absolute inline-flex size-3 animate-ping rounded-full bg-sky-500 opacity-50"></span>
+                          <span className="relative inline-flex size-2 rounded-full bg-sky-500"></span>
+                          <span className="sr-only">Current Institution</span>
+                        </span>
+                      )}
+                    </div>
+                    <div className="mb-2 text-muted-foreground text-xl">
+                      {education.title}
+                    </div>
                   </div>
                   <div className="text-muted-foreground text-sm md:text-right">
                     <p className="font-medium">

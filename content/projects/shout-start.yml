@@ -1,21 +1,23 @@
 challenge: >
-  Creating a multi-step ‘How it works’ flow with branded illustration assets and a metrics
-  dashboard, while ensuring fast load times and mobile-first responsiveness.
+  Designing a clear, multi-step “How It Works” flow using branded illustrations, complemented by a metrics-style content overview—all while ensuring fast load-times and mobile-first performance.
 client: Green Card Inc.
 description: >
-  A PR-publishing platform that guides users through writing, submitting, publishing, and
-  amplifying press releases and articles across high-authority channels.
+  A Next.js + Sanity-powered PR platform that guides users through the process of writing, submitting, refining, publishing, and amplifying press releases across high-authority channels.
+  The site highlights complementary services such as book publishing, awards recognition, LinkedIn growth, and podcast features—managed through a CMS for seamless content updates.
 featuredImage: https://shoutstart.com/opengraph-image.png
 liveUrl: https://shoutstart.com
 projectType: hosted
 role: Front-end Developer
 solution: >
-  Built a Next.js single-page app leveraging optimized image components, CSS-grid layouts
-  for steps, and reusable React testimonial cards for rapid content updates.
+  Developed a performant, responsive Next.js single-page application with optimized image components and CSS-grid layouts to showcase the four core steps—Write → Submit & Refine → Publish → Shout—in a branded illustration flow.
+  Implemented reusable React components for testimonials and service cards, ensuring design consistency and fast iteration.
+  Integrated Sanity CMS to enable the client to manage services, testimonials, and marketing copy directly—providing long-term scalability and reducing developer dependency for content updates.
 technologies:
   - Next.js
   - React
   - TypeScript
   - Tailwind CSS
+  - Shadcn/UI
+  - Sanity
 title: ShoutStart
 year: 2025

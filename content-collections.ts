@@ -26,7 +26,11 @@ const categorySchema = z.object({
   description: z.string(),
 });
 
-type Headings = { depth: number; value: string; slug: string }[];
+type Headings = {
+  depth: number;
+  value: string;
+  slug: string;
+}[];
 
 const blogSchema = z.object({
   title: z.string(),
@@ -179,6 +183,7 @@ const blogs = defineCollection({
             (tree) => {
               for (const node of tree.children) {
                 if (node.type === "heading") {
+                  // TODO: allow rich heading
                   if (
                     node.children.length !== 1 ||
                     node.children[0].type !== "text"

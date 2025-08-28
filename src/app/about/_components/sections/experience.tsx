@@ -1,5 +1,6 @@
 import { format, formatDistance } from "date-fns";
 import { allExperiencesByDate } from "@/lib/content";
+import { cn } from "@/lib/utils";
 
 export function ExperienceSection() {
   return (
@@ -18,17 +19,27 @@ export function ExperienceSection() {
               });
               return (
                 <div
-                  className={`group${exp.isOnGoing ? "" : "border-border border-l-2 pl-6"}`}
+                  className={cn(
+                    "group",
+                    !exp.isOnGoing && "border-border border-l-2 pl-6",
+                  )}
                   key={exp.title + exp.company}
                 >
                   <div className="mb-4 flex flex-col md:flex-row md:items-start md:justify-between">
                     <div>
-                      <h3 className="mb-1 font-bold text-2xl transition-colors group-hover:text-primary">
-                        {exp.title}
-                      </h3>
-                      <p className="mb-2 text-muted-foreground text-xl">
+                      <div className="mb-2 font-bold text-2xl flex items-center gap-6">
                         {exp.company}
-                      </p>
+                        {exp.isOnGoing && (
+                          <span className="relative flex items-center justify-center">
+                            <span className="absolute inline-flex size-3 animate-ping rounded-full bg-sky-500 opacity-50"></span>
+                            <span className="relative inline-flex size-2 rounded-full bg-sky-500"></span>
+                            <span className="sr-only">Current Employer</span>
+                          </span>
+                        )}
+                      </div>
+                      <div className="mb-1 text-xl text-muted-foreground transition-colors group-hover:text-primary">
+                        {exp.title}
+                      </div>
                     </div>
                     <div className="text-muted-foreground text-sm md:text-right">
                       <p className="font-medium">

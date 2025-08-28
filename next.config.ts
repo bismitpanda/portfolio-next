@@ -25,6 +25,9 @@ const nextConfig: NextConfig = {
       {
         hostname: "bismitpanda.com",
       },
+      {
+        hostname: "terrabridge.ai",
+      },
     ],
   },
 };

@@ -8,6 +8,7 @@ import "katex/dist/katex.css";
 import "@/styles/globals.css";
 import "@/styles/shiki.css";
 import "@/styles/mdx.css";
+import { cn } from "@/lib/utils";
 
 const fustat = Fustat({
   subsets: ["latin"],
@@ -42,7 +43,12 @@ export default function Layout({
   return (
     <html className="dark scroll-smooth" lang="en" suppressHydrationWarning>
       <body
-        className={`${fustat.variable} ${playfairDisplay.variable} ${jetBrainsMono.variable} font-sans antialiased`}
+        className={cn(
+          fustat.variable,
+          playfairDisplay.variable,
+          jetBrainsMono.variable,
+          "font-sans antialiased",
+        )}
       >
         <div className="min-h-screen bg-background text-foreground">
           <Navigation />
