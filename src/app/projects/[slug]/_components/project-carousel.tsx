@@ -15,10 +15,8 @@ import { cn } from "@/lib/utils";
 
 export function ProjectCarousel({
   gallery,
-  title,
 }: {
-  gallery: string[];
-  title: string;
+  gallery: { imageUrl: string; alt: string }[];
 }) {
   const plugin = useRef(Autoplay({ delay: 4000 }));
   const [api, setApi] = useState<CarouselApi>();
@@ -55,10 +53,10 @@ export function ProjectCarousel({
             <CarouselItem key={`${index}-${image}`}>
               <div className="aspect-video overflow-hidden rounded-lg">
                 <Image
-                  alt={`${title} - Image ${index + 1}`}
+                  src={image.imageUrl}
+                  alt={image.alt}
                   className="h-full w-full object-cover"
                   height={600}
-                  src={image}
                   width={800}
                 />
               </div>

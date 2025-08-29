@@ -110,6 +110,7 @@ export default async function Page({
               className="h-full w-full object-cover"
               height={800}
               src={project.featuredImage}
+              blurDataURL={project.blurredFeaturedImage}
               width={1600}
               priority
               fetchPriority="high"
@@ -176,7 +177,7 @@ export default async function Page({
         </div>
 
         {project.gallery.length > 0 && (
-          <ProjectCarousel gallery={project.gallery} title={project.title} />
+          <ProjectCarousel gallery={project.gallery} />
         )}
       </article>
     </div>

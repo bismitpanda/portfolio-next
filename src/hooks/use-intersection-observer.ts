@@ -1,5 +1,5 @@
-import type { Blog } from "@/lib/content";
 import { useEffect, useState } from "react";
+import type { Blog } from "@/lib/content";
 
 export function useIntersectionObserver(headings: Blog["headings"]) {
   const [activeId, setActiveId] = useState<string>("");
@@ -19,7 +19,6 @@ export function useIntersectionObserver(headings: Blog["headings"]) {
       },
     );
 
-    // Observe all heading elements
     headings.forEach((heading) => {
       const element = document.getElementById(heading.slug);
       if (element) {
