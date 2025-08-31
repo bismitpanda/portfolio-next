@@ -1,4 +1,5 @@
 import { renderToBuffer } from "@react-pdf/renderer";
+import { NextResponse } from "next/server";
 import { Resume } from "./_components/resume";
 
 export const dynamic = "force-static";
@@ -6,7 +7,7 @@ export const dynamic = "force-static";
 export async function GET() {
   const buffer = await renderToBuffer(<Resume />);
 
-  return new Response(buffer, {
+  return new NextResponse(Buffer.from(buffer), {
     headers: {
       "Content-Type": "application/pdf",
       "Content-Disposition": "attachment; filename=resume.pdf",
