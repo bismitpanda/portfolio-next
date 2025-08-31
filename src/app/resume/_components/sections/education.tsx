@@ -27,7 +27,7 @@ export function EducationSection({ education }: { education: Education[] }) {
             </View>
             {edu.achievements && (
               <View style={styles.educationItem}>
-                <Text style={styles.educationLabel}>Achievements: </Text>
+                <Text style={styles.educationLabel}>Results: </Text>
                 <View style={styles.highlightsList}>
                   {edu.achievements.map((highlight, index) => (
                     <View
