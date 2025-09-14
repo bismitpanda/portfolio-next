@@ -18,11 +18,7 @@ export function generateStaticParams() {
   }));
 }
 
-export default async function Image({
-  params,
-}: {
-  params: Promise<{ slug: string }>;
-}) {
+export default async function Image({ params }: PageProps<"/blog/[slug]">) {
   const { slug } = await params;
 
   const blog = allPublishedBlogsByDate.find((blog) => blog.slug === slug);

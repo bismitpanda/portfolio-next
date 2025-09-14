@@ -12,7 +12,7 @@ export function generateStaticParams() {
 
 export async function GET(
   _: Request,
-  { params }: { params: Promise<{ snippetSlug: string; filename: string }> },
+  { params }: RouteContext<"/snippets/[snippetSlug]/[filename]">,
 ) {
   const { snippetSlug, filename } = await params;
   const snippet = allSnippetsByDate.find(

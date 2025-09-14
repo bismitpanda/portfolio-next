@@ -83,20 +83,20 @@
   @apply blur-none;
 }
 
-pre.shiki {
+.shiki {
   @apply gap-0 p-4 font-mono;
 }
 
-pre.shiki[data-show-line-numbers="true"] code {
+.shiki code {
+  @apply inline-block w-full;
+}
+
+.shiki[data-show-line-numbers="true"] code {
   counter-reset: step;
   counter-increment: step 0;
 }
 
-pre.shiki code {
-  @apply inline-block w-full;
-}
-
-pre.shiki .line {
+.shiki .line {
   @apply inline-block w-full;
 }
 

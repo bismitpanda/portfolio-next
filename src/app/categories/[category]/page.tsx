@@ -8,9 +8,7 @@ import { allCategoriesByCount, allPublishedBlogsByDate } from "@/lib/content";
 
 export async function generateMetadata({
   params,
-}: {
-  params: Promise<{ category: string }>;
-}): Promise<Metadata> {
+}: PageProps<"/categories/[category]">): Promise<Metadata> {
   const { category: _category } = await params;
   const category = allCategoriesByCount.find((c) => c.slug === _category);
 
@@ -32,9 +30,7 @@ export async function generateStaticParams() {
 
 export default async function Page({
   params,
-}: {
-  params: Promise<{ category: string }>;
-}) {
+}: PageProps<"/categories/[category]">) {
   const { category: _category } = await params;
   const category = allCategoriesByCount.find((c) => c.slug === _category);
 

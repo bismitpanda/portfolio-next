@@ -20,9 +20,7 @@ export async function generateStaticParams() {
 
 export default async function Image({
   params,
-}: {
-  params: Promise<{ snippetSlug: string }>;
-}) {
+}: PageProps<"/snippets/[snippetSlug]">) {
   const { snippetSlug } = await params;
 
   const snippet = allSnippetsByDate.find(

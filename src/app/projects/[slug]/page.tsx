@@ -9,9 +9,7 @@ import { ProjectCarousel } from "./_components/project-carousel";
 
 export async function generateMetadata({
   params,
-}: {
-  params: Promise<{ slug: string }>;
-}) {
+}: PageProps<"/projects/[slug]">) {
   const { slug } = await params;
   const project = allProjectsByDate.find((project) => project.slug === slug);
 
@@ -44,11 +42,7 @@ export async function generateStaticParams() {
   return allProjectsByDate.map((project) => ({ slug: project.slug }));
 }
 
-export default async function Page({
-  params,
-}: {
-  params: Promise<{ slug: string }>;
-}) {
+export default async function Page({ params }: PageProps<"/projects/[slug]">) {
   const { slug } = await params;
   const project = allProjectsByDate.find((project) => project.slug === slug);
 

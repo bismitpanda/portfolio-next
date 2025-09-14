@@ -19,9 +19,7 @@ export function generateStaticParams() {
 
 export default async function Image({
   params,
-}: {
-  params: Promise<{ category: string }>;
-}) {
+}: PageProps<"/categories/[category]">) {
   const { category: categorySlug } = await params;
 
   const category = allCategoriesByCount.find(

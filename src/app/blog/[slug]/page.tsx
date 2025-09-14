@@ -1,10 +1,11 @@
 import { formatDate } from "date-fns";
-import { ArrowLeft, ArrowRight } from "lucide-react";
+import { ArrowLeft, ArrowRight, Share2Icon } from "lucide-react";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { BlogCard } from "@/components/blog-card";
+import { Linkedin, XDark } from "@/components/icons";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -13,6 +14,11 @@ import {
   HoverCardContent,
   HoverCardTrigger,
 } from "@/components/ui/hover-card";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
 import { allPublishedBlogsByDate } from "@/lib/content";
 import { Mdx } from "./_components/mdx";
 import {
@@ -22,9 +28,7 @@ import {
 
 export async function generateMetadata({
   params,
-}: {
-  params: Promise<{ slug: string }>;
-}): Promise<Metadata> {
+}: PageProps<"/blog/[slug]">): Promise<Metadata> {
   const { slug } = await params;
   const blog = allPublishedBlogsByDate.find((blog) => blog.slug === slug);
 
@@ -44,17 +48,15 @@ export async function generateStaticParams() {
   return allPublishedBlogsByDate.map((blog) => ({ slug: blog.slug }));
 }
 
-export default async function Page({
-  params,
-}: {
-  params: Promise<{ slug: string }>;
-}) {
+export default async function Page({ params }: PageProps<"/blog/[slug]">) {
   const { slug } = await params;
   const blog = allPublishedBlogsByDate.find((blog) => blog.slug === slug);
 
   if (!blog) {
     notFound();
   }
+
+  const path = `https://bismitpanda.com/blog/${blog.slug}`;
 
   return (
     <div className="pt-20">
@@ -122,6 +124,30 @@ export default async function Page({
                   </HoverCardContent>
                 </HoverCard>
               </div>
+              <div className="grow" />
+              <Popover>
+                <PopoverTrigger asChild>
+                  <Button variant="ghost" size="icon">
+                    <Share2Icon className="size-4" />
+                  </Button>
+                </PopoverTrigger>
+                <PopoverContent className="w-fit p-0">
+                  <div className="flex flex-col">
+                    <Link
+                      href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(path)}`}
+                      className="flex flex-row items-center gap-2 p-4"
+                    >
+                      <Linkedin className="size-4" />
+                    </Link>
+                    <Link
+                      href={`https://x.com/intent/post?url=${encodeURIComponent(path)}`}
+                      className="flex flex-row items-center gap-2 p-4"
+                    >
+                      <XDark className="size-4" />
+                    </Link>
+                  </div>
+                </PopoverContent>
+              </Popover>
             </div>
           </div>
 

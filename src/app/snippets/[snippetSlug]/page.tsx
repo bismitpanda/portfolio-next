@@ -16,9 +16,7 @@ export async function generateStaticParams() {
 
 export default async function Page({
   params,
-}: {
-  params: Promise<{ snippetSlug: string }>;
-}) {
+}: PageProps<"/snippets/[snippetSlug]">) {
   const { snippetSlug } = await params;
   return <SnippetsPage display={snippetSlug} />;
 }
