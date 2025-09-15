@@ -7,13 +7,21 @@ import {
 } from "@/lib/content";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const blogUrls = allPublishedBlogsByDate.map((blog) => ({
-    url: `https://bismitpanda.com/blog/${blog.slug}`,
-    lastModified: blog.date,
-    changeFrequency: "weekly" as const,
-    priority: 0.5,
-    images: [`https://bismitpanda.com/images/blogs/${blog.image}`],
-  }));
+  const blogUrls = allPublishedBlogsByDate.flatMap((blog) => [
+    {
+      url: `https://bismitpanda.com/blog/${blog.slug}`,
+      lastModified: blog.date,
+      changeFrequency: "weekly" as const,
+      priority: 0.5,
+      images: [new URL(blog.image, `https://bismitpanda.com`).toString()],
+    },
+    {
+      url: `https://bismitpanda.com/blog/${blog.slug}/llms.txt`,
+      lastModified: blog.date,
+      changeFrequency: "weekly" as const,
+      priority: 0.5,
+    },
+  ]);
 
   const categoryUrls = allCategoriesByCount.map((category) => ({
     url: `https://bismitpanda.com/categories/${category.slug}`,
@@ -28,7 +36,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     changeFrequency: "weekly" as const,
     priority: 0.5,
     images: [
-      `https://bismitpanda.com/images/projects/${project.featuredImage}`,
+      new URL(project.featuredImage, `https://bismitpanda.com`).toString(),
+      ...project.gallery.map((image) =>
+        new URL(image.imageUrl, `https://bismitpanda.com`).toString(),
+      ),
     ],
   }));
 

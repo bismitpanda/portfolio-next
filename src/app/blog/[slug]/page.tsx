@@ -10,21 +10,14 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
-  HoverCard,
-  HoverCardContent,
-  HoverCardTrigger,
-} from "@/components/ui/hover-card";
-import {
   Popover,
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
 import { allPublishedBlogsByDate } from "@/lib/content";
 import { Mdx } from "./_components/mdx";
-import {
-  DesktopTableOfContents,
-  MobileTableOfContents,
-} from "./_components/toc";
+import { BlogSidebar } from "./_components/sidebar";
+import { MobileTableOfContents } from "./_components/toc";
 
 export async function generateMetadata({
   params,
@@ -91,38 +84,7 @@ export default async function Page({ params }: PageProps<"/blog/[slug]">) {
                 <AvatarFallback>BP</AvatarFallback>
               </Avatar>
               <div>
-                By{" "}
-                <HoverCard>
-                  <HoverCardTrigger asChild>
-                    <span className="link-underline">Bismit Panda</span>
-                  </HoverCardTrigger>
-                  <HoverCardContent asChild>
-                    <div className="mx-auto w-200 rounded-lg p-8">
-                      <div className="flex items-center gap-6">
-                        <div className="h-20 w-20 flex-shrink-0 overflow-hidden rounded-full">
-                          <Image
-                            alt="Bismit Panda"
-                            className="h-full w-full object-cover"
-                            height={80}
-                            src="/images/photo.png"
-                            width={80}
-                          />
-                        </div>
-                        <div>
-                          <h3 className="mb-2 font-bold text-xl">
-                            Bismit Panda
-                          </h3>
-                          <p className="text-muted-foreground">
-                            Full Stack Developer with a passion for typography
-                            and user experience. Writing about web development,
-                            design, and the intersection of technology and
-                            creativity.
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </HoverCardContent>
-                </HoverCard>
+                By <span className="font-medium">Bismit Panda</span>
               </div>
               <div className="grow" />
               <Popover>
@@ -171,11 +133,11 @@ export default async function Page({ params }: PageProps<"/blog/[slug]">) {
 
           <MobileTableOfContents headings={blog.headings} />
 
-          <div className="grid grid-cols-1 md:grid-cols-[1fr_250px] relative gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-[1fr_250px] relative gap-8">
             <div className="prose prose-lg min-w-0">
               <Mdx code={blog.html} />
             </div>
-            <DesktopTableOfContents headings={blog.headings} />
+            <BlogSidebar headings={blog.headings} />
           </div>
 
           {(!!blog.next || !!blog.prev) && (
