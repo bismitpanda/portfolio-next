@@ -193,6 +193,7 @@ export const iconMap: Record<
   "java-interface": C.JavaInterface,
   "angular-pipe": C.AngularPipe,
   prolog: C.Prolog,
+  knip: C.Knip,
   "json-schema": C.JsonSchema,
   folder_firebase_open: C.FolderFirebaseOpen,
   just: C.Just,

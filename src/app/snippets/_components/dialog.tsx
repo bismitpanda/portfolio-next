@@ -76,7 +76,7 @@ export function CodeSnippetDialog({ snippet, open }: CodeSnippetDialogProps) {
           </div>
         </div>
       </DialogTrigger>
-      <DialogContent className="w-4xl sm:max-w-none">
+      <DialogContent className="w-sm sm:w-xl md:w-2xl lg:w-4xl sm:max-w-none">
         <DialogHeader>
           <div className="flex items-center space-x-8">
             <DialogTitle className="text-2xl">{snippet.name}</DialogTitle>
@@ -92,7 +92,9 @@ export function CodeSnippetDialog({ snippet, open }: CodeSnippetDialogProps) {
               ))}
             </div>
           </div>
-          <p className="mt-2 text-muted-foreground">{snippet.description}</p>
+          <p className="mt-2 text-muted-foreground text-left">
+            {snippet.description}
+          </p>
         </DialogHeader>
         <Tabs
           className="mt-4"
@@ -118,7 +120,7 @@ export function CodeSnippetDialog({ snippet, open }: CodeSnippetDialogProps) {
               key={code.language}
               value={code.language}
             >
-              <div className="group max-h-[70vh] max-w-[848px] overflow-x-scroll overflow-y-scroll rounded-lg bg-[#121212]">
+              <div className="group max-h-[70vh] shrink max-w-[300px] sm:max-w-[528px] md:max-w-[624px] lg:max-w-[848px] overflow-x-scroll overflow-y-scroll min-w-0 w-fit rounded-lg bg-[#0b0e14]">
                 <div
                   className="whitespace-pre-wrap font-mono text-sm"
                   // biome-ignore lint/security/noDangerouslySetInnerHtml: html is generated from code block

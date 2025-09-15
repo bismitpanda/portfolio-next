@@ -415,6 +415,7 @@ export { default as Jupyter } from "./jupyter";
 export { default as Just } from "./just";
 export { default as Kdl } from "./kdl";
 export { default as Key } from "./key";
+export { default as Knip } from "./knip";
 export { default as Kotlin } from "./kotlin";
 export { default as Laravel } from "./laravel";
 export { default as Latex } from "./latex";

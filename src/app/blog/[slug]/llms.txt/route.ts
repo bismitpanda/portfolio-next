@@ -4,6 +4,12 @@ import { allPublishedBlogsByDate } from "@/lib/content";
 
 export const dynamic = "force-static";
 
+export function generateStaticParams() {
+  return allPublishedBlogsByDate.map((blog) => ({
+    slug: blog.slug,
+  }));
+}
+
 export async function GET(
   _: Request,
   { params }: RouteContext<"/blog/[slug]/llms.txt">,
@@ -14,8 +20,6 @@ export async function GET(
   if (!blog) {
     notFound();
   }
-
-  console.log(blog);
 
   const content = `---
 title: ${blog.title}

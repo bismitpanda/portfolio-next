@@ -97,10 +97,13 @@ const projectSchema = z.object({
   githubUrl: z.string().optional(),
   isFeatured: z.boolean().default(false),
   gallery: z
-    .object({
-      imageUrl: z.string(),
-      alt: z.string(),
-    })
+    .union([
+      z.object({
+        imageUrl: z.string(),
+        alt: z.string(),
+      }),
+      z.string(),
+    ])
     .array()
     .default([]),
 });
@@ -313,7 +316,7 @@ const snippets = defineCollection({
         ({ code }) =>
           codeToHtml(codeContent, {
             lang: code.language.toLowerCase(),
-            theme: "vitesse-dark",
+            theme: "ayu-dark",
             meta: {
               "data-show-line-numbers": "true",
             },
@@ -356,6 +359,11 @@ const projects = defineCollection({
 
     return {
       ...data,
+      gallery: data.gallery.map((image, index) =>
+        typeof image === "string"
+          ? { imageUrl: image, alt: `Gallery image ${index + 1}` }
+          : image,
+      ),
       slug: slug(data.title),
       blurredFeaturedImage,
     };

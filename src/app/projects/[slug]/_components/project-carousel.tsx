@@ -11,13 +11,10 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import type { Project } from "@/lib/content";
 import { cn } from "@/lib/utils";
 
-export function ProjectCarousel({
-  gallery,
-}: {
-  gallery: { imageUrl: string; alt: string }[];
-}) {
+export function ProjectCarousel({ gallery }: { gallery: Project["gallery"] }) {
   const plugin = useRef(Autoplay({ delay: 4000 }));
   const [api, setApi] = useState<CarouselApi>();
   const [current, setCurrent] = useState(0);
@@ -50,7 +47,7 @@ export function ProjectCarousel({
       >
         <CarouselContent>
           {gallery.map((image, index) => (
-            <CarouselItem key={`${index}-${image}`}>
+            <CarouselItem key={`${index}-${image.imageUrl}`}>
               <div className="aspect-video overflow-hidden rounded-lg">
                 <Image
                   src={image.imageUrl}
