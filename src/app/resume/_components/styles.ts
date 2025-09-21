@@ -40,7 +40,7 @@ export const styles = StyleSheet.create({
     textDecoration: "none",
   },
   section: {
-    marginBottom: 12,
+    marginBottom: 6,
   },
   sectionTitle: {
     fontSize: 12,

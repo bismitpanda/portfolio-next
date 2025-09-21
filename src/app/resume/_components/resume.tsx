@@ -20,10 +20,10 @@ export function Resume() {
       <Page size="LETTER" style={styles.page}>
         <HeaderSection data={user} />
         <AboutMeSection content={user.about} />
-        <ProjectsSection projects={user.projects} />
-        <ExperienceSection experience={user.experience} />
-        <TechnologiesSection technologies={user.technologies} />
         <EducationSection education={user.education} />
+        <TechnologiesSection technologies={user.technologies} />
+        <ExperienceSection experience={user.experience} />
+        <ProjectsSection projects={user.projects} />
         <AchievementsSection achievements={user.achievements} />
         <CertificationsSection certifications={user.certifications} />
       </Page>

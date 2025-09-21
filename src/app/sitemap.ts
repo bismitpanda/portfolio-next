@@ -45,7 +45,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const snippetUrls = allSnippetsByDate.flatMap((snippet) =>
     snippet.codes.map((code) => ({
-      url: `https://bismitpanda.com/snippets/${snippet.slug}/${code.codeFile}`,
+      url: `https://bismitpanda.com/snippets/${snippet.slug}/${code.language}`,
       lastModified: snippet.date,
       changeFrequency: "weekly" as const,
       priority: 0.5,

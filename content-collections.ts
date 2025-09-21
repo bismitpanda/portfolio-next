@@ -73,13 +73,9 @@ const blogSchema = z.object({
 const snippetSchema = z.object({
   name: z.string(),
   description: z.string(),
-  codes: z.array(
-    z.object({
-      language: z.string(),
-      codeFile: z.string(),
-    }),
-  ),
+  codes: z.string().array(),
   date: z.coerce.date(),
+  tags: z.string().array(),
 });
 
 const projectSchema = z.object({
@@ -306,16 +302,13 @@ const snippets = defineCollection({
 
     for (const code of data.codes) {
       const codeContent = (
-        await readFile(
-          `content/snippets/files/${snippetSlug}/${code.codeFile}`,
-          "utf-8",
-        )
+        await readFile(`content/snippets/files/${snippetSlug}/${code}`, "utf-8")
       ).trim();
       const html = await cache(
         { code },
         ({ code }) =>
           codeToHtml(codeContent, {
-            lang: code.language.toLowerCase(),
+            lang: code.toLowerCase(),
             theme: "ayu-dark",
             meta: {
               "data-show-line-numbers": "true",
@@ -325,8 +318,8 @@ const snippets = defineCollection({
       );
       codes.push({
         html,
-        code: codeContent,
-        ...code,
+        content: codeContent,
+        language: code,
       });
     }
 

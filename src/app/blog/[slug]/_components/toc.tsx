@@ -48,7 +48,7 @@ export function DesktopTableOfContents({ headings }: TableOfContentsProps) {
   const activeId = useIntersectionObserver(headings);
 
   return (
-    <div className="overflow-y-auto border rounded-lg p-4">
+    <div className="overflow-y-auto border border-border rounded-lg bg-card p-4">
       <p className="text-xl font-bold mb-2">On this page</p>
       <ul className="space-y-1">
         {headings.map((heading) => (
