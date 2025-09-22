@@ -21,7 +21,7 @@ export function EducationSection() {
               >
                 <div className="mb-4 flex flex-col md:flex-row md:items-start md:justify-between">
                   <div>
-                    <div className="mb-1 font-bold text-2xl transition-colors group-hover:text-primary">
+                    <div className="mb-2 font-bold text-2xl transition-colors group-hover:text-primary flex items-center gap-6">
                       {education.institution}
                       {education.isOnGoing && (
                         <span className="relative flex items-center justify-center">

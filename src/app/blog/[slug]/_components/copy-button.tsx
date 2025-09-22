@@ -20,7 +20,7 @@ export function CopyButton({
 
   return (
     <Button
-      className={cn("absolute top-0 right-0 z-20 cursor-pointer", className)}
+      className={cn("cursor-pointer", className)}
       onClick={handleCopy}
       size="icon"
       variant="ghost"

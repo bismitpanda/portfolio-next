@@ -27,7 +27,7 @@ export function ExperienceSection() {
                 >
                   <div className="mb-4 flex flex-col md:flex-row md:items-start md:justify-between">
                     <div>
-                      <div className="mb-2 font-bold text-2xl flex items-center gap-6">
+                      <div className="mb-2 font-bold text-2xl transition-colors group-hover:text-primary flex items-center gap-6">
                         {exp.company}
                         {exp.isOnGoing && (
                           <span className="relative flex items-center justify-center">

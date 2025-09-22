@@ -53,16 +53,15 @@ export function Codeblock({
 
   return (
     <figure className="mt-6 w-full overflow-hidden rounded-lg">
-      <figcaption className="flex items-center justify-between rounded-t-lg border-b border-b-zinc-700 bg-muted p-2 px-4 font-mono font-semibold text-muted-foreground text-xs leading-normal">
-        {filename && <p className="mb-0">{filename}</p>}
-        <p>{lang}</p>
+      <figcaption className="flex items-center justify-between rounded-t-lg border-b border-b-zinc-700 bg-muted p-1 px-4 font-mono font-semibold text-muted-foreground text-xs leading-normal">
+        <p>{filename ?? lang}</p>
+        <CopyButton code={code} />
       </figcaption>
 
       <div className="relative">
-        <CopyButton code={code} />
         <pre
           className={cn(
-            "relative mb-4 max-h-[650px] overflow-x-auto rounded-b-lg px-2 py-3",
+            "relative max-h-[650px] overflow-x-auto rounded-b-lg px-2 py-3",
             className,
           )}
           {...props}
