@@ -15,7 +15,7 @@ export function SkillsMarquee() {
       <Marquee className="mt-18 gap-12 [--gap:3rem]" pauseOnHover={true}>
         {skills.map((skill) => (
           <Tooltip key={skill.label}>
-            <TooltipTrigger asChild>
+            <TooltipTrigger asChild className="hover:scale-140 transition-all">
               <Link
                 href={skill.url}
                 rel="nofollow noopener noreferrer"
