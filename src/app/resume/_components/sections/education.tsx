@@ -13,9 +13,16 @@ export function EducationSection({ education }: { education: Education[] }) {
           style={styles.entryContainer}
         >
           <View style={styles.entryHeader}>
-            <Text style={styles.entryTitle}>
-              {edu.institution}, {edu.title}
-            </Text>
+            <View style={styles.educationHeader}>
+              <Text style={styles.entryTitle}>{edu.title}</Text>
+              <Text style={styles.educationResults}>
+                (
+                {edu.results
+                  .map((result) => `${result.name}: ${result.score}`)
+                  .join(", ")}
+                )
+              </Text>
+            </View>
             <Text style={styles.entryDate}>
               {formatDate(edu.startDate, "MMM yyyy")} -{" "}
               {edu.endDate ? formatDate(edu.endDate, "MMM yyyy") : "Present"}
@@ -23,24 +30,8 @@ export function EducationSection({ education }: { education: Education[] }) {
           </View>
           <View style={styles.educationDetails}>
             <View style={styles.educationItem}>
-              <Text>{edu.description}</Text>
+              <Text>{edu.institution}</Text>
             </View>
-            {edu.achievements && (
-              <View style={styles.educationItem}>
-                <Text style={styles.educationLabel}>Results: </Text>
-                <View style={styles.highlightsList}>
-                  {edu.achievements.map((highlight, index) => (
-                    <View
-                      key={`${index}-${highlight}`}
-                      style={styles.highlight}
-                    >
-                      <Text style={styles.bullet}>•</Text>
-                      <Text style={styles.highlightText}>{highlight}</Text>
-                    </View>
-                  ))}
-                </View>
-              </View>
-            )}
           </View>
         </View>
       ))}

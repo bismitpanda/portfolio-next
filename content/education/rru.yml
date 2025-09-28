@@ -2,5 +2,6 @@ title: B.Tech in Computer Science and Engineering
 institution: Rashtriya Raksha University
 startDate: 2022-08-01
 description: B.Tech in Computer Science and Engineering with specialization in Cyber Security
-achievements:
-  - CGPA 7.8
+results:
+  - name: CGPA
+    score: "7.8"

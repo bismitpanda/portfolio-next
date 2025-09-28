@@ -3,6 +3,8 @@ institution: D.A.V. Public School
 startDate: 2009-07-01
 endDate: 2022-05-01
 description: Completed schooling from D.A.V. Public School, Bhubaneswar.
-achievements:
-  - Secured 96.8% in CBSE 10th Boards
-  - Secured 92.4% in CBSE 12th Boards
+results:
+  - name: CBSE 10th
+    score: 96.8%
+  - name: CBSE 12th
+    score: 92.4%

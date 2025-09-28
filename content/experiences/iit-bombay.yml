@@ -1,8 +1,7 @@
 company: IIT Bombay
 description: >
   I worked on the development of a web application for the IIT Bombay which was a medical
-  calculator for doctors to calculate the dosage of the medicine. I was responsible for the
-  development of the frontend in React and backend in Django.
+  calculator for doctors. I was responsible for the development of the frontend in React and backend in Django.
 highlights:
   - Mentored 4+ students in building a Medical Calculator application to assist doctors with complex calculations
   - Led frontend and backend architecture design, ensuring user-friendliness and reliability

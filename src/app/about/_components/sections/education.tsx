@@ -45,12 +45,11 @@ export function EducationSection() {
                     </p>
                   </div>
                 </div>
-                <p className="mb-4 text-lg text-muted-foreground leading-relaxed">
-                  {education.description}
-                </p>
                 <ul className="list-inside list-disc space-y-1 text-muted-foreground">
-                  {education.achievements.map((achievement) => (
-                    <li key={achievement}>{achievement}</li>
+                  {education.results.map((result) => (
+                    <li key={result.name}>
+                      {result.name}: {result.score}
+                    </li>
                   ))}
                 </ul>
               </div>

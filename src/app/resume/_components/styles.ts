@@ -1,8 +1,36 @@
-import { StyleSheet } from "@react-pdf/renderer";
+import { Font, StyleSheet } from "@react-pdf/renderer";
+
+Font.register({
+  family: "Cambria",
+  src: "assets/fonts/Cambria.ttf",
+  fontStyle: "normal",
+  fontWeight: "normal",
+});
+
+Font.register({
+  family: "Cambria",
+  src: "assets/fonts/Cambria Bold 700.ttf",
+  fontStyle: "normal",
+  fontWeight: "bold",
+});
+
+Font.register({
+  family: "Cambria",
+  src: "assets/fonts/Cambria Italic 400.ttf",
+  fontStyle: "italic",
+  fontWeight: "normal",
+});
+
+Font.register({
+  family: "Cambria",
+  src: "assets/fonts/Cambria Bold Italic 700.ttf",
+  fontStyle: "italic",
+  fontWeight: "bold",
+});
 
 export const styles = StyleSheet.create({
   page: {
-    fontFamily: "Helvetica",
+    fontFamily: "Cambria",
     fontSize: 10,
     lineHeight: 1.5,
     paddingTop: 25,
@@ -13,12 +41,12 @@ export const styles = StyleSheet.create({
   },
   header: {
     textAlign: "center",
-    marginBottom: 15,
+    marginBottom: 12,
   },
   name: {
     fontSize: 20,
-    fontWeight: "medium",
-    marginBottom: 20,
+    fontWeight: "normal",
+    marginBottom: 16,
     color: "#000000",
   },
   contactInfo: {
@@ -29,10 +57,10 @@ export const styles = StyleSheet.create({
     flexWrap: "wrap",
   },
   contactItem: {
-    marginHorizontal: 5,
+    marginHorizontal: 4,
   },
   separator: {
-    marginHorizontal: 5,
+    marginHorizontal: 4,
     color: "#000000",
   },
   link: {
@@ -40,12 +68,12 @@ export const styles = StyleSheet.create({
     textDecoration: "none",
   },
   section: {
-    marginBottom: 6,
+    marginBottom: 4,
   },
   sectionTitle: {
     fontSize: 12,
     fontWeight: "bold",
-    marginBottom: 6,
+    marginBottom: 4,
     paddingBottom: 1,
     borderBottomWidth: 1,
     borderBottomColor: "#000000",
@@ -54,17 +82,17 @@ export const styles = StyleSheet.create({
   paragraph: {
     fontSize: 10,
     lineHeight: 1.4,
-    marginBottom: 8,
+    marginBottom: 6,
     textAlign: "justify",
   },
   entryContainer: {
-    marginBottom: 12,
+    marginBottom: 6,
   },
   entryHeader: {
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "flex-start",
-    marginBottom: 4,
+    marginBottom: 2,
   },
   entryTitle: {
     fontSize: 10,
@@ -79,13 +107,13 @@ export const styles = StyleSheet.create({
   entrySubtitle: {
     fontSize: 10,
     fontStyle: "italic",
-    marginBottom: 4,
+    marginBottom: 2,
   },
   projectHeader: {
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "flex-start",
-    marginBottom: 4,
+    marginBottom: 2,
   },
   projectTitle: {
     fontSize: 10,
@@ -101,12 +129,12 @@ export const styles = StyleSheet.create({
   },
   highlightsList: {
     marginLeft: 10,
-    marginBottom: 8,
+    marginBottom: 6,
   },
   highlight: {
     fontSize: 10,
     lineHeight: 1.4,
-    marginBottom: 4,
+    marginBottom: 2,
     flexDirection: "row",
     textAlign: "justify",
   },
@@ -119,7 +147,7 @@ export const styles = StyleSheet.create({
     flex: 1,
   },
   toolsSection: {
-    marginTop: 4,
+    marginTop: 2,
     fontSize: 10,
     fontStyle: "italic",
   },
@@ -127,7 +155,7 @@ export const styles = StyleSheet.create({
     fontWeight: "bold",
   },
   techSection: {
-    marginBottom: 8,
+    marginBottom: 6,
   },
   techLabel: {
     fontSize: 10,
@@ -140,24 +168,31 @@ export const styles = StyleSheet.create({
   },
   techRow: {
     flexDirection: "row",
-    marginBottom: 8,
+    marginBottom: 6,
   },
   educationDetails: {
     marginLeft: 10,
-    marginTop: 4,
+    marginTop: 2,
   },
   educationItem: {
     fontSize: 10,
-    marginBottom: 2,
+    marginBottom: 1,
     flexDirection: "column",
+  },
+  educationResults: {
+    fontStyle: "italic",
+    flex: 1,
   },
   educationLabel: {
     fontWeight: "bold",
-    marginRight: 5,
+  },
+  educationHeader: {
+    flexDirection: "row",
+    flex: 1,
   },
   techBreakdown: {
     marginLeft: 10,
-    marginTop: 8,
+    marginTop: 6,
   },
   techBreakdownTitle: {
     fontSize: 10,
@@ -171,13 +206,13 @@ export const styles = StyleSheet.create({
   },
   techCategoryLabel: {
     fontWeight: "bold",
-    marginRight: 5,
+    marginRight: 4,
   },
   achievementHeader: {
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "flex-start",
-    marginBottom: 4,
+    marginBottom: 2,
   },
   achievementTitle: {
     fontSize: 10,
@@ -187,7 +222,7 @@ export const styles = StyleSheet.create({
   achievementOrg: {
     fontSize: 10,
     fontStyle: "italic",
-    marginBottom: 4,
+    marginBottom: 2,
   },
   achievementDate: {
     fontSize: 10,
@@ -195,13 +230,13 @@ export const styles = StyleSheet.create({
     minWidth: 80,
   },
   smallSpacing: {
-    marginBottom: 4,
+    marginBottom: 2,
   },
   mediumSpacing: {
-    marginBottom: 8,
+    marginBottom: 6,
   },
   largeSpacing: {
-    marginBottom: 12,
+    marginBottom: 10,
   },
   bold: {
     fontWeight: "bold",

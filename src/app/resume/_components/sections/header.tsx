@@ -29,21 +29,24 @@ export function HeaderSection({ data }: { data: User }) {
           src={data.socials.github.url}
           style={[styles.contactItem, styles.link]}
         >
-          <Text>{data.socials.github.label}</Text>
+          {/* <Text>{data.socials.github.label}</Text> */}
+          <Text>GitHub</Text>
         </Link>
         <Text style={styles.separator}>|</Text>
         <Link
           src={data.socials.linkedin.url}
           style={[styles.contactItem, styles.link]}
         >
-          <Text>{data.socials.linkedin.label}</Text>
+          {/* <Text>{data.socials.linkedin.label}</Text> */}
+          <Text>LinkedIn</Text>
         </Link>
         <Text style={styles.separator}>|</Text>
         <Link
           src={data.socials.website.url}
           style={[styles.contactItem, styles.link]}
         >
-          <Text>{data.socials.website.label}</Text>
+          {/* <Text>{data.socials.website.label}</Text> */}
+          <Text>Website</Text>
         </Link>
       </View>
     </View>

@@ -118,8 +118,12 @@ const educationSchema = z.object({
   institution: z.string(),
   startDate: z.coerce.date(),
   endDate: z.coerce.date().optional(),
-  description: z.string(),
-  achievements: z.string().array(),
+  results: z
+    .object({
+      name: z.string(),
+      score: z.string(),
+    })
+    .array(),
 });
 
 const certificationSchema = z.object({

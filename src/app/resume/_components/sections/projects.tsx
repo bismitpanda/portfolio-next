@@ -2,6 +2,8 @@ import { Link, Text, View } from "@react-pdf/renderer";
 import type { Project } from "@/lib/content";
 import { styles } from "../styles";
 
+// TODO: Move the tech used to below the title and make it in one line
+
 export function ProjectsSection({ projects }: { projects: Project[] }) {
   return (
     <View style={styles.section}>
