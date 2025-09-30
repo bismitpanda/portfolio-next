@@ -6,7 +6,11 @@ import { styles } from "../styles";
 
 export function ProjectsSection({ projects }: { projects: Project[] }) {
   return (
-    <View style={styles.section}>
+    <View
+      style={styles.section}
+      // @ts-expect-error: Why the error?
+      bookmark="Projects"
+    >
       <Text style={styles.sectionTitle}>Projects</Text>
       {projects.map((project) => (
         <View key={project.slug} style={styles.entryContainer}>

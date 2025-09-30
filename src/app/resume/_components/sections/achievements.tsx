@@ -9,7 +9,11 @@ export function AchievementsSection({
   achievements: Achievement[];
 }) {
   return (
-    <View style={styles.section}>
+    <View
+      style={styles.section}
+      // @ts-expect-error: Why the error?
+      bookmark="Achievements"
+    >
       <Text style={styles.sectionTitle}>Achievements</Text>
       {achievements.map((achievement, index) => (
         <View

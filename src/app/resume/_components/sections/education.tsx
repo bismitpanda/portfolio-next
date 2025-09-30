@@ -5,7 +5,11 @@ import { styles } from "../styles";
 
 export function EducationSection({ education }: { education: Education[] }) {
   return (
-    <View style={styles.section}>
+    <View
+      style={styles.section}
+      // @ts-expect-error: Why the error?
+      bookmark="Education"
+    >
       <Text style={styles.sectionTitle}>Education</Text>
       {education.map((edu, index) => (
         <View

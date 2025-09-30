@@ -9,7 +9,11 @@ export function CertificationsSection({
   certifications: Certification[];
 }) {
   return (
-    <View style={styles.section}>
+    <View
+      style={styles.section}
+      // @ts-expect-error: Why the error?
+      bookmark="Certifications"
+    >
       <Text style={styles.sectionTitle}>Certifications</Text>
       {certifications.map((cert, index) => (
         <View

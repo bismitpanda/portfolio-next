@@ -8,7 +8,11 @@ export function TechnologiesSection({
   technologies: User["technologies"];
 }) {
   return (
-    <View style={styles.section}>
+    <View
+      style={styles.section}
+      // @ts-expect-error: Why the error?
+      bookmark="Technologies"
+    >
       <Text style={styles.sectionTitle}>Technologies</Text>
       <View style={styles.techRow}>
         <Text style={styles.techLabel}>Languages: </Text>

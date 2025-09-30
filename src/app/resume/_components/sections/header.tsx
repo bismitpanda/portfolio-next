@@ -4,7 +4,11 @@ import { styles } from "../styles";
 
 export function HeaderSection({ data }: { data: User }) {
   return (
-    <View style={styles.header}>
+    <View
+      style={styles.header}
+      // @ts-expect-error: Why the error?
+      bookmark="Header"
+    >
       <Text style={styles.name}>
         {data.firstName} {data.lastName}
       </Text>
