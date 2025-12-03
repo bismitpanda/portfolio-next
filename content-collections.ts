@@ -68,6 +68,7 @@ const blogSchema = z.object({
   image: z.string(),
   draft: z.boolean().default(false),
   previous: z.string().optional(),
+  content: z.string(),
 });
 
 const snippetSchema = z.object({

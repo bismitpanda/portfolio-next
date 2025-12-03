@@ -11,9 +11,6 @@ const nextConfig: NextConfig = {
   images: {
     remotePatterns: [
       {
-        hostname: "eb5loan.com",
-      },
-      {
         hostname: "openadmits.com",
       },
       {
@@ -32,4 +29,4 @@ const nextConfig: NextConfig = {
   },
 };
 
-export default withBundleAnalyzer(withContentCollections(nextConfig));
+export default withContentCollections(withBundleAnalyzer(nextConfig));

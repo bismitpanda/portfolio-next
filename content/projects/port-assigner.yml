@@ -1,0 +1,23 @@
+challenge: >
+  Managing port assignments across multiple development projects to prevent conflicts and maintain
+  separate session tokens, while providing an intuitive CLI interface for developers.
+client: Bismit Panda (Me)
+description: >
+  A professional CLI tool for managing port assignments across multiple projects. Keep your
+  development environment organized by assigning unique ports to each project and service,
+  preventing conflicts and maintaining separate session tokens. Supports multiple services per
+  project, port ranges, conflict detection, and automatic environment file injection.
+featuredImage: /images/projects/port-assigner/featured-image.png
+githubUrl: https://github.com/bismitpanda/port-assigner
+projectType: github
+role: Developer
+solution: >
+  Built a Rust-based CLI tool with a clean command structure and JSON-based configuration storage.
+  Implemented port conflict detection, sequential assignment within ranges, and automatic .env file
+  injection. Designed preset system for different service types to streamline workflow.
+technologies:
+  - Rust
+  - CLI
+title: Port Assigner
+year: 2025
+

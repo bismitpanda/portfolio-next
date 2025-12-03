@@ -1,0 +1,45 @@
+challenge: >
+  Building a comprehensive planning and task management tool that provides an intuitive interface
+  for organizing projects, tasks, and workflows while maintaining flexibility and ease of use.
+client: Bismit Panda (Me)
+description: >
+  Planr is a modern planning and task management application designed to help users organize
+  their projects and workflows efficiently. The tool provides an intuitive interface for creating,
+  managing, and tracking tasks across different projects and contexts.
+featuredImage: /images/projects/planr/featured-image.png
+githubUrl: https://github.com/bismitpanda/planr
+isFeatured: true
+projectType: github
+role: Full-stack Developer
+solution: >
+  Developed a full-stack application with a clean, modern UI and robust backend architecture.
+  Implemented efficient data structures and algorithms for task management, ensuring fast performance
+  and scalability. Designed an intuitive user experience that balances functionality with simplicity.
+technologies:
+  - Bun
+  - TypeScript
+  - Next.js
+  - React
+  - Tailwind CSS
+  - Shadcn/ui
+  - Hono
+  - tRPC
+  - Mastra
+  - PostgreSQL
+  - Prisma
+  - Qdrant
+  - ClickHouse
+  - Kafka
+  - KafkaJS
+  - Redis
+  - MinIO
+  - better-auth
+  - OpenFGA
+  - Resend
+  - Zod
+  - Tree-sitter
+  - Discord.js
+  - Slack Bolt
+title: Planr
+year: 2025
+

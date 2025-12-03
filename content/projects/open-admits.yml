@@ -7,7 +7,7 @@ description: >
   Open Admits as a high-touch Ivy League admissions consultancy.
   Showcases AI-powered evaluations, mentorship from elite alumni, strategic extracurricular
   and research planning, mock interviews, and task tracking—all underpinned by insightful blog content.
-isFeatured: true
+isFeatured: false
 featuredImage: https://openadmits.com/opengraph-image.png
 liveUrl: https://openadmits.com
 projectType: hosted
