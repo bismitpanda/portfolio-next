@@ -8,6 +8,13 @@ image: /images/blogs/resume-generator.png
 
 While building my personal site, I wanted a smarter way to handle resumes, something version-controlled, customizable, and always up-to-date. That's when I decided to build a dynamic resume generator using Next.js and React PDF.
 
+## Prerequisites
+
+Before diving in, you should be familiar with:
+- **Next.js** - Understanding of API routes and the App Router
+- **React** - Basic component composition and props
+- **TypeScript** - Type definitions and interfaces
+
 ## The Problem
 
 Managing resumes is a pain. You have different versions for different roles, formatting gets messed up when you convert between file types, and keeping everything consistent across updates is tedious. I wanted something that would let me maintain my resume data in a structured format and generate professional PDFs on demand.
@@ -116,12 +123,12 @@ The PDF generation happens through a Next.js API route at `/resume`. When you hi
 
 ```tsx filename=app/resume/route.tsx
 export async function GET() {
-  const buffer = await renderToBuffer(<Resume />);
+  const buffer = await renderToBuffer(<Resume />); // [!code highlight]
 
   return new NextResponse(buffer, {
     headers: {
-      "Content-Type": "application/pdf",
-      "Content-Disposition": "inline; filename=resume.pdf",
+      "Content-Type": "application/pdf", // [!code highlight]
+      "Content-Disposition": "inline; filename=resume.pdf", // [!code highlight]
       "Content-Length": buffer.length.toString(),
     },
   });
@@ -159,8 +166,8 @@ The `Resume` component is where the core rendering happens. It's a React PDF doc
 ```tsx filename=app/resume/_components/resume.tsx
 export function Resume() {
   return (
-    <Document title="Bismit Panda's Resume" author="Bismit Panda" subject="Resume">
-      <Page size="LETTER" style={styles.page}>
+    <Document title="Bismit Panda's Resume" author="Bismit Panda" subject="Resume"> // [!code highlight]
+      <Page size="LETTER" style={styles.page}> // [!code highlight]
         <HeaderSection data={resumeData.personalInfo} />
         <AboutMeSection content={resumeData.aboutMe} />
         <ProjectsSection projects={resumeData.projects} />
@@ -297,7 +304,11 @@ The foundation is solid though. Having my resume as code means I can iterate qui
 
 ## Code
 
-- [Resume Generator](https://github.com/bismitpanda/portfolio-next/tree/main/src/app/resume/route.tsx)
+View the complete implementation on GitHub:
+
+- [Resume Generator Route](https://github.com/bismitpanda/portfolio-next/tree/main/src/app/resume/route.tsx)
 - [Resume Data](https://github.com/bismitpanda/portfolio-next/blob/main/src/lib/resume-data.ts)
 - [Resume Components](https://github.com/bismitpanda/portfolio-next/tree/main/src/app/resume/_components)
 - [Resume Styles](https://github.com/bismitpanda/portfolio-next/blob/main/src/app/resume/_components/styles.ts)
+
+Or browse the entire repository: <GithubLink owner="bismitpanda" repo="portfolio-next" />

@@ -1,3 +1,4 @@
+import type { Route } from "next";
 import Link from "next/link";
 import { Marquee } from "@/components/magicui/marquee";
 import {
@@ -10,14 +11,14 @@ import { skills } from "@/lib/constants";
 export function SkillsMarquee() {
   return (
     <div className="relative">
-      <div className="pointer-events-none absolute inset-0 z-20 bg-gradient-to-r from-background to-50% to-transparent" />
-      <div className="pointer-events-none absolute inset-0 z-20 bg-gradient-to-l from-background to-50% to-transparent" />
+      <div className="pointer-events-none absolute inset-0 z-20 bg-linear-to-r from-background to-50% to-transparent" />
+      <div className="pointer-events-none absolute inset-0 z-20 bg-linear-to-l from-background to-50% to-transparent" />
       <Marquee className="mt-18 gap-12 [--gap:3rem]" pauseOnHover={true}>
         {skills.map((skill) => (
           <Tooltip key={skill.label}>
             <TooltipTrigger asChild className="hover:scale-140 transition-all">
               <Link
-                href={skill.url}
+                href={skill.url as Route}
                 rel="nofollow noopener noreferrer"
                 target="_blank"
               >

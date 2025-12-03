@@ -1,3 +1,4 @@
+import type { Route } from "next";
 import Link from "next/link";
 import { skills } from "@/lib/constants";
 
@@ -20,7 +21,7 @@ export function SkillsSection() {
                     {(index + 1).toString().padStart(2, "0")}
                   </span>
                   <Link
-                    href={skill.url}
+                    href={skill.url as Route}
                     className="flex items-center gap-3 text-xl transition-transform group-hover:translate-x-2"
                   >
                     <skill.icon className="size-5" />

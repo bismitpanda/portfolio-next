@@ -27,6 +27,7 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  typedRoutes: true,
 };
 
 export default withContentCollections(withBundleAnalyzer(nextConfig));

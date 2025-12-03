@@ -1,3 +1,4 @@
+import type { Route } from "next";
 import Link from "next/link";
 import { Logo } from "@/components/icons/logo";
 import { footerRoutes, socialRoutes } from "../routes";
@@ -28,7 +29,7 @@ export function Footer() {
                 <li key={route.path}>
                   <Link
                     className="text-muted-foreground transition-colors hover:text-foreground"
-                    href={route.path}
+                    href={route.path as Route}
                     rel={
                       route.external
                         ? "nofollow noopener noreferrer"
@@ -50,7 +51,7 @@ export function Footer() {
                 <Link
                   aria-label={title}
                   className="text-muted-foreground transition-colors hover:text-foreground"
-                  href={url}
+                  href={url as Route}
                   rel="nofollow noopener noreferrer"
                   target="_blank"
                   key={title}

@@ -19,7 +19,7 @@ export function MobileTableOfContents({ headings }: TableOfContentsProps) {
       <div className="max-h-[320px] overflow-y-auto pr-2">
         <ul className="space-y-1">
           {headings.map((heading) => (
-            <li className="mb-1" key={heading.slug}>
+            <li key={heading.slug}>
               <Link
                 className="flex items-center truncate py-1 text-lg text-muted-foreground transition-colors hover:text-primary"
                 href={`#${heading.slug}`}
@@ -48,11 +48,11 @@ export function DesktopTableOfContents({ headings }: TableOfContentsProps) {
   const activeId = useIntersectionObserver(headings);
 
   return (
-    <div className="overflow-y-auto border border-border rounded-lg bg-card p-4">
+    <div className="relative overflow-y-auto border border-border rounded-lg bg-card p-4 max-h-100">
       <p className="text-xl font-bold mb-2">On this page</p>
       <ul className="space-y-1">
         {headings.map((heading) => (
-          <li className="mb-1" key={heading.slug}>
+          <li key={heading.slug}>
             <Link
               className={cn(
                 "flex items-center truncate py-1 text-lg transition-colors hover:text-primary",
@@ -82,6 +82,7 @@ export function DesktopTableOfContents({ headings }: TableOfContentsProps) {
           </li>
         ))}
       </ul>
+      <div className="sticky -bottom-4 -mx-4 left-0 right-0 rounded-b-lg h-12 bg-linear-to-t from-card to-transparent pointer-events-none" />
     </div>
   );
 }

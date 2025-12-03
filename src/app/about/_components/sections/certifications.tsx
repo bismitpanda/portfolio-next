@@ -1,5 +1,6 @@
 import { addMonths, formatDate } from "date-fns";
 import { ArrowRight } from "lucide-react";
+import type { Route } from "next";
 import Link from "next/link";
 import { allCertificationsByDate } from "@/lib/content";
 
@@ -37,7 +38,7 @@ export function CertificationsSection() {
                 <div className="flex flex-row justify-between gap-2">
                   <Link
                     className="flex items-center gap-1.5 text-primary text-sm transition-all hover:gap-2"
-                    href={certification.link}
+                    href={certification.link as Route}
                     rel="noopener noreferrer"
                     target="_blank"
                   >
@@ -47,7 +48,7 @@ export function CertificationsSection() {
                   {certification.verificationLink && (
                     <Link
                       className="text-muted-foreground text-sm transition-colors hover:text-primary"
-                      href={certification.verificationLink}
+                      href={certification.verificationLink as Route}
                       rel="noopener noreferrer"
                       target="_blank"
                     >

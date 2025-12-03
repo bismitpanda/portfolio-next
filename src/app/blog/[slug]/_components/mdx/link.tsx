@@ -1,3 +1,4 @@
+import type { Route } from "next";
 import NextLink from "next/link";
 import { cn } from "@/lib/utils";
 
@@ -13,6 +14,7 @@ export function Link({
         className={cn("underline underline-offset-4", className)}
         target="_blank"
         {...props}
+        href={props.href as Route}
       />
     );
   } catch {
@@ -20,6 +22,7 @@ export function Link({
       <NextLink
         className={cn("underline underline-offset-4", className)}
         {...props}
+        href={props.href as Route}
       />
     );
   }

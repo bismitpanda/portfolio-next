@@ -2,6 +2,7 @@
 
 import { Menu, MoveUpRight, X } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
+import type { Route } from "next";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
@@ -31,14 +32,14 @@ export function Navigation() {
             <Link
               className={cn(
                 "text-lg transition-colors",
-                route.type !== "icon" ? "link-underline" : "!mr-4",
+                route.type !== "icon" ? "link-underline" : "mr-4!",
                 pathname === route.path
                   ? "text-foreground"
                   : "text-muted-foreground hover:text-foreground",
                 route.external &&
                   "group flex flex-row items-center justify-between gap-x-1",
               )}
-              href={route.path}
+              href={route.path as Route}
               key={route.path}
               rel={route.external ? "noopener noreferrer" : undefined}
               target={route.external ? "_blank" : undefined}
@@ -87,7 +88,7 @@ export function Navigation() {
                       ? "text-foreground"
                       : "text-muted-foreground hover:text-foreground",
                   )}
-                  href={route.path}
+                  href={route.path as Route}
                   key={route.path}
                   onClick={() => setIsMenuOpen(false)}
                   rel={route.external ? "noopener noreferrer" : undefined}

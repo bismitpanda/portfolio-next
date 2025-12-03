@@ -1,0 +1,214 @@
+---
+alwaysApply: true
+---
+
+# Technical Blog Writing Guidelines
+
+## Research Requirements
+
+- **ALWAYS perform a comprehensive web search before writing any technical blog**
+- Research current best practices, recent updates, and relevant documentation
+- Verify technical accuracy of concepts, APIs, and implementations
+- Check for recent changes or deprecations in technologies being discussed
+- Gather real-world examples and use cases from authoritative sources
+- Ensure information is up-to-date and reflects current state of the technology
+
+## Writing Style Guidelines
+
+- Use an **educational tone** with clear explanations
+- Apply **adaptive technical depth**: explain concepts when needed, assume knowledge when appropriate
+- Maintain a **conversational yet professional voice**
+- Write for clarity and accessibility while maintaining technical accuracy
+- Use active voice when possible
+- Break down complex concepts into digestible sections
+
+## Structure Requirements
+
+- Use a **flexible structure** based on content needs
+- **Always include** an introduction/context section that sets up the topic
+- **Mention prerequisites/assumptions upfront** - clearly state what readers should know beforehand
+- Include relevant sections as needed:
+  - Problem statement
+  - Solution overview
+  - Implementation details
+  - What I learned / Key takeaways
+  - Next steps / Future improvements
+  - Conclusion
+- Organize content logically with clear headings (h2, h3, h4)
+- Use transitions between sections for better flow
+
+## Code Examples
+
+- Provide a **balanced mix of code and explanations**
+- Use filename annotations in code blocks: ` ```ts filename=path/to/file.ts `
+- Highlight important lines when relevant using:
+  - `// [!code highlight]` - highlights a line
+  - `// [!code focus]` - focuses attention on a line
+  - `// [!code ++]` - indicates added code
+  - `// [!code --]` - indicates removed code
+  - `// [!code error]` - marks an error
+  - `// [!code warning]` - marks a warning
+- Use `no-line-numbers` meta when appropriate: ` ```ts no-line-numbers `
+- Always provide context before and after code snippets - explain what the code does
+- Include complete, runnable examples when possible
+- Use proper syntax highlighting for the language
+
+## MDX Components Usage
+
+### Callout
+Use for tips, warnings, and important notes.
+
+- **Variants**: `default`, `info`, `success`, `warning`, `error`
+- **Icons**: Any lucide-react icon name (e.g., `info`, `circle-check-big`, `triangle-alert`, `skull`, `alert-circle`)
+- **Example**: 
+  ```mdx
+  <Callout title="Note" icon="info" variant="info">
+    This is an important note about the implementation.
+  </Callout>
+  ```
+
+### FileTree
+Use to show project structure when it adds value to understanding the codebase.
+
+- **Props**: 
+  - `tree` (array of File/Folder objects)
+  - `defaultOpen` (boolean, optional)
+- **Example**: 
+  ```mdx
+  <FileTree
+    tree={[
+      { type: "folder", name: "src", children: [
+        { type: "file", name: "index.ts" }
+      ]}
+    ]}
+    defaultOpen
+  />
+  ```
+
+### Codeblock
+Standard markdown code blocks with enhancements.
+
+- **Special languages**:
+  - `mermaid` - for diagrams and flowcharts
+  - `shell` - for terminal commands with special formatting
+  - `math` - for mathematical expressions
+- **Shell tabs**: Use ` ```shell tabs=pnpm,npm,yarn separator=--- ` for multiple package manager examples
+- **Filename**: Always include filename when showing file-specific code: ` ```ts filename=path/to/file.ts `
+- **Line highlighting**: Use `// [!code highlight]` and other annotations as needed
+
+### GithubLink
+Link to GitHub profiles or repositories.
+
+- **Example**: 
+  ```mdx
+  <GithubLink owner="bismitpanda" repo="portfolio-next" />
+  ```
+- Use for linking to relevant repositories or code examples
+
+### Kbd
+Display keyboard shortcuts with proper formatting.
+
+- **Example**: 
+  ```mdx
+  Use <Kbd>Ctrl+Z</Kbd> or <Kbd>Cmd+Z</Kbd> to undo.
+  ```
+- Automatically converts common shortcuts to symbols (Cmd → ⌘, Ctrl → ^, etc.)
+
+### EmbedBlog
+Link to other blog posts with a styled link.
+
+- **Example**: 
+  ```mdx
+  Check out this <EmbedBlog fileName="resume-generator.mdx" placeholder="blog post" /> for more details.
+  ```
+
+### Accordion
+For collapsible content sections.
+
+- Use `Accordion`, `AccordionItem`, `AccordionTrigger`, `AccordionContent` components
+- Useful for FAQs, optional reading, or detailed explanations
+
+### Tabs
+For showing multiple code examples or content variations.
+
+- Use `Tabs`, `TabsList`, `TabsTrigger`, `TabsContent` components
+- Great for showing different implementations or multiple package manager commands
+
+### Steps
+For step-by-step instructions.
+
+- Wrap step headings (h3) inside `<Steps>` component
+- Automatically numbers steps for better readability
+
+### Button
+For interactive elements (use sparingly in blog content).
+
+- Only use when interactivity adds value
+- Prefer links for navigation
+
+### LinkedCard
+For card-style links to external resources.
+
+- Use for prominent links to external documentation or resources
+
+## MDX Formatting
+
+### Frontmatter
+Always include proper frontmatter at the start of every blog post:
+
+```yaml
+---
+title: Blog Title
+excerpt: Short description that appears in previews
+date: YYYY-MM-DD
+category: Category Name
+image: /images/blogs/image.png
+---
+```
+
+### Markdown Features
+- Use proper markdown formatting (headings, lists, links, images, tables)
+- Leverage custom components when appropriate
+- Use standard markdown features:
+  - Footnotes: `[^1]` and `[^1]: footnote text`
+  - Task lists: `- [x] Completed` or `- [ ] Incomplete`
+  - Strikethrough: `~~text~~`
+  - Tables: Standard markdown table syntax
+  - Blockquotes: `> quote text`
+
+### Headings
+- Use h2 for main sections
+- Use h3 for subsections
+- Use h4-h6 for deeper nesting when needed
+- Headings automatically appear in table of contents
+
+## Content Elements
+
+- **Callouts**: Use for tips, warnings, and important notes
+- **Diagrams/File Trees**: Include when they add value (optional but recommended for complex topics)
+- **Links**: Include links to repositories/resources when relevant (optional but helpful)
+- **Prerequisites**: Always mention what readers should know beforehand
+- **Images**: Use images to illustrate concepts, show UI, or provide visual context
+- **Code examples**: Balance between showing complete examples and focused snippets
+
+## Quality Standards
+
+- **Clear, actionable explanations**: Every section should provide value
+- **Real-world examples and use cases**: Ground concepts in practical applications
+- **Practical takeaways**: Readers should learn something actionable
+- **Proper code syntax highlighting**: Use correct language tags
+- **Accurate and up-to-date information**: Verify through web search before writing
+- **Consistent formatting**: Follow established patterns in existing blog posts
+- **Accessibility**: Use descriptive alt text for images, proper heading hierarchy
+- **SEO considerations**: Use descriptive titles, excerpts, and proper heading structure
+
+## Best Practices
+
+1. **Start with context**: Help readers understand why they should care
+2. **Show, don't just tell**: Use code examples and visual aids
+3. **Address common pitfalls**: Mention what can go wrong and how to avoid it
+4. **Provide complete examples**: When possible, show full working code
+5. **Link to resources**: Help readers dive deeper with relevant links
+6. **Test your code**: Ensure all code examples are accurate and tested
+7. **Review for clarity**: Read through as if you're learning the topic for the first time
+8. **Keep it focused**: Stay on topic and avoid unnecessary tangents

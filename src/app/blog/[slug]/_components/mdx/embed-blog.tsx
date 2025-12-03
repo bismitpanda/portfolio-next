@@ -25,7 +25,7 @@ export function EmbedBlog({
     <HoverCard>
       <HoverCardTrigger asChild>
         <Link
-          className="!no-underline mx-1 inline-flex cursor-pointer items-center gap-1 rounded-sm border-[1px] border-blue-800 bg-blue-800/40 px-1 py-0.5 text-blue-100 text-sm transition-colors duration-200 hover:bg-blue-800/60"
+          className="no-underline! mx-1 inline-flex cursor-pointer items-center gap-1 rounded-sm border border-blue-800 bg-blue-800/40 px-1 py-0.5 text-blue-100 text-sm transition-colors duration-200 hover:bg-blue-800/60"
           href={`/blog/${blog.slug}`}
         >
           <NotepadText className="mr-1 h-4 w-4" />

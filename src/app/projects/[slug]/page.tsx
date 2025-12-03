@@ -1,4 +1,5 @@
 import { ArrowLeft, ExternalLink } from "lucide-react";
+import type { Route } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -73,7 +74,7 @@ export default async function Page({ params }: PageProps<"/projects/[slug]">) {
             {project.liveUrl && (
               <Button asChild className="gap-2" size="lg">
                 <Link
-                  href={project.liveUrl}
+                  href={project.liveUrl as Route}
                   rel="noopener noreferrer"
                   target="_blank"
                 >
@@ -85,7 +86,7 @@ export default async function Page({ params }: PageProps<"/projects/[slug]">) {
             {project.githubUrl && (
               <Button asChild className="gap-2" size="lg" variant="outline">
                 <Link
-                  href={project.githubUrl}
+                  href={project.githubUrl as Route}
                   rel="noopener noreferrer"
                   target="_blank"
                 >

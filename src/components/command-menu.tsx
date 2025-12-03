@@ -9,6 +9,7 @@ import {
   RssIcon,
   SearchIcon,
 } from "lucide-react";
+import type { Route } from "next";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import React, { useCallback, useEffect, useState } from "react";
@@ -72,7 +73,7 @@ export function CommandMenu() {
       if (openInNewTab) {
         window.open(href, "_blank", "noopener");
       } else {
-        router.push(href);
+        router.push(href as Route);
       }
     },
     [router],

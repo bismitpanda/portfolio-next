@@ -1,3 +1,4 @@
+import type { Route } from "next";
 import Link from "next/link";
 import { socialRoutes } from "../routes";
 
@@ -17,7 +18,7 @@ export function GetInTouchSection() {
             <Link
               aria-label={title}
               className="group flex items-center gap-4 text-muted-foreground text-xl hover:text-foreground"
-              href={url}
+              href={url as Route}
               rel="nofollow noopener noreferrer"
               target="_blank"
               key={title}

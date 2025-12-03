@@ -1,5 +1,5 @@
 import { ExternalLink } from "lucide-react";
-import type { Metadata } from "next";
+import type { Metadata, Route } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { GithubDark } from "@/components/icons";
@@ -159,7 +159,7 @@ export default function Page() {
                     <Button asChild className="gap-2" variant="outline">
                       {project.githubUrl && (
                         <Link
-                          href={project.githubUrl}
+                          href={project.githubUrl as Route}
                           rel="noopener noreferrer"
                           target="_blank"
                         >
