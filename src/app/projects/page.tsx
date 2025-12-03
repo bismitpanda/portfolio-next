@@ -44,11 +44,11 @@ export default function Page() {
                     <h2 className="-mt-8 mb-6 font-bold text-4xl transition-transform group-hover:translate-y-1.5">
                       {project.title}
                     </h2>
-                    <p className="mb-6 text-muted-foreground text-xl">
+                    <p className="mb-6 text-muted-foreground text-xl line-clamp-3 text-ellipsis">
                       {project.description}
                     </p>
                     <div className="mb-8 flex flex-wrap gap-2">
-                      {project.technologies.map((tech) => (
+                      {project.technologies.slice(0, 5).map((tech) => (
                         <span
                           className="rounded-full bg-muted px-3 py-1 text-muted-foreground text-sm"
                           key={tech}
@@ -56,6 +56,12 @@ export default function Page() {
                           {tech}
                         </span>
                       ))}
+
+                      {project.technologies.length > 5 && (
+                        <span className="rounded-full bg-muted px-3 py-1 text-muted-foreground text-sm">
+                          +{project.technologies.length - 5} more
+                        </span>
+                      )}
                     </div>
                     <Button asChild size="lg">
                       <Link href={`/projects/${project.slug}`}>
@@ -123,11 +129,11 @@ export default function Page() {
                       <h3 className="mb-3 font-bold text-2xl transition-colors group-hover:text-primary">
                         {project.title}
                       </h3>
-                      <p className="mb-6 text-muted-foreground">
+                      <p className="mb-6 text-muted-foreground line-clamp-5 text-ellipsis">
                         {project.description}
                       </p>
                       <div className="mb-6 flex flex-wrap gap-2">
-                        {project.technologies.map((tech) => (
+                        {project.technologies.slice(0, 5).map((tech) => (
                           <span
                             className="rounded-full bg-muted px-3 py-1 text-muted-foreground text-sm"
                             key={tech}
@@ -135,6 +141,12 @@ export default function Page() {
                             {tech}
                           </span>
                         ))}
+
+                        {project.technologies.length > 5 && (
+                          <span className="rounded-full bg-muted px-3 py-1 text-muted-foreground text-sm">
+                            +{project.technologies.length - 5} more
+                          </span>
+                        )}
                       </div>
                     </div>
                   </div>
