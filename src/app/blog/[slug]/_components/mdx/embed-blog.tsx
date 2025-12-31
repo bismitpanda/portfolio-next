@@ -35,9 +35,11 @@ export function EmbedBlog({
       <HoverCardContent className="w-sm md:w-lg">
         <div className="flex flex-col gap-2">
           <div className="text-muted-foreground text-sm">
-            <Link href={`/categories/${blog.categorySlug}`}>
-              <Badge variant="outline">{blog.category}</Badge>
-            </Link>{" "}
+            {blog.tagSlugs.map((tagSlug, index) => (
+              <Link key={tagSlug} href={`/tags/${tagSlug}`}>
+                <Badge variant="outline">{blog.tags[index]}</Badge>
+              </Link>
+            ))}{" "}
             • {formatDate(blog.date, "MMMM do, yyyy")} • {blog.readingTime}
           </div>
           <div className="font-semibold">{blog.title}</div>

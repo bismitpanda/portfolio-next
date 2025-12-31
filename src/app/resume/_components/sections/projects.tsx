@@ -2,8 +2,6 @@ import { Link, Text, View } from "@react-pdf/renderer";
 import type { Project } from "@/lib/content";
 import { styles } from "../styles";
 
-// TODO: Move the tech used to below the title and make it in one line
-
 export function ProjectsSection({ projects }: { projects: Project[] }) {
   return (
     <View
@@ -22,6 +20,10 @@ export function ProjectsSection({ projects }: { projects: Project[] }) {
               </Link>
             )}
           </View>
+          <View style={styles.toolsSection}>
+            <Text style={styles.toolsLabel}>Technologies Used: </Text>
+            <Text>{project.technologies.join(", ")}</Text>
+          </View>
           <View style={styles.highlightsList}>
             {project.description
               .split(".")
@@ -32,10 +34,6 @@ export function ProjectsSection({ projects }: { projects: Project[] }) {
                   <Text style={styles.highlightText}>{highlight.trim()}.</Text>
                 </View>
               ))}
-          </View>
-          <View style={styles.toolsSection}>
-            <Text style={styles.toolsLabel}>Technologies Used: </Text>
-            <Text>{project.technologies.join(", ")}</Text>
           </View>
         </View>
       ))}

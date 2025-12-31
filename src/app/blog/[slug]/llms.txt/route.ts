@@ -25,7 +25,7 @@ export async function GET(
 title: ${blog.title}
 excerpt: ${blog.excerpt}
 date: ${blog.date}
-category: ${blog.category}
+tags: [${blog.tags.join(", ")}]
 ---
 
 ${blog.content}`;

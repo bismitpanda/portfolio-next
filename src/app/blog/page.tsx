@@ -8,28 +8,28 @@ import { useMemo, useState } from "react";
 import { BlogCard } from "@/components/blog-card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { allCategoriesByCount, allPublishedBlogsByDate } from "@/lib/content";
+import { allPublishedBlogsByDate, allTagsByCount } from "@/lib/content";
 import { cn } from "@/lib/utils";
 
 export default function Page() {
-  const [selectedCategory, setSelectedCategory] = useState("all");
+  const [selectedTag, setSelectedTag] = useState("all");
 
   // biome-ignore lint/style/noNonNullAssertion: It is guaranteed that there will be at least one blog
   const latestBlog = allPublishedBlogsByDate[0]!;
 
   const filteredBlogs = useMemo(() => {
     const blogs = allPublishedBlogsByDate.filter((blog) => {
-      const categoryMatch =
-        selectedCategory === "all" || blog.categorySlug === selectedCategory;
-      return categoryMatch;
+      const tagMatch =
+        selectedTag === "all" || blog.tagSlugs.includes(selectedTag);
+      return tagMatch;
     });
 
-    if (selectedCategory === "all") {
+    if (selectedTag === "all") {
       return blogs.slice(1);
     }
 
     return blogs;
-  }, [selectedCategory]);
+  }, [selectedTag]);
 
   return (
     <div className="pt-20">
@@ -51,44 +51,44 @@ export default function Page() {
             <Button
               className={cn(
                 "rounded-full transition-colors",
-                selectedCategory === "all"
-                  ? "!bg-white !text-black !border-black"
-                  : "hover:!bg-white/70 hover:!text-black hover:!border-black",
+                selectedTag === "all"
+                  ? "bg-white! text-black! border-black!"
+                  : "hover:bg-white/70! hover:text-black! hover:border-black!",
               )}
-              onClick={() => setSelectedCategory("all")}
+              onClick={() => setSelectedTag("all")}
               variant="outline"
             >
               All Blogs
             </Button>
-            {allCategoriesByCount
-              .filter((category) => category.count > 0)
-              .map((category) => (
+            {allTagsByCount
+              .filter((tag) => tag.count > 0)
+              .map((tag) => (
                 <Button
                   className={cn(
                     "rounded-full transition-colors group",
-                    selectedCategory === category.slug
-                      ? "!bg-white !text-black !border-black"
-                      : "hover:!bg-white/70 hover:!text-black hover:!border-black",
+                    selectedTag === tag.slug
+                      ? "bg-white! text-black! border-black!"
+                      : "hover:bg-white/70! hover:text-black! hover:border-black!",
                   )}
-                  key={category.slug}
-                  onClick={() => setSelectedCategory(category.slug)}
+                  key={tag.slug}
+                  onClick={() => setSelectedTag(tag.slug)}
                   variant="outline"
                 >
-                  {category.name}
+                  {tag.name}
                   <span
                     className={cn(
                       "font-mono font-medium border border-input text-xs px-1 py-.5 rounded-sm group-hover:border-black/40",
-                      selectedCategory === category.slug &&
+                      selectedTag === tag.slug &&
                         "bg-white text-black border-black/40",
                     )}
                   >
-                    {category.count}
+                    {tag.count}
                   </span>
                 </Button>
               ))}
           </div>
 
-          {selectedCategory !== "all" && (
+          {selectedTag !== "all" && (
             <div className="mb-8 text-center text-muted-foreground">
               <p className="text-sm">
                 Showing {filteredBlogs.length} blog
@@ -98,7 +98,7 @@ export default function Page() {
           )}
         </div>
 
-        {selectedCategory === "all" && (
+        {selectedTag === "all" && (
           <div className="mb-20">
             <div className="mb-8 text-center">
               <Badge
@@ -112,9 +112,13 @@ export default function Page() {
               <div className="grid items-center gap-8 md:grid-cols-2">
                 <div className="order-2 md:order-1">
                   <div className="mb-2 font-medium text-neutral-300 text-sm">
-                    <Link href={`/categories/${latestBlog.categorySlug}`}>
-                      <Badge variant="outline">{latestBlog.category}</Badge>
-                    </Link>{" "}
+                    {latestBlog.tagSlugs.map((tagSlug, index) => (
+                      <Link key={tagSlug} href={`/tags/${tagSlug}`}>
+                        <Badge variant="outline">
+                          {latestBlog.tags[index]}
+                        </Badge>
+                      </Link>
+                    ))}{" "}
                     • {formatDate(latestBlog.date, "MMMM do, yyyy")}
                   </div>
                   <h2 className="mb-4 font-bold text-4xl transition-colors md:text-5xl">
@@ -141,7 +145,7 @@ export default function Page() {
                       alt={latestBlog.title}
                       className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                       height={400}
-                      src={latestBlog.image}
+                      src={`/images/blogs/${latestBlog.slug}.png`}
                       width={600}
                     />
                   </div>

@@ -48,12 +48,6 @@ async function generateBlurImage(imageUrl: string) {
   return `data:image/${info.format};base64,${data.toString("base64")}`;
 }
 
-const categorySchema = z.object({
-  name: z.string(),
-  slug: z.string(),
-  description: z.string(),
-});
-
 type Headings = {
   depth: number;
   value: string;
@@ -64,8 +58,7 @@ const blogSchema = z.object({
   title: z.string(),
   excerpt: z.string(),
   date: z.coerce.date(),
-  category: z.string(),
-  image: z.string(),
+  tags: z.string().array(),
   draft: z.boolean().default(false),
   previous: z.string().optional(),
   content: z.string(),
@@ -144,20 +137,6 @@ const achievementSchema = z.object({
   organization: z.string(),
 });
 
-const categories = defineCollection({
-  name: "categories",
-  directory: "content/categories",
-  include: "*.yml",
-  parser: "yaml",
-  schema: categorySchema,
-  transform: (data, context) => {
-    const count = context
-      .documents(blogs)
-      .filter((blog) => !blog.draft && blog.category === data.name).length;
-    return { ...data, count };
-  },
-});
-
 const blogs = defineCollection({
   name: "blogs",
   directory: "content/blogs",
@@ -200,13 +179,13 @@ const blogs = defineCollection({
     }
 
     const relatedBlogs = siblings
-      .filter((blog) => blog.category === data.category)
+      .filter((blog) => data.tags.some((tag) => blog.tags.includes(tag)))
       .toSorted((a, b) => compareDesc(a.date, b.date))
       .slice(0, 3)
       .map((blog) => ({
         ...blog,
-        slug: blogSlug,
-        categorySlug: slug(blog.category),
+        slug: slug(blog.title),
+        tagSlugs: blog.tags.map((tag) => slug(tag)),
       }));
 
     const time = readingTime(data.content).text;
@@ -288,7 +267,7 @@ const blogs = defineCollection({
       slug: blogSlug,
       next,
       prev,
-      categorySlug: slug(data.category),
+      tagSlugs: data.tags.map((tag) => slug(tag)),
       relatedBlogs,
       readingTime: time,
     };
@@ -409,7 +388,6 @@ const achievements = defineCollection({
 export default defineConfig({
   collections: [
     blogs,
-    categories,
     snippets,
     projects,
     experiences,

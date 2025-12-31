@@ -1,16 +1,15 @@
 import { compareDesc } from "date-fns";
+import { slug } from "github-slugger";
 import {
   type Achievement,
   allAchievements,
   allBlogs,
-  allCategories,
   allCertifications,
   allEducations,
   allExperiences,
   allProjects,
   allSnippets,
   type Blog,
-  type Category,
   type Certification,
   type Education,
   type Experience,
@@ -22,9 +21,34 @@ export const allPublishedBlogsByDate = allBlogs
   .filter((blog) => !blog.draft)
   .toSorted((a, b) => compareDesc(a.date, b.date));
 
-export const allCategoriesByCount = allCategories.toSorted(
-  (a, b) => b.count - a.count,
-);
+export const allTagsByCount = (() => {
+  const slugCache = new Map<string, string>();
+  const tags = new Map<string, { name: string; slug: string; count: number }>();
+
+  for (const blog of allBlogs) {
+    for (const tagName of blog.tags) {
+      let tagSlug = slugCache.get(tagName);
+
+      if (!tagSlug) {
+        tagSlug = slug(tagName);
+        slugCache.set(tagName, tagSlug);
+      }
+
+      const existing = tags.get(tagSlug);
+      if (existing) {
+        existing.count++;
+      } else {
+        tags.set(tagSlug, {
+          name: tagName,
+          slug: tagSlug,
+          count: 1,
+        });
+      }
+    }
+  }
+
+  return [...tags.values()].toSorted((a, b) => b.count - a.count);
+})();
 
 export const allProjectsByDate = allProjects.toSorted(
   (a, b) => a.year - b.year,
@@ -61,7 +85,6 @@ export const allAchievementsByDate = allAchievements.toSorted((a, b) =>
 
 export type {
   Blog,
-  Category,
   Snippet,
   Project,
   Experience,

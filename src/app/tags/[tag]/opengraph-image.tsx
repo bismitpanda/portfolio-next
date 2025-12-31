@@ -2,7 +2,7 @@ import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 import { notFound } from "next/navigation";
 import { ImageResponse } from "next/og";
-import { allCategoriesByCount } from "@/lib/content";
+import { allTagsByCount } from "@/lib/content";
 
 export const alt = "Bismit Panda's Blog";
 export const size = {
@@ -12,21 +12,17 @@ export const size = {
 export const contentType = "image/png";
 
 export function generateStaticParams() {
-  return allCategoriesByCount.map((category) => ({
-    category: category.slug,
+  return allTagsByCount.map((tag) => ({
+    tag: tag.slug,
   }));
 }
 
-export default async function Image({
-  params,
-}: PageProps<"/categories/[category]">) {
-  const { category: categorySlug } = await params;
+export default async function Image({ params }: PageProps<"/tags/[tag]">) {
+  const { tag: tagSlug } = await params;
 
-  const category = allCategoriesByCount.find(
-    (category) => category.slug === categorySlug,
-  );
+  const tag = allTagsByCount.find((tag) => tag.slug === tagSlug);
 
-  if (!category) {
+  if (!tag) {
     notFound();
   }
 
@@ -54,11 +50,10 @@ export default async function Image({
         fontSize: "60px",
       }}
     >
-      <div tw="text-xl text-gray-500">{`${category.count} blogs`}</div>
+      <div tw="text-xl text-gray-500">{`${tag.count} blogs`}</div>
       <div tw="flex flex-col items-start justify-between">
-        <div tw="text-[#aa6f1a] mb-6">Category:</div>
-        <div tw="font-bold mb-6">{category.name}</div>
-        <div tw="text-2xl text-gray-500">{category.description}</div>
+        <div tw="text-[#aa6f1a] mb-6">Tag:</div>
+        <div tw="font-bold mb-6">{tag.name}</div>
       </div>
     </div>,
     {

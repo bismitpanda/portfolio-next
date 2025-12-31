@@ -13,16 +13,18 @@ export function BlogCard({ blog }: { blog: Blog["relatedBlogs"][number] }) {
           alt={blog.title}
           className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
           height={200}
-          src={blog.image}
+          src={`/images/blogs/${blog.slug}.png`}
           width={400}
           loading="lazy"
         />
       </div>
       <div className="px-6 pt-6">
         <div className="mb-2 font-medium text-muted-foreground text-sm">
-          <Link href={`/categories/${blog.categorySlug}`}>
-            <Badge variant="outline">{blog.category}</Badge>
-          </Link>{" "}
+          {blog.tagSlugs.map((tagSlug, index) => (
+            <Link key={tagSlug} href={`/tags/${tagSlug}`}>
+              <Badge variant="outline">{blog.tags[index]}</Badge>
+            </Link>
+          ))}{" "}
           • {formatDate(blog.date, "MMMM do, yyyy")}
         </div>
         <p className="mb-2 font-bold font-serif text-2xl">{blog.title}</p>

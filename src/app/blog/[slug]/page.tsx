@@ -28,12 +28,7 @@ export async function generateMetadata({
   return {
     title: `${blog?.title} | Bismit Panda's Blog`,
     description: blog?.excerpt,
-    keywords: blog?.category && [
-      blog.category,
-      "blog",
-      "bismit panda",
-      "bismit",
-    ],
+    keywords: blog?.tags && [...blog.tags, "blog", "bismit panda", "bismit"],
   };
 }
 
@@ -66,9 +61,11 @@ export default async function Page({ params }: PageProps<"/blog/[slug]">) {
         <div className="mx-auto max-w-6xl">
           <div className="mb-10">
             <div className="mb-4 font-medium text-muted-foreground text-sm">
-              <Link href={`/categories/${blog.categorySlug}`}>
-                <Badge variant="outline">{blog.category}</Badge>
-              </Link>{" "}
+              {blog.tagSlugs.map((tagSlug, index) => (
+                <Link key={tagSlug} href={`/tags/${tagSlug}`}>
+                  <Badge variant="outline">{blog.tags[index]}</Badge>
+                </Link>
+              ))}{" "}
               • {formatDate(blog.date, "MMMM do, yyyy")} • {blog.readingTime}
             </div>
             <h1 className="mb-6 font-bold text-4xl md:text-5xl lg:text-6xl">
@@ -119,7 +116,7 @@ export default async function Page({ params }: PageProps<"/blog/[slug]">) {
                 alt={blog.title}
                 className="h-full w-full object-cover"
                 height={600}
-                src={blog.image}
+                src={`/images/blogs/${blog.slug}.png`}
                 width={1200}
                 priority
                 fetchPriority="high"

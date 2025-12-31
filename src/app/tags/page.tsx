@@ -2,18 +2,12 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { allCategoriesByCount } from "@/lib/content";
+import { Card, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { allTagsByCount } from "@/lib/content";
 
 export const metadata: Metadata = {
-  title: "All Categories | Bismit Panda's Blog",
-  description: "All Categories",
+  title: "All Tags | Bismit Panda's Blog",
+  description: "All Tags",
 };
 
 export default function Page() {
@@ -21,32 +15,29 @@ export default function Page() {
     <div className="pt-20">
       <section className="container-custom section-spacing">
         <div className="mx-auto mb-16 max-w-3xl text-center">
-          <h1 className="heading-xl mb-6">Categories</h1>
+          <h1 className="heading-xl mb-6">Tags</h1>
           <p className="body-lg text-muted-foreground">
             Browse blogs by topic to find exactly what you&apos;re looking for.
           </p>
         </div>
 
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {allCategoriesByCount.map((category) => (
+          {allTagsByCount.map((tag) => (
             <Card
               className="group border border-border bg-card transition-shadow hover:shadow-lg"
-              key={category.slug}
+              key={tag.slug}
             >
               <CardHeader className="pb-3">
                 <CardTitle className="font-serif text-2xl transition-colors group-hover:text-primary flex items-center justify-between">
-                  {category.name}{" "}
+                  {tag.name}{" "}
                   <Badge className="bg-muted/50 font-mono" variant="outline">
-                    {category.count} {category.count > 1 ? "blogs" : "blog"}
+                    {tag.count} {tag.count > 1 ? "blogs" : "blog"}
                   </Badge>
                 </CardTitle>
-                <CardDescription className="text-muted-foreground">
-                  {category.description}
-                </CardDescription>
               </CardHeader>
               <CardFooter>
                 <Button asChild>
-                  <Link href={`/categories/${category.slug}`}>View Blogs</Link>
+                  <Link href={`/tags/${tag.slug}`}>View Blogs</Link>
                 </Button>
               </CardFooter>
             </Card>

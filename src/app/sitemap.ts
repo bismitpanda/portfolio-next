@@ -1,9 +1,9 @@
 import type { MetadataRoute } from "next";
 import {
-  allCategoriesByCount,
   allProjectsByDate,
   allPublishedBlogsByDate,
   allSnippetsByDate,
+  allTagsByCount,
 } from "@/lib/content";
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -13,7 +13,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: blog.date,
       changeFrequency: "weekly" as const,
       priority: 0.5,
-      images: [new URL(blog.image, `https://bismitpanda.com`).toString()],
+      images: [`https://bismitpanda.com/images/blogs/${blog.slug}.png`],
     },
     {
       url: `https://bismitpanda.com/blog/${blog.slug}/llms.txt`,
@@ -23,8 +23,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ]);
 
-  const categoryUrls = allCategoriesByCount.map((category) => ({
-    url: `https://bismitpanda.com/categories/${category.slug}`,
+  const tagUrls = allTagsByCount.map((tag) => ({
+    url: `https://bismitpanda.com/tags/${tag.slug}`,
     lastModified: new Date(),
     changeFrequency: "weekly" as const,
     priority: 0.5,
@@ -72,7 +72,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.5,
     },
     {
-      url: "https://bismitpanda.com/categories",
+      url: "https://bismitpanda.com/tags",
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 0.5,
@@ -96,7 +96,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.5,
     },
     ...blogUrls,
-    ...categoryUrls,
+    ...tagUrls,
     ...projectUrls,
     ...snippetUrls,
   ];
