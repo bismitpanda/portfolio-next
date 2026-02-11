@@ -105,7 +105,6 @@ export default async function Page({ params }: PageProps<"/projects/[slug]">) {
               className="h-full w-full object-cover"
               height={800}
               src={project.featuredImage}
-              blurDataURL={project.blurredFeaturedImage}
               width={1600}
               priority
               fetchPriority="high"

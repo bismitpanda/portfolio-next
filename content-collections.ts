@@ -1,5 +1,4 @@
 import { readFile } from "node:fs/promises";
-import path from "node:path";
 import { defineCollection, defineConfig } from "@content-collections/core";
 import { compileMDX } from "@content-collections/mdx";
 import rehypeShiki, { type RehypeShikiOptions } from "@shikijs/rehype";
@@ -18,35 +17,8 @@ import rehypeSlug from "rehype-slug";
 import remarkGemoji from "remark-gemoji";
 import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
-import sharp from "sharp";
 import { codeToHtml, type ShikiTransformer } from "shiki";
 import { z } from "zod";
-
-const publicPath = path.join(process.cwd(), "public");
-
-async function generateBlurImage(imageUrl: string) {
-  let buffer: Buffer | null = null;
-  try {
-    const url = new URL(imageUrl);
-    const res = await fetch(url);
-    buffer = Buffer.from(await res.arrayBuffer());
-  } catch {
-    buffer = await readFile(path.join(publicPath, imageUrl));
-  }
-
-  if (!buffer) {
-    console.error(imageUrl);
-    return;
-  }
-
-  const { info, data } = await sharp(buffer)
-    .resize(16)
-    .blur()
-    .jpeg({ quality: 75 })
-    .toBuffer({ resolveWithObject: true });
-
-  return `data:image/${info.format};base64,${data.toString("base64")}`;
-}
 
 type Headings = {
   depth: number;
@@ -317,7 +289,7 @@ const projects = defineCollection({
   include: "*.yml",
   parser: "yaml",
   schema: projectSchema,
-  transform: async (data, context) => {
+  transform: async (data) => {
     if (data.projectType === "hosted" && !data.liveUrl) {
       throw new Error("Hosted project must have live url");
     }
@@ -325,14 +297,6 @@ const projects = defineCollection({
     if (data.projectType === "github" && !data.githubUrl) {
       throw new Error("Github project must have github url");
     }
-
-    const blurredFeaturedImage = await context.cache(
-      { imageUrl: data.featuredImage, _meta: data._meta },
-      () => generateBlurImage(data.featuredImage),
-      {
-        key: "__blurredFeaturedImage",
-      },
-    );
 
     return {
       ...data,
@@ -342,7 +306,6 @@ const projects = defineCollection({
           : image,
       ),
       slug: slug(data.title),
-      blurredFeaturedImage,
     };
   },
 });

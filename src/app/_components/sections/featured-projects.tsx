@@ -51,7 +51,6 @@ export function FeaturedProjectsSection() {
                       className="h-full w-full object-cover"
                       height={270}
                       src={project.featuredImage}
-                      blurDataURL={project.blurredFeaturedImage}
                       width={480}
                     />
                   </div>

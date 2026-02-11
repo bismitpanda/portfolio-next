@@ -84,7 +84,6 @@ export default function Page() {
                         className="h-full w-full object-cover"
                         height={600}
                         src={project.featuredImage}
-                        blurDataURL={project.blurredFeaturedImage}
                         width={800}
                       />
                     </Link>
@@ -121,7 +120,6 @@ export default function Page() {
                         className="h-full w-full object-cover opacity-90 transition-opacity group-hover:opacity-100"
                         height={600}
                         src={project.featuredImage}
-                        blurDataURL={project.blurredFeaturedImage}
                         width={800}
                       />
                     </Link>
