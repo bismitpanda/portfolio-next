@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils";
 
 export type SortBy = "date" | "title";
 
-export function BlogSortToggle({
+export function SortToggle({
   value,
   onToggle,
   className,
@@ -21,17 +21,17 @@ export function BlogSortToggle({
       type="button"
       onClick={onToggle}
       className={cn(
-        "border-input bg-background relative flex h-10 px-4 overflow-hidden rounded-full border transition-colors hover:border-neutral-400",
+        "border-input bg-background relative flex h-10 px-3 overflow-hidden rounded-xl border transition-colors hover:border-neutral-400",
         className,
       )}
       aria-pressed={!isDate}
       aria-label={`Sort by ${isDate ? "date" : "title A–Z"}. Click to switch.`}
     >
       <span
-        className="absolute inset-y-1 rounded-full bg-white text-black transition-[left] duration-300 ease-out"
+        className="absolute inset-y-1 rounded-lg bg-white text-black transition-[left] duration-300 ease-out"
         style={{
-          left: isDate ? "4px" : "34%",
-          width: "calc(66% - 4px)",
+          left: isDate ? "4px" : "calc(34% - 4px)",
+          width: "calc(66%)",
         }}
         aria-hidden
       />

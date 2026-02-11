@@ -19,7 +19,7 @@ import { cn } from "@/lib/utils";
 
 type TagWithCount = { name: string; slug: string; count: number };
 
-export function BlogFilterCommand({
+export function FilterCommand({
   tags,
   selectedSlugs,
   onToggleTag,
@@ -38,7 +38,7 @@ export function BlogFilterCommand({
         <Button
           variant="outline"
           className={cn(
-            "gap-2 rounded-full transition-colors",
+            "gap-2 rounded-xl transition-colors",
             selectedSlugs.length > 0 &&
               "bg-white! text-black! border-black! hover:bg-white/90! hover:text-black!",
           )}

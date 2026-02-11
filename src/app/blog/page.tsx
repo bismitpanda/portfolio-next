@@ -9,9 +9,9 @@ import { BlogCard } from "@/components/blog-card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { allPublishedBlogsByDate, allTagsByCount } from "@/lib/content";
-import { BlogFilterCommand } from "./_components/blog-filter-command";
-import type { SortBy } from "./_components/blog-sort-toggle";
-import { BlogSortToggle } from "./_components/blog-sort-toggle";
+import { FilterCommand } from "./_components/filter-command";
+import type { SortBy } from "./_components/sort-toggle";
+import { SortToggle } from "./_components/sort-toggle";
 
 export default function Page() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -90,19 +90,19 @@ export default function Page() {
                 placeholder="Search blogs..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="border-input bg-background placeholder:text-muted-foreground h-10 w-full rounded-full border px-4 pl-9 text-sm outline-hidden focus:ring-2 focus:ring-ring"
+                className="border-input bg-background placeholder:text-muted-foreground h-10 w-full rounded-xl border px-4 pl-9 text-sm outline-hidden focus:ring-2 focus:ring-ring"
                 aria-label="Search blogs"
               />
             </div>
             <div className="flex flex-wrap items-center justify-center gap-2">
-              <BlogFilterCommand
+              <FilterCommand
                 tags={tagsWithCount}
                 selectedSlugs={selectedTagSlugs}
                 onToggleTag={toggleTag}
                 open={filterOpen}
                 onOpenChange={setFilterOpen}
               />
-              <BlogSortToggle
+              <SortToggle
                 value={sortBy}
                 onToggle={() =>
                   setSortBy((prev) => (prev === "date" ? "title" : "date"))
