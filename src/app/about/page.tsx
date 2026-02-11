@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { AchievementsSection } from "./_components/sections/achievements";
 import { CertificationsSection } from "./_components/sections/certifications";
+import { CtaSection } from "./_components/sections/cta";
 import { EducationSection } from "./_components/sections/education";
 import { ExperienceSection } from "./_components/sections/experience";
 import { HeroSection } from "./_components/sections/hero";
@@ -20,6 +21,7 @@ export default function Page() {
       <EducationSection />
       <AchievementsSection />
       <CertificationsSection />
+      <CtaSection />
     </div>
   );
 }
