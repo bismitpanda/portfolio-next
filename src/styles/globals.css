@@ -62,6 +62,13 @@
   }
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee,
+  .animate-marquee-vertical {
+    animation: none;
+  }
+}
+
 :root {
   --radius: 0.625rem;
   --background: oklch(1 0 0);
@@ -190,11 +197,16 @@
 
   .link-underline::after {
     content: "";
-    @apply absolute -bottom-1 left-0 h-0.5 w-0 bg-current transition-all duration-300;
+    @apply absolute -bottom-1 left-0 h-0.5 w-0 bg-current transition-[width] duration-300;
   }
 
   .link-underline:hover::after {
     @apply w-full;
+  }
+
+  .tap-target {
+    @apply touch-manipulation;
+    -webkit-tap-highlight-color: transparent;
   }
 
   .font-heading {

@@ -84,7 +84,7 @@ export function CommandMenu() {
       <Button
         variant="outline"
         className={cn(
-          "h-9 select-none gap-2 rounded-full border-border bg-background px-3 text-muted-foreground hover:bg-accent hover:text-accent-foreground",
+          "tap-target h-9 select-none gap-2 rounded-full border-border bg-background px-3 text-muted-foreground hover:bg-accent hover:text-accent-foreground",
           "shadow-xs",
         )}
         onClick={() => setOpen(true)}

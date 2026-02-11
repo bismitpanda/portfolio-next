@@ -10,7 +10,7 @@ export function Footer() {
         <div className="grid grid-cols-1 gap-10 md:grid-cols-3">
           <div>
             <Link
-              className="flex items-center gap-x-4 font-bold font-serif text-3xl tracking-tight"
+              className="tap-target flex items-center gap-x-4 font-bold font-serif text-3xl tracking-tight transition-opacity duration-200 hover:opacity-90 active:opacity-80"
               href="/"
             >
               <Logo className="size-[42px]" />
@@ -28,7 +28,7 @@ export function Footer() {
               {footerRoutes.map((route) => (
                 <li key={route.path}>
                   <Link
-                    className="text-muted-foreground transition-colors hover:text-foreground"
+                    className="tap-target text-muted-foreground transition-colors duration-200 hover:text-foreground active:opacity-80"
                     href={route.path as Route}
                     rel={
                       route.external
@@ -50,7 +50,7 @@ export function Footer() {
               {socialRoutes.map(({ title, url, icon: Icon }) => (
                 <Link
                   aria-label={title}
-                  className="text-muted-foreground transition-colors hover:text-foreground"
+                  className="tap-target text-muted-foreground transition-[color,transform] duration-200 hover:text-foreground hover:scale-110 active:scale-95"
                   href={url as Route}
                   rel="nofollow noopener noreferrer"
                   target="_blank"

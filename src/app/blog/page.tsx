@@ -1,7 +1,7 @@
 "use client";
 
 import { formatDate } from "date-fns";
-import { Filter } from "lucide-react";
+import { Search, X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useMemo, useState } from "react";
@@ -9,27 +9,66 @@ import { BlogCard } from "@/components/blog-card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { allPublishedBlogsByDate, allTagsByCount } from "@/lib/content";
-import { cn } from "@/lib/utils";
+import { BlogFilterCommand } from "./_components/blog-filter-command";
+import type { SortBy } from "./_components/blog-sort-toggle";
+import { BlogSortToggle } from "./_components/blog-sort-toggle";
 
 export default function Page() {
-  const [selectedTag, setSelectedTag] = useState("all");
+  const [searchQuery, setSearchQuery] = useState("");
+  const [selectedTagSlugs, setSelectedTagSlugs] = useState<string[]>([]);
+  const [sortBy, setSortBy] = useState<SortBy>("date");
+  const [filterOpen, setFilterOpen] = useState(false);
+
+  const tagsWithCount = useMemo(
+    () => allTagsByCount.filter((tag) => tag.count > 0),
+    [],
+  );
 
   // biome-ignore lint/style/noNonNullAssertion: It is guaranteed that there will be at least one blog
   const latestBlog = allPublishedBlogsByDate[0]!;
 
   const filteredBlogs = useMemo(() => {
-    const blogs = allPublishedBlogsByDate.filter((blog) => {
-      const tagMatch =
-        selectedTag === "all" || blog.tagSlugs.includes(selectedTag);
-      return tagMatch;
+    const q = searchQuery.trim().toLowerCase();
+    let blogs = allPublishedBlogsByDate.filter((blog) => {
+      const matchesSearch =
+        !q ||
+        blog.title.toLowerCase().includes(q) ||
+        blog.excerpt.toLowerCase().includes(q) ||
+        blog.tags.some((t) => t.toLowerCase().includes(q));
+      const matchesTags =
+        selectedTagSlugs.length === 0 ||
+        blog.tagSlugs.some((slug) => selectedTagSlugs.includes(slug));
+      return matchesSearch && matchesTags;
     });
 
-    if (selectedTag === "all") {
+    if (sortBy === "title") {
+      blogs = [...blogs].sort((a, b) =>
+        a.title.localeCompare(b.title, undefined, { sensitivity: "base" }),
+      );
+    }
+
+    const showFeatured =
+      !q && selectedTagSlugs.length === 0 && sortBy === "date";
+
+    if (showFeatured && blogs.length > 0) {
       return blogs.slice(1);
     }
 
     return blogs;
-  }, [selectedTag]);
+  }, [searchQuery, selectedTagSlugs, sortBy]);
+
+  const showFeatured =
+    !searchQuery.trim() && selectedTagSlugs.length === 0 && sortBy === "date";
+
+  const toggleTag = (slug: string) => {
+    setSelectedTagSlugs((prev) =>
+      prev.includes(slug) ? prev.filter((s) => s !== slug) : [...prev, slug],
+    );
+  };
+
+  const removeTag = (slug: string) => {
+    setSelectedTagSlugs((prev) => prev.filter((s) => s !== slug));
+  };
 
   return (
     <div className="pt-20">
@@ -42,76 +81,85 @@ export default function Page() {
           </p>
         </div>
 
-        <div className="mb-12">
-          <div className="mb-8 flex flex-wrap items-center justify-center gap-4">
-            <div className="flex items-center gap-2 text-muted-foreground">
-              <Filter className="h-4 w-4" />
-              <span className="font-medium text-sm">Filter by:</span>
+        <div className="mb-8">
+          <div className="flex flex-col items-center justify-center gap-3 md:flex-row md:flex-wrap">
+            <div className="relative w-full md:min-w-[220px] md:max-w-[320px]">
+              <Search className="text-muted-foreground pointer-events-none absolute left-3 top-1/2 size-4 -translate-y-1/2" />
+              <input
+                type="search"
+                placeholder="Search blogs..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="border-input bg-background placeholder:text-muted-foreground h-10 w-full rounded-full border px-4 pl-9 text-sm outline-hidden focus:ring-2 focus:ring-ring"
+                aria-label="Search blogs"
+              />
             </div>
-            <Button
-              className={cn(
-                "rounded-full transition-colors",
-                selectedTag === "all"
-                  ? "bg-white! text-black! border-black!"
-                  : "hover:bg-white/70! hover:text-black! hover:border-black!",
-              )}
-              onClick={() => setSelectedTag("all")}
-              variant="outline"
-            >
-              All Blogs
-            </Button>
-            {allTagsByCount
-              .filter((tag) => tag.count > 0)
-              .map((tag) => (
-                <Button
-                  className={cn(
-                    "rounded-full transition-colors group",
-                    selectedTag === tag.slug
-                      ? "bg-white! text-black! border-black!"
-                      : "hover:bg-white/70! hover:text-black! hover:border-black!",
-                  )}
-                  key={tag.slug}
-                  onClick={() => setSelectedTag(tag.slug)}
-                  variant="outline"
-                >
-                  {tag.name}
-                  <span
-                    className={cn(
-                      "font-mono font-medium border border-input text-xs px-1 py-.5 rounded-sm group-hover:border-black/40",
-                      selectedTag === tag.slug &&
-                        "bg-white text-black border-black/40",
-                    )}
-                  >
-                    {tag.count}
-                  </span>
-                </Button>
-              ))}
+            <div className="flex flex-wrap items-center justify-center gap-2">
+              <BlogFilterCommand
+                tags={tagsWithCount}
+                selectedSlugs={selectedTagSlugs}
+                onToggleTag={toggleTag}
+                open={filterOpen}
+                onOpenChange={setFilterOpen}
+              />
+              <BlogSortToggle
+                value={sortBy}
+                onToggle={() =>
+                  setSortBy((prev) => (prev === "date" ? "title" : "date"))
+                }
+              />
+            </div>
           </div>
 
-          {selectedTag !== "all" && (
-            <div className="mb-8 text-center text-muted-foreground">
-              <p className="text-sm">
-                Showing {filteredBlogs.length} blog
-                {filteredBlogs.length === 1 ? "" : "s"}
-              </p>
+          {selectedTagSlugs.length > 0 && (
+            <div className="mt-4 flex flex-wrap items-center justify-center gap-2">
+              <span className="text-muted-foreground text-xs font-medium">
+                Active filters:
+              </span>
+              {selectedTagSlugs.map((slug) => {
+                const name =
+                  tagsWithCount.find((t) => t.slug === slug)?.name ?? slug;
+                return (
+                  <Badge
+                    key={slug}
+                    variant="outline"
+                    className="gap-1 rounded-full border-neutral-600 bg-neutral-800/60 py-1 pr-1 pl-2.5 text-neutral-300"
+                  >
+                    {name}
+                    <button
+                      type="button"
+                      onClick={() => removeTag(slug)}
+                      className="hover:bg-neutral-600 rounded-full p-0.5 transition-colors focus:outline-none focus:ring-2 focus:ring-ring"
+                      aria-label={`Remove ${name} filter`}
+                    >
+                      <X className="size-3" />
+                    </button>
+                  </Badge>
+                );
+              })}
             </div>
+          )}
+
+          {(searchQuery.trim() || selectedTagSlugs.length > 0) && (
+            <p className="text-muted-foreground mt-3 text-center text-sm">
+              Showing {filteredBlogs.length} blog
+              {filteredBlogs.length === 1 ? "" : "s"}
+            </p>
           )}
         </div>
 
-        {selectedTag === "all" && (
+        {showFeatured && (
           <div className="mb-20">
-            <div className="mb-8 text-center">
+            <div className="group relative block rounded-lg bg-neutral-900 p-6">
               <Badge
-                className="border-primary/20 bg-primary/10 text-primary"
+                className="border-primary/20 bg-neutral-900 opacity-100 text-primary absolute -top-3 left-6"
                 variant="outline"
               >
                 Featured Blog
               </Badge>
-            </div>
-            <div className="group block rounded-lg bg-neutral-900 p-6">
               <div className="grid items-center gap-8 md:grid-cols-2">
                 <div className="order-2 md:order-1">
-                  <div className="mb-2 font-medium text-neutral-300 text-sm">
+                  <div className="mb-2 font-medium text-neutral-300 text-sm space-x-1">
                     {latestBlog.tagSlugs.map((tagSlug, index) => (
                       <Link key={tagSlug} href={`/tags/${tagSlug}`}>
                         <Badge variant="outline">
@@ -165,7 +213,8 @@ export default function Page() {
           <div className="py-20 text-center">
             <h2 className="mb-2 font-bold text-2xl">No Blogs Found</h2>
             <p className="text-muted-foreground">
-              Try adjusting your filter to find what you&apos;re looking for.
+              Try adjusting your search or filters to find what you&apos;re
+              looking for.
             </p>
           </div>
         )}

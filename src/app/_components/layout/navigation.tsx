@@ -1,7 +1,7 @@
 "use client";
 
 import { Menu, MoveUpRight, X } from "lucide-react";
-import { AnimatePresence, motion } from "motion/react";
+import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import type { Route } from "next";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -15,12 +15,13 @@ import { footerRoutes, navigationRoutes } from "../routes";
 export function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();
+  const shouldReduceMotion = useReducedMotion();
 
   return (
     <header className="fixed top-0 right-0 left-0 z-50 border-border border-b bg-background/80 backdrop-blur-md">
       <div className="container-custom flex h-20 items-center justify-between">
         <Link
-          className="flex items-center gap-x-4 font-bold font-serif text-2xl tracking-tight"
+          className="tap-target flex items-center gap-x-4 font-bold font-serif text-2xl tracking-tight transition-opacity duration-200 hover:opacity-90 active:opacity-80"
           href="/"
         >
           <Logo className="size-[42px]" />
@@ -31,7 +32,7 @@ export function Navigation() {
           {navigationRoutes.map((route) => (
             <Link
               className={cn(
-                "text-lg transition-colors",
+                "tap-target text-lg transition-colors duration-200 active:opacity-80",
                 route.type !== "icon" ? "link-underline" : "mr-4!",
                 pathname === route.path
                   ? "text-foreground"
@@ -47,7 +48,7 @@ export function Navigation() {
             >
               {route.name}
               {route.external && route.type !== "icon" && (
-                <MoveUpRight className="size-4 w-0 opacity-0 transition-all group-hover:w-4 group-hover:opacity-100" />
+                <MoveUpRight className="size-4 w-0 opacity-0 transition-[width,opacity] duration-200 group-hover:w-4 group-hover:opacity-100" />
               )}
             </Link>
           ))}
@@ -73,17 +74,25 @@ export function Navigation() {
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div
-            animate={{ height: "auto", opacity: 1 }}
+            animate={
+              shouldReduceMotion
+                ? { opacity: 1 }
+                : { height: "auto", opacity: 1 }
+            }
             className="fixed inset-0 top-20 z-50 bg-background py-6 md:hidden"
-            exit={{ height: 0, opacity: 0 }}
-            initial={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.3 }}
+            exit={
+              shouldReduceMotion ? { opacity: 0 } : { height: 0, opacity: 0 }
+            }
+            initial={
+              shouldReduceMotion ? { opacity: 0 } : { height: 0, opacity: 0 }
+            }
+            transition={{ duration: shouldReduceMotion ? 0.15 : 0.3 }}
           >
             <nav className="flex flex-col space-y-6 bg-background/90 text-center">
               {footerRoutes.map((route) => (
                 <Link
                   className={cn(
-                    "py-2 text-2xl transition-colors",
+                    "tap-target block py-2 text-2xl transition-colors duration-200 active:bg-muted rounded-md",
                     pathname === route.path
                       ? "text-foreground"
                       : "text-muted-foreground hover:text-foreground",

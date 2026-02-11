@@ -1,9 +1,12 @@
+"use client";
+
 import Link from "next/link";
+import { SectionReveal } from "@/components/motion/section-reveal";
 import { Button } from "@/components/ui/button";
 
 export function AboutSection() {
   return (
-    <section className="container-custom section-spacing" id="about">
+    <SectionReveal className="container-custom section-spacing" id="about">
       <div className="grid gap-12 md:grid-cols-3">
         <div>
           <h2 className="heading-lg mb-6">About</h2>
@@ -33,6 +36,6 @@ export function AboutSection() {
           </div>
         </div>
       </div>
-    </section>
+    </SectionReveal>
   );
 }

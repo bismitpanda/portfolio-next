@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { AboutPageReveal } from "./_components/about-page-reveal";
 import { AchievementsSection } from "./_components/sections/achievements";
 import { CertificationsSection } from "./_components/sections/certifications";
 import { CtaSection } from "./_components/sections/cta";
@@ -15,13 +16,15 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <div className="pt-20">
-      <HeroSection />
-      <SkillsSection />
-      <ExperienceSection />
-      <EducationSection />
-      <AchievementsSection />
-      <CertificationsSection />
-      <CtaSection />
+      <AboutPageReveal>
+        <HeroSection />
+        <SkillsSection />
+        <ExperienceSection />
+        <EducationSection />
+        <AchievementsSection />
+        <CertificationsSection />
+        <CtaSection />
+      </AboutPageReveal>
     </div>
   );
 }

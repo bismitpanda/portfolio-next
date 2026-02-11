@@ -1,5 +1,8 @@
+"use client";
+
 import Link from "next/link";
 import { BlogCard } from "@/components/blog-card";
+import { ItemReveal } from "@/components/motion/section-reveal";
 import { allPublishedBlogsByDate } from "@/lib/content";
 
 export function RecentBlogsSection() {
@@ -16,8 +19,10 @@ export function RecentBlogsSection() {
       </div>
 
       <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-        {allPublishedBlogsByDate.slice(0, 3).map((post) => (
-          <BlogCard blog={post} key={post.slug} />
+        {allPublishedBlogsByDate.slice(0, 3).map((post, index) => (
+          <ItemReveal key={post.slug} delay={index * 0.06}>
+            <BlogCard blog={post} />
+          </ItemReveal>
         ))}
       </div>
     </section>
