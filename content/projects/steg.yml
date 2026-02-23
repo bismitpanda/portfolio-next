@@ -5,7 +5,7 @@ description: >
   A Rust library for simple image steganography, hiding messages in images.
 featuredImage: /images/projects/steg/featured-image.png
 githubUrl: https://github.com/bismitpanda/steg
-projectType: github
+projectType: systems
 role: Developer
 solution: >
   Implemented LSB encoding with randomized bit positions and optional encryption.

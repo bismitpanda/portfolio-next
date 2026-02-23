@@ -6,7 +6,7 @@ description: >
   The site highlights complementary services such as book publishing, awards recognition, LinkedIn growth, and podcast features—managed through a CMS for seamless content updates.
 featuredImage: https://shoutstart.com/opengraph-image.png
 liveUrl: https://shoutstart.com
-projectType: hosted
+projectType: frontend
 role: Front-end Developer
 solution: >
   Developed a performant, responsive Next.js single-page application with optimized image components and CSS-grid layouts to showcase the four core steps—Write → Submit & Refine → Publish → Shout—in a branded illustration flow.

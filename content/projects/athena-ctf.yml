@@ -5,7 +5,7 @@ description: >
   A platform for hosting CTFs with a focus on security and scalability.
 featuredImage: /images/projects/athena-ctf/featured-image.png
 githubUrl: https://github.com/athena-ctf/athena
-projectType: github
+projectType: systems
 role: Developer
 solution: >
   Built a platform for hosting CTFs with a focus on security and scalability.

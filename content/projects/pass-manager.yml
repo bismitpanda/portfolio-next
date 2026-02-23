@@ -6,7 +6,7 @@ description: >
   AES-256-GCM encryption, with the encryption key provided by the user.
 featuredImage: /images/projects/pass-manager/featured-image.png
 githubUrl: https://github.com/bismitpanda/pass_manager
-projectType: github
+projectType: systems
 role: Developer
 solution: >
   Wiped secrets after use and used OS-level secure storage for keys.

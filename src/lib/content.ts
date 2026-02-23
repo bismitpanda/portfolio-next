@@ -56,11 +56,14 @@ export const allProjectsByDate = allProjects.toSorted(
 export const allFeaturedProjects = allProjectsByDate.filter(
   (project) => project.isFeatured,
 );
-export const allHostedProjects = allProjectsByDate.filter(
-  (project) => project.projectType === "hosted",
+export const allFullStackProjects = allProjectsByDate.filter(
+  (project) => project.projectType === "full-stack",
 );
-export const allGithubProjects = allProjectsByDate.filter(
-  (project) => project.projectType === "github",
+export const allFrontendProjects = allProjectsByDate.filter(
+  (project) => project.projectType === "frontend",
+);
+export const allSystemsProjects = allProjectsByDate.filter(
+  (project) => project.projectType === "systems",
 );
 
 export const allSnippetsByDate = allSnippets.toSorted((a, b) =>

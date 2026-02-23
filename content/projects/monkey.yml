@@ -7,7 +7,7 @@ description: >
   extended with extra built-in functions and VM introspection utilities.
 featuredImage: /images/projects/monkey/featured-image.png
 githubUrl: https://github.com/bismitpanda/monkey
-projectType: github
+projectType: systems
 role: Developer
 solution: >
   Followed the book’s architecture to build both an AST interpreter and a VM compiler,

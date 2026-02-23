@@ -9,7 +9,7 @@ description: >
 isFeatured: true
 featuredImage: /images/projects/panda/featured-image.png
 githubUrl: https://github.com/bismitpanda/panda
-projectType: github
+projectType: systems
 role: Developer
 solution: >
   Built an AST-based interpreter and a separate compiler + VM pipeline in Rust, leveraging

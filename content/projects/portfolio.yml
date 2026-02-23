@@ -7,7 +7,7 @@ isFeatured: true
 featuredImage: https://bismitpanda.com/opengraph-image.png
 githubUrl: https://github.com/bismitpanda/portfolio-next
 liveUrl: https://bismitpanda.com
-projectType: hosted
+projectType: frontend
 role: Full-stack Developer
 solution: >
   Implemented a portfolio website with Next.js, shadcn/ui, React, TypeScript, Tailwind CSS,

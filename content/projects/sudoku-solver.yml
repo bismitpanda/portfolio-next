@@ -6,7 +6,7 @@ description: >
   showcases algorithmic problem-solving skills and proficiency in Rust programming.
 featuredImage: /images/projects/sudoku-solver/featured-image.png
 githubUrl: https://github.com/bismitpanda/sudoku_solver
-projectType: github
+projectType: systems
 role: Developer
 solution: >
   Built a generic matrix builder and verified against known puzzles.

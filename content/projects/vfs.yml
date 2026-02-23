@@ -5,7 +5,7 @@ description: >
   A “Very Fast and Secure” virtual filesystem in Rust with compression and encryption.
 featuredImage: /images/projects/vfs/featured-image.png
 githubUrl: https://github.com/bismitpanda/vfs
-projectType: github
+projectType: systems
 role: Developer
 solution: >
   Chose LZ4 for speed and AES-GCM for authenticated encryption.

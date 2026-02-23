@@ -7,7 +7,7 @@ description: >
   capital, complete with loan comparisons, process timelines, and due-diligence downloads.
 featuredImage: https://terrabridge.ai/opengraph-image.png
 liveUrl: https://terrabridge.ai
-projectType: hosted
+projectType: frontend
 role: Full-stack Developer
 solution: >
   Implemented dynamic comparison tables with React and Tailwind, built an animated timeline

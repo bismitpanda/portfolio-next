@@ -9,7 +9,7 @@ description: >
   project, port ranges, conflict detection, and automatic environment file injection.
 featuredImage: /images/projects/port-assigner/featured-image.png
 githubUrl: https://github.com/bismitpanda/port-assigner
-projectType: github
+projectType: systems
 role: Developer
 solution: >
   Built a Rust-based CLI tool with a clean command structure and JSON-based configuration storage.

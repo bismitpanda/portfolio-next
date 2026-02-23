@@ -8,8 +8,9 @@ description: >
   managing, and tracking tasks across different projects and contexts.
 featuredImage: /images/projects/planr/featured-image.png
 githubUrl: https://github.com/bismitpanda/planr
+liveUrl: https://planr.vercel.app
 isFeatured: true
-projectType: github
+projectType: full-stack
 role: Full-stack Developer
 solution: >
   Developed a full-stack application with a clean, modern UI and robust backend architecture.

@@ -7,7 +7,7 @@ description: >
   incubator support, media services, and EB-5 loan programs to ease immigrant transitions.
 featuredImage: https://openventure.com/opengraph-image.png
 liveUrl: https://openventure.com
-projectType: hosted
+projectType: frontend
 role: Lead Developer
 solution: >
   Developed a Next.js/React front end with Tailwind CSS, integrated headless CMS for content

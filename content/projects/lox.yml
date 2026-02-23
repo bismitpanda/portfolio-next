@@ -7,7 +7,7 @@ description: >
   architecture, directly inspired by crafting interpreters.
 featuredImage: /images/projects/lox/featured-image.png
 githubUrl: https://github.com/bismitpanda/lox
-projectType: github
+projectType: systems
 role: Developer
 solution: >
   Built a hand-rolled lexer, recursive-descent parser, and a bytecode compiler with an

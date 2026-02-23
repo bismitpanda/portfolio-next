@@ -54,7 +54,7 @@ const projectSchema = z.object({
   solution: z.string(),
   technologies: z.string().array(),
   featuredImage: z.string(),
-  projectType: z.enum(["hosted", "github"]),
+  projectType: z.enum(["full-stack", "frontend", "systems"]),
   liveUrl: z.string().optional(),
   githubUrl: z.string().optional(),
   isFeatured: z.boolean().default(false),
@@ -290,12 +290,16 @@ const projects = defineCollection({
   parser: "yaml",
   schema: projectSchema,
   transform: async (data) => {
-    if (data.projectType === "hosted" && !data.liveUrl) {
-      throw new Error("Hosted project must have live url");
+    if (data.projectType === "full-stack" && !data.liveUrl) {
+      throw new Error('Full-stack project must have "liveUrl"');
     }
 
-    if (data.projectType === "github" && !data.githubUrl) {
-      throw new Error("Github project must have github url");
+    if (data.projectType === "frontend" && !data.liveUrl) {
+      throw new Error('Frontend project must have "liveUrl"');
+    }
+
+    if (data.projectType === "systems" && !data.githubUrl) {
+      throw new Error('Systems project must have "githubUrl"');
     }
 
     return {
@@ -349,7 +353,7 @@ const achievements = defineCollection({
 });
 
 export default defineConfig({
-  collections: [
+  content: [
     blogs,
     snippets,
     projects,
