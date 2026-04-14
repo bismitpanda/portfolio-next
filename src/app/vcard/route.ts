@@ -13,19 +13,19 @@ export async function GET() {
   const card = new VCard();
 
   card
-    .addName(user.lastName, user.firstName)
-    .addAddress(user.location)
-    .addPhoneNumber(user.socials.phone.label)
-    .addEmail(user.socials.email.label)
-    .addURL(user.socials.website.url)
-    .addSocial(user.socials.linkedin.url, "LinkedIn")
-    .addSocial(user.socials.github.url, "GitHub")
-    .addSocial(user.socials.twitter.url, "Twitter")
-    .addPhoto(photo.toString("base64"));
+    .addName({ familyName: user.lastName, givenName: user.firstName })
+    .addAddress({ country: user.location })
+    .addPhoneNumber({ number: user.socials.phone.label, type: ["cell"] })
+    .addEmail({ address: user.socials.email.label, type: ["internet"] })
+    .addUrl({ url: user.socials.website.url, type: ["work"] })
+    .addSocial({ url: user.socials.linkedin.url, type: "LinkedIn" })
+    .addSocial({ url: user.socials.github.url, type: "GitHub" })
+    .addSocial({ url: user.socials.twitter.url, type: "Twitter" })
+    .addPhoto({ image: photo.toString("base64") });
 
   if (user.experience[0]) {
     const company = user.experience[0];
-    card.addCompany(company.company).addJobtitle(company.title);
+    card.addCompany({ name: company.company }).addJobtitle(company.title);
   }
 
   return new NextResponse(card.toString(), {

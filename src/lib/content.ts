@@ -87,11 +87,11 @@ export const allAchievementsByDate = allAchievements.toSorted((a, b) =>
 );
 
 export type {
+  Achievement,
   Blog,
-  Snippet,
-  Project,
-  Experience,
   Certification,
   Education,
-  Achievement,
+  Experience,
+  Project,
+  Snippet,
 };

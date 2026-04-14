@@ -151,7 +151,7 @@ export const user = {
   firstName: "Bismit",
   lastName: "Panda",
   username: "bismitpanda",
-  location: "Gandhinagar, Gujarat",
+  location: "India",
   avatar: "images/photo.png",
   vcardPhoto: "images/vcard-photo.jpg",
   socials: {

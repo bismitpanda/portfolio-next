@@ -33,8 +33,12 @@ export function ProjectsContent({
       (entries) => {
         for (const entry of entries) {
           const id = entry.target.id;
-          if (!SECTION_IDS.includes(id as (typeof SECTION_IDS)[number])) continue;
-          visibility.set(id, entry.isIntersecting ? entry.intersectionRatio : 0);
+          if (!SECTION_IDS.includes(id as (typeof SECTION_IDS)[number]))
+            continue;
+          visibility.set(
+            id,
+            entry.isIntersecting ? entry.intersectionRatio : 0,
+          );
         }
         const visible = [...visibility.entries()]
           .filter(([, r]) => r > 0)
@@ -69,39 +73,39 @@ export function ProjectsContent({
           className="sticky top-24 z-40 mx-auto mb-20 flex w-fit flex-wrap items-center justify-center gap-1 rounded-full border border-border bg-background/90 px-2 py-1.5 backdrop-blur-md"
           aria-label="Jump to section"
         >
-            <Link
-              className={cn(
-                "rounded-full px-4 py-2 text-sm font-medium transition-colors hover:bg-muted hover:text-foreground",
-                activeId === "frontend"
-                  ? "bg-muted text-foreground"
-                  : "text-muted-foreground",
-              )}
-              href="#frontend"
-            >
-              Frontend
-            </Link>
-            <Link
-              className={cn(
-                "rounded-full px-4 py-2 text-sm font-medium transition-colors hover:bg-muted hover:text-foreground",
-                activeId === "full-stack"
-                  ? "bg-muted text-foreground"
-                  : "text-muted-foreground",
-              )}
-              href="#full-stack"
-            >
-              Full-Stack
-            </Link>
-            <Link
-              className={cn(
-                "rounded-full px-4 py-2 text-sm font-medium transition-colors hover:bg-muted hover:text-foreground",
-                activeId === "systems"
-                  ? "bg-muted text-foreground"
-                  : "text-muted-foreground",
-              )}
-              href="#systems"
-            >
-              Systems
-            </Link>
+          <Link
+            className={cn(
+              "rounded-full px-4 py-2 text-sm font-medium transition-colors hover:bg-muted hover:text-foreground",
+              activeId === "frontend"
+                ? "bg-muted text-foreground"
+                : "text-muted-foreground",
+            )}
+            href="#frontend"
+          >
+            Frontend
+          </Link>
+          <Link
+            className={cn(
+              "rounded-full px-4 py-2 text-sm font-medium transition-colors hover:bg-muted hover:text-foreground",
+              activeId === "full-stack"
+                ? "bg-muted text-foreground"
+                : "text-muted-foreground",
+            )}
+            href="#full-stack"
+          >
+            Full-Stack
+          </Link>
+          <Link
+            className={cn(
+              "rounded-full px-4 py-2 text-sm font-medium transition-colors hover:bg-muted hover:text-foreground",
+              activeId === "systems"
+                ? "bg-muted text-foreground"
+                : "text-muted-foreground",
+            )}
+            href="#systems"
+          >
+            Systems
+          </Link>
         </nav>
 
         <div className="mb-28" id="frontend">
