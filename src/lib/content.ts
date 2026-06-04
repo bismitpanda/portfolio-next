@@ -56,6 +56,9 @@ export const allProjectsByDate = allProjects.toSorted(
 export const allFeaturedProjects = allProjectsByDate.filter(
   (project) => project.isFeatured,
 );
+export const allResumeProjects = allProjectsByDate.filter(
+  (project) => project.resumeSummary,
+);
 export const allFullStackProjects = allProjectsByDate.filter(
   (project) => project.projectType === "full-stack",
 );

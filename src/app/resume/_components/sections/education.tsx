@@ -11,9 +11,9 @@ export function EducationSection({ education }: { education: Education[] }) {
       bookmark="Education"
     >
       <Text style={styles.sectionTitle}>Education</Text>
-      {education.map((edu, index) => (
+      {education.map((edu) => (
         <View
-          key={`${index}-${edu.institution}-${edu.title}`}
+          key={`${edu.institution}-${edu.title}`}
           style={styles.entryContainer}
         >
           <View style={styles.entryHeader}>

@@ -53,6 +53,7 @@ const projectSchema = z.object({
   challenge: z.string(),
   solution: z.string(),
   technologies: z.string().array(),
+  resumeSummary: z.string().optional(),
   featuredImage: z.string(),
   projectType: z.enum(["full-stack", "frontend", "systems"]),
   liveUrl: z.string().optional(),

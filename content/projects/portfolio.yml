@@ -3,7 +3,7 @@ challenge: >
 client: Bismit Panda (Me)
 description: >
   A portfolio website for me.
-isFeatured: true
+isFeatured: false
 featuredImage: https://bismitpanda.com/opengraph-image.png
 githubUrl: https://github.com/bismitpanda/portfolio-next
 liveUrl: https://bismitpanda.com

@@ -6,9 +6,9 @@ export function AboutMeSection({ content }: { content: string }) {
     <View
       style={styles.section}
       // @ts-expect-error: Why the error?
-      bookmark="About Me"
+      bookmark="Summary"
     >
-      <Text style={styles.sectionTitle}>About Me</Text>
+      <Text style={styles.sectionTitle}>Summary</Text>
       <Text style={styles.paragraph}>{content}</Text>
     </View>
   );

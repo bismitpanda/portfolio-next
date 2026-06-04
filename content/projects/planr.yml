@@ -6,6 +6,8 @@ description: >
   Planr is a modern planning and task management application designed to help users organize
   their projects and workflows efficiently. The tool provides an intuitive interface for creating,
   managing, and tracking tasks across different projects and contexts.
+resumeSummary: >
+  Full-stack project management tool (Next.js, Kafka, Qdrant, Redis, MinIO, OpenFGA)
 featuredImage: /images/projects/planr/featured-image.png
 githubUrl: https://github.com/bismitpanda/planr
 liveUrl: https://planr.vercel.app

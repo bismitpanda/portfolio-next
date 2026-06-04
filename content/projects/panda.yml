@@ -6,6 +6,8 @@ description: >
   This is a toy interpreter for the panda programming language, featuring both an AST
   tree-walker evaluator and a compiler + VM architecture. It’s inspired by the Monkey
   language implementation in Go.
+resumeSummary: >
+  Rust interpreter and compiler with AST tree-walker evaluator and VM architecture
 isFeatured: true
 featuredImage: /images/projects/panda/featured-image.png
 githubUrl: https://github.com/bismitpanda/panda

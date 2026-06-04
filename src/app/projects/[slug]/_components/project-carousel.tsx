@@ -46,8 +46,8 @@ export function ProjectCarousel({ gallery }: { gallery: Project["gallery"] }) {
         setApi={setApi}
       >
         <CarouselContent>
-          {gallery.map((image, index) => (
-            <CarouselItem key={`${index}-${image.imageUrl}`}>
+          {gallery.map((image) => (
+            <CarouselItem key={image.imageUrl}>
               <div className="aspect-video overflow-hidden rounded-lg">
                 <Image
                   src={image.imageUrl}

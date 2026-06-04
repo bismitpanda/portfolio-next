@@ -127,6 +127,16 @@ export const styles = StyleSheet.create({
     textAlign: "right",
     minWidth: 120,
   },
+  projectEntry: {
+    marginBottom: 4,
+  },
+  projectLine: {
+    fontSize: 10,
+    lineHeight: 1.4,
+  },
+  projectTitleInline: {
+    fontWeight: "bold",
+  },
   highlightsList: {
     marginLeft: 10,
     marginBottom: 6,

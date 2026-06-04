@@ -10,8 +10,9 @@ export function HeroSection() {
       <div className="mx-auto mb-16 max-w-3xl text-center">
         <h1 className="heading-xl mb-6">About Me</h1>
         <p className="body-lg text-muted-foreground">
-          Full Stack Developer with a passion for creating beautiful,
-          functional, and accessible web experiences.
+          Software engineer shipping production full-stack and AI-integrated
+          systems, from immigration and hiring platforms to cybersecurity
+          products.
         </p>
       </div>
 
@@ -28,19 +29,22 @@ export function HeroSection() {
         </div>
         <div className="space-y-6">
           <p className="body-lg">
-            I&apos;m a passionate developer with over 5 years of experience
-            building web applications. I specialize in React, Next.js, and
-            Node.js, creating responsive and accessible websites.
+            I build and ship production web applications end to end, mostly in
+            Next.js and TypeScript, often with LLM and RAG integrations. As sole
+            developer at OpenVenture (formerly Greencard Inc.), I&apos;ve
+            delivered 10+ live products across immigration, hiring, admissions,
+            and investment.
           </p>
           <p className="body-lg">
-            When I&apos;m not coding, you can find me hiking, reading, or
-            experimenting with new technologies. I believe in clean, minimal
-            design that puts the focus on content and user experience.
+            As Co-Founder and CTO at AstraQ Cyber Defence, I architect security
+            training and platform products including Athena CTF, Athena LMS,
+            Phoebe, and Metis. I also write Rust and Go when performance
+            matters.
           </p>
           <p className="body-lg">
-            I also regularly share code snippets and write blog posts about
-            modern web technologies to help other developers level up their
-            skills.
+            I graduated with a B.Tech in Computer Science and Engineering
+            (Cybersecurity) from Rashtriya Raksha University and share what I
+            learn through blog posts and snippets on this site.
           </p>
           <div className="flex flex-wrap gap-4 pt-4">
             <Button asChild size="lg">

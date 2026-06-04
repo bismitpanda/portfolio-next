@@ -25,7 +25,7 @@ export function SortToggle({
         className,
       )}
       aria-pressed={!isDate}
-      aria-label={`Sort by ${isDate ? "date" : "title A–Z"}. Click to switch.`}
+      aria-label={`Sort by ${isDate ? "date" : "title A-Z"}. Click to switch.`}
     >
       <span
         className="absolute inset-y-1 rounded-lg bg-white text-black transition-[left] duration-300 ease-out"

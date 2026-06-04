@@ -1,9 +1,11 @@
-company: Greencard Inc.
+company: Greencard Inc. (now OpenVenture)
 description: >
-  I worked on the development of a web application for the Greencard Inc. website. I was
-  responsible for the development of landing pages of multiple services.
+  US-based company building products across immigration, hiring, admissions, and investment verticals.
 highlights:
-  - Developed a landing page for Greencard Inc and 5 other services.
-  - Developed a dashboard for the Greencard Inc. website.
+  - "Sole developer responsible for building and shipping 10+ production applications across the OpenVenture product suite, all in Next.js and TypeScript, deployed on Vercel"
+  - "Built visarchitect.com: full-stack immigration platform with multi-page dashboard, LLM-based immigration status evaluator, and a RAG pipeline (integrated from acquired product Visa Vibe)"
+  - "Built openhired.com: full-stack hiring platform with marketing site and candidate-facing dashboard"
+  - "Built openadmits.com: admissions platform with Next.js frontend and headless CMS integration"
+  - "Built and shipped terrabridge.ai, openventure.com, legallounge.ai, openaxle.com, rideblnk.com, openinvests.com, shoutstart.com"
 startDate: 2025-02-01
 title: Full Stack Developer

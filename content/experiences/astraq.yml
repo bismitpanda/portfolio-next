@@ -1,9 +1,10 @@
-company: AstraQ CD
+company: AstraQ Cyber Defence
 startDate: 2025-10-01
-title: CTO
+title: Co-Founder & CTO
 description: >
-  Leading the technical strategy and development of advanced cyber defense solutions.
+  AI-powered cybersecurity startup building security training and platform products.
 highlights:
-  - Spearheading the architecture and engineering of the core security platform
-  - Managing cross-functional teams to deliver robust and scalable security products
-  - Defining the technical roadmap and ensuring alignment with business goals
+  - Architected and built Athena CTF, a Capture the Flag security training platform, from the ground up
+  - Architected and built Athena LMS, a security-focused learning management system, from the ground up
+  - Led development of Phoebe (70% ownership) and Metis (30% ownership), two additional platform products
+  - Defined technical stack, infrastructure, and architecture across all four products

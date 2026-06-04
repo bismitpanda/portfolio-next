@@ -7,10 +7,10 @@ import { Button } from "@/components/ui/button";
 import { TextLoop } from "@/components/ui/text-loop";
 
 const roles = [
+  "Software Engineer",
+  "Co-Founder & CTO",
   "Full Stack Developer",
-  "Cyber Security Enthusiast",
   "Systems Engineer",
-  "DevOps Engineer",
 ];
 
 const itemTransition = (reduce: boolean) =>
@@ -65,7 +65,7 @@ export function HeroSection() {
             animate={itemAnimate(reduce)}
             transition={{ ...itemTransition(reduce), delay: 0.26 }}
           >
-            I create beautiful, functional websites and applications.
+            Production full-stack apps, AI systems, and cybersecurity platforms.
           </motion.p>
           <motion.div
             className="flex flex-wrap gap-4"

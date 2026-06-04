@@ -1,11 +1,9 @@
 company: IIT Bombay
 description: >
-  I worked on the development of a web application for the IIT Bombay which was a medical
-  calculator for doctors. I was responsible for the development of the frontend in React and backend in Django.
+  Clinical medical calculator for doctors with a React frontend and Django backend.
 highlights:
-  - Mentored 4+ students in building a Medical Calculator application to assist doctors with complex calculations
-  - Led frontend and backend architecture design, ensuring user-friendliness and reliability
-  - Enhanced development timelines by 25% through active coordination and technology adoption
+  - Built a clinical medical calculator; React frontend, Django backend
+  - Led architecture design and mentored 4 student contributors
 startDate: 2023-11-01
 endDate: 2024-02-01
 title: Software Engineering Intern

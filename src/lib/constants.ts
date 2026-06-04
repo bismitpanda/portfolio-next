@@ -24,7 +24,7 @@ import {
   allCertificationsByDate,
   allEducationsByDate,
   allExperiencesByDate,
-  allFeaturedProjects,
+  allResumeProjects,
 } from "./content";
 
 type Icon = (props: SVGProps<SVGSVGElement>) => JSX.Element;
@@ -181,18 +181,16 @@ export const user = {
     },
   },
   about:
-    "I am Bismit Panda, a pre-final year B.Tech Computer Science student with a specialization in Cyber Security at Rashtriya Raksha University. Skilled in Java, Python, C++, C, Rust, Golang, and web technologies, I have made projects in image manipulation, management systems, and interactive games.",
+    "Software engineer with 1.5+ years of professional experience shipping production web applications and AI-integrated systems. Built and deployed 10+ full-stack products across immigration, hiring, legal, and SaaS verticals as a sole developer. Co-Founder and CTO of an AI-powered cybersecurity startup. Strong systems background, writing Rust and Go for performance-critical work.",
   technologies: {
-    languages: skills
-      .filter((skill) => skill.type === "language")
-      .map((skill) => skill.label)
-      .join(", "),
-    softwareAndFrameworks: skills
-      .filter((skill) => skill.type !== "language")
-      .map((skill) => skill.label)
-      .join(", "),
+    languages: "TypeScript, Rust, Go, Python, C++, JavaScript",
+    frontend: "React, Next.js, Tailwind CSS, Shadcn UI",
+    backend: "Node.js, Hono, tRPC, GraphQL, Django",
+    databases: "PostgreSQL, MongoDB, Redis, ClickHouse, Qdrant",
+    infrastructure: "AWS, Docker, Kubernetes, Vercel",
+    aiMl: "LLM integration, RAG pipelines, AI agents, web scraping",
   },
-  projects: allFeaturedProjects,
+  projects: allResumeProjects,
   experience: allExperiencesByDate,
   education: allEducationsByDate,
   achievements: allAchievementsByDate,

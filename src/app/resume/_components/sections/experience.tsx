@@ -15,11 +15,8 @@ export function ExperienceSection({
       bookmark="Experience"
     >
       <Text style={styles.sectionTitle}>Experience</Text>
-      {experience.map((exp, index) => (
-        <View
-          key={`${index}-${exp.title}-${exp.company}`}
-          style={styles.entryContainer}
-        >
+      {experience.map((exp) => (
+        <View key={`${exp.title}-${exp.company}`} style={styles.entryContainer}>
           <View style={styles.entryHeader}>
             <Text style={styles.entryTitle}>
               {exp.title}, {exp.company}
@@ -31,8 +28,8 @@ export function ExperienceSection({
           </View>
           <Text style={styles.paragraph}>{exp.description}</Text>
           <View style={styles.highlightsList}>
-            {exp.highlights.map((highlight, index) => (
-              <View key={`${index}-${highlight}`} style={styles.highlight}>
+            {exp.highlights.map((highlight) => (
+              <View key={highlight} style={styles.highlight}>
                 <Text style={styles.bullet}>•</Text>
                 <Text style={styles.highlightText}>{highlight.trim()}.</Text>
               </View>
