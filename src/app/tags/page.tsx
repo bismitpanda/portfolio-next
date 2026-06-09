@@ -24,7 +24,7 @@ export default function Page() {
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {allTagsByCount.map((tag) => (
             <Card
-              className="group border border-border bg-card transition-shadow hover:shadow-lg"
+              className="group tap-target border border-border bg-card transition-shadow hover:shadow-lg"
               key={tag.slug}
             >
               <CardHeader className="pb-3">

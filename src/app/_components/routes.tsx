@@ -24,6 +24,7 @@ export const footerRoutes: Route[] = [
 
 export const navigationRoutes: Route[] = [
   { name: "About", path: "/about" },
+  { name: "Projects", path: "/projects" },
   { name: "Blog", path: "/blog" },
   { name: "Resume", path: "/resume", external: true },
   {

@@ -158,28 +158,19 @@ export function ProjectsContent({
         <div className="mb-28" id="full-stack">
           <h2 className="heading-lg mb-12">Full-Stack Applications</h2>
 
-          <div className="grid gap-20 md:gap-28">
+          <div className="grid gap-24">
             {fullStack.map((project, index) => (
-              <ItemReveal key={project.slug} delay={index * 0.1}>
-                <div className="group">
-                  <div
-                    className={cn(
-                      "grid items-center gap-14 md:grid-cols-2",
-                      index % 2 === 1 && "md:grid-flow-dense",
-                    )}
-                  >
-                    <div className="relative pl-6 md:pl-8">
-                      <span
-                        className="absolute left-0 top-0 h-full w-px bg-linear-to-b from-transparent via-border to-transparent"
-                        aria-hidden
-                      />
-                      <span className="font-mono text-6xl font-bold text-muted-foreground/25 transition-colors group-hover:text-muted-foreground/45">
+              <ItemReveal key={project.slug} delay={index * 0.08}>
+                <div className="group tap-target">
+                  <div className="grid items-center gap-12 md:grid-cols-2">
+                    <div>
+                      <span className="font-bold text-8xl text-muted-foreground/20 transition-colors group-hover:text-muted-foreground/50">
                         {(index + 1).toString().padStart(2, "0")}
                       </span>
-                      <h2 className="-mt-4 mb-5 font-serif text-3xl font-bold tracking-tight md:text-4xl">
+                      <h2 className="-mt-8 mb-6 font-bold text-4xl transition-transform group-hover:translate-y-1.5">
                         {project.title}
                       </h2>
-                      <p className="mb-6 text-muted-foreground text-lg leading-relaxed line-clamp-3">
+                      <p className="mb-6 text-muted-foreground text-xl leading-relaxed line-clamp-3">
                         {project.description}
                       </p>
                       <div className="mb-8 flex flex-wrap gap-2">
@@ -205,23 +196,21 @@ export function ProjectsContent({
                     </div>
                     <div
                       className={cn(
-                        "overflow-hidden rounded-2xl",
+                        "overflow-hidden rounded-lg",
                         index % 2 === 1 && "md:-order-1",
                       )}
                     >
                       <Link
-                        className="block overflow-hidden rounded-2xl bg-muted shadow-[0_8px_30px_rgb(0,0,0,0.08)] transition-all duration-300 hover:shadow-[0_20px_50px_-12px_rgba(0,0,0,0.15)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.3)] dark:hover:shadow-[0_20px_50px_-12px_rgba(0,0,0,0.4)]"
+                        className="block aspect-video overflow-hidden rounded-lg bg-muted transition-transform duration-500 group-hover:scale-105"
                         href={`/projects/${project.slug}`}
                       >
-                        <div className="aspect-video overflow-hidden">
-                          <Image
-                            alt={project.title}
-                            className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                            height={600}
-                            src={project.featuredImage}
-                            width={800}
-                          />
-                        </div>
+                        <Image
+                          alt={project.title}
+                          className="h-full w-full object-cover"
+                          height={600}
+                          src={project.featuredImage}
+                          width={800}
+                        />
                       </Link>
                     </div>
                   </div>
@@ -241,7 +230,7 @@ export function ProjectsContent({
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {systems.map((project, index) => (
               <ItemReveal key={project.slug} delay={index * 0.05}>
-                <div className="group flex h-full flex-col overflow-hidden rounded-xl border border-border bg-card transition-all duration-300 hover:border-border/80 hover:shadow-lg">
+                <div className="group tap-target flex h-full flex-col overflow-hidden rounded-xl border border-border bg-card transition-all duration-300 hover:border-border/80 hover:shadow-lg">
                   <Link
                     className="relative block aspect-16/10 shrink-0 overflow-hidden bg-muted"
                     href={`/projects/${project.slug}`}
