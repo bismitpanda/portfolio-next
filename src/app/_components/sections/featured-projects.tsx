@@ -23,7 +23,7 @@ export function FeaturedProjectsSection() {
       <div className="grid gap-24">
         {allFeaturedProjects.map((project, index) => (
           <ItemReveal key={project.slug} delay={index * 0.08}>
-            <div className="group">
+            <div className="group tap-target">
               <div className="grid items-center gap-12 md:grid-cols-2">
                 <div>
                   <span className="font-bold text-8xl text-muted-foreground/20 transition-colors group-hover:text-muted-foreground/50">

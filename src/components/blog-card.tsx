@@ -8,7 +8,7 @@ import { Button } from "./ui/button";
 
 export function BlogCard({ blog }: { blog: Blog["relatedBlogs"][number] }) {
   return (
-    <div className="group flex h-full flex-col overflow-hidden rounded-lg bg-neutral-900 transition-shadow duration-300 hover:shadow-lg">
+    <div className="group flex h-full flex-col overflow-hidden rounded-lg bg-neutral-900 transition-shadow duration-300 hover:shadow-lg tap-target">
       <div className="aspect-video overflow-hidden bg-neutral-100">
         <Image
           alt={blog.title}

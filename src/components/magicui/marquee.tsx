@@ -1,4 +1,10 @@
-import type { ComponentPropsWithoutRef } from "react";
+import {
+  Children,
+  type ComponentPropsWithoutRef,
+  cloneElement,
+  isValidElement,
+  type ReactElement,
+} from "react";
 import { cn } from "@/lib/utils";
 
 interface MarqueeProps extends ComponentPropsWithoutRef<"div"> {
@@ -23,7 +29,7 @@ export function Marquee({
     <div
       {...props}
       className={cn(
-        "group flex overflow-hidden p-2 [--duration:40s] [--gap:1rem] [gap:var(--gap)]",
+        "group flex overflow-hidden p-2 [--duration:40s] [--gap:1rem] gap-(--gap)",
         {
           "flex-row": !vertical,
           "flex-col": vertical,
@@ -35,16 +41,26 @@ export function Marquee({
         .fill(0)
         .map((_, i) => (
           <div
-            className={cn("flex shrink-0 justify-around [gap:var(--gap)]", {
+            className={cn("flex shrink-0 justify-around gap-(--gap)", {
               "animate-marquee flex-row": !vertical,
               "animate-marquee-vertical flex-col": vertical,
-              "group-hover:[animation-play-state:paused]": pauseOnHover,
-              "[animation-direction:reverse]": reverse,
+              "group-hover:paused": pauseOnHover,
+              "direction-[reverse]": reverse,
             })}
             // biome-ignore lint/suspicious/noArrayIndexKey: This is intentional
             key={i}
           >
-            {children}
+            {Children.map(children, (child, childIndex) => {
+              if (!isValidElement(child)) return child;
+
+              return cloneElement(
+                child as ReactElement<{ key?: string | number }>,
+                {
+                  // biome-ignore lint/suspicious/noArrayIndexKey: repeat index is stable for marquee tracks
+                  key: `${i}-${String(child.key ?? childIndex)}`,
+                },
+              );
+            })}
           </div>
         ))}
     </div>
