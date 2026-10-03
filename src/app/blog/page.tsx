@@ -150,7 +150,7 @@ export default function Page() {
 
         {showFeatured && (
           <div className="mb-20">
-            <div className="group tap-target relative block rounded-lg bg-neutral-900 p-6">
+            <div className="group relative block rounded-lg bg-neutral-900 p-6">
               <Badge
                 className="border-primary/20 bg-neutral-900 opacity-100 text-primary absolute -top-3 left-6"
                 variant="outline"

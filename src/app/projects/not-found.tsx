@@ -40,7 +40,7 @@ export default function ProjectNotFound() {
           </div>
 
           <div className="mt-16 gap-6">
-            <div className="tap-target rounded-lg border border-border bg-card p-6 text-left">
+            <div className="rounded-lg border border-border bg-card p-6 text-left">
               <h3 className="mb-4 font-bold text-xl">GitHub Projects</h3>
               <p className="mb-4 text-muted-foreground">
                 Check out my open source work

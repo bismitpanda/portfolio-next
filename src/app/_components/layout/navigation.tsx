@@ -21,7 +21,7 @@ export function Navigation() {
     <header className="fixed top-0 right-0 left-0 z-50 border-border border-b bg-background/80 backdrop-blur-md">
       <div className="container-custom flex h-20 items-center justify-between">
         <Link
-          className="tap-target flex items-center gap-x-4 font-bold font-serif text-2xl tracking-tight transition-opacity duration-200 hover:opacity-90 active:opacity-80"
+          className="flex items-center gap-x-4 font-bold font-serif text-2xl tracking-tight transition-opacity duration-200 hover:opacity-90 active:opacity-80"
           href="/"
         >
           <Logo className="size-[42px]" />
@@ -32,7 +32,7 @@ export function Navigation() {
           {navigationRoutes.map((route) => (
             <Link
               className={cn(
-                "tap-target text-lg transition-colors duration-200 active:opacity-80",
+                "text-lg transition-colors duration-200 active:opacity-80",
                 route.type !== "icon" ? "link-underline" : "mr-4!",
                 pathname === route.path
                   ? "text-foreground"
@@ -92,7 +92,7 @@ export function Navigation() {
               {footerRoutes.map((route) => (
                 <Link
                   className={cn(
-                    "tap-target block py-2 text-2xl transition-colors duration-200 active:bg-muted rounded-md",
+                    "block py-2 text-2xl transition-colors duration-200 active:bg-muted rounded-md",
                     pathname === route.path
                       ? "text-foreground"
                       : "text-muted-foreground hover:text-foreground",

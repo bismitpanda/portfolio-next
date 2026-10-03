@@ -1,0 +1,40 @@
+slug: phoebe
+title: Phoebe
+client: AstraQ Cyber Defence
+role: Full-stack engineer — product surfaces, billing, and connector infrastructure
+year: 2025
+description: >
+  Document intelligence platform for connecting data sources, syncing content, and generating
+  structured outputs with organization billing and API access.
+challenge: >
+  Teams need to ingest documents from multiple connectors, run generation workflows, and
+  manage organization-level access without stitching together separate auth, billing, and
+  sync systems.
+solution: >
+  Contributed to Phoebe's Next.js dashboard with Better Auth, Drizzle, connector OAuth flows,
+  sync job orchestration, document generation pipelines, and Dodo Payments billing. The
+  stack pairs a TypeScript frontend with Rust and Python sync services for heavy lifting.
+technologies:
+  - Next.js
+  - React
+  - TypeScript
+  - Better Auth
+  - Drizzle ORM
+  - Rust
+  - Python
+  - OpenTelemetry
+  - Tailwind CSS
+featuredImage: https://usephoebe.com/opengraph-image.png
+liveUrl: https://usephoebe.com
+projectType: product
+isFeatured: true
+isVisible: true
+status: live
+ownership: Engineering contributor under AstraQ
+accent: "#f59e0b"
+highlights:
+  - Built connector OAuth, sync job tracking, and document generation dashboards
+  - Integrated organization billing with portal and reconciliation flows
+  - Wired observability across frontend and backend services
+outcomes:
+  - Live at usephoebe.com with authenticated multi-tenant workspaces

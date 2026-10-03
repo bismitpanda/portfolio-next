@@ -50,20 +50,20 @@ export const allTagsByCount = (() => {
   return [...tags.values()].toSorted((a, b) => b.count - a.count);
 })();
 
-export const allProjectsByDate = allProjects.toSorted(
-  (a, b) => a.year - b.year,
-);
+export const allProjectsByDate = allProjects
+  .filter((project) => project.isVisible)
+  .toSorted((a, b) => b.year - a.year);
 export const allFeaturedProjects = allProjectsByDate.filter(
   (project) => project.isFeatured,
 );
 export const allResumeProjects = allProjectsByDate.filter(
   (project) => project.resumeSummary,
 );
-export const allFullStackProjects = allProjectsByDate.filter(
-  (project) => project.projectType === "full-stack",
+export const allProductProjects = allProjectsByDate.filter(
+  (project) => project.projectType === "product",
 );
-export const allFrontendProjects = allProjectsByDate.filter(
-  (project) => project.projectType === "frontend",
+export const allClientProjects = allProjectsByDate.filter(
+  (project) => project.projectType === "client",
 );
 export const allSystemsProjects = allProjectsByDate.filter(
   (project) => project.projectType === "systems",

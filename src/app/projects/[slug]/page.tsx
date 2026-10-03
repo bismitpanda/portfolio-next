@@ -4,9 +4,18 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { GithubDark } from "@/components/icons";
+import { ProjectAccentFrame } from "@/components/project-accent-frame";
 import { Button } from "@/components/ui/button";
 import { allProjectsByDate } from "@/lib/content";
 import { ProjectCarousel } from "./_components/project-carousel";
+
+const statusLabels = {
+  live: "Live",
+  beta: "Live beta",
+  "open-source": "Open source",
+  shipped: "Shipped",
+  archived: "Archived",
+} as const;
 
 export async function generateMetadata({
   params,
@@ -16,25 +25,22 @@ export async function generateMetadata({
 
   if (!project) {
     return {
-      title: "Project Not Found | Bismit Panda's Projects",
+      title: "Project Not Found | Bismit Panda",
       description: "The project you are looking for does not exist.",
     };
   }
 
   return {
-    title: `${project.title} | Bismit Panda's Projects`,
+    title: `${project.title} | Bismit Panda`,
     description: project.description,
-    keywords: project.technologies && [
-      ...project.technologies,
-      "projects",
-      "bismit panda",
-      "bismit",
-    ],
+    keywords: [...project.technologies, "Bismit Panda", project.projectType],
     openGraph: {
       title: project.title,
       description: project.description,
-      url: `https://bismit.com/projects/${project.slug}`,
-      images: [project.featuredImage],
+      url: `https://bismitpanda.com/projects/${project.slug}`,
+      ...(project.featuredImage
+        ? { images: [{ url: project.featuredImage }] }
+        : {}),
     },
   };
 }
@@ -98,19 +104,24 @@ export default async function Page({ params }: PageProps<"/projects/[slug]">) {
           </div>
         </div>
 
-        <div className="mb-16">
-          <div className="aspect-video overflow-hidden rounded-lg">
-            <Image
-              alt={project.title}
-              className="h-full w-full object-cover"
-              height={800}
-              src={project.featuredImage}
-              width={1600}
-              priority
-              fetchPriority="high"
-            />
+        {project.featuredImage && (
+          <div className="mb-16">
+            <ProjectAccentFrame
+              accent={project.accent}
+              className="aspect-video"
+            >
+              <Image
+                alt={project.title}
+                className="h-full w-full object-cover"
+                height={800}
+                src={project.featuredImage}
+                width={1600}
+                priority
+                fetchPriority="high"
+              />
+            </ProjectAccentFrame>
           </div>
-        </div>
+        )}
 
         <div className="mb-16 grid gap-12 md:grid-cols-3">
           <div>
@@ -133,6 +144,18 @@ export default async function Page({ params }: PageProps<"/projects/[slug]">) {
                   Role
                 </h3>
                 <p className="text-lg">{project.role}</p>
+              </div>
+              <div>
+                <h3 className="text-muted-foreground text-sm uppercase">
+                  Status
+                </h3>
+                <p className="text-lg">{statusLabels[project.status]}</p>
+              </div>
+              <div>
+                <h3 className="text-muted-foreground text-sm uppercase">
+                  Ownership
+                </h3>
+                <p className="text-lg">{project.ownership}</p>
               </div>
               <div>
                 <h3 className="text-muted-foreground text-sm uppercase">
@@ -166,6 +189,44 @@ export default async function Page({ params }: PageProps<"/projects/[slug]">) {
                   {project.solution}
                 </p>
               </div>
+              {project.highlights.length > 0 && (
+                <div>
+                  <h2 className="mb-4 font-bold text-2xl">Highlights</h2>
+                  <ul className="list-disc space-y-2 pl-5 text-lg text-muted-foreground">
+                    {project.highlights.map((highlight) => (
+                      <li key={highlight}>{highlight}</li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+              {project.outcomes.length > 0 && (
+                <div>
+                  <h2 className="mb-4 font-bold text-2xl">Outcomes</h2>
+                  <ul className="list-disc space-y-2 pl-5 text-lg text-muted-foreground">
+                    {project.outcomes.map((outcome) => (
+                      <li key={outcome}>{outcome}</li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+              {project.links.length > 0 && (
+                <div>
+                  <h2 className="mb-4 font-bold text-2xl">Related Links</h2>
+                  <div className="flex flex-wrap gap-3">
+                    {project.links.map((link) => (
+                      <Button asChild key={link.url} variant="outline">
+                        <Link
+                          href={link.url as Route}
+                          rel="noopener noreferrer"
+                          target="_blank"
+                        >
+                          {link.label}
+                        </Link>
+                      </Button>
+                    ))}
+                  </div>
+                </div>
+              )}
             </div>
           </div>
         </div>

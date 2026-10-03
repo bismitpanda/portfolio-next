@@ -16,7 +16,7 @@ export function CertificationsSection() {
         <div className="grid gap-6 md:grid-cols-2">
           {allCertificationsByDate.map((certification) => (
             <div className="group" key={certification.title}>
-              <div className="tap-target flex h-full flex-col rounded-lg border border-border bg-card p-6 transition-shadow hover:shadow-lg">
+              <div className="flex h-full flex-col rounded-lg border border-border bg-card p-6 transition-shadow hover:shadow-lg">
                 <div className="flex justify-between">
                   <div>
                     <h3 className="mb-2 font-bold text-xl transition-colors group-hover:text-primary">

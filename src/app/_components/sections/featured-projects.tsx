@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ItemReveal } from "@/components/motion/section-reveal";
+import { ProjectAccentFrame } from "@/components/project-accent-frame";
 import { Button } from "@/components/ui/button";
 import { allFeaturedProjects } from "@/lib/content";
 import { cn } from "@/lib/utils";
@@ -23,7 +24,7 @@ export function FeaturedProjectsSection() {
       <div className="grid gap-24">
         {allFeaturedProjects.map((project, index) => (
           <ItemReveal key={project.slug} delay={index * 0.08}>
-            <div className="group tap-target">
+            <div className="group">
               <div className="grid items-center gap-12 md:grid-cols-2">
                 <div>
                   <span className="font-bold text-8xl text-muted-foreground/20 transition-colors group-hover:text-muted-foreground/50">
@@ -41,19 +42,28 @@ export function FeaturedProjectsSection() {
                 </div>
                 <div
                   className={cn(
-                    "overflow-hidden rounded-lg",
+                    "rounded-lg",
                     index % 2 === 1 && "md:-order-1",
                   )}
                 >
-                  <div className="aspect-video overflow-hidden rounded-lg bg-muted transition-transform duration-500 group-hover:scale-105">
-                    <Image
-                      alt={project.title}
-                      className="h-full w-full object-cover"
-                      height={270}
-                      src={project.featuredImage}
-                      width={480}
-                    />
-                  </div>
+                  <ProjectAccentFrame
+                    accent={project.accent}
+                    className="aspect-video transition-transform duration-500 group-hover:scale-105"
+                  >
+                    {project.featuredImage ? (
+                      <Image
+                        alt={project.title}
+                        className="h-full w-full object-cover"
+                        height={270}
+                        src={project.featuredImage}
+                        width={480}
+                      />
+                    ) : (
+                      <div className="flex h-full items-center justify-center p-8 text-center text-muted-foreground">
+                        {project.title}
+                      </div>
+                    )}
+                  </ProjectAccentFrame>
                 </div>
               </div>
             </div>

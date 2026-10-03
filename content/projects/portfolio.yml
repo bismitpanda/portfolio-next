@@ -1,28 +1,30 @@
-challenge: >
-  Presenting my work in a clear, interactive way.
+slug: portfolio
+title: Portfolio
 client: Bismit Panda (Me)
+role: Developer
+year: 2025
 description: >
-  A portfolio website for me.
-isFeatured: false
-featuredImage: https://bismitpanda.com/opengraph-image.png
-githubUrl: https://github.com/bismitpanda/portfolio-next
-liveUrl: https://bismitpanda.com
-projectType: frontend
-role: Full-stack Developer
+  Personal portfolio and blog built with Next.js, content collections, and MDX-powered
+  technical writing.
+challenge: >
+  Presenting projects, blog posts, and snippets in a fast, maintainable site with a strong
+  editorial aesthetic.
 solution: >
-  Implemented a portfolio website with Next.js, shadcn/ui, React, TypeScript, Tailwind CSS,
-  and Node.js.
+  Built this site with Next.js App Router, content collections for YAML/MDX content, Shiki
+  syntax highlighting, and a component library for rich blog authoring.
 technologies:
   - Next.js
-  - shadcn/ui
   - React
   - TypeScript
   - Tailwind CSS
-  - Node.js
-title: Portfolio
-year: 2025
-gallery:
-  - /images/projects/portfolio/gallery/image 1.png
-  - /images/projects/portfolio/gallery/image 2.png
-  - /images/projects/portfolio/gallery/image 3.png
-  - /images/projects/portfolio/gallery/image 4.png
+  - MDX
+  - Content Collections
+featuredImage: /images/vendored/portfolio/featured-image.png
+liveUrl: https://bismitpanda.com
+githubUrl: https://github.com/bismitpanda/portfolio-next
+projectType: client
+isFeatured: false
+isVisible: false
+status: live
+ownership: Independent project
+accent: "#94a3b8"

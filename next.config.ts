@@ -1,33 +1,27 @@
 import { withContentCollections } from "@content-collections/next";
-import bundleAnalyzer from "@next/bundle-analyzer";
 import type { NextConfig } from "next";
 
-const withBundleAnalyzer = bundleAnalyzer({
-  enabled: process.env.ANALYZE === "true",
-  openAnalyzer: true,
-});
+const imageDomains = [
+  "openadmits.com",
+  "openventure.com",
+  "shoutstart.com",
+  "bismitpanda.com",
+  "terrabridge.ai",
+  "trymetis.email",
+  "usephoebe.com",
+  "athena-ctf.com",
+  "lms.athena-ctf.com",
+  "visarchitect.com",
+];
 
 const nextConfig: NextConfig = {
   images: {
-    remotePatterns: [
-      {
-        hostname: "openadmits.com",
-      },
-      {
-        hostname: "openventure.com",
-      },
-      {
-        hostname: "shoutstart.com",
-      },
-      {
-        hostname: "bismitpanda.com",
-      },
-      {
-        hostname: "terrabridge.ai",
-      },
-    ],
+    remotePatterns: imageDomains.map((domain) => ({
+      protocol: "https",
+      hostname: domain,
+    })),
   },
   typedRoutes: true,
 };
 
-export default withContentCollections(withBundleAnalyzer(nextConfig));
+export default withContentCollections(nextConfig);

@@ -36,7 +36,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     changeFrequency: "weekly" as const,
     priority: 0.5,
     images: [
-      new URL(project.featuredImage, `https://bismitpanda.com`).toString(),
+      ...(project.featuredImage
+        ? [new URL(project.featuredImage, `https://bismitpanda.com`).toString()]
+        : []),
       ...project.gallery.map((image) =>
         new URL(image.imageUrl, `https://bismitpanda.com`).toString(),
       ),

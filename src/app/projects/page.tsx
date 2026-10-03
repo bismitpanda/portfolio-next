@@ -1,22 +1,22 @@
 import type { Metadata } from "next";
 import {
-  allFrontendProjects,
-  allFullStackProjects,
+  allClientProjects,
+  allProductProjects,
   allSystemsProjects,
 } from "@/lib/content";
 import { ProjectsContent } from "./_components/projects-content";
 
 export const metadata: Metadata = {
-  title: "All Projects | Bismit Panda's Projects",
+  title: "Selected Work | Bismit Panda",
   description:
-    "A showcase of my work, featuring web applications, design projects, and experiments.",
+    "Products, client platforms, and systems work built by Bismit Panda across cybersecurity, AI, immigration, and developer tooling.",
 };
 
 export default function Page() {
   return (
     <ProjectsContent
-      frontend={allFrontendProjects}
-      fullStack={allFullStackProjects}
+      products={allProductProjects}
+      clientWork={allClientProjects}
       systems={allSystemsProjects}
     />
   );

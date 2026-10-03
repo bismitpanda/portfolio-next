@@ -20,7 +20,7 @@ export function GetInTouchSection() {
           {socialRoutes.map(({ title, url, icon: Icon, label }) => (
             <Link
               aria-label={title}
-              className="tap-target group flex items-center gap-4 text-muted-foreground text-xl transition-[color,transform] duration-200 hover:text-foreground active:scale-[0.98]"
+              className="group flex items-center gap-4 text-muted-foreground text-xl transition-[color,transform] duration-200 hover:text-foreground active:scale-[0.98]"
               href={url as Route}
               rel="nofollow noopener noreferrer"
               target="_blank"

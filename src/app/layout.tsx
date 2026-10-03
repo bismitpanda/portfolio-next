@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Fustat, JetBrains_Mono, Playfair_Display } from "next/font/google";
 import type { ReactNode } from "react";
-import { TargetCursor } from "@/components/target-cursor/target-cursor";
 import { Footer } from "./_components/layout/footer";
 import { Navigation } from "./_components/layout/navigation";
 import "katex/dist/katex.css";
@@ -51,13 +50,6 @@ export default function Layout({
         )}
       >
         <div className="min-h-screen bg-background text-foreground">
-          <TargetCursor
-            cornerRadius={10}
-            hideDefaultCursor
-            hoverDuration={0.2}
-            targetPadding={10}
-            targetSelector=".tap-target, button, a[href], [data-slot='button']"
-          />
           <Navigation />
           <main>{children}</main>
           <Footer />

@@ -12,7 +12,7 @@ export function ScrollToAbout() {
       <Link
         href="#about"
         aria-label="Scroll to about"
-        className="tap-target inline-block rounded-full transition-transform duration-300 hover:scale-110 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+        className="inline-block rounded-full transition-transform duration-300 hover:scale-110 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
       >
         <motion.span
           className="inline-flex text-muted-foreground"

@@ -13,19 +13,20 @@ export function AboutSection() {
         </div>
         <div className="md:col-span-2">
           <p className="body-lg mb-6">
-            Software engineer with 1.5+ years of professional experience
-            shipping production web applications and AI-integrated systems.
-            I&apos;ve built and deployed 10+ full-stack products across
-            immigration, hiring, legal, and SaaS as a sole developer.
+            I ship production software across product engineering, AI systems,
+            cybersecurity, and infrastructure. As Co-Founder and CTO of AstraQ
+            Cyber Defence, I work on live platforms including CTF hosting, an
+            LMS, an AI mail client, and document intelligence tooling.
           </p>
           <p className="body-lg mb-6">
-            I&apos;m Co-Founder and CTO of AstraQ Cyber Defence, an AI-powered
-            cybersecurity startup, and I reach for Rust and Go for
-            performance-critical work.
+            Before and alongside that, I&apos;ve delivered 10+ full-stack
+            products for OpenVenture and Green Card Inc.—immigration, hiring,
+            admissions, PR, and financing portals—often as the sole developer on
+            each codebase.
           </p>
           <p className="body-lg mb-10">
-            I write about modern web development on this site and share code
-            snippets from the systems I build.
+            I reach for Rust and Go when performance and systems constraints
+            matter, and I write about the work on this site.
           </p>
           <div className="flex flex-wrap gap-4">
             <Button asChild size="lg">

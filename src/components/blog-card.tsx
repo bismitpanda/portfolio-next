@@ -8,7 +8,7 @@ import { Button } from "./ui/button";
 
 export function BlogCard({ blog }: { blog: Blog["relatedBlogs"][number] }) {
   return (
-    <div className="group flex h-full flex-col overflow-hidden rounded-lg bg-neutral-900 transition-shadow duration-300 hover:shadow-lg tap-target">
+    <div className="group flex h-full flex-col overflow-hidden rounded-lg bg-neutral-900 transition-shadow duration-300 hover:shadow-lg">
       <div className="aspect-video overflow-hidden bg-neutral-100">
         <Image
           alt={blog.title}
@@ -26,7 +26,7 @@ export function BlogCard({ blog }: { blog: Blog["relatedBlogs"][number] }) {
               <Link
                 key={tagSlug}
                 href={`/tags/${tagSlug}`}
-                className="tap-target transition-transform duration-200 hover:scale-105 active:scale-95"
+                className="transition-transform duration-200 hover:scale-105 active:scale-95"
               >
                 <Badge
                   variant="outline"
@@ -57,7 +57,7 @@ export function BlogCard({ blog }: { blog: Blog["relatedBlogs"][number] }) {
       </div>
       <div className="flex flex-1 flex-col justify-end px-6 pb-6">
         <Link
-          className="tap-target w-full cursor-pointer"
+          className="w-full cursor-pointer"
           href={`/blog/${blog.slug}`}
         >
           <Button className="mt-8 w-full cursor-pointer" size="lg">

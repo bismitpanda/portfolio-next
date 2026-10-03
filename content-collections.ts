@@ -46,6 +46,7 @@ const snippetSchema = z.object({
 
 const projectSchema = z.object({
   title: z.string(),
+  slug: z.string().optional(),
   client: z.string(),
   role: z.string(),
   year: z.number(),
@@ -54,11 +55,29 @@ const projectSchema = z.object({
   solution: z.string(),
   technologies: z.string().array(),
   resumeSummary: z.string().optional(),
-  featuredImage: z.string(),
-  projectType: z.enum(["full-stack", "frontend", "systems"]),
+  featuredImage: z.string().optional(),
+  projectType: z.enum(["product", "client", "systems"]),
   liveUrl: z.string().optional(),
   githubUrl: z.string().optional(),
   isFeatured: z.boolean().default(false),
+  isVisible: z.boolean().default(true),
+  status: z
+    .enum(["live", "beta", "open-source", "shipped", "archived"])
+    .default("shipped"),
+  ownership: z.string().default("Independent project"),
+  accent: z
+    .string()
+    .regex(/^#[0-9a-fA-F]{6}$/)
+    .default("#94a3b8"),
+  highlights: z.string().array().default([]),
+  outcomes: z.string().array().default([]),
+  links: z
+    .object({
+      label: z.string(),
+      url: z.string(),
+    })
+    .array()
+    .default([]),
   gallery: z
     .union([
       z.object({
@@ -291,14 +310,6 @@ const projects = defineCollection({
   parser: "yaml",
   schema: projectSchema,
   transform: async (data) => {
-    if (data.projectType === "full-stack" && !data.liveUrl) {
-      throw new Error('Full-stack project must have "liveUrl"');
-    }
-
-    if (data.projectType === "frontend" && !data.liveUrl) {
-      throw new Error('Frontend project must have "liveUrl"');
-    }
-
     if (data.projectType === "systems" && !data.githubUrl) {
       throw new Error('Systems project must have "githubUrl"');
     }
@@ -310,7 +321,7 @@ const projects = defineCollection({
           ? { imageUrl: image, alt: `Gallery image ${index + 1}` }
           : image,
       ),
-      slug: slug(data.title),
+      slug: data.slug ?? slug(data.title),
     };
   },
 });

@@ -25,7 +25,7 @@ export default async function Page() {
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {allSnippetsByDate.map((snippet) => (
             <div
-              className="group tap-target flex h-full flex-col overflow-hidden rounded-lg border border-border bg-card transition-shadow hover:shadow-lg"
+              className="group flex h-full flex-col overflow-hidden rounded-lg border border-border bg-card transition-shadow hover:shadow-lg"
               key={snippet.slug}
             >
               <div className="grow p-6">

@@ -204,11 +204,6 @@
     @apply w-full;
   }
 
-  .tap-target {
-    @apply touch-manipulation;
-    -webkit-tap-highlight-color: transparent;
-  }
-
   .font-heading {
     @apply font-sans;
   }

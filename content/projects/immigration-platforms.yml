@@ -1,0 +1,47 @@
+slug: immigration-platforms
+title: Immigration & Hiring Platforms
+client: Green Card Inc.
+role: Sole developer — full-stack delivery across three production apps
+year: 2025
+description: >
+  A family of immigration, hiring, and admissions platforms deployed under the visa-architect
+  Vercel org due to seat constraints—each with its own domain and product surface.
+challenge: >
+  Green Card Inc. needed multiple specialized products—visa evaluation, hiring workflows,
+  and admissions marketing—shipped quickly as independent deployments without duplicating
+  auth, CMS, and dashboard patterns from scratch each time.
+solution: >
+  Built visarchitect.com as a full-stack immigration platform with multi-page dashboards,
+  LLM-based status evaluation, and RAG-assisted guidance. Shipped openhired.com for hiring
+  workflows and openadmits.com as an admissions platform with Sanity CMS integration. All
+  three share engineering patterns but deploy as separate products.
+technologies:
+  - Next.js
+  - React
+  - TypeScript
+  - Tailwind CSS
+  - Drizzle ORM
+  - Better Auth
+  - Payload CMS
+  - Sanity
+  - OpenAI
+featuredImage: /images/vendored/immigration-platforms/featured-image.png
+liveUrl: https://visarchitect.com
+projectType: client
+isFeatured: false
+isVisible: true
+status: live
+ownership: Sole developer for visa-architect, OpenHired, and OpenAdmits codebases
+accent: "#1d4ed8"
+highlights:
+  - Delivered visarchitect.com with immigration dashboards and LLM evaluation flows
+  - Built openhired.com hiring platform with candidate-facing dashboards
+  - Shipped openadmits.com with Sanity-powered marketing and admissions content
+outcomes:
+  - Three live production apps under independent domains
+  - Shared auth and CMS patterns accelerated delivery across verticals
+links:
+  - label: OpenHired
+    url: https://openhired.com
+  - label: OpenAdmits
+    url: https://openadmits.com

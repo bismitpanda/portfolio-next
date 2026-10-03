@@ -1,24 +1,46 @@
-challenge: >
-  Building a platform for hosting CTFs with a focus on security and scalability.
-client: Bismit Panda (Me)
-description: >
-  A platform for hosting CTFs with a focus on security and scalability.
-featuredImage: /images/projects/athena-ctf/featured-image.png
-githubUrl: https://github.com/athena-ctf/athena
-projectType: systems
-role: Developer
-solution: >
-  Built a platform for hosting CTFs with a focus on security and scalability.
-  It supports multiple CTFs, multiple challenges, and multiple teams.
-technologies:
-  - React
-  - Next.js
-  - Tailwind CSS
-  - TypeScript
-  - Node.js
-  - PostgreSQL
-  - Rust
-  - Docker
-  - Redis
-title: Athena
+slug: athena-ctf
+title: Athena CTF Platform
+client: AstraQ Cyber Defence
+role: Co-Founder & CTO — platform architecture and core engineering
 year: 2024
+description: >
+  Multi-tenant capture-the-flag hosting platform that provisions isolated Kubernetes
+  infrastructure per event, with per-player challenge orchestration and live scoreboards.
+challenge: >
+  CTF operators need to spin up isolated, secure competition environments on demand without
+  manual infrastructure work. Players need reliable challenge deployment, flag submission,
+  and real-time leaderboards at competition scale.
+solution: >
+  Built the original solo platform foundation—admin provisioning, deployment workers, and
+  challenge orchestration—before the product moved under AstraQ. The current stack spans a
+  Next.js admin panel, TanStack Start player app, Go platform provisioner with Helm, Rust
+  deployment runner, and Redis-stream-driven workers across per-event Kubernetes namespaces.
+technologies:
+  - Next.js
+  - TanStack Start
+  - TypeScript
+  - Go
+  - Rust
+  - Kubernetes
+  - Helm
+  - PostgreSQL
+  - Redis
+  - Docker
+featuredImage: /images/vendored/athena-ctf/featured-image.png
+liveUrl: https://athena-ctf.com
+projectType: product
+isFeatured: true
+isVisible: true
+status: live
+ownership: Original platform architecture and core engineering; continued under AstraQ
+accent: "#84cc16"
+highlights:
+  - Designed per-event Kubernetes namespace isolation with Helm-based provisioning
+  - Built Redis Stream deployment workers translating queue jobs into live challenge containers
+  - Shipped admin and player surfaces with live scoreboards and flag validation
+outcomes:
+  - Publicly deployed at athena-ctf.com with multi-service production architecture
+  - Supports operator-driven CTF provisioning without manual cluster setup
+links:
+  - label: Athena LMS
+    url: https://lms.athena-ctf.com

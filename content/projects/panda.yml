@@ -1,22 +1,26 @@
+slug: panda
+title: Panda
+client: Bismit Panda (Me)
+role: Developer
+year: 2023
+description: >
+  Toy interpreter for the Panda programming language with both an AST tree-walker evaluator
+  and a compiler + VM architecture, inspired by the Monkey language in Go.
 challenge: >
   Designing a flexible AST and VM in Rust that can support variable mutability, complex
   operators, and custom data types without sacrificing performance.
-client: Bismit Panda (Me)
-description: >
-  This is a toy interpreter for the panda programming language, featuring both an AST
-  tree-walker evaluator and a compiler + VM architecture. It’s inspired by the Monkey
-  language implementation in Go.
-resumeSummary: >
-  Rust interpreter and compiler with AST tree-walker evaluator and VM architecture
-isFeatured: true
-featuredImage: /images/projects/panda/featured-image.png
-githubUrl: https://github.com/bismitpanda/panda
-projectType: systems
-role: Developer
 solution: >
   Built an AST-based interpreter and a separate compiler + VM pipeline in Rust, leveraging
   enums for node types and a bytecode VM to execute compiled instructions efficiently.
 technologies:
   - Rust
-title: Panda
-year: 2023
+featuredImage: /images/projects/panda/featured-image.png
+githubUrl: https://github.com/bismitpanda/panda
+projectType: systems
+isFeatured: false
+isVisible: true
+status: open-source
+ownership: Independent project
+accent: "#94a3b8"
+resumeSummary: >
+  Rust interpreter and compiler with AST tree-walker evaluator and VM architecture
