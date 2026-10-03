@@ -1,0 +1,48 @@
+slug: voice-agents
+title: Voice Agents
+client: Agentic Human
+role: Co-Founder — sole engineer
+year: 2026
+description: >
+  Platform for prebuilt "Digital Employee" agents that answer phone calls and chat, configured
+  rather than prompt-engineered, and running on any Kubernetes cluster.
+challenge: >
+  Businesses want an agent that picks up on the first ring, uses their tools, and bills
+  predictably, without sending audio to third-party speech APIs or writing prompts from scratch.
+solution: >
+  A Rust gateway takes calls from Twilio Media Streams and Exotel, plus text over WebSocket and SSE,
+  and runs voice activity detection, speech-to-text, and text-to-speech on-device behind cargo
+  feature gates. A Rust agent runner orchestrates sessions with any OpenAI-compatible LLM the
+  customer brings. User tools and platform connectors run in a deno_core isolate pool. Agents ship
+  as versioned templates that must pass functional and adversarial evals. Billing is a prepaid
+  wallet over append-only Postgres ledgers.
+technologies:
+  - Rust
+  - TypeScript
+  - TanStack Start
+  - deno_core
+  - gRPC
+  - Kubernetes
+  - Envoy Gateway
+  - PostgreSQL
+  - Redis
+  - ClickHouse
+  - OpenBao
+  - Stripe
+featuredImage: https://agentichuman.io/opengraph-image.png
+liveUrl: https://agentichuman.io
+projectType: product
+isFeatured: true
+isVisible: true
+status: beta
+ownership: Co-founder and sole engineer at Agentic Human
+accent: "#22d3ee"
+resumeSummary: >
+  Voice AI agent platform in Rust: on-device VAD/STT/TTS over Twilio and Exotel, deno_core tool
+  sandbox, runs unmodified on EKS, GKE, and DOKS
+highlights:
+  - On-device speech pipeline with no external speech APIs
+  - Sandboxed tool and connector execution in V8 isolates
+  - Portable Kubernetes design running unmodified on DOKS, GKE Autopilot, and EKS
+outcomes:
+  - Public site at agentichuman.io

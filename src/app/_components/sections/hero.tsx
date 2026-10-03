@@ -7,9 +7,9 @@ import { Button } from "@/components/ui/button";
 import { TextLoop } from "@/components/ui/text-loop";
 
 const roles = [
-  "Software Engineer",
   "Co-Founder & CTO",
-  "Full Stack Developer",
+  "Platform Engineer",
+  "Security Engineer",
   "Systems Engineer",
 ];
 

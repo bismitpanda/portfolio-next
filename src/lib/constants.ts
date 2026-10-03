@@ -181,14 +181,15 @@ export const user = {
     },
   },
   about:
-    "Software engineer with 1.5+ years of professional experience shipping production web applications and AI-integrated systems. Built and deployed 10+ full-stack products across immigration, hiring, legal, and SaaS verticals as a sole developer. Co-Founder and CTO of an AI-powered cybersecurity startup. Strong systems background, writing Rust and Go for performance-critical work.",
+    "Co-Founder & CTO of AstraQ Cyber Defence, building security and AI platforms end to end, from Rust and Go infrastructure to the product on top. Architected Athena, a Kubernetes-native CTF platform that has hosted 1,200+ players across 650+ teams, and Morpheus, an AI-driven malware analysis platform. Sole developer of 10+ production applications at OpenVenture. Most of my work lives in private organization repositories; architecture walkthroughs on request.",
   technologies: {
-    languages: "TypeScript, Rust, Go, Python, C++, JavaScript",
-    frontend: "React, Next.js, Tailwind CSS, Shadcn UI",
-    backend: "Node.js, Hono, tRPC, GraphQL, Django",
-    databases: "PostgreSQL, MongoDB, Redis, ClickHouse, Qdrant",
-    infrastructure: "AWS, Docker, Kubernetes, Vercel",
-    aiMl: "LLM integration, RAG pipelines, AI agents, web scraping",
+    languages: "Rust, Go, TypeScript, Python, C++, Kotlin",
+    frontend: "React, Next.js, TanStack Start, Tailwind CSS, Tauri",
+    backend: "Axum, Tokio, gRPC/Protobuf, Hono, oRPC, Better Auth",
+    databases: "PostgreSQL, Redis, ClickHouse, Milvus, Qdrant, MongoDB",
+    infrastructure:
+      "Kubernetes (EKS, GKE), Helm, Envoy Gateway, AWS (ECS Fargate, Lambda), Docker, Xen",
+    aiMl: "Agentic tool loops, RAG and hybrid search, voice pipelines (VAD/STT/TTS), MCP",
   },
   projects: allResumeProjects,
   experience: allExperiencesByDate,

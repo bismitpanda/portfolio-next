@@ -1,0 +1,34 @@
+slug: cc-macro
+title: CC-Macro
+client: Bismit Panda (Me)
+role: Hardware, firmware, and software
+year: 2026
+description: >
+  Custom 16-key macropad with a rotary encoder, five-way navigation switch, and OLED display, built
+  around a Raspberry Pi Pico 2. I designed the PCB, the case, the firmware, and the host software.
+challenge: >
+  Taking a device from schematic to fabricated board while keeping firmware, host software, and an
+  enclosure in step, with every part sourced and every footprint checked against real datasheets.
+solution: >
+  Designed the board in KiCad around an RP2350 module and had the v2 PCB fabricated. The case is
+  modelled in FreeCAD with Blender renders. Firmware is C++20 on the Pico SDK and TinyUSB, sharing
+  preset and protocol formats with a HIDAPI host daemon. Presets are edited in a SvelteKit app and
+  integrations are indexed by a small Go server.
+technologies:
+  - C++
+  - KiCad
+  - FreeCAD
+  - Blender
+  - Pico SDK
+  - TinyUSB
+  - SvelteKit
+  - Go
+featuredImage: /images/projects/cc-macro/featured-image.png
+projectType: product
+status: beta
+ownership: Independent project
+accent: "#fb923c"
+highlights:
+  - Fabricated v2 PCB with a full bill of materials and pin mapping
+  - Firmware and host daemon share one header-only protocol layer
+  - Dockerized firmware build with pinned SDK and toolchain

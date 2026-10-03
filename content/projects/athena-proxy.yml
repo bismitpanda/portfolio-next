@@ -1,0 +1,30 @@
+slug: athena-proxy
+title: athena-proxy
+client: AstraQ Cyber Defence
+role: Developer
+year: 2026
+description: >
+  Cross-platform CLI that gives every Athena CTF challenge instance a plain TCP address on
+  localhost, so netcat, pwntools, and any socket tool reach it without speaking TLS.
+challenge: >
+  Athena routes every challenge instance by TLS server name at a shared gateway on port 443.
+  That keeps instances private per team, but most exploitation tooling expects a raw TCP socket.
+solution: >
+  Built a Go daemon that serves one loopback listener per registered hostname. Each connection opens
+  exactly one TLS connection to the gateway with SNI set to that hostname and pumps bytes both ways.
+  Targets can be added and removed while the daemon is running, through a loopback control port.
+  Signed release archives with build provenance attestations cover Linux, macOS, and Windows on
+  x86-64 and ARM64, with one-line installers.
+technologies:
+  - Go
+  - TLS
+  - CLI
+githubUrl: https://github.com/astraqcd/athena-proxy
+projectType: systems
+status: open-source
+ownership: Sole author
+accent: "#84cc16"
+highlights:
+  - One TLS connection per local connection, with no pooling or multiplexing
+  - Daemon accepts new targets live, without a restart
+  - Versioned releases with SHA-256 checksums and GitHub build attestations

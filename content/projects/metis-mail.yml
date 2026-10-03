@@ -1,7 +1,7 @@
 slug: metis-mail
 title: Metis Mail
 client: AstraQ Cyber Defence
-role: Full-stack engineer — mailbox UX, AI features, and typed API layer
+role: Lead engineer — mailbox, AI features, and typed API layer
 year: 2025
 description: >
   AI-native email client for Gmail, Outlook, and Zoho with full mailbox operations,
@@ -29,7 +29,7 @@ projectType: product
 isFeatured: true
 isVisible: true
 status: beta
-ownership: Engineering contributor under AstraQ
+ownership: Lead engineer under AstraQ; built most of the codebase
 accent: "#8b5cf6"
 highlights:
   - Implemented multi-provider mailbox OAuth and shared workspace mailboxes

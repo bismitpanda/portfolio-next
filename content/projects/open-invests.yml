@@ -1,0 +1,34 @@
+slug: open-invests
+title: Open Invests
+client: OpenVenture
+role: Sole developer
+year: 2025
+description: >
+  EB-5 financing site for investors pursuing a U.S. green card, with a CMS-driven blog and an
+  internal dashboard for managing customers and projects.
+challenge: >
+  The team needed a public site it could update without a developer, plus an internal tool to track
+  investors and assign them to projects, without paying for a separate CRM.
+solution: >
+  Built a Next.js site with Sanity Studio embedded for marketing and blog content, and an internal
+  dashboard behind Clerk auth on Drizzle and libSQL for customers, projects, and assignments. Clerk
+  webhooks keep users in sync, and transactional email goes out through Resend and React Email.
+technologies:
+  - Next.js
+  - TypeScript
+  - Sanity
+  - Clerk
+  - Drizzle ORM
+  - libSQL
+  - Resend
+featuredImage: https://openinvests.com/opengraph-image.png
+liveUrl: https://openinvests.com
+projectType: client
+status: live
+ownership: Sole developer for OpenVenture
+accent: "#0ea5e9"
+highlights:
+  - Embedded Sanity Studio with draft-mode previews
+  - Internal customer and project dashboard with assignment workflow
+outcomes:
+  - Live at openinvests.com

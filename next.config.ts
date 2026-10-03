@@ -12,6 +12,11 @@ const imageDomains = [
   "athena-ctf.com",
   "lms.athena-ctf.com",
   "visarchitect.com",
+  "www.morpheusvm.com",
+  "agentichuman.io",
+  "openinvests.com",
+  "www.legallounge.ai",
+  "openaxle.com",
 ];
 
 const nextConfig: NextConfig = {

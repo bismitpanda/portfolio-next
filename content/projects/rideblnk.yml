@@ -1,0 +1,25 @@
+slug: rideblnk
+title: RideBlnk
+client: OpenVenture
+role: Sole developer
+year: 2026
+description: >
+  Landing page for RideBlnk, a school commute safety service that lets parents see where their
+  child is throughout the journey, with background-checked drivers.
+challenge: >
+  Earning a parent's trust in a few seconds: live tracking, driver vetting, and safety guarantees
+  all have to come across clearly on a single page.
+solution: >
+  Built a responsive Next.js landing page that leads with live journey tracking, driver background
+  checks, and the safety process.
+technologies:
+  - Next.js
+  - TypeScript
+  - Tailwind CSS
+liveUrl: https://rideblnk.com
+projectType: client
+status: live
+ownership: Sole developer for OpenVenture
+accent: "#38bdf8"
+outcomes:
+  - Live at rideblnk.com

@@ -1,7 +1,7 @@
 slug: athena-lms
 title: Athena LMS
 client: AstraQ Cyber Defence
-role: Full-stack engineer — course delivery, auth, and content systems
+role: Owner — architecture, labs infrastructure, and product
 year: 2025
 description: >
   Learning management platform for cybersecurity training with course authoring, quizzes,
@@ -10,9 +10,11 @@ challenge: >
   Cybersecurity training needs structured course delivery, assessments, and tenant isolation
   without bolting together generic LMS tools that do not fit hands-on security education.
 solution: >
-  Shipped a Next.js LMS with Better Auth, Drizzle ORM, rich course content via TipTap,
-  certificate generation, and organization workspaces. Integrated AI-assisted flows for
-  content and learner support on top of a multi-tenant data model.
+  Built Athena LMS end to end as a multi-tenant Next.js platform where hands-on exercises run inside
+  the course player: static and per-learner challenges, an in-browser shell, and live container
+  labs on ECS Fargate exposed through Cloudflare Tunnel, all graded against ground truth. A BullMQ
+  worker generates courses with AI, Lambda builds per-learner assets, and billing runs through
+  Dodo Payments.
 technologies:
   - Next.js
   - React
@@ -29,7 +31,7 @@ projectType: product
 isFeatured: false
 isVisible: true
 status: live
-ownership: Engineering contributor under AstraQ
+ownership: Owned end to end under AstraQ
 accent: "#06b6d4"
 highlights:
   - Built organization-scoped course and enrollment models
@@ -39,4 +41,4 @@ outcomes:
   - Live at lms.athena-ctf.com with authenticated course delivery
 links:
   - label: Athena CTF Platform
-    url: https://lms.athena-ctf.com
+    url: https://athena-ctf.com

@@ -1,0 +1,25 @@
+slug: cc-util
+title: cc-util
+client: Bismit Panda (Me)
+role: Developer
+year: 2026
+description: >
+  CLI to save, switch, and manage multiple Claude Code accounts without logging in again.
+challenge: >
+  Claude Code keeps one logged-in account per machine, so moving between work and personal
+  subscriptions means repeating the OAuth login each time.
+solution: >
+  Built a Go CLI that snapshots the logged-in account's credentials and swaps them in on demand,
+  with list, rename, disable, and inspect commands. Prebuilt binaries for Linux and Windows on
+  amd64 and arm64 install with a one-line script that also upgrades in place.
+technologies:
+  - Go
+  - CLI
+githubUrl: https://github.com/bismitpanda/cc-util
+projectType: systems
+status: open-source
+ownership: Independent project
+accent: "#f59e0b"
+highlights:
+  - Switches accounts in one command, without the OAuth flow
+  - Versioned GitHub releases with one-line installers

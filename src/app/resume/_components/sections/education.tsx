@@ -19,13 +19,15 @@ export function EducationSection({ education }: { education: Education[] }) {
           <View style={styles.entryHeader}>
             <View style={styles.educationHeader}>
               <Text style={styles.entryTitle}>{edu.title}</Text>
-              <Text style={styles.educationResults}>
-                (
-                {edu.results
-                  .map((result) => `${result.name}: ${result.score}`)
-                  .join(", ")}
-                )
-              </Text>
+              {edu.results.length > 0 && (
+                <Text style={styles.educationResults}>
+                  (
+                  {edu.results
+                    .map((result) => `${result.name}: ${result.score}`)
+                    .join(", ")}
+                  )
+                </Text>
+              )}
             </View>
             <Text style={styles.entryDate}>
               {formatDate(edu.startDate, "MMM yyyy")} -{" "}

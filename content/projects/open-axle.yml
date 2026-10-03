@@ -1,0 +1,27 @@
+slug: open-axle
+title: Incubator25 (OpenAxle)
+client: OpenVenture
+role: Sole developer
+year: 2025
+description: >
+  Landing page for Incubator25, OpenVenture's startup incubator programme, with participation
+  tracks, the application process, and idea submission.
+challenge: >
+  Presenting an incubator's tracks, steps, and offerings on one page while keeping the call to
+  submit an idea front and centre.
+solution: >
+  Built a single-page Next.js site with participation categories, a step-by-step process, offerings,
+  an FAQ, and an idea submission flow, animated with Magic UI components.
+technologies:
+  - Next.js
+  - TypeScript
+  - Tailwind CSS
+  - Magic UI
+featuredImage: https://openaxle.com/opengraph-image.png
+liveUrl: https://openaxle.com
+projectType: client
+status: live
+ownership: Sole developer for OpenVenture
+accent: "#facc15"
+outcomes:
+  - Live at openaxle.com

@@ -1,36 +1,41 @@
 slug: phoebe
 title: Phoebe
 client: AstraQ Cyber Defence
-role: Full-stack engineer — product surfaces, billing, and connector infrastructure
+role: Owner — architecture, backend, sync, infrastructure, and product
 year: 2025
 description: >
-  Document intelligence platform for connecting data sources, syncing content, and generating
-  structured outputs with organization billing and API access.
+  Enterprise RAG platform that connects company data sources, indexes them with hybrid search, and
+  answers questions grounded in cited sources.
 challenge: >
   Teams need to ingest documents from multiple connectors, run generation workflows, and
   manage organization-level access without stitching together separate auth, billing, and
   sync systems.
 solution: >
-  Contributed to Phoebe's Next.js dashboard with Better Auth, Drizzle, connector OAuth flows,
-  sync job orchestration, document generation pipelines, and Dodo Payments billing. The
-  stack pairs a TypeScript frontend with Rust and Python sync services for heavy lifting.
+  Built Phoebe end to end. A Rust (Axum) API server runs hybrid dense and BM25 search on a shared
+  Milvus cluster, with a collection per connector and per-tenant access control. Syncs are
+  dispatched as Kubernetes Jobs running a Python worker. Postgres is split across three
+  least-privilege roles, and every service pushes OpenTelemetry traces, metrics, and logs to
+  OpenObserve. The TanStack Start frontend handles auth, connectors, and organization billing.
 technologies:
-  - Next.js
-  - React
-  - TypeScript
-  - Better Auth
-  - Drizzle ORM
   - Rust
+  - Axum
   - Python
+  - TypeScript
+  - TanStack Start
+  - Milvus
+  - PostgreSQL
+  - Kubernetes
+  - Envoy Gateway
   - OpenTelemetry
-  - Tailwind CSS
+resumeSummary: >
+  Enterprise RAG platform (Rust, Milvus hybrid search, Kubernetes sync jobs) built end to end
 featuredImage: https://usephoebe.com/opengraph-image.png
 liveUrl: https://usephoebe.com
 projectType: product
 isFeatured: true
 isVisible: true
 status: live
-ownership: Engineering contributor under AstraQ
+ownership: Owned end to end under AstraQ
 accent: "#f59e0b"
 highlights:
   - Built connector OAuth, sync job tracking, and document generation dashboards

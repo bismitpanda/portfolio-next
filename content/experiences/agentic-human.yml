@@ -1,0 +1,8 @@
+company: Agentic Human
+startDate: 2025-11-01
+title: Co-Founder
+description: >
+  Voice AI startup building prebuilt "Digital Employee" agents that answer phone calls and chat.
+highlights:
+  - "Built the Voice Agents platform: Rust telephony gateway with on-device VAD, speech-to-text, and text-to-speech over Twilio and Exotel"
+  - "Designed sandboxed tool execution on a deno_core isolate pool, with BYOK OpenAI-compatible LLMs and a prepaid usage wallet"

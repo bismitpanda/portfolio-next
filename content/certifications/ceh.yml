@@ -1,7 +1,8 @@
 title: Certified Ethical Hacker (CEH)
-description: []
+description:
+  - "Credential ID ECC4182603957"
 provider: EC-Council
-date: 2024-01-01
+date: 2023-08-01
 validity: 36
-link: https://www.ec-council.org/
-verificationLink: https://www.ec-council.org/
+link: https://www.eccouncil.org/train-certify/certified-ethical-hacker-ceh/
+verificationLink: https://aspen.eccouncil.org/Verify

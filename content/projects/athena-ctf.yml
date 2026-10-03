@@ -4,43 +4,52 @@ client: AstraQ Cyber Defence
 role: Co-Founder & CTO — platform architecture and core engineering
 year: 2024
 description: >
-  Multi-tenant capture-the-flag hosting platform that provisions isolated Kubernetes
-  infrastructure per event, with per-player challenge orchestration and live scoreboards.
+  Kubernetes-native capture-the-flag platform that provisions isolated infrastructure per event and
+  a private challenge instance per team, with live scoring, anti-cheat, and attack-defense support.
 challenge: >
-  CTF operators need to spin up isolated, secure competition environments on demand without
-  manual infrastructure work. Players need reliable challenge deployment, flag submission,
-  and real-time leaderboards at competition scale.
+  CTF organizers need isolated, reproducible competition environments on demand, for anything from a
+  university practice lab to a national event, without hand-building clusters. Players need every
+  challenge instance to stay reachable, private to their team, and stable across expiry and redeploy.
 solution: >
-  Built the original solo platform foundation—admin provisioning, deployment workers, and
-  challenge orchestration—before the product moved under AstraQ. The current stack spans a
-  Next.js admin panel, TanStack Start player app, Go platform provisioner with Helm, Rust
-  deployment runner, and Redis-stream-driven workers across per-event Kubernetes namespaces.
+  Started as a solo project in 2024 and grew into AstraQ's flagship product. An organizer control
+  plane provisions each event through a Go service built on the Helm SDK. Every event gets its own
+  player app and database. A Rust gRPC runner launches per-team challenge instances on AWS ECS
+  Fargate, which players reach through SNI routing at an Envoy Gateway, one hostname per instance.
+  Around it sit a Rust attack-defense engine, a batch anti-cheat job, event data export, SSO, a
+  Discord bot, and a cross-platform proxy CLI for TCP challenges.
 technologies:
-  - Next.js
-  - TanStack Start
-  - TypeScript
-  - Go
   - Rust
+  - Go
+  - TypeScript
+  - TanStack Start
+  - Next.js
+  - gRPC
   - Kubernetes
   - Helm
+  - Envoy Gateway
+  - AWS ECS Fargate
   - PostgreSQL
   - Redis
-  - Docker
 featuredImage: /images/vendored/athena-ctf/featured-image.png
 liveUrl: https://athena-ctf.com
 projectType: product
 isFeatured: true
 isVisible: true
 status: live
-ownership: Original platform architecture and core engineering; continued under AstraQ
+ownership: Lead architect; built most of the platform
 accent: "#84cc16"
+resumeSummary: >
+  Kubernetes-native CTF platform (Rust, Go, TypeScript) with per-team ECS Fargate instances; hosted
+  Athena CTF 2026 for 1,200+ players across 650+ teams
 highlights:
-  - Designed per-event Kubernetes namespace isolation with Helm-based provisioning
-  - Built Redis Stream deployment workers translating queue jobs into live challenge containers
-  - Shipped admin and player surfaces with live scoreboards and flag validation
+  - Per-event isolation provisioned through the Helm SDK, with per-team challenge instances on ECS Fargate
+  - SNI-routed instance hostnames through Envoy Gateway that survive expiry and redeploy
+  - Jeopardy and attack-defense engines, anti-cheat detections, and full event data export
 outcomes:
-  - Publicly deployed at athena-ctf.com with multi-service production architecture
-  - Supports operator-driven CTF provisioning without manual cluster setup
+  - Hosted Athena CTF 2026, a 24-hour online jeopardy CTF listed on CTFtime, for 1,200+ players across 650+ teams and 10,000+ flag submissions
+  - Powers Trace, a one-day OSINT CTF, and university training programmes
 links:
+  - label: CTFtime
+    url: https://ctftime.org/ctf/1626
   - label: Athena LMS
     url: https://lms.athena-ctf.com

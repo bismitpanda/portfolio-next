@@ -29,9 +29,9 @@ const jetBrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://bismitpanda.com"),
-  title: "Bismit Panda | Software Engineer",
+  title: "Bismit Panda | Co-Founder & CTO",
   description:
-    "Software engineer shipping production full-stack and AI-integrated systems. Co-Founder & CTO at AstraQ Cyber Defence.",
+    "Co-Founder & CTO at AstraQ Cyber Defence, building security and AI platforms end to end in Rust, Go, and TypeScript.",
 };
 
 export default function Layout({

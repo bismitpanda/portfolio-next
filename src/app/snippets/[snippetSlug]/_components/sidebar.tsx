@@ -21,8 +21,8 @@ export function SnippetSidebar() {
           </div>
         </div>
         <p className="text-sm text-muted-foreground mb-4">
-          Full Stack Developer with 5+ years of experience. Passionate about
-          React, TypeScript, and clean code.
+          Co-Founder & CTO at AstraQ Cyber Defence. Builds security and AI
+          platforms in Rust, Go, and TypeScript.
         </p>
         <Button asChild variant="outline" className="w-full bg-transparent">
           <Link href="/about">View Profile</Link>

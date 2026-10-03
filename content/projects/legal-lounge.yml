@@ -1,0 +1,32 @@
+slug: legal-lounge
+title: Legal Lounge
+client: OpenVenture
+role: Sole developer
+year: 2026
+description: >
+  Site for attorney-led U.S. immigration services, covering work visas and green card pathways
+  with a lead-capture contact flow.
+challenge: >
+  Explaining a dozen visa and green card routes clearly enough that a prospective client can tell
+  which one fits them, and routing every enquiry straight to the team.
+solution: >
+  Built a Next.js site with a dedicated page for each pathway, from H-1B, O-1, L-1, TN, E-1/E-2 and
+  J visas to EB-1, EB-2 NIW, EB-5, PERM, and family-based green cards. The contact form posts
+  through a server action that appends each lead to a Google Sheet through the Sheets API.
+technologies:
+  - Next.js
+  - TypeScript
+  - Tailwind CSS
+  - TanStack Form
+  - Google Sheets API
+featuredImage: https://www.legallounge.ai/opengraph-image.png
+liveUrl: https://www.legallounge.ai
+projectType: client
+status: live
+ownership: Sole developer for OpenVenture
+accent: "#c084fc"
+highlights:
+  - Dedicated pages for each work visa and green card pathway
+  - Leads land in a Google Sheet the moment a form is submitted
+outcomes:
+  - Live at legallounge.ai

@@ -1,0 +1,34 @@
+slug: trixie
+title: Trixie
+client: Bismit Panda (Me)
+role: Developer
+year: 2026
+description: >
+  Voice-activated desktop agent for Linux, macOS, and Windows. Every capability is also a standard
+  MCP server, so the same tools work from Claude Code, Codex, or any other MCP host.
+challenge: >
+  A desktop voice agent has to own audio capture, wake word, transcription, an LLM tool loop, and
+  speech synthesis, and still reach windows, files, and apps the same way on three operating systems
+  and several Wayland compositors.
+solution: >
+  Built a single Tauri application over a Rust workspace. cpal captures audio, with Silero VAD and a
+  wake word in front of local Whisper or a hosted transcription endpoint, and Piper voices through
+  sherpa-onnx for speech. An orchestrator runs Anthropic, OpenAI-compatible, or Claude Code loops
+  over an MCP client registry. Platform differences sit behind traits, with an optional GNOME Shell
+  extension for window access where Mutter withholds the toplevel protocols.
+technologies:
+  - Rust
+  - Tauri
+  - React
+  - TypeScript
+  - MCP
+  - Whisper
+  - sherpa-onnx
+projectType: product
+status: beta
+ownership: Independent project
+accent: "#f472b6"
+highlights:
+  - Fully local voice pipeline option, with wake word, VAD, STT, and TTS on-device
+  - Tool surface shipped as a standalone MCP server over stdio or HTTP
+  - Cross-platform window, workspace, and app control behind per-OS traits

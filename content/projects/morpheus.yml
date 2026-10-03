@@ -1,0 +1,40 @@
+slug: morpheus
+title: Morpheus
+client: AstraQ Cyber Defence
+role: Lead engineer — analysis platform, agent runtime, and product surfaces
+year: 2026
+description: >
+  AI-powered malware analysis platform that studies what a file really does and explains the
+  threat in plain language.
+challenge: >
+  A traditional sandbox runs a file and hands an analyst raw logs to interpret. Getting from
+  telemetry to a verdict still takes a senior analyst's time, and fixed pipelines miss behaviour
+  that only shows up when someone chases a lead.
+solution: >
+  Morpheus combines static and behavioural analysis with an agentic investigation loop: an AI
+  coordinator reasons over the evidence, calls analysis tools, follows suspicious leads, and writes
+  a plain-language verdict. Previously seen files return a verdict from their hash instantly.
+technologies:
+  - Rust
+  - TypeScript
+  - TanStack Start
+  - gRPC
+  - MongoDB
+  - PostgreSQL
+featuredImage: https://www.morpheusvm.com/og.png
+liveUrl: https://www.morpheusvm.com
+projectType: product
+isFeatured: true
+isVisible: true
+status: beta
+ownership: Lead engineer under AstraQ
+accent: "#ef4444"
+resumeSummary: >
+  AI-driven malware analysis platform in Rust: static and behavioural analysis with an agentic
+  investigation loop
+highlights:
+  - Analysis depth driven by the sample's behaviour rather than a fixed pipeline
+  - Supports PE, ELF, and Mach-O executables, scripts, and documents
+  - Hash-first lookup returns verdicts for known files instantly
+outcomes:
+  - Public site and waitlist at morpheusvm.com

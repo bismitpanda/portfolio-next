@@ -17,7 +17,7 @@ export function Footer() {
               Bismit Panda
             </Link>
             <p className="mt-4 text-muted-foreground">
-              Software Engineer & Co-Founder @ AstraQ | Rust · Go · Next.js
+              Co-Founder & CTO @ AstraQ | Rust · Go · TypeScript
             </p>
           </div>
 

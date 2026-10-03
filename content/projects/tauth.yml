@@ -1,0 +1,31 @@
+slug: tauth
+title: TAuth
+client: Bismit Panda (Me)
+role: Developer
+year: 2026
+description: >
+  Offline desktop authenticator for TOTP and HOTP codes on Linux, macOS, and Windows, with the
+  whole vault encrypted in one file.
+challenge: >
+  Most desktop authenticators either sync to a cloud account or keep secrets readable on disk. A
+  vault copied from a backup or synced folder should be useless without the password, and a
+  tampered file should be detected rather than decrypted.
+solution: >
+  Built a Kotlin desktop app that encrypts the entire vault under a master password with
+  authenticated encryption, and zeroes the key in memory whenever the window hides to the tray.
+  Lock policies live inside the encrypted vault, so editing a config file cannot switch them off.
+  Native installers ship for each OS.
+technologies:
+  - Kotlin
+  - Compose Multiplatform
+  - Bouncy Castle
+  - Gradle
+githubUrl: https://github.com/bismitpanda/TAuth
+projectType: systems
+status: open-source
+ownership: Independent project
+accent: "#a3e635"
+highlights:
+  - Keyboard-only flow with search, copy, and timed clipboard clearing
+  - Add accounts from otpauth URIs or QR codes read from image files
+  - No account, no sync, and no network client
