@@ -12,8 +12,7 @@
   "formatter": {
     "enabled": true,
     "indentStyle": "space",
-    "indentWidth": 2,
-    "includes": ["**", "!src/lib/catppuccin-icons/icons.ts"]
+    "indentWidth": 2
   },
   "linter": {
     "enabled": true,

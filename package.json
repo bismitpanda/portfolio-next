@@ -13,7 +13,7 @@
     "analyze": "bunx unlighthouse --site https://bismitpanda.com --no-cache --enable-javascript --desktop --output-path .analytics",
     "analyze:mobile": "bunx unlighthouse --site https://bismitpanda.com --no-cache --enable-javascript --mobile --output-path .analytics",
     "images": "bun run scripts/build-project-images.tsx",
-    "update:icons": "bun run scripts/update-icons.ts",
+    "update:icons": "bun run scripts/update-icons.ts && bun lint:fix",
     "build:content": "bun run scripts/build-content.ts"
   },
   "dependencies": {
