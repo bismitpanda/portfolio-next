@@ -55,7 +55,16 @@ const projectSchema = z.object({
   solution: z.string(),
   technologies: z.string().array(),
   resumeSummary: z.string().optional(),
-  featuredImage: z.string().optional(),
+  // Read by scripts/build-project-images.tsx. Without a `source`, products and
+  // client work use their liveUrl's og:image and everything else is generated.
+  cover: z
+    .object({
+      source: z.string().optional(),
+      title: z.string().optional(),
+      tagline: z.string().optional(),
+      icon: z.string().optional(),
+    })
+    .default({}),
   projectType: z.enum(["product", "client", "systems"]),
   liveUrl: z.string().optional(),
   githubUrl: z.string().optional(),
@@ -65,10 +74,6 @@ const projectSchema = z.object({
     .enum(["live", "beta", "open-source", "shipped", "archived"])
     .default("shipped"),
   ownership: z.string().default("Independent project"),
-  accent: z
-    .string()
-    .regex(/^#[0-9a-fA-F]{6}$/)
-    .default("#94a3b8"),
   highlights: z.string().array().default([]),
   outcomes: z.string().array().default([]),
   links: z
@@ -303,6 +308,24 @@ const snippets = defineCollection({
   },
 });
 
+type ProjectImage = {
+  featuredImage: string;
+  cardImage: string;
+  ogImage: string;
+  accent: string;
+};
+
+// Written by `bun run images`; projects fall back to a text card without it.
+const projectImages = readFile(
+  ".next/cache/project-images/manifest.json",
+  "utf-8",
+)
+  .then((raw) => JSON.parse(raw) as Record<string, ProjectImage>)
+  .catch(() => {
+    console.warn("No project images manifest, run `bun run images`");
+    return {} as Record<string, ProjectImage>;
+  });
+
 const projects = defineCollection({
   name: "projects",
   directory: "content/projects",
@@ -314,14 +337,21 @@ const projects = defineCollection({
       throw new Error('Systems project must have "githubUrl"');
     }
 
+    const projectSlug = data.slug ?? slug(data.title);
+    const image = (await projectImages)[projectSlug];
+
     return {
       ...data,
+      featuredImage: image?.featuredImage,
+      cardImage: image?.cardImage,
+      ogImage: image?.ogImage,
+      accent: image?.accent,
       gallery: data.gallery.map((image, index) =>
         typeof image === "string"
           ? { imageUrl: image, alt: `Gallery image ${index + 1}` }
           : image,
       ),
-      slug: data.slug ?? slug(data.title),
+      slug: projectSlug,
     };
   },
 });

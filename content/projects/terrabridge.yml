@@ -19,14 +19,12 @@ technologies:
   - Tailwind CSS
   - Node.js
   - Shadcn/UI
-featuredImage: /images/vendored/terrabridge/featured-image.png
 liveUrl: https://terrabridge.ai
 projectType: client
 isFeatured: false
 isVisible: true
 status: live
 ownership: Full-stack developer for Green Card Inc.
-accent: "#a855f7"
 highlights:
   - Built interactive loan comparison tables for EB-5 program options
   - Shipped animated process timeline for investor onboarding

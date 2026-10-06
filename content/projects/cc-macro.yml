@@ -23,12 +23,12 @@ technologies:
   - TinyUSB
   - SvelteKit
   - Go
-featuredImage: /images/projects/cc-macro/featured-image.png
 projectType: product
 status: beta
 ownership: Independent project
-accent: "#fb923c"
 highlights:
   - Fabricated v2 PCB with a full bill of materials and pin mapping
   - Firmware and host daemon share one header-only protocol layer
   - Dockerized firmware build with pinned SDK and toolchain
+cover:
+  source: assets/project-images/cc-macro.png

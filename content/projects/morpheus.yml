@@ -21,14 +21,12 @@ technologies:
   - gRPC
   - MongoDB
   - PostgreSQL
-featuredImage: https://www.morpheusvm.com/og.png
 liveUrl: https://www.morpheusvm.com
 projectType: product
 isFeatured: true
 isVisible: true
 status: beta
 ownership: Lead engineer under AstraQ
-accent: "#ef4444"
 resumeSummary: >
   AI-driven malware analysis platform in Rust: static and behavioural analysis with an agentic
   investigation loop

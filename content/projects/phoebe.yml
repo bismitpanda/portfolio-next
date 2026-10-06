@@ -29,17 +29,17 @@ technologies:
   - OpenTelemetry
 resumeSummary: >
   Enterprise RAG platform (Rust, Milvus hybrid search, Kubernetes sync jobs) built end to end
-featuredImage: https://usephoebe.com/opengraph-image.png
 liveUrl: https://usephoebe.com
 projectType: product
 isFeatured: true
 isVisible: true
 status: live
 ownership: Owned end to end under AstraQ
-accent: "#f59e0b"
 highlights:
   - Built connector OAuth, sync job tracking, and document generation dashboards
   - Integrated organization billing with portal and reconciliation flows
   - Wired observability across frontend and backend services
 outcomes:
   - Live at usephoebe.com with authenticated multi-tenant workspaces
+cover:
+  tagline: Answers grounded in your company data

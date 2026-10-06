@@ -30,14 +30,12 @@ technologies:
   - AWS ECS Fargate
   - PostgreSQL
   - Redis
-featuredImage: /images/vendored/athena-ctf/featured-image.png
 liveUrl: https://athena-ctf.com
 projectType: product
 isFeatured: true
 isVisible: true
 status: live
 ownership: Lead architect; built most of the platform
-accent: "#84cc16"
 resumeSummary: >
   Kubernetes-native CTF platform (Rust, Go, TypeScript) with per-team ECS Fargate instances; hosted
   Athena CTF 2026 for 1,200+ players across 650+ teams

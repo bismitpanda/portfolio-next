@@ -21,14 +21,12 @@ technologies:
   - Shadcn/UI
   - Sanity
   - ConvertKit
-featuredImage: /images/vendored/open-venture/featured-image.webp
 liveUrl: https://openventure.com
 projectType: client
 isFeatured: true
 isVisible: true
 status: live
 ownership: Lead developer for Green Card Inc.
-accent: "#84cc16"
 highlights:
   - Built multi-section marketing site with dynamic CMS-driven metrics
   - Integrated testimonial carousels and brand-logo sections

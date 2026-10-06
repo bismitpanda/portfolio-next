@@ -4,7 +4,6 @@ client: Bismit Panda (Me)
 description: >
   A command-line password manager written in Rust. It securely stores passwords using
   AES-256-GCM encryption, with the encryption key provided by the user.
-featuredImage: /images/projects/pass-manager/featured-image.png
 githubUrl: https://github.com/bismitpanda/pass_manager
 projectType: systems
 role: Developer
@@ -14,3 +13,5 @@ technologies:
   - Rust
 title: Pass Manager
 year: 2023
+cover:
+  tagline: A CLI based password manager

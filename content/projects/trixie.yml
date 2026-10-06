@@ -27,8 +27,9 @@ technologies:
 projectType: product
 status: beta
 ownership: Independent project
-accent: "#f472b6"
 highlights:
   - Fully local voice pipeline option, with wake word, VAD, STT, and TTS on-device
   - Tool surface shipped as a standalone MCP server over stdio or HTTP
   - Cross-platform window, workspace, and app control behind per-OS traits
+cover:
+  tagline: A voice-activated desktop agent

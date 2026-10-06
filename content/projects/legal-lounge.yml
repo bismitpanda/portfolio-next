@@ -19,12 +19,10 @@ technologies:
   - Tailwind CSS
   - TanStack Form
   - Google Sheets API
-featuredImage: https://www.legallounge.ai/opengraph-image.png
 liveUrl: https://www.legallounge.ai
 projectType: client
 status: live
 ownership: Sole developer for OpenVenture
-accent: "#c084fc"
 highlights:
   - Dedicated pages for each work visa and green card pathway
   - Leads land in a Google Sheet the moment a form is submitted

@@ -1,0 +1,32 @@
+slug: visa-architect
+title: Visa Architect
+client: Green Card Inc.
+role: Sole developer
+year: 2025
+description: >
+  Full-stack immigration platform with multi-page dashboards, LLM-based immigration status
+  evaluation, and RAG-assisted guidance.
+challenge: >
+  Green Card Inc. needed applicants to understand where they stand and what to do next without
+  waiting on a consultant for every question.
+solution: >
+  Built visarchitect.com with multi-page applicant dashboards, an LLM-based status evaluator,
+  and a RAG pipeline integrated from the acquired Visa Vibe product, with Payload CMS for
+  content.
+technologies:
+  - Next.js
+  - React
+  - TypeScript
+  - Tailwind CSS
+  - Drizzle ORM
+  - Better Auth
+  - Payload CMS
+  - Vercel AI SDK
+  - OpenAI
+liveUrl: https://visarchitect.com
+projectType: client
+status: live
+ownership: Sole developer
+highlights:
+  - Immigration dashboards and LLM evaluation flows
+  - RAG pipeline integrated from the acquired Visa Vibe product

@@ -2,7 +2,8 @@ import type { CSSProperties, ReactNode } from "react";
 import { cn } from "@/lib/utils";
 
 type ProjectAccentFrameProps = {
-  accent: string;
+  // Computed from the cover by `bun run images`; no glow until it has run.
+  accent?: string;
   children: ReactNode;
   className?: string;
 };
@@ -16,6 +17,16 @@ export function ProjectAccentFrame({
   children,
   className,
 }: ProjectAccentFrameProps) {
+  if (!accent) {
+    return (
+      <div className={cn("relative isolate rounded-lg", className)}>
+        <div className="relative h-full overflow-hidden rounded-[inherit] bg-muted">
+          {children}
+        </div>
+      </div>
+    );
+  }
+
   const glowStyle = {
     background: `radial-gradient(circle at 50% 50%, ${withAlpha(
       accent,

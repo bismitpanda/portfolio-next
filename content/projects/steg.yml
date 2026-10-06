@@ -3,7 +3,6 @@ challenge: >
 client: Bismit Panda (Me)
 description: >
   A Rust library for simple image steganography, hiding messages in images.
-featuredImage: /images/projects/steg/featured-image.png
 githubUrl: https://github.com/bismitpanda/steg
 projectType: systems
 role: Developer
@@ -13,3 +12,5 @@ technologies:
   - Rust
 title: Steg
 year: 2023
+cover:
+  tagline: A CLI based tool to hide text in images

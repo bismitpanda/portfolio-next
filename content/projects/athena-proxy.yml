@@ -23,8 +23,10 @@ githubUrl: https://github.com/astraqcd/athena-proxy
 projectType: systems
 status: open-source
 ownership: Sole author
-accent: "#84cc16"
 highlights:
   - One TLS connection per local connection, with no pooling or multiplexing
   - Daemon accepts new targets live, without a restart
   - Versioned releases with SHA-256 checksums and GitHub build attestations
+cover:
+  icon: athena
+  tagline: Plain TCP access to Athena CTF challenges

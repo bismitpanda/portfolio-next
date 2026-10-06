@@ -19,7 +19,8 @@ githubUrl: https://github.com/bismitpanda/cc-util
 projectType: systems
 status: open-source
 ownership: Independent project
-accent: "#f59e0b"
 highlights:
   - Switches accounts in one command, without the OAuth flow
   - Versioned GitHub releases with one-line installers
+cover:
+  tagline: Manage multiple Claude Code accounts

@@ -29,14 +29,12 @@ technologies:
   - ClickHouse
   - OpenBao
   - Stripe
-featuredImage: https://agentichuman.io/opengraph-image.png
 liveUrl: https://agentichuman.io
 projectType: product
 isFeatured: true
 isVisible: true
 status: beta
 ownership: Co-founder and sole engineer at Agentic Human
-accent: "#22d3ee"
 resumeSummary: >
   Voice AI agent platform in Rust: on-device VAD/STT/TTS over Twilio and Exotel, deno_core tool
   sandbox, runs unmodified on EKS, GKE, and DOKS

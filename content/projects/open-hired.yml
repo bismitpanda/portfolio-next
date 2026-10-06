@@ -1,0 +1,27 @@
+slug: open-hired
+title: OpenHired
+client: Green Card Inc.
+role: Sole developer
+year: 2025
+description: >
+  Full-stack hiring platform with a marketing site and a candidate-facing dashboard.
+challenge: >
+  Green Card Inc. needed a hiring product shipped as its own deployment without rebuilding auth
+  and dashboard patterns from scratch.
+solution: >
+  Built openhired.com reusing the shared auth and dashboard patterns from the other Green Card
+  products, deployed as an independent app on its own domain.
+technologies:
+  - Next.js
+  - React
+  - TypeScript
+  - Tailwind CSS
+  - Drizzle ORM
+  - Better Auth
+  - Resend
+liveUrl: https://openhired.com
+projectType: client
+status: live
+ownership: Sole developer
+highlights:
+  - Candidate-facing dashboard for hiring workflows

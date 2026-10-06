@@ -30,14 +30,13 @@ technologies:
   - MinIO
   - better-auth
   - OpenFGA
-featuredImage: /images/projects/planr/featured-image.png
 githubUrl: https://github.com/bismitpanda/planr
-liveUrl: https://planr.vercel.app
 projectType: product
 isFeatured: false
-isVisible: false
-status: beta
+isVisible: true
+status: open-source
 ownership: Independent project — in active development
-accent: "#94a3b8"
 resumeSummary: >
   Full-stack project management tool (Next.js, Kafka, Qdrant, Redis, MinIO, OpenFGA)
+cover:
+  tagline: AI-Powered Project Management Platform

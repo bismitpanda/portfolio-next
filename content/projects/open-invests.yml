@@ -21,14 +21,14 @@ technologies:
   - Drizzle ORM
   - libSQL
   - Resend
-featuredImage: https://openinvests.com/opengraph-image.png
 liveUrl: https://openinvests.com
 projectType: client
 status: live
 ownership: Sole developer for OpenVenture
-accent: "#0ea5e9"
 highlights:
   - Embedded Sanity Studio with draft-mode previews
   - Internal customer and project dashboard with assignment workflow
 outcomes:
   - Live at openinvests.com
+cover:
+  tagline: EB-5 financing for green card investors

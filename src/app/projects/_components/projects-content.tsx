@@ -185,13 +185,13 @@ export function ProjectsContent({
                     accent={project.accent}
                     className="aspect-4/3 rounded-2xl"
                   >
-                    {project.featuredImage ? (
+                    {project.cardImage ? (
                       <Image
                         alt={project.title}
                         className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                         fill
                         sizes="(max-width: 768px) 100vw, 50vw"
-                        src={project.featuredImage}
+                        src={project.cardImage}
                       />
                     ) : (
                       <div className="flex h-full items-center justify-center p-8 text-center text-muted-foreground">
@@ -249,12 +249,12 @@ export function ProjectsContent({
                       accent={project.accent}
                       className="aspect-16/10 shrink-0 rounded-xl"
                     >
-                      {project.featuredImage ? (
+                      {project.cardImage ? (
                         <Image
                           alt={project.title}
                           className="h-full w-full object-cover opacity-85 transition-all duration-300 group-hover:scale-105 group-hover:opacity-100"
-                          height={240}
-                          src={project.featuredImage}
+                          height={250}
+                          src={project.cardImage}
                           width={400}
                         />
                       ) : (

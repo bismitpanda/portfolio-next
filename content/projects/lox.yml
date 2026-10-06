@@ -5,7 +5,6 @@ client: Bismit Panda (Me)
 description: >
   Lox is a C-based implementation of a programming language following the Compiler + VM
   architecture, directly inspired by crafting interpreters.
-featuredImage: /images/projects/lox/featured-image.png
 githubUrl: https://github.com/bismitpanda/lox
 projectType: systems
 role: Developer
@@ -20,3 +19,5 @@ technologies:
   - SQLite
 title: LOX
 year: 2024
+cover:
+  tagline: A simple language impl. in C

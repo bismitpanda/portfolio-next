@@ -38,8 +38,8 @@ export async function generateMetadata({
       title: project.title,
       description: project.description,
       url: `https://bismitpanda.com/projects/${project.slug}`,
-      ...(project.featuredImage
-        ? { images: [{ url: project.featuredImage }] }
+      ...(project.ogImage
+        ? { images: [{ url: project.ogImage, width: 1200, height: 630 }] }
         : {}),
     },
   };

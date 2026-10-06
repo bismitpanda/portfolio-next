@@ -23,14 +23,14 @@ technologies:
   - OpenRouter
   - TipTap
   - Tailwind CSS
-featuredImage: https://trymetis.email/opengraph-image.png
 liveUrl: https://trymetis.email
+cover:
+  source: https://www.trymetis.email/opengraph-image
 projectType: product
 isFeatured: true
 isVisible: true
 status: beta
 ownership: Lead engineer under AstraQ; built most of the codebase
-accent: "#8b5cf6"
 highlights:
   - Implemented multi-provider mailbox OAuth and shared workspace mailboxes
   - Built oRPC router covering mail, labels, rules, and AI helpers with Zod schemas

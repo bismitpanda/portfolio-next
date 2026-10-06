@@ -24,8 +24,9 @@ githubUrl: https://github.com/bismitpanda/TAuth
 projectType: systems
 status: open-source
 ownership: Independent project
-accent: "#a3e635"
 highlights:
   - Keyboard-only flow with search, copy, and timed clipboard clearing
   - Add accounts from otpauth URIs or QR codes read from image files
   - No account, no sync, and no network client
+cover:
+  tagline: An offline TOTP and HOTP authenticator

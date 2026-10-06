@@ -21,14 +21,12 @@ technologies:
   - Tailwind CSS
   - Shadcn/UI
   - Sanity
-featuredImage: /images/vendored/shout-start/featured-image.png
 liveUrl: https://shoutstart.com
 projectType: client
 isFeatured: false
 isVisible: true
 status: live
 ownership: Front-end developer for Green Card Inc.
-accent: "#ffffff"
 highlights:
   - Shipped branded four-step PR workflow with illustration-driven UX
   - Built reusable testimonial and service card components

@@ -19,12 +19,10 @@ technologies:
   - Tailwind CSS
   - MDX
   - Content Collections
-featuredImage: /images/vendored/portfolio/featured-image.png
 liveUrl: https://bismitpanda.com
 githubUrl: https://github.com/bismitpanda/portfolio-next
 projectType: client
 isFeatured: false
-isVisible: false
+isVisible: true
 status: live
 ownership: Independent project
-accent: "#94a3b8"
