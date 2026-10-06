@@ -10,9 +10,8 @@ export function HeroSection() {
       <div className="mx-auto mb-16 max-w-3xl text-center">
         <h1 className="heading-xl mb-6">About Me</h1>
         <p className="body-lg text-muted-foreground">
-          Software engineer shipping production full-stack and AI-integrated
-          systems, from immigration and hiring platforms to cybersecurity
-          products.
+          I build security, AI, and web products, usually from the
+          infrastructure up to the interface.
         </p>
       </div>
 
@@ -29,22 +28,21 @@ export function HeroSection() {
         </div>
         <div className="space-y-6">
           <p className="body-lg">
-            I build and ship production web applications end to end, mostly in
-            Next.js and TypeScript, often with LLM and RAG integrations. As sole
-            developer at OpenVenture (formerly Greencard Inc.), I&apos;ve
-            delivered 10+ live products across immigration, hiring, admissions,
-            and investment.
+            I&apos;m Co-Founder and CTO at AstraQ Cyber Defence. I designed
+            Athena, our Kubernetes-based CTF platform, and lead engineering on
+            Morpheus, Phoebe, Athena LMS, and Metis Mail. Most of that is Rust,
+            Go, and TypeScript.
           </p>
           <p className="body-lg">
-            As Co-Founder and CTO at AstraQ Cyber Defence, I architect security
-            training and platform products including Athena CTF, Athena LMS,
-            Phoebe, and Metis. I also write Rust and Go when performance
-            matters.
+            I&apos;m also the sole developer at OpenVenture (formerly Greencard
+            Inc.). I&apos;ve shipped 10+ live Next.js products there for
+            immigration, hiring, admissions, and investment, several with LLM
+            and RAG features.
           </p>
           <p className="body-lg">
-            I graduated with a B.Tech in Computer Science and Engineering
-            (Cybersecurity) from Rashtriya Raksha University and share what I
-            learn through blog posts and snippets on this site.
+            I have a B.Tech in Computer Science and Engineering (Cybersecurity)
+            from Rashtriya Raksha University. Longer write-ups go on the blog,
+            and short pieces of code I reuse go under snippets.
           </p>
           <div className="flex flex-wrap gap-4 pt-4">
             <Button asChild size="lg">

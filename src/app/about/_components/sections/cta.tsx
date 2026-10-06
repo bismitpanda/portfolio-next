@@ -7,8 +7,7 @@ export function CtaSection() {
       <div className="mx-auto max-w-3xl text-center">
         <h2 className="heading-md mb-6">Interested in working together?</h2>
         <p className="body-lg mb-8 text-muted-foreground">
-          I&apos;m currently available for freelance projects and full-time
-          opportunities.
+          I take on freelance projects and I&apos;m open to full-time roles.
         </p>
         <div className="flex flex-wrap justify-center gap-4">
           <Button asChild size="lg">

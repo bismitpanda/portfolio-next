@@ -1,23 +1,28 @@
 challenge: >
-  Implementing lexical analysis, parsing, and a register-based VM in C while managing manual
-  memory and avoiding security pitfalls.
+  Turning the clox design from Crafting Interpreters into a language with a usable standard
+  library, in C, where memory is managed by hand and a bad pointer is a security bug.
 client: Bismit Panda (Me)
 description: >
-  Lox is a C-based implementation of a programming language following the Compiler + VM
-  architecture, directly inspired by crafting interpreters.
+  A bytecode compiler and stack-based VM for Lox, the language from Robert Nystrom's Crafting
+  Interpreters, extended with arbitrary-precision numbers, bytes, maps, and a standard library of
+  native modules.
 githubUrl: https://github.com/bismitpanda/lox
 projectType: systems
 role: Developer
 solution: >
-  Built a hand-rolled lexer, recursive-descent parser, and a bytecode compiler with an
-  accompanying virtual machine, using C for maximum control over performance and footprint.
+  Hand-written scanner, single-pass compiler, and a stack-based VM with a mark-and-sweep garbage
+  collector and a readline REPL with tab completion. The standard library is written in C on top
+  of existing libraries: PCRE2 for regex, SQLite and LevelDB for storage, OpenSSL for hash
+  digests, zlib, LZ4, Zstandard, and Snappy for compression, libarchive for archives, and JSON,
+  TOML, and YAML parsing. Integers are GMP bignums and floats are MPFR values.
 technologies:
   - C
   - CMake
-  - GMP/MPFR/MPC
   - PCRE2
   - SQLite
+  - OpenSSL
+  - GMP/MPFR
 title: LOX
 year: 2024
 cover:
-  tagline: A simple language impl. in C
+  tagline: Crafting Interpreters' Lox, with a standard library

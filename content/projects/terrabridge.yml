@@ -1,17 +1,17 @@
 slug: terrabridge
 title: TerraBridge
-client: Green Card Inc.
+client: Greencard Inc.
 role: Full-stack Developer
 year: 2025
 description: >
   EB-5 financing portal with loan comparisons, process timelines, due-diligence downloads,
   and embedded scheduling.
 challenge: >
-  Presenting complex financial data (tables, timelines) in a clear, interactive way and
-  integrating calendar-booking calls seamlessly.
+  Making EB-5 loan terms and the application timeline readable for investors comparing their
+  options, and letting them book a call without leaving the site.
 solution: >
-  Implemented dynamic comparison tables with React and Tailwind, built an animated timeline
-  component, and embedded Calendly for call scheduling.
+  Built interactive comparison tables in React and Tailwind, an animated timeline component, and
+  an embedded Calendly booking widget.
 technologies:
   - Next.js
   - React
@@ -24,10 +24,10 @@ projectType: client
 isFeatured: false
 isVisible: true
 status: live
-ownership: Full-stack developer for Green Card Inc.
+ownership: Full-stack developer for Greencard Inc.
 highlights:
-  - Built interactive loan comparison tables for EB-5 program options
-  - Shipped animated process timeline for investor onboarding
-  - Integrated Calendly scheduling into the financing funnel
+  - Loan comparison tables for EB-5 program options
+  - Animated timeline of the investor process
+  - Calendly booking embedded in the site
 outcomes:
-  - Live at terrabridge.ai as the EB-5 financing portal
+  - Live at terrabridge.ai

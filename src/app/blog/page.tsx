@@ -76,8 +76,7 @@ export default function Page() {
         <div className="mx-auto mb-16 max-w-3xl text-center">
           <h1 className="heading-xl mb-6">Blog</h1>
           <p className="body-lg text-muted-foreground">
-            Thoughts, insights, and perspectives on design, development, and the
-            digital landscape.
+            Write-ups on things I&apos;ve built and how they work.
           </p>
         </div>
 

@@ -1,14 +1,14 @@
 slug: athena-lms
 title: Athena LMS
 client: AstraQ Cyber Defence
-role: Owner — architecture, labs infrastructure, and product
+role: Owner (architecture, lab infrastructure, and product)
 year: 2025
 description: >
   Learning management platform for cybersecurity training with course authoring, quizzes,
   progress tracking, and organization-scoped workspaces.
 challenge: >
-  Cybersecurity training needs structured course delivery, assessments, and tenant isolation
-  without bolting together generic LMS tools that do not fit hands-on security education.
+  Generic LMS tools handle lessons and quizzes, but security training needs learners working in
+  live environments, graded automatically, with each customer organization kept separate.
 solution: >
   Built Athena LMS end to end as a multi-tenant Next.js platform where hands-on exercises run inside
   the course player: static and per-learner challenges, an in-browser shell, and live container
@@ -34,7 +34,7 @@ ownership: Owned end to end under AstraQ
 highlights:
   - Built organization-scoped course and enrollment models
   - Implemented quiz, lesson, and certificate workflows for training programs
-  - Integrated AI-assisted content tooling for instructors
+  - AI course generation for instructors, run as a background worker
 outcomes:
   - Live at lms.athena-ctf.com with authenticated course delivery
 links:

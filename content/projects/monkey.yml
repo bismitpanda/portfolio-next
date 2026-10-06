@@ -1,16 +1,16 @@
 challenge: >
-  Translating concepts from an educational book directly into production-grade Go code,
-  extending functionality while maintaining clarity.
+  Following the book closely enough to learn from it, then adding features without making the
+  code harder to read.
 client: Bismit Panda (Me)
 description: >
-  An interpreter/compiler for the Monkey language as presented in Thorsten Ball’s books,
-  extended with extra built-in functions and VM introspection utilities.
+  An interpreter and compiler for Monkey, the language from Thorsten Ball's two books, with extra
+  built-in functions and tools for inspecting the VM.
 githubUrl: https://github.com/bismitpanda/monkey
 projectType: systems
 role: Developer
 solution: >
-  Followed the book’s architecture to build both an AST interpreter and a VM compiler,
-  adding `exit()`, hash introspection, and type-conversion helpers in Go.
+  Built both the tree-walking interpreter and the bytecode compiler and VM from the book, then
+  added `exit()`, hash introspection, and type-conversion built-ins.
 technologies:
   - Go
 title: Monkey

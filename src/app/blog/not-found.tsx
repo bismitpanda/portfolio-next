@@ -12,9 +12,8 @@ export default function BlogNotFound() {
           <h2 className="heading-md mb-6">Blog Not Found</h2>
 
           <p className="body-lg mb-8 text-muted-foreground">
-            The blog post you&apos;re looking for seems to have vanished into
-            the digital ether. Perhaps it was moved, renamed, or is still being
-            written.
+            There&apos;s no post at this address. It may have been renamed, or
+            it isn&apos;t published yet.
           </p>
 
           <div className="flex flex-wrap justify-center gap-4">

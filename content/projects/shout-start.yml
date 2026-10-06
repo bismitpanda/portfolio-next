@@ -1,19 +1,17 @@
 slug: shout-start
 title: ShoutStart
-client: Green Card Inc.
+client: Greencard Inc.
 role: Front-end Developer
 year: 2025
 description: >
-  PR platform guiding users through writing, submitting, refining, and amplifying press
-  releases—with CMS-managed services and testimonials.
+  Press release service that walks clients through writing, submitting, refining, and
+  distributing a release. Services and testimonials are managed in a CMS.
 challenge: >
-  Designing a clear, multi-step "How It Works" flow using branded illustrations,
-  complemented by a metrics-style content overview, all while ensuring fast load-times and
-  mobile-first performance.
+  Explaining a four-step PR process on a single page with branded illustrations, while keeping
+  the page fast on phones.
 solution: >
-  Developed a performant, responsive Next.js single-page application with optimized image
-  components and CSS-grid layouts to showcase the four core steps. Integrated Sanity CMS for
-  services, testimonials, and marketing copy.
+  Built a single-page Next.js site with optimized images and a CSS grid for the four steps.
+  Services, testimonials, and marketing copy come from Sanity.
 technologies:
   - Next.js
   - React
@@ -26,10 +24,10 @@ projectType: client
 isFeatured: false
 isVisible: true
 status: live
-ownership: Front-end developer for Green Card Inc.
+ownership: Front-end developer for Greencard Inc.
 highlights:
-  - Shipped branded four-step PR workflow with illustration-driven UX
+  - Illustrated four-step walkthrough of the PR process
   - Built reusable testimonial and service card components
-  - Integrated Sanity for client-managed content updates
+  - Sanity integration so the client edits content without a developer
 outcomes:
-  - Live at shoutstart.com with CMS-managed marketing content
+  - Live at shoutstart.com

@@ -1,15 +1,15 @@
 slug: open-hired
 title: OpenHired
-client: Green Card Inc.
+client: Greencard Inc.
 role: Sole developer
 year: 2025
 description: >
   Full-stack hiring platform with a marketing site and a candidate-facing dashboard.
 challenge: >
-  Green Card Inc. needed a hiring product shipped as its own deployment without rebuilding auth
+  Greencard Inc. needed a hiring product shipped as its own deployment without rebuilding auth
   and dashboard patterns from scratch.
 solution: >
-  Built openhired.com reusing the shared auth and dashboard patterns from the other Green Card
+  Built openhired.com reusing the shared auth and dashboard patterns from the other Greencard
   products, deployed as an independent app on its own domain.
 technologies:
   - Next.js

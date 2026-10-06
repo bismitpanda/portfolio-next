@@ -6,8 +6,7 @@ import { allSnippetsByDate } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "Code Snippets | Bismit Panda",
-  description:
-    "A collection of useful code snippets and patterns I frequently use in my projects.",
+  description: "Short pieces of code I keep reusing across projects.",
 };
 
 export default async function Page() {

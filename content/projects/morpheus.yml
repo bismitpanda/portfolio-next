@@ -1,11 +1,11 @@
 slug: morpheus
 title: Morpheus
 client: AstraQ Cyber Defence
-role: Lead engineer — analysis platform, agent runtime, and product surfaces
+role: Lead engineer (analysis platform, agent runtime, and product)
 year: 2026
 description: >
-  AI-powered malware analysis platform that studies what a file really does and explains the
-  threat in plain language.
+  AI malware analysis platform that works out what a file does and explains the threat in plain
+  language.
 challenge: >
   A traditional sandbox runs a file and hands an analyst raw logs to interpret. Getting from
   telemetry to a verdict still takes a senior analyst's time, and fixed pipelines miss behaviour

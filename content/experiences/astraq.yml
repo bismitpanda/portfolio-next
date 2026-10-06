@@ -2,11 +2,11 @@ company: AstraQ Cyber Defence
 startDate: 2025-06-01
 title: Co-Founder & CTO
 description: >
-  AI-native cybersecurity company shipping CTF, training, enterprise RAG, email security, and malware
-  analysis products.
+  Cybersecurity company building CTF, training, enterprise RAG, email security, and malware analysis
+  products.
 highlights:
   - "Architected Athena, a Kubernetes-native CTF platform with per-event isolation and per-team challenge instances on ECS Fargate; hosted Athena CTF 2026 for 1,200+ players across 650+ teams"
   - "Built Morpheus, an AI-driven malware analysis platform combining static and behavioural analysis with an agentic investigation loop"
-  - "Owned Phoebe (enterprise RAG) and Athena LMS (hands-on security training with live labs) end to end; built most of Metis Mail (AI-native mail client)"
+  - "Owned Phoebe (enterprise RAG) and Athena LMS (hands-on security training with live labs) end to end; built most of Metis Mail (AI mail client)"
   - "Own technical architecture, infrastructure, and stack decisions across the product suite; co-designed the Tiller Cyber Defense Challenge 2026"
   - "Company recognitions: Top 6 finalist, NCIIPC Startup India AI Grand Challenge; grant recipient at India Mobile Congress 2025"

@@ -1,5 +1,5 @@
 challenge: >
-  Avoiding noticeable artifacts in the steganographically encoded images.
+  Hiding a message without leaving visible artifacts in the image.
 client: Bismit Panda (Me)
 description: >
   A Rust library for simple image steganography, hiding messages in images.
@@ -13,4 +13,4 @@ technologies:
 title: Steg
 year: 2023
 cover:
-  tagline: A CLI based tool to hide text in images
+  tagline: Hide text inside images

@@ -19,9 +19,8 @@ export default function ProjectNotFound() {
           <h2 className="heading-md mb-6">Project Not Found</h2>
 
           <p className="body-lg mb-8 text-muted-foreground">
-            This project seems to be missing from our portfolio. It might be
-            under development, archived, or perhaps it never existed in the
-            first place.
+            There&apos;s no project at this address. It may have been renamed or
+            taken down.
           </p>
 
           <div className="flex flex-wrap justify-center gap-4">
@@ -48,7 +47,9 @@ export default function ProjectNotFound() {
               <Button asChild className="w-full" size="sm" variant="outline">
                 <Link
                   className="flex items-center justify-center gap-2"
-                  href="#"
+                  href="https://github.com/bismitpanda"
+                  rel="noopener noreferrer"
+                  target="_blank"
                 >
                   <GithubDark className="h-4 w-4" />
                   <span>GitHub Profile</span>

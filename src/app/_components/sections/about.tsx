@@ -13,20 +13,19 @@ export function AboutSection() {
         </div>
         <div className="md:col-span-2">
           <p className="body-lg mb-6">
-            I ship production software across product engineering, AI systems,
-            cybersecurity, and infrastructure. As Co-Founder and CTO of AstraQ
-            Cyber Defence, I work on live platforms including CTF hosting, an
-            LMS, an AI mail client, and document intelligence tooling.
+            I&apos;m Co-Founder and CTO of AstraQ Cyber Defence. I designed
+            Athena, our CTF platform, which ran Athena CTF 2026 for 1,200+
+            players. I also lead work on Morpheus for malware analysis, Phoebe
+            for search over company data, Athena LMS, and the Metis mail client.
           </p>
           <p className="body-lg mb-6">
-            Before and alongside that, I&apos;ve delivered 10+ full-stack
-            products for OpenVenture and Green Card Inc.—immigration, hiring,
-            admissions, PR, and financing portals—often as the sole developer on
-            each codebase.
+            Separately, I&apos;m the only developer at OpenVenture (formerly
+            Greencard Inc.), where I&apos;ve shipped 10+ production apps for
+            immigration, hiring, admissions, PR, and EB-5 financing.
           </p>
           <p className="body-lg mb-10">
-            I reach for Rust and Go when performance and systems constraints
-            matter, and I write about the work on this site.
+            Most of my backend work is in Rust and Go. I write about some of it
+            here.
           </p>
           <div className="flex flex-wrap gap-4">
             <Button asChild size="lg">

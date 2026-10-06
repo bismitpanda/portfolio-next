@@ -1,14 +1,14 @@
 slug: metis-mail
 title: Metis Mail
 client: AstraQ Cyber Defence
-role: Lead engineer — mailbox, AI features, and typed API layer
+role: Lead engineer (mailbox, AI features, and typed API layer)
 year: 2025
 description: >
-  AI-native email client for Gmail, Outlook, and Zoho with full mailbox operations,
+  AI email client for Gmail, Outlook, and Zoho with full mailbox operations,
   workspace sharing, and streaming inbox agents.
 challenge: >
-  Power users need a modern mail client that unifies multiple providers, supports team
-  mailboxes, and layers AI assistance without sacrificing control over sensitive email data.
+  Teams split across Gmail, Outlook, and Zoho want one client for all of it, shared mailboxes
+  included. Any AI added on top has to leave users in control of email that is often sensitive.
 solution: >
   Built Metis Mail on Next.js 16 with Better Auth, Drizzle on Neon, and oRPC for end-to-end
   typed APIs. Shipped folder views, threading, compose with TipTap, rules, snooze, scheduled

@@ -2,16 +2,16 @@ challenge: >
   Making rustdoc output usable as Markdown and consumable by AI tools (e.g. via MCP).
 client: Bismit Panda (Me)
 description: >
-  A CLI and library that fetches or reads rustdoc JSON and converts it to Markdown.
-  Pulls crate docs from docs.rs or processes local rustdoc JSON (plain, gzip, or zstd).
-  Can run as an MCP server for Cursor and other IDEs.
+  CLI and library that converts rustdoc JSON to Markdown. It pulls crate docs from docs.rs or
+  reads local rustdoc JSON (plain, gzip, or zstd), and can run as an MCP server for Cursor and
+  other editors.
 githubUrl: https://github.com/bismitpanda/rs-docs
 projectType: systems
 role: Developer
 solution: >
-  Built a Rust CLI with remote (docs.rs) and local modes; supports single file, multiple
-  files, or both. MCP server exposes search_crates, fetch_docs, get_index, get_file and
-  resources for cached package docs.
+  Built a Rust CLI with a remote mode for docs.rs and a local mode for files on disk, and output
+  as a single file, multiple files, or both. The MCP server exposes search_crates, fetch_docs,
+  get_index, and get_file, plus resources for cached package docs.
 technologies:
   - Rust
   - CLI
@@ -19,4 +19,4 @@ technologies:
 title: rs-docs
 year: 2025
 cover:
-  tagline: A tool to convert `rustdocs` to markdown
+  tagline: Converts rustdoc output to Markdown

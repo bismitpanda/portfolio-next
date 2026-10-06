@@ -2,7 +2,7 @@ company: OpenVenture (formerly Greencard Inc.)
 description: >
   US-based company building products across immigration, hiring, admissions, and investment verticals.
 highlights:
-  - "Sole developer responsible for building and shipping 10+ production applications across the OpenVenture product suite, all in Next.js and TypeScript, deployed on Vercel"
+  - "Sole developer on 10+ production apps across the OpenVenture product suite, all Next.js and TypeScript on Vercel"
   - "Built visarchitect.com: full-stack immigration platform with multi-page dashboard, LLM-based immigration status evaluator, and a RAG pipeline (integrated from acquired product Visa Vibe)"
   - "Built openhired.com: full-stack hiring platform with marketing site and candidate-facing dashboard"
   - "Built openadmits.com: admissions platform with Next.js frontend and headless CMS integration"

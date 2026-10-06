@@ -1,18 +1,18 @@
 slug: open-venture
 title: Open Venture
-client: Green Card Inc.
+client: Greencard Inc.
 role: Lead Developer
 year: 2025
 description: >
-  All-in-one U.S. concierge marketing site for visa assistance, housing, tax filing,
-  incubator support, and EB-5 programs—with dynamic metrics and CMS-driven content.
+  Marketing site for OpenVenture's U.S. concierge services: visa help, housing, tax filing,
+  incubator support, and EB-5 programs. Section content and headline numbers come from a CMS.
 challenge: >
-  Building a multi-section marketing site with dynamic metrics, testimonial carousels, and
-  seamless brand-logo integration under a unified design system.
+  Five service lines had to share one site and one design, and the team needed to change
+  numbers, testimonials, and partner logos without waiting on a deploy.
 solution: >
-  Developed a Next.js/React front end with Tailwind CSS, integrated headless CMS for content
-  sections and dynamic counters, and implemented a responsive carousel for client
-  testimonials.
+  Built the site in Next.js with Tailwind CSS and shadcn/ui. Sanity holds the section content,
+  the counters, and the client testimonials, which play in a responsive carousel. Newsletter
+  signups go to ConvertKit.
 technologies:
   - Next.js
   - React
@@ -26,10 +26,10 @@ projectType: client
 isFeatured: true
 isVisible: true
 status: live
-ownership: Lead developer for Green Card Inc.
+ownership: Lead developer for Greencard Inc.
 highlights:
-  - Built multi-section marketing site with dynamic CMS-driven metrics
-  - Integrated testimonial carousels and brand-logo sections
-  - Delivered responsive layouts with Sanity content management
+  - Multi-section marketing site with metrics pulled from the CMS
+  - Testimonial carousel and partner logo sections
+  - Responsive layouts, with every section editable in Sanity
 outcomes:
-  - Live at openventure.com as the primary OpenVenture concierge presence
+  - Live at openventure.com

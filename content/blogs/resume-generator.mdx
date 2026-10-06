@@ -1,131 +1,153 @@
 ---
-title: Generate Beautiful Resumes with React PDF and Next.js
-excerpt: A dynamic, code-based resume generator that lets you version control your resume and export professional PDFs on demand.
+title: Generating My Resume PDF with React PDF and Next.js
+excerpt: My resume is a Next.js route that renders a PDF from the same data as this site, so it lives in git and never goes stale.
 date: 2025-06-03
 tags: [Typescript, Next.js, React, PDF]
 image: /images/blogs/resume-generator.png
 ---
 
-While building my personal site, I wanted a smarter way to handle resumes, something version-controlled, customizable, and always up-to-date. That's when I decided to build a dynamic resume generator using Next.js and React PDF.
+While building this site, I wanted my resume in version control and always up to date, without keeping a separate document in sync by hand. So the resume is a route on the site. It renders a PDF with React PDF from the same data the site uses.
 
-## Prerequisites
+You'll need to know the Next.js App Router, basic React, and enough TypeScript to read interfaces.
 
-Before diving in, you should be familiar with:
-- **Next.js** - Understanding of API routes and the App Router
-- **React** - Basic component composition and props
-- **TypeScript** - Type definitions and interfaces
+## The problem
 
-## The Problem
-
-Managing resumes is a pain. You have different versions for different roles, formatting gets messed up when you convert between file types, and keeping everything consistent across updates is tedious. I wanted something that would let me maintain my resume data in a structured format and generate professional PDFs on demand.
+Resumes are tedious to maintain. You end up with a version per role, formatting breaks when you convert between file types, and keeping them consistent across updates takes effort. I wanted to keep the content as structured data and get the same PDF out every time.
 
 <Callout title="Why not Google Docs or Canva?" icon="info" variant="info">
-  A resume is a document that showcases your skills and experience. I was not going to spend time on
-  designing a resume and battling with the formatting.
+  I didn't want to spend time designing a resume and fighting the formatting every time I changed a
+  line. With the layout in code, I only had to get it right once.
 </Callout>
 
-## The Setup
+## Setup
 
-I went with Next.js as I am using that for my profile
+The site already runs on Next.js, so the resume is just another route. The only new dependency is `@react-pdf/renderer`, which renders React components to a PDF. TypeScript keeps the data and the components in agreement.
 
-- **React PDF** - For generating PDFs from React components
-- **TypeScript** - For type safety across the data structure
-
-The core idea is simple: define your resume data once in a structured format, then render it as a PDF using React components.
-
-### File Structure
+### File structure
 
 <FileTree
   tree={[
     {
       type: "folder",
-      name: "app",
+      name: "content",
       children: [
-        {
-          type: "folder",
-          name: "resume",
-          children: [
-            {
-              type: "folder",
-              name: "_components",
-              children: [
-                {
-                  type: "folder",
-                  name: "sections",
-                  children: [
-                    { type: "file", name: "header-section.tsx" },
-                    { type: "file", name: "about-me-section.tsx" },
-                    { type: "file", name: "projects-section.tsx" },
-                    { type: "file", name: "experience-section.tsx" },
-                    { type: "file", name: "technologies-section.tsx" },
-                    { type: "file", name: "education-section.tsx" },
-                    { type: "file", name: "achievements-section.tsx" },
-                    { type: "file", name: "certifications-section.tsx" },
-                  ],
-                },
-                { type: "file", name: "resume.tsx" },
-                { type: "file", name: "styles.ts" },
-              ],
-            },
-            { type: "file", name: "route.tsx" },
-          ],
-        },
-        { type: "file", name: "globals.css" },
-        { type: "file", name: "layout.tsx" },
+        { type: "folder", name: "experiences", children: [] },
+        { type: "folder", name: "projects", children: [] },
+        { type: "folder", name: "education", children: [] },
       ],
     },
     {
       type: "folder",
-      name: "lib",
-      children: [{ type: "file", name: "resume-data.ts" }],
+      name: "src",
+      children: [
+        {
+          type: "folder",
+          name: "app",
+          children: [
+            {
+              type: "folder",
+              name: "resume",
+              children: [
+                {
+                  type: "folder",
+                  name: "_components",
+                  children: [
+                    {
+                      type: "folder",
+                      name: "sections",
+                      children: [
+                        { type: "file", name: "about-me.tsx" },
+                        { type: "file", name: "education.tsx" },
+                        { type: "file", name: "experience.tsx" },
+                        { type: "file", name: "header.tsx" },
+                        { type: "file", name: "honors.tsx" },
+                        { type: "file", name: "projects.tsx" },
+                        { type: "file", name: "technologies.tsx" },
+                      ],
+                    },
+                    { type: "file", name: "resume.tsx" },
+                    { type: "file", name: "styles.ts" },
+                  ],
+                },
+                { type: "file", name: "route.tsx" },
+              ],
+            },
+          ],
+        },
+        {
+          type: "folder",
+          name: "lib",
+          children: [
+            { type: "file", name: "constants.ts" },
+            { type: "file", name: "content.ts" },
+          ],
+        },
+      ],
     },
-    { type: "file", name: ".eslintrc.json" },
-    { type: "file", name: ".gitignore" },
-    { type: "file", name: "next.config.ts" },
-    { type: "file", name: "package.json" },
-    { type: "file", name: "README.md" },
   ]}
   defaultOpen
 />
 
-## Data Structure
+## The data
 
-I started by defining a clear data structure for resume content:
+Experience, projects, education, achievements, and certifications are YAML files under `content/`. Content Collections validates them with Zod schemas and generates typed arrays, and `src/lib/content.ts` sorts and filters those arrays. The resume uses the same arrays as the rest of the site.
 
-```ts filename=lib/resume-data.ts
-export interface ResumeData {
-  personalInfo: {
-    name: string;
-    location: string;
-    email: string;
-    linkedin: string;
-    github: string;
-    website: string;
-  };
+The things that only exist once, like contact details, the summary, and the skills list, live in a `user` object:
+
+```ts filename=src/lib/constants.ts
+export const user = {
+  firstName: "Bismit",
+  lastName: "Panda",
+  location: "India",
+  socials: {
+    email: {
+      label: "contact@bismitpanda.com",
+      url: "mailto:contact@bismitpanda.com",
+    },
+    github: {
+      label: "github.com/bismitpanda",
+      url: "https://github.com/bismitpanda",
+    },
+    // ... phone, linkedin, twitter, website
+  },
+  about: "Co-Founder & CTO of AstraQ Cyber Defence, ...",
   technologies: {
-    languages: string;
-    softwareAndFrameworks: string;
-  };
-  aboutMe: string;
-  projects: Project[];
-  experience: Experience[];
-  education: Education[];
-  achievements: Achievement[];
-  certifications: Certification[];
-}
+    languages: "Rust, Go, TypeScript, Python, C++, Kotlin",
+    // ... frontend, backend, databases, infrastructure, aiMl
+  },
+  projects: allResumeProjects, // [!code highlight]
+  experience: allExperiencesByDate, // [!code highlight]
+  education: allEducationsByDate, // [!code highlight]
+  achievements: allAchievementsByDate,
+  certifications: allCertificationsByDate,
+};
 ```
 
-I use `content-collections` to manage data and the types and data is fetched from there. Everything stays in sync because it's all referencing the same data source.
+Not every project belongs on a resume, so `allResumeProjects` keeps only the ones with a `resumeSummary` field:
 
-## PDF Generation
+```ts filename=src/lib/content.ts
+export const allResumeProjects = allProjectsByDate.filter(
+  (project) => project.resumeSummary,
+);
+```
 
-The PDF generation happens through a Next.js API route at `/resume`. When you hit this endpoint, it renders a React PDF document and returns the binary data:
+Change a project's YAML file and both the projects page and the resume pick it up.
 
-```tsx filename=app/resume/route.tsx
+## PDF generation
+
+The PDF comes from a route handler at `/resume`. It renders the React PDF document to a buffer and returns it:
+
+```tsx filename=src/app/resume/route.tsx
+import { renderToBuffer } from "@react-pdf/renderer";
+import { NextResponse } from "next/server";
+import { Resume } from "./_components/resume";
+
+export const dynamic = "force-static"; // [!code highlight]
+
 export async function GET() {
   const buffer = await renderToBuffer(<Resume />); // [!code highlight]
 
-  return new NextResponse(buffer, {
+  return new NextResponse(Buffer.from(buffer), {
     headers: {
       "Content-Type": "application/pdf", // [!code highlight]
       "Content-Disposition": "inline; filename=resume.pdf", // [!code highlight]
@@ -135,11 +157,13 @@ export async function GET() {
 }
 ```
 
+`force-static` tells Next.js to run the handler once at build time and serve the result as a static file. The resume only changes when the content does, and the content only changes with a deploy, so rendering it per request would be wasted work.
+
 <Callout title="Note" icon="circle-check-big" variant="info">
   You can use `Content-Disposition: "attachment"` to force the browser to download the PDF instead of displaying it in the browser.
 
-```ts filename=app/resume/route.tsx
-  return new NextResponse(buffer, {
+```ts filename=src/app/resume/route.tsx
+  return new NextResponse(Buffer.from(buffer), {
     headers: {
       "Content-Type": "application/pdf",
       "Content-Disposition": "attachment; filename=resume.pdf",
@@ -151,48 +175,59 @@ export async function GET() {
   </Callout>
 
 <Callout title="Note" icon="circle-check-big" variant="info">
-  You can use `route.ts` instead of `route.tsx` and then call the `Resume` component directly as a function like shown below:
+  If you'd rather name the file `route.ts`, you can't write JSX in it. Call the `Resume` component as a plain function instead:
 
-```ts filename=app/resume/route.ts
+```ts filename=src/app/resume/route.ts
 export async function GET() {
   const buffer = await renderToBuffer(Resume());
+  // ... return the response as above
 }
 ```
 
 </Callout>
 
-The `Resume` component is where the core rendering happens. It's a React PDF document that renders each section. The data is fetched from the `resume-data.ts` file.
+`Resume` is the React PDF document itself. It lays out each section in order and passes it the relevant slice of `user`. Achievements and certifications share one "Honors" section to save space:
 
-```tsx filename=app/resume/_components/resume.tsx
+```tsx filename=src/app/resume/_components/resume.tsx
 export function Resume() {
   return (
-    <Document title="Bismit Panda's Resume" author="Bismit Panda" subject="Resume"> // [!code highlight]
+    <Document
+      author="Bismit Panda"
+      subject="Resume"
+      title="Bismit Panda's Resume"
+    >
       <Page size="LETTER" style={styles.page}> // [!code highlight]
-        <HeaderSection data={resumeData.personalInfo} />
-        <AboutMeSection content={resumeData.aboutMe} />
-        <ProjectsSection projects={resumeData.projects} />
-        <ExperienceSection experience={resumeData.experience} />
-        <TechnologiesSection technologies={resumeData.technologies} />
-        <EducationSection education={resumeData.education} />
-        <AchievementsSection achievements={resumeData.achievements} />
-        <CertificationsSection certifications={resumeData.certifications} />
+        <HeaderSection data={user} />
+        <AboutMeSection content={user.about} />
+        <ExperienceSection experience={user.experience} />
+        <TechnologiesSection technologies={user.technologies} />
+        <ProjectsSection projects={user.projects} />
+        <EducationSection education={user.education} />
+        <HonorsSection
+          achievements={user.achievements}
+          certifications={user.certifications}
+        />
       </Page>
     </Document>
   );
 }
 ```
 
-## Component Structure
+## Component structure
 
-Each section is its own component. Here's how the experience section works:
+Each section is its own component. This is the experience section:
 
-```tsx filename=app/resume/_components/experience-section.tsx
-export function ExperienceSection({ experience }: { experience: Experience[] }) {
+```tsx filename=src/app/resume/_components/sections/experience.tsx
+export function ExperienceSection({
+  experience,
+}: {
+  experience: Experience[];
+}) {
   return (
-    <View style={styles.section}>
+    <View style={styles.section} bookmark="Experience"> // [!code highlight]
       <Text style={styles.sectionTitle}>Experience</Text>
-      {experience.map((exp, index) => (
-        <View key={index} style={styles.entryContainer}>
+      {experience.map((exp) => (
+        <View key={`${exp.title}-${exp.company}`} style={styles.entryContainer}>
           <View style={styles.entryHeader}>
             <Text style={styles.entryTitle}>
               {exp.title}, {exp.company}
@@ -204,8 +239,8 @@ export function ExperienceSection({ experience }: { experience: Experience[] }) 
           </View>
           <Text style={styles.paragraph}>{exp.description}</Text>
           <View style={styles.highlightsList}>
-            {exp.highlights.map((highlight, highlightIndex) => (
-              <View key={highlightIndex} style={styles.highlight}>
+            {exp.highlights.map((highlight) => (
+              <View key={highlight} style={styles.highlight}>
                 <Text style={styles.bullet}>•</Text>
                 <Text style={styles.highlightText}>{highlight.trim()}.</Text>
               </View>
@@ -218,16 +253,36 @@ export function ExperienceSection({ experience }: { experience: Experience[] }) 
 }
 ```
 
+The `bookmark` prop adds an entry to the PDF's outline, so viewers that show a sidebar can jump straight to each section. React PDF supports it at runtime, but its type definitions don't include it on `View`, so the real file needs a `@ts-expect-error` above it.
+
 ## Styling
 
-Styling PDFs is different from web styling. It uses plain CSS-in-JS like styles. You define styles using `StyleSheet.create()` and apply them to components.
+React PDF doesn't use CSS files. You write style objects with `StyleSheet.create()` and pass them to components, much like React Native.
 
-Here's a snippet of the styles I used:
+The resume is set in Cambria. Each weight and style is a separate font file, registered under one family name so that `fontWeight: "bold"` and `fontStyle: "italic"` pick the right file:
 
-```ts filename=app/resume/_components/styles.ts
+```ts filename=src/app/resume/_components/styles.ts
+import { Font, StyleSheet } from "@react-pdf/renderer";
+
+Font.register({
+  family: "Cambria",
+  src: "assets/fonts/Cambria.ttf",
+  fontStyle: "normal",
+  fontWeight: "normal",
+});
+
+Font.register({
+  family: "Cambria",
+  src: "assets/fonts/Cambria Bold 700.ttf",
+  fontStyle: "normal",
+  fontWeight: "bold",
+});
+
+// ... italic and bold italic are registered the same way
+
 export const styles = StyleSheet.create({
   page: {
-    fontFamily: "Helvetica",
+    fontFamily: "Cambria", // [!code highlight]
     fontSize: 10,
     lineHeight: 1.5,
     paddingTop: 25,
@@ -236,78 +291,32 @@ export const styles = StyleSheet.create({
     paddingRight: 30,
     backgroundColor: "#ffffff",
   },
-  sectionTitle: {
-    fontSize: 12,
-    fontWeight: "bold",
-    marginBottom: 6,
-    paddingBottom: 1,
-    borderBottomWidth: 1,
-    borderBottomColor: "#000000",
-    borderBottomStyle: "solid",
-  },
   // ... more styles
 });
 ```
 
-<Callout title="Can I add custom fonts?" icon="info" variant="info">
-  Yes, you can add custom fonts. You can import `Font` from `@react-pdf/renderer` and then register your font like so:
+The `src` paths are relative to the directory the build runs from, which is the project root here.
 
-```ts filename=app/resume/_components/styles.ts
-import { Font } from "@react-pdf/renderer";
+## Using it
 
-const font = Font.register({
-  family: "MyFont",
-  src: "path/to/my-font.ttf",
-});
-```
+Edit a YAML file or `constants.ts`, then open `http://localhost:3000/resume`. In development the route re-renders on each request, so you see changes straight away. The browser shows the PDF or downloads it, depending on its settings. In production the PDF is rebuilt on every deploy, so it always matches the site.
 
-Then you can use the font in your styles like so:
+## What I learned
 
-```ts filename=app/resume/_components/styles.ts
-import { StyleSheet } from "@react-pdf/renderer";
+Layout took the most time. React PDF uses flexbox, but its layout engine isn't a browser, and some things behave differently. Time spent learning how its flexbox works saved me a lot of debugging later.
 
-// Register the font before using it
+Typed data paid off. Adding a section meant adding a field and a component, and the compiler pointed at everything else that needed to change.
 
-const styles = StyleSheet.create({
-  text: {
-    fontFamily: "MyFont",
-  },
-});
-```
+## What's next
 
-</Callout>
-
-## How It Works
-
-Using it is straightforward:
-
-1. Update your resume data in `resume-data.ts`
-2. Navigate to `http://localhost:3000/resume`
-3. Your browser displays generated PDF (It may download automatically depending on your browser settings)
-
-The PDF generates fresh each time, so any data changes are immediately reflected.
-
-## What I Learned
-
-The biggest challenge was getting the layout right. React PDF's layout engine is powerful but different from CSS. Spending time understanding how flexbox works in this context saved me a lot of debugging later.
-
-Data structure matters a lot. Having clean, typed interfaces made it easy to add new sections or modify existing ones without breaking anything.
-
-## Next Steps
-
-This setup works great for my needs, but there are some obvious extensions which I may add later:
-
-- **Multiple templates** - Different layouts for different job types
-- **Better styling** - More sophisticated layouts and typography
-
-The foundation is solid though. Having my resume as code means I can iterate quickly, keep everything in version control, and generate consistent PDFs whenever I need them.
+I'd like different layouts for different kinds of jobs, and the typography could use more work. For now it does what I need: the resume lives in git, and I never have to update it separately from the site.
 
 ## Code
 
-View the complete implementation on GitHub:
+The full code is on GitHub:
 
-- [Resume Generator Route](https://github.com/bismitpanda/portfolio-next/tree/main/src/app/resume/route.tsx)
-- [Resume Data](https://github.com/bismitpanda/portfolio-next/blob/main/src/lib/resume-data.ts)
+- [Resume Generator Route](https://github.com/bismitpanda/portfolio-next/blob/main/src/app/resume/route.tsx)
+- [Resume Data](https://github.com/bismitpanda/portfolio-next/blob/main/src/lib/constants.ts)
 - [Resume Components](https://github.com/bismitpanda/portfolio-next/tree/main/src/app/resume/_components)
 - [Resume Styles](https://github.com/bismitpanda/portfolio-next/blob/main/src/app/resume/_components/styles.ts)
 

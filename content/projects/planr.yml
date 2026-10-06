@@ -4,39 +4,43 @@ client: Bismit Panda (Me)
 role: Full-stack Developer
 year: 2025
 description: >
-  Planning and task management application for organizing projects, tasks, and workflows
-  with an intuitive interface.
+  Multi-tenant project management platform with AI agents that plan projects, answer questions
+  over a project's documents, and review GitHub pull requests.
 challenge: >
-  Building a comprehensive planning and task management tool that provides an intuitive
-  interface for organizing projects, tasks, and workflows while maintaining flexibility and
-  ease of use.
+  Project tools hold tasks, docs, and meeting notes, but the code lives on GitHub and the
+  conversation lives in Slack or Discord. Planr ties them together, so a pull request can turn
+  into review comments and tasks, and activity reaches every place a team watches.
 solution: >
-  Developed a full-stack application with a clean, modern UI and robust backend architecture.
-  Implemented efficient data structures for task management and designed an intuitive user
-  experience that balances functionality with simplicity.
+  A Bun and Turborepo monorepo. The Next.js app serves the dashboard and a tRPC API, with Better
+  Auth for sign-in and OpenFGA for permissions. A separate Hono service runs Mastra agents and
+  workflows for project chat, document editing, project setup, and code review, using Tree-sitter
+  to analyse code and Qdrant for retrieval. Services talk over Kafka: a GitHub App turns opened
+  PRs into review comments, Slack and Discord bots post activity, and a webhook dispatcher sends
+  signed deliveries from a Redis queue with retries. Analytics go to ClickHouse.
 technologies:
   - Bun
   - TypeScript
   - Next.js
-  - React
-  - Tailwind CSS
-  - Hono
   - tRPC
+  - Hono
+  - Mastra
   - PostgreSQL
   - Prisma
   - Qdrant
   - Kafka
   - Redis
+  - ClickHouse
   - MinIO
-  - better-auth
+  - Better Auth
   - OpenFGA
 githubUrl: https://github.com/bismitpanda/planr
 projectType: product
 isFeatured: false
 isVisible: true
 status: open-source
-ownership: Independent project — in active development
+ownership: Independent project, paused
 resumeSummary: >
-  Full-stack project management tool (Next.js, Kafka, Qdrant, Redis, MinIO, OpenFGA)
+  Multi-tenant project management platform with AI agents for planning and PR review (Next.js,
+  Mastra, Kafka, Qdrant, ClickHouse)
 cover:
-  tagline: AI-Powered Project Management Platform
+  tagline: Project management with AI code review

@@ -7,10 +7,10 @@ githubUrl: https://github.com/bismitpanda/sfs
 projectType: systems
 role: Developer
 solution: >
-  Built a virtual FS tree with async API mirroring Node’s `fs/promises`.
+  Built an in-memory file tree with an async API that mirrors Node's `fs/promises`.
 technologies:
   - TypeScript
 title: SFS
 year: 2024
 cover:
-  tagline: An efficient and secure file system
+  tagline: An in-memory file system for the browser

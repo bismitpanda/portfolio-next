@@ -65,7 +65,8 @@ export function HeroSection() {
             animate={itemAnimate(reduce)}
             transition={{ ...itemTransition(reduce), delay: 0.26 }}
           >
-            Production full-stack apps, AI systems, and cybersecurity platforms.
+            I build security and AI products end to end, mostly in Rust, Go, and
+            TypeScript.
           </motion.p>
           <motion.div
             className="flex flex-wrap gap-4"

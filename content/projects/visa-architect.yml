@@ -1,13 +1,13 @@
 slug: visa-architect
 title: Visa Architect
-client: Green Card Inc.
+client: Greencard Inc.
 role: Sole developer
 year: 2025
 description: >
   Full-stack immigration platform with multi-page dashboards, LLM-based immigration status
   evaluation, and RAG-assisted guidance.
 challenge: >
-  Green Card Inc. needed applicants to understand where they stand and what to do next without
+  Greencard Inc. needed applicants to understand where they stand and what to do next without
   waiting on a consultant for every question.
 solution: >
   Built visarchitect.com with multi-page applicant dashboards, an LLM-based status evaluator,

@@ -12,8 +12,7 @@ export default function TagNotFound() {
           <h2 className="heading-md mb-6">Tag Not Found</h2>
 
           <p className="body-lg mb-8 text-muted-foreground">
-            We couldn&apos;t find the tag you&apos;re looking for. It might have
-            been renamed or removed, or perhaps you followed an outdated link.
+            There&apos;s no tag with that name. The link may be out of date.
           </p>
 
           <div className="flex flex-wrap justify-center gap-4">

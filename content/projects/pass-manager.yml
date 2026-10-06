@@ -1,17 +1,17 @@
 challenge: >
-  Ensuring zero plaintext leakage in memory.
+  Keeping plaintext secrets from lingering in memory.
 client: Bismit Panda (Me)
 description: >
-  A command-line password manager written in Rust. It securely stores passwords using
-  AES-256-GCM encryption, with the encryption key provided by the user.
+  Command-line password manager in Rust. Passwords are encrypted with AES-256-GCM under a key
+  the user provides.
 githubUrl: https://github.com/bismitpanda/pass_manager
 projectType: systems
 role: Developer
 solution: >
-  Wiped secrets after use and used OS-level secure storage for keys.
+  Secrets are zeroed after use, and keys are kept in the operating system's secure storage.
 technologies:
   - Rust
 title: Pass Manager
 year: 2023
 cover:
-  tagline: A CLI based password manager
+  tagline: A command-line password manager

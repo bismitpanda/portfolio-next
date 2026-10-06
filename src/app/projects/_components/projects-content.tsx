@@ -67,7 +67,7 @@ export function ProjectsContent({
         <div className="relative mx-auto mb-10 max-w-3xl text-center">
           <h1 className="heading-xl mb-6">Projects</h1>
           <p className="body-lg text-muted-foreground">
-            A showcase across product platforms, client work, and systems
+            Products I&apos;ve built, sites for clients, and systems
             programming.
           </p>
         </div>
@@ -233,8 +233,8 @@ export function ProjectsContent({
         <div id="systems">
           <h2 className="heading-lg mb-6">Systems &amp; CS Projects</h2>
           <p className="mb-12 max-w-2xl text-muted-foreground leading-relaxed">
-            Fundamentals, systems programming, and low-level work. Available on
-            GitHub for code review and learning.
+            Interpreters, CLIs, and other low-level side projects. The source
+            for each one is on GitHub.
           </p>
 
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">

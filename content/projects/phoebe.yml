@@ -1,15 +1,15 @@
 slug: phoebe
 title: Phoebe
 client: AstraQ Cyber Defence
-role: Owner — architecture, backend, sync, infrastructure, and product
+role: Owner (architecture, backend, sync, infrastructure, and product)
 year: 2025
 description: >
   Enterprise RAG platform that connects company data sources, indexes them with hybrid search, and
   answers questions grounded in cited sources.
 challenge: >
-  Teams need to ingest documents from multiple connectors, run generation workflows, and
-  manage organization-level access without stitching together separate auth, billing, and
-  sync systems.
+  Company knowledge is spread across many tools. Answering questions over it means syncing each
+  source, searching all of them at once, and only returning documents the person asking is
+  allowed to see.
 solution: >
   Built Phoebe end to end. A Rust (Axum) API server runs hybrid dense and BM25 search on a shared
   Milvus cluster, with a collection per connector and per-tenant access control. Syncs are

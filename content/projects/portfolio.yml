@@ -4,14 +4,14 @@ client: Bismit Panda (Me)
 role: Developer
 year: 2025
 description: >
-  Personal portfolio and blog built with Next.js, content collections, and MDX-powered
-  technical writing.
+  This site: portfolio, blog, and code snippets, built with Next.js and MDX.
 challenge: >
-  Presenting projects, blog posts, and snippets in a fast, maintainable site with a strong
-  editorial aesthetic.
+  One site for projects, posts, and snippets that stays fast and that I can update by editing
+  YAML and MDX files.
 solution: >
-  Built this site with Next.js App Router, content collections for YAML/MDX content, Shiki
-  syntax highlighting, and a component library for rich blog authoring.
+  Built on the Next.js App Router. Content lives in YAML and MDX and loads through Content
+  Collections, with Shiki for code highlighting and a set of MDX components for posts. Project
+  covers are generated at build time, and the resume PDF is rendered from the same data.
 technologies:
   - Next.js
   - React

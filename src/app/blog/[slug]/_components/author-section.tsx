@@ -21,8 +21,8 @@ export function AuthorSection() {
         </div>
         <div className="space-y-2">
           <p className="text-muted-foreground text-sm">
-            Co-Founder & CTO at AstraQ Cyber Defence. Writing about systems,
-            infrastructure, security, and the web.
+            Co-Founder & CTO at AstraQ Cyber Defence. I write about systems,
+            security, and web development.
           </p>
 
           <Button asChild variant="outline" className="w-full bg-transparent">

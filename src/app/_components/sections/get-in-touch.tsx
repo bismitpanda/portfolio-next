@@ -12,8 +12,8 @@ export function GetInTouchSection() {
       <div className="grid grid-cols-1 md:grid-cols-2">
         <div className="mx-auto max-w-2xl">
           <p className="mb-10 text-2xl leading-relaxed">
-            I&apos;m always open to new opportunities and collaborations. Feel
-            free to reach out!
+            If you&apos;re hiring or want to talk about something on this site,
+            message me on any of these.
           </p>
         </div>
         <div className="flex flex-col items-start gap-6">
