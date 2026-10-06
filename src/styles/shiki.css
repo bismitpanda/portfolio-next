@@ -1,5 +1,9 @@
 @reference "./globals.css";
 
+.shiki .line {
+  @apply inline-block w-full;
+}
+
 .shiki .line.diff {
   @apply w-[calc(100%+2rem)]!;
 }
@@ -94,10 +98,6 @@
 .shiki[data-show-line-numbers="true"] code {
   counter-reset: step;
   counter-increment: step 0;
-}
-
-.shiki .line {
-  @apply inline-block w-full;
 }
 
 .shiki[data-show-line-numbers="true"] .line::before {

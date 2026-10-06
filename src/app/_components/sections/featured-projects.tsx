@@ -41,10 +41,7 @@ export function FeaturedProjectsSection() {
                   </Button>
                 </div>
                 <div
-                  className={cn(
-                    "rounded-lg",
-                    index % 2 === 1 && "md:-order-1",
-                  )}
+                  className={cn("rounded-lg", index % 2 === 1 && "md:-order-1")}
                 >
                   <ProjectAccentFrame
                     accent={project.accent}
